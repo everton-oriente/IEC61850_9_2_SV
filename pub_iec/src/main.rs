@@ -1,7 +1,16 @@
+use std::env;
+//Serialization crates
 use serde::{Deserialize, Serialize};
 use serde_json::to_vec;
-use std::env;
+
+// Crates that's handle time - If it is needed timezone, dates, gregorian calendar should look at chrono crate.
 use std::time::Duration;
+use std::time::Instant; // To measure time between a piece of the code
+/* Use Case of std::time::Instant
+let begin = Instant::now();
+let time_reception = begin.elapsed();
+println!("Duration of the time between begin and time_reception {:?}", time_reception);
+*/
 use tokio::time::sleep;
 
 // Crates that deal with ethernet frames
@@ -9,16 +18,92 @@ use pnet::datalink::{self, Config};
 use pnet::datalink::Channel::Ethernet;
 use pnet::packet::ethernet::{EtherType, MutableEthernetPacket, EthernetPacket};
 
+//Crate that's generate a checksum
+use crc32fast::hash as crc32;
+
+// Crate that's deal with serialization and deserialization regarding ASN1 TAG/LENGTH
+// yasna
+// def-parser
+// asn1
+
+// Const values defined in the Standard IEC61850-9-2
+const TPID: u16 = 0x8100; // TPID for SV in IEC61850-9-2
+const TCI: u16 = 0x8000; // TCI for SV in IEC61850-9-2
 const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
 
-#[derive(Serialize, Deserialize, Debug)]
-struct SampledValue {
-    sv_id: String,
-    smp_cnt: u32,
-    smp_synch: bool,
-    // Additional fields as required by IEC61850-9-2
+
+// Declaration of Structs to build a SV Packet
+#[derive(Debug, Clone)]
+pub struct EthernetFrame
+{
+    pub destination:    [u8; 6],
+    pub source:         [u8; 6],
+    pub tpid:           [u16],
+    pub tci:            [u16],
+    pub ethertype:      [u16],
+    pub payload:        SvPDU,
+    pub fcs:            [u8; 4],
+}
+#[derive(Debug, Clone)]
+pub struct SvPDU
+{
+    pub appid:          [u8; 2],
+    pub length:         [u8; 2],
+    pub reserved1:      [u8; 2],
+    pub reserved2:      [u8; 2],
+    pub apdu: SmvData,
+     // pub padding:
+    //The padding is used to guarantee the ethernet packet has more than 46 bytes to comply with the standard of Ethernet frame packets
+
+
 }
 
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct SmvData
+{
+    pub sav_pdu_asn:    [u8; 2],
+    pub no_asdu_asn:    [u8; 2],
+    pub no_asdu:        [u8; 1],
+    pub seq_asdu_asn:   [u8; 2],
+    pub asdu_asn:       [u8;2],
+    pub sv_id_asn:      [u8; 2],
+    pub sv_id:          [u32; 1],
+    pub smp_cnt_asn:    [u8; 2],
+    pub smp_cnt:        [u16; 1],
+    pub conf_rev_asn:   [u8; 2],
+    pub conf_rev:       [u32; 1],
+    pub smp_synch_asn:  [u8; 2],
+    pub smp_synch:      [u8; 1],
+    pub seq_data:       [u8; 2],
+    pub logical_node: LogicalNode,
+
+}
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct LogicalNode
+{
+    pub i_a:[i32],
+    pub q_ia:[u32],
+    pub i_b:[i32],
+    pub q_ib:[u32],
+    pub i_c:[i32],
+    pub q_ic:[u32],
+    pub i_n:[i32],
+    pub q_in:[u32],
+    pub v_a:[i32],
+    pub q_va:[u32],
+    pub v_b:[i32],
+    pub q_vb:[u32],
+    pub v_c:[i32],
+    pub q_vc:[u32],
+    pub v_n:[i32],
+    pub q_vn:[u32],
+}
+
+// Implementation of the Impl(functions) regarding the structs
+
+
+
+// The publisher function to send SV packets
 async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let interface_name = interface_name.trim(); // Trim any whitespace
     println!("Looking for interface: '{}'", interface_name);
@@ -67,7 +152,7 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
 
         println!("Message publish");
 
-        sleep(Duration::from_millis(2000)).await;
+        sleep(Duration::from_millis(5000)).await;
     }
 }
 
