@@ -10,8 +10,20 @@ use pnet::datalink::Channel::Ethernet;
 use pnet::packet::ethernet::{EtherType, EthernetPacket};
 use pnet::packet::Packet;
 
+const TPID: u16 = 0x8100; // TPID for SV in IEC61850-9-2
+const TCI: u16 = 0x8000; // TCI for SV in IEC61850-9-2
 const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
 
+
+
+#[derive(Debug, Clone)]
+pub struct EthernetFrame
+{
+    pub destination: [u8; 6],
+    pub source: [u8; 6],
+    pub tpid: [u8; 2],
+    pub tci: [u8, 2],
+}
 #[derive(Serialize, Deserialize, Debug)]
 struct SampledValue {
     sv_id: String,
