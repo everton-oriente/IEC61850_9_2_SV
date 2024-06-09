@@ -27,23 +27,26 @@ use crc32fast::hash as crc32;
 // asn1
 
 // Const values defined in the Standard IEC61850-9-2
-const TPID: u16 = 0x8100; // TPID for SV in IEC61850-9-2
-const TCI: u16 = 0x8000; // TCI for SV in IEC61850-9-2
+const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
+const TCI: u16 =        0x8000; // TCI for SV in IEC61850-9-2
 const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
 
-
 // Declaration of Structs to build a SV Packet
+
+//EthernetFrame is regarding the Main SV Packet, Header, Payload and Checksum.
 #[derive(Debug, Clone)]
 pub struct EthernetFrame
 {
     pub destination:    [u8; 6],
     pub source:         [u8; 6],
-    pub tpid:           [u16],
-    pub tci:            [u16],
-    pub ethertype:      [u16],
+    pub tpid:           u16,
+    pub tci:            u16,
+    pub ethertype:      u16,
     pub payload:        SvPDU,
     pub fcs:            [u8; 4],
 }
+
+//SvPDU is regarding the part about the payload,
 #[derive(Debug, Clone)]
 pub struct SvPDU
 {
@@ -58,14 +61,15 @@ pub struct SvPDU
 
 }
 
+//SmvData is regarding the part is responsible for the data.
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct SmvData
 {
     pub sav_pdu_asn:    [u8; 2],
     pub no_asdu_asn:    [u8; 2],
-    pub no_asdu:        [u8; 1],
+    pub no_asdu:        u8,
     pub seq_asdu_asn:   [u8; 2],
-    pub asdu_asn:       [u8;2],
+    pub asdu_asn:       [u8; 2],
     pub sv_id_asn:      [u8; 2],
     pub sv_id:          [u32; 1],
     pub smp_cnt_asn:    [u8; 2],
@@ -73,33 +77,365 @@ pub struct SmvData
     pub conf_rev_asn:   [u8; 2],
     pub conf_rev:       [u32; 1],
     pub smp_synch_asn:  [u8; 2],
-    pub smp_synch:      [u8; 1],
+    pub smp_synch:      u8,
     pub seq_data:       [u8; 2],
     pub logical_node: LogicalNode,
 
 }
+
+// This part is regarding of the DataSet
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct LogicalNode
 {
-    pub i_a:[i32],
-    pub q_ia:[u32],
-    pub i_b:[i32],
-    pub q_ib:[u32],
-    pub i_c:[i32],
-    pub q_ic:[u32],
-    pub i_n:[i32],
-    pub q_in:[u32],
-    pub v_a:[i32],
-    pub q_va:[u32],
-    pub v_b:[i32],
-    pub q_vb:[u32],
-    pub v_c:[i32],
-    pub q_vc:[u32],
-    pub v_n:[i32],
-    pub q_vn:[u32],
+    pub i_a:    [i32; 1],
+    pub q_ia:   [u32; 1],
+    pub i_b:    [i32; 1],
+    pub q_ib:   [u32; 1],
+    pub i_c:    [i32; 1],
+    pub q_ic:   [u32; 1],
+    pub i_n:    [i32; 1],
+    pub q_in:   [u32; 1],
+    pub v_a:    [i32; 1],
+    pub q_va:   [u32; 1],
+    pub v_b:    [i32; 1],
+    pub q_vb:   [u32; 1],
+    pub v_c:    [i32; 1],
+    pub q_vc:   [u32; 1],
+    pub v_n:    [i32; 1],
+    pub q_vn:   [u32; 1],
 }
 
-// Implementation of the Impl(functions) regarding the structs
+// Implementation of functions regarding EthernetFrame struct
+impl EthernetFrame {
+    pub fn new(destination: [u8; 6], source: [u8; 6], tpid: u16, tci: u16, ethertype: u16, payload: SvPDU, fcs: [u8; 4]) -> Self {
+        Self {
+            destination,
+            source,
+            tpid,
+            tci,
+            ethertype,
+            payload,
+            fcs,
+        }
+    }
+
+    pub fn to_bytes(&self) -> Vec<u8> {
+        let mut frame = Vec::new();
+        frame.extend(&self.destination);
+        frame.extend(&self.source);
+        frame.extend(&self.tpid.to_be_bytes());
+        frame.extend(&self.tci.to_be_bytes());
+        frame.extend(&self.ethertype.to_be_bytes());
+        frame.extend(&self.payload.to_bytes());
+        frame.extend(&self.fcs);
+        frame
+    }
+
+    pub fn from_bytes(bytes: &[u8]) -> Self {
+        let destination =   [bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], bytes[5]];
+        let source =        [bytes[6], bytes[7], bytes[8], bytes[9], bytes[10], bytes[11]];
+        let tpid =                u16::from_be_bytes([bytes[12], bytes[13]]);
+        let tci =                 u16::from_be_bytes([bytes[14], bytes[15]]);
+        let ethertype =           u16::from_be_bytes([bytes[16], bytes[17]]);
+        let payload =             SvPDU::from_bytes(&bytes[18..bytes.len() - 4]);
+        let fcs =           [bytes[bytes.len() - 4], bytes[bytes.len() - 3], bytes[bytes.len() - 2], bytes[bytes.len() - 1]];
+
+        Self {
+            destination,
+            source,
+            tpid,
+            tci,
+            ethertype,
+            payload,
+            fcs,
+        }
+    }
+}
+
+// Implementation of functions regarding SvPDU struct
+impl SvPDU {
+    pub fn to_bytes(&self) -> Vec<u8> {
+        let mut pdu = Vec::new();
+        pdu.extend(&self.appid);
+        pdu.extend(&self.length);
+        pdu.extend(&self.reserved1);
+        pdu.extend(&self.reserved2);
+        pdu.extend(&self.apdu.to_bytes());
+        pdu
+    }
+
+    pub fn from_bytes(bytes: &[u8]) -> Self {
+        let appid =     [bytes[0], bytes[1]];
+        let length =    [bytes[2], bytes[3]];
+        let reserved1 = [bytes[4], bytes[5]];
+        let reserved2 = [bytes[6], bytes[7]];
+        let apdu =            SmvData::from_bytes(&bytes[8..]);
+
+        Self {
+            appid,
+            length,
+            reserved1,
+            reserved2,
+            apdu,
+        }
+    }
+}
+// Implementation of functions regarding SmvData struct
+impl SmvData {
+    pub fn to_bytes(&self) -> Vec<u8> {
+        let mut data = Vec::new();
+        data.extend(&self.sav_pdu_asn);
+        data.extend(&self.no_asdu_asn);
+        data.push(self.no_asdu);
+        data.extend(&self.seq_asdu_asn);
+        data.extend(&self.asdu_asn);
+        data.extend(&self.sv_id_asn);
+        for id in &self.sv_id {
+            data.extend(&id.to_be_bytes());
+        }
+        data.extend(&self.smp_cnt_asn);
+        for cnt in &self.smp_cnt {
+            data.extend(&cnt.to_be_bytes());
+        }
+        data.extend(&self.conf_rev_asn);
+        for rev in &self.conf_rev {
+            data.extend(&rev.to_be_bytes());
+        }
+        data.extend(&self.smp_synch_asn);
+        data.push(self.smp_synch);
+        data.extend(&self.seq_data);
+        data.extend(&self.logical_node.to_bytes());
+        data
+    }
+
+    pub fn from_bytes(bytes: &[u8]) -> Self {
+        let sav_pdu_asn =   [bytes[0], bytes[1]];
+        let no_asdu_asn =   [bytes[2], bytes[3]];
+        let no_asdu =             bytes[4];
+        let seq_asdu_asn =  [bytes[5], bytes[6]];
+        let asdu_asn =      [bytes[7], bytes[8]];
+        let sv_id_asn =     [bytes[9], bytes[10]];
+        let sv_id =         [u32::from_be_bytes([bytes[11], bytes[12], bytes[13], bytes[14]])];
+        let smp_cnt_asn =   [bytes[15], bytes[16]];
+        let smp_cnt =       [u16::from_be_bytes([bytes[17], bytes[18]])];
+        let conf_rev_asn =  [bytes[19], bytes[20]];
+        let conf_rev =      [u32::from_be_bytes([bytes[21], bytes[22], bytes[23], bytes[24]])];
+        let smp_synch_asn = [bytes[25], bytes[26]];
+        let smp_synch =           bytes[27];
+        let seq_data =      [bytes[28], bytes[29]];
+        let logical_node =        LogicalNode::from_bytes(&bytes[30..]);
+
+        Self {
+            sav_pdu_asn,
+            no_asdu_asn,
+            no_asdu,
+            seq_asdu_asn,
+            asdu_asn,
+            sv_id_asn,
+            sv_id,
+            smp_cnt_asn,
+            smp_cnt,
+            conf_rev_asn,
+            conf_rev,
+            smp_synch_asn,
+            smp_synch,
+            seq_data,
+            logical_node,
+        }
+    }
+}
+
+impl LogicalNode {
+    pub fn to_bytes(&self) -> Vec<u8> {
+        let mut node = Vec::new();
+        for val in &self.i_a {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.q_ia {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.i_b {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.q_ib {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.i_c {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.q_ic {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.i_n {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.q_in {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.v_a {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.q_va {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.v_b {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.q_vb {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.v_c {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.q_vc {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.v_n {
+            node.extend(&val.to_be_bytes());
+        }
+        for val in &self.q_vn {
+            node.extend(&val.to_be_bytes());
+        }
+        node
+    }
+
+    pub fn from_bytes(bytes: &[u8]) -> Self {
+        let i_a =   [i32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]])];
+        let q_ia =  [u32::from_be_bytes([bytes[4], bytes[5], bytes[6], bytes[7]])];
+        let i_b =   [i32::from_be_bytes([bytes[8], bytes[9], bytes[10], bytes[11]])];
+        let q_ib =  [u32::from_be_bytes([bytes[12], bytes[13], bytes[14], bytes[15]])];
+        let i_c =   [i32::from_be_bytes([bytes[16], bytes[17], bytes[18], bytes[19]])];
+        let q_ic =  [u32::from_be_bytes([bytes[20], bytes[21], bytes[22], bytes[23]])];
+        let i_n =   [i32::from_be_bytes([bytes[24], bytes[25], bytes[26], bytes[27]])];
+        let q_in =  [u32::from_be_bytes([bytes[28], bytes[29], bytes[30], bytes[31]])];
+        let v_a =   [i32::from_be_bytes([bytes[32], bytes[33], bytes[34], bytes[35]])];
+        let q_va =  [u32::from_be_bytes([bytes[36], bytes[37], bytes[38], bytes[39]])];
+        let v_b =   [i32::from_be_bytes([bytes[40], bytes[41], bytes[42], bytes[43]])];
+        let q_vb =  [u32::from_be_bytes([bytes[44], bytes[45], bytes[46], bytes[47]])];
+        let v_c =   [i32::from_be_bytes([bytes[48], bytes[49], bytes[50], bytes[51]])];
+        let q_vc =  [u32::from_be_bytes([bytes[52], bytes[53], bytes[54], bytes[55]])];
+        let v_n =   [i32::from_be_bytes([bytes[56], bytes[57], bytes[58], bytes[59]])];
+        let q_vn =  [u32::from_be_bytes([bytes[60], bytes[61], bytes[62], bytes[63]])];
+
+        Self {
+            i_a,
+            q_ia,
+            i_b,
+            q_ib,
+            i_c,
+            q_ic,
+            i_n,
+            q_in,
+            v_a,
+            q_va,
+            v_b,
+            q_vb,
+            v_c,
+            q_vc,
+            v_n,
+            q_vn,
+        }
+    }
+}
+
+
+//Implementation about the Default function to our structs.
+impl Default for EthernetFrame {
+    fn default() -> Self {
+        EthernetFrame {
+            destination:    [0x01, 0x0c, 0xcd, 0x04, 0xff, 0xff],
+            source:         [0x00, 0x1a, 0x11, 0x00, 0x00, 0x01],
+            tpid:           TPID,
+            tci:            TCI,
+            ethertype:      ETHER_TYPE,
+            payload:        SvPDU::default(),
+            fcs:            [0; 4],
+        }
+    }
+}
+
+impl Default for SvPDU {
+    fn default() -> Self {
+        SvPDU {
+            appid:      [0x40, 0x01],
+            length:     [0x00, 0x66],
+            reserved1:  [0x00, 0x00],
+            reserved2:  [0x00, 0x00],
+            apdu:       SmvData::default(),
+        }
+    }
+}
+
+impl Default for SmvData {
+    fn default() -> Self {
+        SmvData {
+            sav_pdu_asn:    [0x60, 0x5c],
+            no_asdu_asn:    [0x80, 0x01],
+            no_asdu:        0x01,
+            seq_asdu_asn:   [0xa2, 0x57],
+            asdu_asn:       [0x30, 0x55],
+            sv_id_asn:      [0x80, 0x04],
+            sv_id:          [0x3430_3031],
+            smp_cnt_asn:    [0x82, 0x02],
+            smp_cnt:        [0x0000],
+            conf_rev_asn:   [0x83, 0x04],
+            conf_rev:       [0x0000_0001],
+            smp_synch_asn:  [0x85, 0x01],
+            smp_synch:      0x01,
+            seq_data:       [0x87, 0x40],
+            logical_node:   LogicalNode::default(),
+        }
+    }
+}
+
+impl Default for LogicalNode {
+    fn default() -> Self {
+        LogicalNode {
+            i_a:    [1000; 1],
+            q_ia:   [0x0000_0000; 1],
+            i_b:    [1200; 1],
+            q_ib:   [0x0000_0000; 1],
+            i_c:    [1500; 1],
+            q_ic:   [0x0000_0000; 1],
+            i_n:    [0; 1],
+            q_in:   [0x0000_2000; 1],
+            v_a:    [-1000; 1],
+            q_va:   [0x0000_0000; 1],
+            v_b:    [-1200; 1],
+            q_vb:   [0x0000_0000; 1],
+            v_c:    [-1500; 1],
+            q_vc:   [0x0000_0000; 1],
+            v_n:    [0; 1],
+            q_vn:   [0x0000_2000; 1],
+        }
+    }
+}
+
+
+fn create_sv_packet() -> EthernetFrame {
+    let destination =   [0x01, 0x0c, 0xcd, 0x04, 0xff, 0xff];
+    let source =        [0x00, 0x1a, 0x11, 0x00, 0x00, 0x01];
+    let tpid =            TPID;
+    let tci =             TCI;
+    let ethertype =       ETHER_TYPE;
+    let payload =              SvPDU::default();
+    let mut frame = EthernetFrame {
+        destination,
+        source,
+        tpid,
+        tci,
+        ethertype,
+        payload,
+        fcs: [0x00, 0x00, 0x00, 0x00], // Temporary FCS
+    };
+
+    // Calculate the FCS using crc32fast
+    let frame_bytes = frame.to_bytes();
+    let fcs = crc32(&frame_bytes[..frame_bytes.len() - 4]).to_be_bytes();
+    frame.fcs = [fcs[0], fcs[1], fcs[2], fcs[3]];
+
+    frame
+}
 
 
 
@@ -130,18 +466,17 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
     };
 
     loop {
-        let sv = SampledValue {
-            sv_id: "SampleSV".to_string(),
-            smp_cnt: 1235,
-            smp_synch: true,
-            // Initialize other fields
-        };
+        //Create default SV packet
+        let inter = interface.clone();
+        let sv_packet = create_sv_packet();
+        let sv_bytes = sv_packet.to_bytes();
+        //let sv_packet_json = serde::json::to_string(&sv_packet)?;
+        //let sv_packet_bytes = sv_packet_json.into_bytes();
 
-        let sv_bytes = to_vec(&sv)?;
-        let payload_len = sv_bytes.len();
 
         // Constructs and sends a single packet
-        tx.build_and_send(1, EthernetPacket::minimum_packet_size() + payload_len, &mut |new_packet| {
+        /*
+        tx.build_and_send(1, EthernetPacket::minimum_packet_size() + sv_bytes.len(), &mut |new_packet| {
             let mut ethernet_packet = MutableEthernetPacket::new(new_packet).unwrap();
             let mac = interface.mac.expect("Interface should have a MAC address");
             ethernet_packet.set_destination(mac);
@@ -149,6 +484,10 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
             ethernet_packet.set_ethertype(EtherType::new(ETHER_TYPE));
             ethernet_packet.set_payload(&sv_bytes);
         }).expect("Failed to send packet");
+        */
+
+        tx.send_to(&sv_bytes, Some(inter))
+            .expect("Failed to send packet");
 
         println!("Message publish");
 
