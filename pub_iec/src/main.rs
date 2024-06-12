@@ -1,22 +1,17 @@
 use std::env;
 //Serialization crates
 use serde::{Deserialize, Serialize};
-use serde_json::to_vec;
 
 // Crates that's handle time - If it is needed timezone, dates, gregorian calendar should look at chrono crate.
 use std::time::Duration;
 use std::time::Instant; // To measure time between a piece of the code
-/* Use Case of std::time::Instant
-let begin = Instant::now();
-let time_reception = begin.elapsed();
-println!("Duration of the time between begin and time_reception {:?}", time_reception);
-*/
+
+//crate that's create async threads
 use tokio::time::sleep;
 
 // Crates that deal with ethernet frames
 use pnet::datalink::{self, Config};
 use pnet::datalink::Channel::Ethernet;
-use pnet::packet::ethernet::{EtherType, MutableEthernetPacket, EthernetPacket};
 
 //Crate that's generate a checksum
 use crc32fast::hash as crc32;
@@ -26,10 +21,20 @@ use crc32fast::hash as crc32;
 // def-parser
 // asn1
 
+//Crate that's guarantee the usage of date and time
+use chrono::prelude::*;
+
 // Const values defined in the Standard IEC61850-9-2
 const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
 const TCI: u16 =        0x8000; // TCI for SV in IEC61850-9-2
 const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
+const FREQUENCY: f32 = 50.0; // Frequency of the system
+const AMPLITUDE_VOLTAGE: f32 = 10_000.0; // 10kV nominal voltage of the system
+const AMPLITUDE_CURRENT: f32 = 1_000.0; // 1kA nominal current of the system
+const PHASE_A_RAD:f32 = 0.0;
+const PHASE_B_RAD: f32 = 2.0943951023931953; // 120º degrees in radians
+const PHASE_C_RAD: f32 = -2.0943951023931953; // -120º degrees in radians
+
 
 // Declaration of Structs to build a SV Packet
 
@@ -246,6 +251,14 @@ impl SmvData {
 }
 
 impl LogicalNode {
+    pub fn cal_current_phase_a ()-> [i32;1]
+    {
+        let now = Local::now();
+        let t = now.second() as f32;
+
+        let amplitude = AMPLITUDE_CURRENT * (2.0 * 2.1415 * FREQUENCY * t + PHASE_A_RAD).sin();
+        [amplitude as i32;1]
+    }
     pub fn to_bytes(&self) -> Vec<u8> {
         let mut node = Vec::new();
         for val in &self.i_a {
@@ -391,7 +404,7 @@ impl Default for SmvData {
 impl Default for LogicalNode {
     fn default() -> Self {
         LogicalNode {
-            i_a:    [1000; 1],
+            i_a:    LogicalNode::cal_current_phase_a(),
             q_ia:   [0x0000_0000; 1],
             i_b:    [1200; 1],
             q_ib:   [0x0000_0000; 1],
@@ -439,6 +452,8 @@ fn create_sv_packet() -> EthernetFrame {
 
 
 
+
+
 // The publisher function to send SV packets
 async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let interface_name = interface_name.trim(); // Trim any whitespace
@@ -466,29 +481,25 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
     };
 
     loop {
+        let begin = Instant::now();
         //Create default SV packet
         let inter = interface.clone();
+        let now = Local::now();
+        let seconds = now.second() as f32;
         let sv_packet = create_sv_packet();
+        // Manipulate to change the values of IA,IB,IC,IN,VA,VB,VC,VN
+
+        //sv_packet.payload.apdu.logical_node.i_a = cal_current_phase_a(seconds);
+
+        // Print the SV packet for debugging
+        //println!("SV Packet: {:?}", &sv_packet);
+
         let sv_bytes = sv_packet.to_bytes();
-        //let sv_packet_json = serde::json::to_string(&sv_packet)?;
-        //let sv_packet_bytes = sv_packet_json.into_bytes();
-
-
-        // Constructs and sends a single packet
-        /*
-        tx.build_and_send(1, EthernetPacket::minimum_packet_size() + sv_bytes.len(), &mut |new_packet| {
-            let mut ethernet_packet = MutableEthernetPacket::new(new_packet).unwrap();
-            let mac = interface.mac.expect("Interface should have a MAC address");
-            ethernet_packet.set_destination(mac);
-            ethernet_packet.set_source(mac);
-            ethernet_packet.set_ethertype(EtherType::new(ETHER_TYPE));
-            ethernet_packet.set_payload(&sv_bytes);
-        }).expect("Failed to send packet");
-        */
-
-        tx.send_to(&sv_bytes, Some(inter))
+        let _ = tx.send_to(&sv_bytes, Some(inter))
             .expect("Failed to send packet");
+        let time_reception = begin.elapsed();
 
+        println!("Time of work of thread is: {:?}", time_reception);
         println!("Message publish");
 
         sleep(Duration::from_millis(5000)).await;
