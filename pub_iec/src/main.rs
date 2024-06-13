@@ -34,7 +34,7 @@ const AMPLITUDE_CURRENT: f32 = 1_000.0; // 1kA nominal current of the system
 const PHASE_A_RAD:f32 = 0.0;
 const PHASE_B_RAD: f32 = 2.0943951023931953; // 120º degrees in radians
 const PHASE_C_RAD: f32 = -2.0943951023931953; // -120º degrees in radians
-
+const PI: f32 = 3.1415926535897932;  // Value of PI
 
 // Declaration of Structs to build a SV Packet
 
@@ -214,21 +214,21 @@ impl SmvData {
     }
 
     pub fn from_bytes(bytes: &[u8]) -> Self {
-        let sav_pdu_asn =   [bytes[0], bytes[1]];
-        let no_asdu_asn =   [bytes[2], bytes[3]];
-        let no_asdu =             bytes[4];
-        let seq_asdu_asn =  [bytes[5], bytes[6]];
-        let asdu_asn =      [bytes[7], bytes[8]];
-        let sv_id_asn =     [bytes[9], bytes[10]];
-        let sv_id =         [u32::from_be_bytes([bytes[11], bytes[12], bytes[13], bytes[14]])];
-        let smp_cnt_asn =   [bytes[15], bytes[16]];
-        let smp_cnt =       [u16::from_be_bytes([bytes[17], bytes[18]])];
-        let conf_rev_asn =  [bytes[19], bytes[20]];
-        let conf_rev =      [u32::from_be_bytes([bytes[21], bytes[22], bytes[23], bytes[24]])];
+        let sav_pdu_asn = [bytes[0], bytes[1]];
+        let no_asdu_asn = [bytes[2], bytes[3]];
+        let no_asdu = bytes[4];
+        let seq_asdu_asn = [bytes[5], bytes[6]];
+        let asdu_asn = [bytes[7], bytes[8]];
+        let sv_id_asn = [bytes[9], bytes[10]];
+        let sv_id = [u32::from_be_bytes([bytes[11], bytes[12], bytes[13], bytes[14]])];
+        let smp_cnt_asn = [bytes[15], bytes[16]];
+        let smp_cnt = [u16::from_be_bytes([bytes[17], bytes[18]])];
+        let conf_rev_asn = [bytes[19], bytes[20]];
+        let conf_rev = [u32::from_be_bytes([bytes[21], bytes[22], bytes[23], bytes[24]])];
         let smp_synch_asn = [bytes[25], bytes[26]];
-        let smp_synch =           bytes[27];
-        let seq_data =      [bytes[28], bytes[29]];
-        let logical_node =        LogicalNode::from_bytes(&bytes[30..]);
+        let smp_synch = bytes[27];
+        let seq_data = [bytes[28], bytes[29]];
+        let logical_node = LogicalNode::from_bytes(&bytes[30..]);
 
         Self {
             sav_pdu_asn,
@@ -249,14 +249,58 @@ impl SmvData {
         }
     }
 }
-
 impl LogicalNode {
     pub fn cal_current_phase_a ()-> [i32;1]
     {
         let now = Local::now();
         let t = now.second() as f32;
 
-        let amplitude = AMPLITUDE_CURRENT * (2.0 * 2.1415 * FREQUENCY * t + PHASE_A_RAD).sin();
+        let amplitude = AMPLITUDE_CURRENT * (2.0 * PI * FREQUENCY * t + PHASE_A_RAD).sin();
+        [amplitude as i32;1]
+    }
+
+    pub fn cal_current_phase_b ()-> [i32;1]
+    {
+        let now = Local::now();
+        let t = now.second() as f32;
+
+        let amplitude = AMPLITUDE_CURRENT * (2.0 * PI * FREQUENCY * t + PHASE_B_RAD).sin();
+        [amplitude as i32;1]
+    }
+
+    pub fn cal_current_phase_c ()-> [i32;1]
+    {
+        let now = Local::now();
+        let t = now.second() as f32;
+
+        let amplitude = AMPLITUDE_CURRENT * (2.0 * PI * FREQUENCY * t + PHASE_C_RAD).sin();
+        [amplitude as i32;1]
+    }
+
+    pub fn cal_voltage_phase_a ()-> [i32;1]
+    {
+        let now = Local::now();
+        let t = now.second() as f32;
+
+        let amplitude = AMPLITUDE_VOLTAGE * (2.0 * PI * FREQUENCY * t + PHASE_A_RAD).sin();
+        [amplitude as i32;1]
+    }
+
+    pub fn cal_voltage_phase_b ()-> [i32;1]
+    {
+        let now = Local::now();
+        let t = now.second() as f32;
+
+        let amplitude = AMPLITUDE_VOLTAGE * (2.0 * PI * FREQUENCY * t + PHASE_B_RAD).sin();
+        [amplitude as i32;1]
+    }
+
+    pub fn cal_voltage_phase_c ()-> [i32;1]
+    {
+        let now = Local::now();
+        let t = now.second() as f32;
+
+        let amplitude = AMPLITUDE_VOLTAGE * (2.0 * PI * FREQUENCY * t + PHASE_C_RAD).sin();
         [amplitude as i32;1]
     }
     pub fn to_bytes(&self) -> Vec<u8> {
@@ -406,17 +450,17 @@ impl Default for LogicalNode {
         LogicalNode {
             i_a:    LogicalNode::cal_current_phase_a(),
             q_ia:   [0x0000_0000; 1],
-            i_b:    [1200; 1],
+            i_b:    LogicalNode::cal_current_phase_b(),
             q_ib:   [0x0000_0000; 1],
-            i_c:    [1500; 1],
+            i_c:    LogicalNode::cal_current_phase_c(),
             q_ic:   [0x0000_0000; 1],
             i_n:    [0; 1],
             q_in:   [0x0000_2000; 1],
-            v_a:    [-1000; 1],
+            v_a:    LogicalNode::cal_voltage_phase_a(),
             q_va:   [0x0000_0000; 1],
-            v_b:    [-1200; 1],
+            v_b:    LogicalNode::cal_voltage_phase_b(),
             q_vb:   [0x0000_0000; 1],
-            v_c:    [-1500; 1],
+            v_c:    LogicalNode::cal_voltage_phase_c(),
             q_vc:   [0x0000_0000; 1],
             v_n:    [0; 1],
             q_vn:   [0x0000_2000; 1],
@@ -481,11 +525,12 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
     };
 
     loop {
+
         let begin = Instant::now();
         //Create default SV packet
         let inter = interface.clone();
-        let now = Local::now();
-        let seconds = now.second() as f32;
+        //let now = Local::now();
+        //let seconds = now.second() as f32;
         let sv_packet = create_sv_packet();
         // Manipulate to change the values of IA,IB,IC,IN,VA,VB,VC,VN
 
@@ -501,6 +546,7 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
 
         println!("Time of work of thread is: {:?}", time_reception);
         println!("Message publish");
+        println!("");
 
         sleep(Duration::from_millis(5000)).await;
     }

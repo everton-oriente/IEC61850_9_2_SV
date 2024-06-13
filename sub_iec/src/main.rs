@@ -1,7 +1,12 @@
-use serde::{Deserialize, Serialize};
-use serde_json::from_slice;
 use std::env;
+//Serialization crates
+use serde::{Deserialize, Serialize};
+
+// Crates that's handle time - If it is needed timezone, dates, gregorian calendar should look at chrono crate.
 use std::time::Duration;
+use std::time::Instant; // To measure time between a piece of the code
+
+//crate that's create async threads
 use tokio::time::sleep;
 
 // Crates that deal with ethernet frames
@@ -10,8 +15,20 @@ use pnet::datalink::Channel::Ethernet;
 use pnet::packet::ethernet::{EtherType, EthernetPacket};
 use pnet::packet::Packet;
 
-const TPID: u16 = 0x8100; // TPID for SV in IEC61850-9-2
-const TCI: u16 = 0x8000; // TCI for SV in IEC61850-9-2
+//Crate that's generate a checksum
+//use crc32fast::hash as crc32;
+
+// Crate that's deal with serialization and deserialization regarding ASN1 TAG/LENGTH
+// yasna
+// def-parser
+// asn1
+
+//Crate that's guarantee the usage of date and time
+//use chrono::prelude::*;
+
+// Const values defined in the Standard IEC61850-9-2
+const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
+const TCI: u16 =        0x8000; // TCI for SV in IEC61850-9-2
 const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
 
 // EthernetFrame structure definition (same as in publisher)
@@ -224,13 +241,14 @@ async fn main() {
                 let packet = EthernetPacket::new(frame).unwrap();
                 if packet.get_ethertype() == EtherType(TPID) || packet.get_ethertype() == EtherType(ETHER_TYPE) {
                     let ethernet_frame = EthernetFrame::from_bytes(packet.packet());
-                    println!("Received Ethernet Frame: {:?}", ethernet_frame);
+                    println!("Received Ethernet Frame: {:?}", ethernet_frame);  // Debug
                 }
             }
             Err(e) => {
                 println!("An error occurred while reading: {}", e);
             }
         }
+
         sleep(Duration::from_millis(1000)).await;
     }
 }
