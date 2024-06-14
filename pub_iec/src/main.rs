@@ -1,4 +1,6 @@
+//for accessing environment variables.
 use std::env;
+use std::f32::consts::PI;
 //Serialization crates
 use serde::{Deserialize, Serialize};
 
@@ -29,12 +31,12 @@ const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
 const TCI: u16 =        0x8000; // TCI for SV in IEC61850-9-2
 const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
 const FREQUENCY: f32 = 50.0; // Frequency of the system
-const AMPLITUDE_VOLTAGE: f32 = 10_000.0; // 10kV nominal voltage of the system
-const AMPLITUDE_CURRENT: f32 = 1_000.0; // 1kA nominal current of the system
+const AMPLITUDE_VOLTAGE: f32 = 10000.0; // 10kV nominal voltage of the system
+const AMPLITUDE_CURRENT: f32 = 1000.0; // 1kA nominal current of the system
 const PHASE_A_RAD:f32 = 0.0;
 const PHASE_B_RAD: f32 = 2.0943951023931953; // 120º degrees in radians
 const PHASE_C_RAD: f32 = -2.0943951023931953; // -120º degrees in radians
-const PI: f32 = 3.1415926535897932;  // Value of PI
+const TWICE: f32 = 2.0000;
 
 // Declaration of Structs to build a SV Packet
 
@@ -253,56 +255,87 @@ impl LogicalNode {
     pub fn cal_current_phase_a ()-> [i32;1]
     {
         let now = Local::now();
-        let t = now.second() as f32;
+        let t: f32 = now.timestamp_subsec_nanos() as f32 / 1_000_000_000.0;
+        let phase_degrees: f32 = 0.0; // Example phase in degrees
+        let phase_radians: f32 = phase_degrees * PI / 180.0; // Convert phase to radians
+        let omega: f32 = 2.0 * PI * FREQUENCY;
 
-        let amplitude = AMPLITUDE_CURRENT * (2.0 * PI * FREQUENCY * t + PHASE_A_RAD).sin();
+        let amplitude: f32 = AMPLITUDE_CURRENT * ((omega * t + phase_radians).sin());
+
+        //println!("t: {:?}, phase_radians: {:?}, omega: {:?}, amplitude:{:?}, amplitude i32: {:?}", t, phase_radians, omega, amplitude, amplitude as i32);
         [amplitude as i32;1]
     }
 
     pub fn cal_current_phase_b ()-> [i32;1]
     {
         let now = Local::now();
-        let t = now.second() as f32;
+        let t: f32 = now.timestamp_subsec_nanos() as f32 / 1_000_000_000.0;
+        let phase_degrees: f32 = 120.0; // Example phase in degrees
+        let phase_radians: f32 = phase_degrees * PI / 180.0; // Convert phase to radians
+        let omega: f32 = 2.0 * PI * FREQUENCY;
 
-        let amplitude = AMPLITUDE_CURRENT * (2.0 * PI * FREQUENCY * t + PHASE_B_RAD).sin();
+        let amplitude: f32 = AMPLITUDE_CURRENT * ((omega * t + phase_radians).sin());
+
+        //println!("t: {:?}, phase_radians: {:?}, omega: {:?}, amplitude:{:?}, amplitude i32: {:?}", t, phase_radians, omega, amplitude, amplitude as i32);
         [amplitude as i32;1]
     }
 
     pub fn cal_current_phase_c ()-> [i32;1]
     {
         let now = Local::now();
-        let t = now.second() as f32;
+        let t: f32 = now.timestamp_subsec_nanos() as f32 / 1_000_000_000.0;
+        let phase_degrees: f32 = -120.0; // Example phase in degrees
+        let phase_radians: f32 = phase_degrees * PI / 180.0; // Convert phase to radians
+        let omega: f32 = 2.0 * PI * FREQUENCY;
 
-        let amplitude = AMPLITUDE_CURRENT * (2.0 * PI * FREQUENCY * t + PHASE_C_RAD).sin();
+        let amplitude: f32 = AMPLITUDE_CURRENT * ((omega * t + phase_radians).sin());
+
+        //println!("t: {:?}, phase_radians: {:?}, omega: {:?}, amplitude:{:?}, amplitude i32: {:?}", t, phase_radians, omega, amplitude, amplitude as i32);
         [amplitude as i32;1]
     }
 
     pub fn cal_voltage_phase_a ()-> [i32;1]
     {
         let now = Local::now();
-        let t = now.second() as f32;
+        let t: f32 = now.timestamp_subsec_nanos() as f32 / 1_000_000_000.0;
+        let phase_degrees: f32 = 0.0; // Example phase in degrees
+        let phase_radians: f32 = phase_degrees * PI / 180.0; // Convert phase to radians
+        let omega: f32 = 2.0 * PI * FREQUENCY;
 
-        let amplitude = AMPLITUDE_VOLTAGE * (2.0 * PI * FREQUENCY * t + PHASE_A_RAD).sin();
+        let amplitude: f32 = AMPLITUDE_VOLTAGE * ((omega * t + phase_radians).sin());
+
+        //println!("t: {:?}, phase_radians: {:?}, omega: {:?}, amplitude:{:?}, amplitude i32: {:?}", t, phase_radians, omega, amplitude, amplitude as i32);
         [amplitude as i32;1]
     }
 
     pub fn cal_voltage_phase_b ()-> [i32;1]
     {
         let now = Local::now();
-        let t = now.second() as f32;
+        let t: f32 = now.timestamp_subsec_nanos() as f32 / 1_000_000_000.0;
+        let phase_degrees: f32 = 120.0; // Example phase in degrees
+        let phase_radians: f32 = phase_degrees * PI / 180.0; // Convert phase to radians
+        let omega: f32 = 2.0 * PI * FREQUENCY;
 
-        let amplitude = AMPLITUDE_VOLTAGE * (2.0 * PI * FREQUENCY * t + PHASE_B_RAD).sin();
+        let amplitude: f32 = AMPLITUDE_VOLTAGE * ((omega * t + phase_radians).sin());
+
+        //println!("t: {:?}, phase_radians: {:?}, omega: {:?}, amplitude:{:?}, amplitude i32: {:?}", t, phase_radians, omega, amplitude, amplitude as i32);
         [amplitude as i32;1]
     }
 
     pub fn cal_voltage_phase_c ()-> [i32;1]
     {
         let now = Local::now();
-        let t = now.second() as f32;
+        let t: f32 = now.timestamp_subsec_nanos() as f32 / 1_000_000_000.0;
+        let phase_degrees: f32 = -120.0; // Example phase in degrees
+        let phase_radians: f32 = phase_degrees * PI / 180.0; // Convert phase to radians
+        let omega: f32 = 2.0 * PI * FREQUENCY;
 
-        let amplitude = AMPLITUDE_VOLTAGE * (2.0 * PI * FREQUENCY * t + PHASE_C_RAD).sin();
+        let amplitude: f32 = AMPLITUDE_VOLTAGE * ((omega * t + phase_radians).sin());
+
+        //println!("t: {:?}, phase_radians: {:?}, omega: {:?}, amplitude:{:?}, amplitude i32: {:?}", t, phase_radians, omega, amplitude, amplitude as i32);
         [amplitude as i32;1]
     }
+
     pub fn to_bytes(&self) -> Vec<u8> {
         let mut node = Vec::new();
         for val in &self.i_a {
@@ -524,15 +557,26 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
         Err(e) => panic!("An error occurred when creating the datalink channel: {}", e)
     };
 
-    loop {
+    let mut increment: u16 = 0; //work as a counter
 
+    loop {
+        if increment > 4799
+        {
+            increment = 0;
+        }
         let begin = Instant::now();
         //Create default SV packet
         let inter = interface.clone();
         //let now = Local::now();
         //let seconds = now.second() as f32;
-        let sv_packet = create_sv_packet();
+        let mut sv_packet = create_sv_packet();
         // Manipulate to change the values of IA,IB,IC,IN,VA,VB,VC,VN
+        sv_packet.payload.apdu.smp_cnt[0] = sv_packet.payload.apdu.smp_cnt[0].wrapping_add(increment);
+
+        // Recalculate the FCS (Frame Check Sequence)
+        let frame_bytes = sv_packet.to_bytes();
+        let fcs = crc32(&frame_bytes[..frame_bytes.len() - 4]).to_be_bytes();
+        sv_packet.fcs = [fcs[0], fcs[1], fcs[2], fcs[3]];
 
         //sv_packet.payload.apdu.logical_node.i_a = cal_current_phase_a(seconds);
 
@@ -543,12 +587,13 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
         let _ = tx.send_to(&sv_bytes, Some(inter))
             .expect("Failed to send packet");
         let time_reception = begin.elapsed();
+        increment = increment.wrapping_add(1); //work as counter and add 1
 
         println!("Time of work of thread is: {:?}", time_reception);
         println!("Message publish");
         println!("");
 
-        sleep(Duration::from_millis(5000)).await;
+        sleep(Duration::from_millis(100)).await;
     }
 }
 
