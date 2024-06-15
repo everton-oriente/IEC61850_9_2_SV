@@ -572,7 +572,12 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
         let mut sv_packet = create_sv_packet();
         // Manipulate to change the values of IA,IB,IC,IN,VA,VB,VC,VN
         sv_packet.payload.apdu.smp_cnt[0] = sv_packet.payload.apdu.smp_cnt[0].wrapping_add(increment);
-
+        if increment > 50 && increment < 160
+        {
+            // Implement Bad Quality to the samples
+            //println!("bad quality");
+            sv_packet.payload.apdu.logical_node.q_ia[0] = sv_packet.payload.apdu.logical_node.q_ia[0].wrapping_add(1);
+        }
         // Recalculate the FCS (Frame Check Sequence)
         let frame_bytes = sv_packet.to_bytes();
         let fcs = crc32(&frame_bytes[..frame_bytes.len() - 4]).to_be_bytes();
@@ -593,7 +598,7 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
         println!("Message publish");
         println!("");
 
-        sleep(Duration::from_millis(100)).await;
+        sleep(Duration::from_millis(1000)).await;
     }
 }
 
@@ -606,3 +611,4 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
 
     Ok(())
 }
+
