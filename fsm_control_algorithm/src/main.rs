@@ -169,7 +169,7 @@ impl StateMachine for MasterStateMachine {
             }
 
             _ => {
-                println!(" Stay at the same state: {:?}", self.state);
+                println!(" Stay at the same state in Master: {:?}", self.state);
             }
         }
     }
@@ -259,7 +259,7 @@ impl StateMachine for SlaveStateMachine {
             // State 
 
             _ => {
-                println!(" Stay at the same state: {:?}", self.state);
+                println!(" Stay at the same state in Slave: {:?}", self.state);
             }
         }
     }
@@ -307,7 +307,7 @@ impl StateMachine for SlaveStateMachine {
 impl SlaveStateMachine {
     fn handle_event_with_master(&mut self, event: Option<Event>, master: &MasterStateMachine) {
         if master.is_blocked() {
-            println!("Slave state machine is blocked by the master.");
+            println!("Slave state machine is blocked by the master. State: GetSmpValue.");
             self.cont_kmu = 0;
             self.cont_smu = 0;
             self.state = SlaveState::GetSmpValue;
@@ -328,7 +328,7 @@ async fn main() {
     // Debug States of the State Machines
     // Debug of Master State Machine
 
-
+    /*
     //Debug State Machine Through the Invalid Sample Backup Valid
     println!("");
     println!("Debug State Machine Through the Invalid Sample Backup Valid ");
@@ -576,9 +576,137 @@ async fn main() {
     slave_sm.automatic_transition();
     */
     
+    // Now the tests is to verify if the master has the flag block_flag true the state machine go to the beggining
 
+    slave_sm.current_state();
+    slave_sm.automatic_transition();
+    master_sm.set_block_flag(true);
+    master_sm.is_blocked();
+    slave_sm.current_state();
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.current_state();
+    println!("ContSMU is: {}", slave_sm.cont_smu);
+    println!("ContKMU is: {}", slave_sm.cont_kmu);
+    master_sm.set_block_flag(false);
+    master_sm.is_blocked();
 
+    // now tests after has some value in the counter cont_smu and all the states if come back to the first one.
 
+    master_sm.current_state();
+    master_sm.automatic_transition();
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    println!("ContInvalid is: {}", master_sm.cont_invalid);
+    master_sm.handle_event(Some(Event::ContInvalidMore10));
+    master_sm.is_blocked();
+    master_sm.current_state();
+    // Next transistion block the slave state machine in master state machine
+    slave_sm.current_state();
+    slave_sm.automatic_transition();
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.current_state();
+    master_sm.is_blocked();
+    println!("ContSMU is: {}", slave_sm.cont_smu);
+    println!("ContKMU is: {}", slave_sm.cont_kmu);
+    master_sm.handle_event(Some(Event::BackupSmpValid));
+    slave_sm.current_state();
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    println!("ContSMU is: {}", slave_sm.cont_smu);
+    println!("ContKMU is: {}", slave_sm.cont_kmu);
+    slave_sm.current_state();
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    println!("ContSMU is: {}", slave_sm.cont_smu);
+    println!("ContKMU is: {}", slave_sm.cont_kmu);
+    slave_sm.current_state();
+    master_sm.automatic_transition();
+    master_sm.automatic_transition();
+
+    //
+    println!("");
+    println!("Ultimo debug");
+    master_sm.current_state();
+    master_sm.automatic_transition();
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    master_sm.handle_event(Some(Event::ContInvalidLess10));
+    master_sm.handle_event(Some(Event::InvalidSmp));
+    println!("ContInvalid is: {}", master_sm.cont_invalid);
+    master_sm.is_blocked();
+    master_sm.current_state();
+    // Next transistion block the slave state machine in master state machine
+    slave_sm.current_state();
+    slave_sm.automatic_transition();
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    master_sm.handle_event(Some(Event::ContInvalidMore10));
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::GetSample), &master_sm);
+    slave_sm.handle_event_with_master(Some(Event::Error25Less), &master_sm);
+    println!("ContSMU is: {}", slave_sm.cont_smu);
+    println!("ContKMU is: {}", slave_sm.cont_kmu);
+    master_sm.is_blocked();
+    master_sm.handle_event(Some(Event::BackupSmpInvalid));
+    
+    slave_sm.current_state();
+    master_sm.is_blocked();
+    master_sm.current_state();
+    slave_sm.current_state();
+    slave_sm.handle_event_with_master(None, &master_sm);
+    println!("ContSMU is: {}", slave_sm.cont_smu);
+    println!("ContKMU is: {}", slave_sm.cont_kmu);
+
+    */
     // Simulate events
     /*
 
