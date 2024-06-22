@@ -1,3 +1,20 @@
+/*
+trace!: The lowest level, used for very detailed debugging information.
+debug!: Used for general debugging information.
+info!: Used for informational messages that highlight the progress of the application at a high level.
+warn!: Used for potentially harmful situations, warnings that indicate something might go wrong.
+error!: Used for error events that might still allow the application to continue running.
+fatal!: (Not commonly used in the log crate, but some logging systems have it) Indicates very severe error events that will presumably lead the application to abort.
+When you set RUST_LOG=info, it includes logs from info!, warn!, and error! levels. Here’s a breakdown of what each setting would include:
+
+RUST_LOG=trace: Logs everything (trace, debug, info, warn, error).
+RUST_LOG=debug: Logs debug, info, warn, error.
+RUST_LOG=info: Logs info, warn, error.
+RUST_LOG=warn: Logs warn, error.
+RUST_LOG=error: Logs only error.
+*/
+
+
 use std::env;
 //Serialization crates
 use serde::{Deserialize, Serialize};
@@ -25,6 +42,10 @@ use pnet::packet::Packet;
 
 //Crate that's guarantee the usage of date and time
 //use chrono::prelude::*;
+
+//Crate that's handle Log
+use log::{info, warn,  error};
+
 
 // Const values defined in the Standard IEC61850-9-2
 const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
@@ -214,6 +235,11 @@ impl LogicalNode {
 
 #[tokio::main]
 async fn main() {
+    // Initialize the Logger
+
+    env_logger::init();
+
+
     let args: Vec<String> = env::args().collect();
     let interface_name = if args.len() > 1 {
         args[1].clone()
@@ -235,6 +261,7 @@ async fn main() {
         Err(e) => panic!("An error occurred when creating the datalink channel: {}", e),
     };
 
+    info!("Listening on interface {}", interface.name);
     loop {
         match rx.next() {
             Ok(frame) => {
