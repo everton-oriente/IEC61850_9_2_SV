@@ -26,13 +26,16 @@ use crc32fast::hash as crc32;
 //Crate that's guarantee the usage of date and time
 use chrono::prelude::*;
 
+//Crate Logging
+use log::{info, warn, error};
+
 // Const values defined in the Standard IEC61850-9-2
 const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
 const TCI: u16 =        0x8000; // TCI for SV in IEC61850-9-2
 const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
 const FREQUENCY: f32 = 50.0; // Frequency of the system
 const AMPLITUDE_VOLTAGE: f32 = 10000.0; // 10kV nominal voltage of the system
-const AMPLITUDE_CURRENT: f32 = 1000.0; // 1kA nominal current of the system
+const AMPLITUDE_CURRENT: f32 = 1000.0; // 1kA nominal current of the systemprintln
 const PHASE_A_RAD:f32 = 0.0;
 const PHASE_B_RAD: f32 = 2.0943951023931953; // 120º degrees in radians
 const PHASE_C_RAD: f32 = -2.0943951023931953; // -120º degrees in radians
@@ -534,14 +537,14 @@ fn create_sv_packet() -> EthernetFrame {
 // The publisher function to send SV packets
 async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let interface_name = interface_name.trim(); // Trim any whitespace
-    println!("Looking for interface: '{}'", interface_name);
+    info!("Looking for interface: '{}'", interface_name);
 
     let interfaces = datalink::interfaces();
 
     // Print all available interfaces for debugging purposes
     println!("Available network interfaces:");
     for iface in &interfaces {
-        println!("Interface: {}, MAC: {:?}", iface.name, iface.mac);
+        info!("Interface: {}, MAC: {:?}", iface.name, iface.mac);
     }
 
     let interface = interfaces.into_iter()
@@ -560,11 +563,12 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
     let mut increment: u16 = 0; //work as a counter
 
     loop {
+        let begin = Instant::now();
         if increment > 4799
         {
             increment = 0;
         }
-        let begin = Instant::now();
+        
         //Create default SV packet
         let inter = interface.clone();
         //let now = Local::now();
@@ -572,11 +576,26 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
         let mut sv_packet = create_sv_packet();
         // Manipulate to change the values of IA,IB,IC,IN,VA,VB,VC,VN
         sv_packet.payload.apdu.smp_cnt[0] = sv_packet.payload.apdu.smp_cnt[0].wrapping_add(increment);
-        if increment > 50 && increment < 160
+        if increment > 50 && increment < 100
         {
             // Implement Bad Quality to the samples
             //println!("bad quality");
+            // The value of 0 is good quality
+            // The value of 1 and 2 is invalid
+            //The value of 3 it is questionable
             sv_packet.payload.apdu.logical_node.q_ia[0] = sv_packet.payload.apdu.logical_node.q_ia[0].wrapping_add(1);
+
+        }
+
+        if increment > 150 && increment < 200
+        {
+            // Implement Bad Quality to the samples
+            //println!("bad quality");
+            // The value of 0 is good quality
+            // The value of 1 and 2 is invalid
+            //The value of 3 it is questionable
+            sv_packet.payload.apdu.logical_node.q_ia[0] = sv_packet.payload.apdu.logical_node.q_ia[0].wrapping_add(3);
+
         }
         // Recalculate the FCS (Frame Check Sequence)
         let frame_bytes = sv_packet.to_bytes();
@@ -591,19 +610,22 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
         let sv_bytes = sv_packet.to_bytes();
         let _ = tx.send_to(&sv_bytes, Some(inter))
             .expect("Failed to send packet");
-        let time_reception = begin.elapsed();
+        
         increment = increment.wrapping_add(1); //work as counter and add 1
+        let time_reception = begin.elapsed();
 
-        println!("Time of work of thread is: {:?}", time_reception);
-        println!("Message publish");
-        println!("");
-
-        sleep(Duration::from_millis(1000)).await;
+        info!("Time of work of thread is: {:?}", time_reception);
+        info!("Message publish");
+        
+        sleep(Duration::from_micros(500_000)).await;
+        //sleep(Duration::from_micros(250)).await;
     }
 }
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+
+    env_logger::init();
     let interface_name = env::args().nth(1).expect("Please provide an interface name as an argument");
     let publisher_task = tokio::spawn(publisher(interface_name));
 
