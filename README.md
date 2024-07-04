@@ -8,6 +8,9 @@ To run the code we can not run using cargo run because we need admin permission 
 
 To run the code with logging / You will see debug, info, warn, and error.
 RUST_LOG=debug cargo run
+sudo RUST_LOG=info ./target/release/your_executable > log.txt 2>&1
+
 
 To run the code with logging / You will see info, warn, and error.
 RUST_LOG=info cargo run
+sudo RUST_LOG=info ./target/release/your_executable

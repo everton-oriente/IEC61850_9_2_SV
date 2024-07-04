@@ -28,8 +28,8 @@ enum SlaveState {
 
 //Events MasterStateMachine and SlaveStateMachine
 #[derive(Debug)]
+// Master Events
 enum Event {
-    // Master Events
     ValidSmp,
     QuestionableSmp,
     InvalidSmp,
@@ -37,7 +37,8 @@ enum Event {
     ContInvalidMore10,
     BackupSmpValid,
     BackupSmpInvalid,
-    // Slave Events
+
+// Slave Events
     GetSample,
     ContSMU,
     ContKMU,
