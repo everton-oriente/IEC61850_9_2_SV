@@ -16,6 +16,7 @@ RUST_LOG=error: Logs only error.
 
 
 use std::env;
+use pnet::packet::ethernet;
 //Serialization crates
 use serde::{Deserialize, Serialize};
 
@@ -25,6 +26,7 @@ use std::time::Instant; // To measure time between a piece of the code
 
 //crate that's create async threads
 use tokio::time::sleep;
+use tokio::signal;
 
 // Crates that deal with ethernet frames
 use pnet::datalink::{self, Config, NetworkInterface};
@@ -52,7 +54,7 @@ const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
 const TCI: u16 =        0x8000; // TCI for SV in IEC61850-9-2
 const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
 
-// EthernetFrame structure definition (same as in publisher)
+// EthernetFrame structure definition
 #[derive(Debug, Clone)]
 pub struct EthernetFrame {
     pub destination: [u8; 6],
@@ -64,7 +66,7 @@ pub struct EthernetFrame {
     pub fcs: [u8; 4],
 }
 
-// SvPDU structure definition (same as in publisher)
+// SvPDU structure definition
 #[derive(Debug, Clone)]
 pub struct SvPDU {
     pub appid: [u8; 2],
@@ -74,7 +76,7 @@ pub struct SvPDU {
     pub apdu: SmvData,
 }
 
-// SmvData structure definition (same as in publisher)
+// SmvData structure definition
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct SmvData {
     pub sav_pdu_asn: [u8; 2],
@@ -94,7 +96,7 @@ pub struct SmvData {
     pub logical_node: LogicalNode,
 }
 
-// LogicalNode structure definition (same as in publisher)
+// LogicalNode structure definition
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct LogicalNode {
     pub i_a: [i32; 1],
@@ -116,16 +118,19 @@ pub struct LogicalNode {
 }
 
 impl EthernetFrame {
-    pub fn from_bytes(bytes: &[u8]) -> Self {
+    pub fn from_bytes(bytes: &[u8]) -> Result<Self, &'static str> {
+        if bytes.len() < 18 {
+            return Err("Invalid Ethernet frame length");
+        }
         let destination = [bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], bytes[5]];
         let source = [bytes[6], bytes[7], bytes[8], bytes[9], bytes[10], bytes[11]];
         let tpid = u16::from_be_bytes([bytes[12], bytes[13]]);
         let tci = u16::from_be_bytes([bytes[14], bytes[15]]);
         let ethertype = u16::from_be_bytes([bytes[16], bytes[17]]);
-        let payload = SvPDU::from_bytes(&bytes[18..bytes.len() - 4]);
+        let payload = SvPDU::from_bytes(&bytes[18..bytes.len() - 4])?;
         let fcs = [bytes[bytes.len() - 4], bytes[bytes.len() - 3], bytes[bytes.len() - 2], bytes[bytes.len() - 1]];
 
-        Self {
+        Ok(Self {
             destination,
             source,
             tpid,
@@ -133,30 +138,36 @@ impl EthernetFrame {
             ethertype,
             payload,
             fcs,
-        }
+        })
     }
 }
 
 impl SvPDU {
-    pub fn from_bytes(bytes: &[u8]) -> Self {
+    pub fn from_bytes(bytes: &[u8]) -> Result<Self, &'static str> {
+        if bytes.len() < 8 {
+            return Err("Invalid SvPDU length");
+        }
         let appid = [bytes[0], bytes[1]];
         let length = [bytes[2], bytes[3]];
         let reserved1 = [bytes[4], bytes[5]];
         let reserved2 = [bytes[6], bytes[7]];
-        let apdu = SmvData::from_bytes(&bytes[8..]);
+        let apdu = SmvData::from_bytes(&bytes[8..])?;
 
-        Self {
+        Ok(Self {
             appid,
             length,
             reserved1,
             reserved2,
             apdu,
-        }
+        })
     }
 }
 
 impl SmvData {
-    pub fn from_bytes(bytes: &[u8]) -> Self {
+    pub fn from_bytes(bytes: &[u8]) -> Result<Self, &'static str> {
+        if bytes.len() < 30 {
+            return Err("Invalid SmvData length");
+        }
         let sav_pdu_asn = [bytes[0], bytes[1]];
         let no_asdu_asn = [bytes[2], bytes[3]];
         let no_asdu = bytes[4];
@@ -171,9 +182,9 @@ impl SmvData {
         let smp_synch_asn = [bytes[25], bytes[26]];
         let smp_synch = bytes[27];
         let seq_data = [bytes[28], bytes[29]];
-        let logical_node = LogicalNode::from_bytes(&bytes[30..]);
+        let logical_node = LogicalNode::from_bytes(&bytes[30..])?;
 
-        Self {
+        Ok(Self {
             sav_pdu_asn,
             no_asdu_asn,
             no_asdu,
@@ -189,12 +200,15 @@ impl SmvData {
             smp_synch,
             seq_data,
             logical_node,
-        }
+        })
     }
 }
 
 impl LogicalNode {
-    pub fn from_bytes(bytes: &[u8]) -> Self {
+    pub fn from_bytes(bytes: &[u8]) -> Result<Self, &'static str> {
+        if bytes.len() < 64 {
+            return Err("Invalid LogicalNode length");
+        }
         let i_a = [i32::from_be_bytes([bytes[0], bytes[1], bytes[2], bytes[3]])];
         let q_ia = [u32::from_be_bytes([bytes[4], bytes[5], bytes[6], bytes[7]])];
         let i_b = [i32::from_be_bytes([bytes[8], bytes[9], bytes[10], bytes[11]])];
@@ -212,7 +226,7 @@ impl LogicalNode {
         let v_n = [i32::from_be_bytes([bytes[56], bytes[57], bytes[58], bytes[59]])];
         let q_vn = [u32::from_be_bytes([bytes[60], bytes[61], bytes[62], bytes[63]])];
 
-        Self {
+        Ok(Self {
             i_a,
             q_ia,
             i_b,
@@ -229,53 +243,58 @@ impl LogicalNode {
             q_vc,
             v_n,
             q_vn,
-        }
+        })
     }
 }
 
 #[tokio::main]
 async fn main() {
-    // Initialize the Logger
-
+    // Initialize the logger
     env_logger::init();
 
-
-    let args: Vec<String> = env::args().collect();
-    let interface_name = if args.len() > 1 {
-        args[1].clone()
-    } else {
-        "eth0".to_string()
-    };
-
+    // Retrieve the network interface to use
+    let interface_name = env::args().nth(1).unwrap_or_else(|| "eth0".to_string());
     let interfaces = datalink::interfaces();
-    let interface = interfaces.into_iter().find(|iface: &NetworkInterface| iface.name == interface_name).unwrap();
+    let interface = interfaces
+        .into_iter()
+        .filter(|iface| iface.name == interface_name)
+        .next()
+        .expect("Could not find the specified network interface");
 
-    let config = Config {
-        read_timeout: Some(Duration::new(1, 0)),
-        ..Default::default()
-    };
+    // Create a channel to receive Ethernet frames
+    let mut config = Config::default();
+    config.read_timeout = Some(Duration::from_millis(1000));
 
-    let (_tx, mut rx) = match datalink::channel(&interface, config) {
+    let (mut tx, mut rx) = match datalink::channel(&interface, config) {
         Ok(Ethernet(tx, rx)) => (tx, rx),
         Ok(_) => panic!("Unhandled channel type"),
         Err(e) => panic!("An error occurred when creating the datalink channel: {}", e),
     };
 
     info!("Listening on interface {}", interface.name);
-    loop {
-        match rx.next() {
-            Ok(frame) => {
-                let packet = EthernetPacket::new(frame).unwrap();
-                if packet.get_ethertype() == EtherType(TPID) || packet.get_ethertype() == EtherType(ETHER_TYPE) {
-                    let ethernet_frame = EthernetFrame::from_bytes(packet.packet());
-                    println!("Received Ethernet Frame: {:?}", ethernet_frame);  // Debug
-                }
-            }
-            Err(e) => {
-                println!("An error occurred while reading: {}", e);
-            }
-        }
 
-        sleep(Duration::from_millis(400)).await;
+    tokio::select! {
+        _ = async {
+            loop {
+                match rx.next() {
+                    Ok(frame) => {
+                        let packet = EthernetPacket::new(frame).unwrap();
+                        if packet.get_ethertype() == EtherType(TPID) || packet.get_ethertype() == EtherType(ETHER_TYPE) {
+                            match EthernetFrame::from_bytes(packet.packet()) {
+                                Ok(ethernet_frame) => info!("Received Ethernet Frame: {:?}", ethernet_frame),
+                                Err(e) => warn!("Failed to parse Ethernet frame: {:?}", e),
+                            }
+                        }
+                        //let received_frame = ethernet_frame.clone();
+                        
+                    }
+                    Err(e) => error!("An error occurred while reading: {}", e),
+                }
+                sleep(Duration::from_micros(400_000)).await;
+            }
+        } => {},
+        _ = signal::ctrl_c() => {
+            info!("Received Ctrl+C, shutting down.");
+        },
     }
 }
