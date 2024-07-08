@@ -491,7 +491,7 @@ impl Default for LogicalNode {
             i_c:    LogicalNode::cal_current_phase_c(),
             q_ic:   [0x0000_0000; 1],
             i_n:    [0; 1],
-            q_in:   [0x0000_2000; 1],
+            q_in:   [0x0000_0000; 1],
             v_a:    LogicalNode::cal_voltage_phase_a(),
             q_va:   [0x0000_0000; 1],
             v_b:    LogicalNode::cal_voltage_phase_b(),
@@ -499,7 +499,7 @@ impl Default for LogicalNode {
             v_c:    LogicalNode::cal_voltage_phase_c(),
             q_vc:   [0x0000_0000; 1],
             v_n:    [0; 1],
-            q_vn:   [0x0000_2000; 1],
+            q_vn:   [0x0000_0000; 1],
         }
     }
 }

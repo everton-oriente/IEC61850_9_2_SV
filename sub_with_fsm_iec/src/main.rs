@@ -631,11 +631,57 @@ impl FrameProcessor {
 
     async fn valid_cont_samp_valid(&mut self, _frame: &EthernetFrame) {
 
+        let magnitude = _frame.payload.apdu.logical_node.extract_v();
+        let sv_id_1: [u32; 1] = [u32::from_be_bytes([0x34, 0x30, 0x30, 0x30])];
+        let sv_id_2: [u32; 1] = [u32::from_be_bytes([0x34, 0x30, 0x30, 0x31])];
+        
+         // SV ID 4000
+         if _frame.payload.apdu.sv_id == sv_id_1
+         {
+            let counter = self.cont_smp_valid.clone() as usize;
+            for i in 0 .. 8  {
+            
+               self.buffer_mu1[counter][i] = magnitude[i];
+               info!("Value of Buffer MU 1 fase: {:?} value: {:?}",i , self.buffer_mu1[counter][i] ); 
+            } 
+         }
+
+         // SV ID 4001
+         else if _frame.payload.apdu.sv_id == sv_id_2
+         {
+            let counter = self.cont_smp_valid.clone() as usize;
+            for i in 0 .. 8  {
+            
+               self.buffer_mu2[counter][i] = magnitude[i];
+               info!("Value of Buffer MU 2 fase: {:?} value: {:?}",i , self.buffer_mu2[counter][i] ); 
+            } 
+         }
+         self.cont_smp_valid += 1;
+
+         if self.cont_smp_valid < N_SAMPLES 
+         {
+            self.state = State::CompleteSample;
+            info!("Valid -> CompleteSample");
+         }
+         else if self.cont_smp_valid >= N_SAMPLES
+         {
+            self.state = State::CheckErrorPercentage;
+            info!("Valid -> CheckErrorPercentage");
+         }
+         else 
+        {
+            //self.state = State::Error;
+            info!("Valid -> Error");    
+        }  
     }
 
     async fn toogle_sv(&mut self){
-        self.toggle_mu = !self.toogle_mu;
+        self.toggle_mu = !self.toggle_mu;
 
+    }
+
+    async fn get_toogle_mu(&mut self) -> bool{
+        self.toggle_mu
     }
 
     async fn valid_error_percentage(&mut self, _frame: &EthernetFrame){
@@ -683,10 +729,13 @@ async fn main() {
     info!("Listening on interface {}", interface.name);
 
     let mut frame_processor = FrameProcessor::new();
+    //let mut frame_processor_mu2 = FrameProcessor::new();
 
     tokio::select! {
         _ = async {
             loop {
+                let choosen_mu: bool = FrameProcessor::get_toogle_mu(&mut frame_processor).await;
+                info!("Mu{:?} is sended before message", choosen_mu as u8);
                 let begin = Instant::now();
                 match rx.next() {
                     Ok(frame) => {
@@ -707,8 +756,11 @@ async fn main() {
                         }                     
                     }
                     
+                    
                     Err(e) => error!("An error occurred while reading: {}", e),
                 }
+                //let choosen_mu: bool = FrameProcessor::get_toogle_mu(&mut frame_processor).await;
+                info!("Mu{:?} is sended after message", choosen_mu as u8);
                 let time_reception = begin.elapsed();
 
                 info!("Time of work of thread is: {:?}", time_reception);
