@@ -48,7 +48,8 @@ use crc32fast::hash as crc32;
 //use chrono::prelude::*;
 
 //Crate that's handle Log
-use log::{info, warn,  error};
+use log::{info, warn, error};
+use env_logger;
 
 
 
@@ -57,7 +58,7 @@ const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
 const TCI: u16 =        0x8000; // TCI for SV in IEC61850-9-2
 const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
 
-const N_SAMPLES: u32 = 10;
+const N_SAMPLES: u32 = 5;
 
 // EthernetFrame structure definition
 #[derive(Debug, Clone)]
@@ -434,7 +435,7 @@ impl LogicalNode {
 // Testing state machine aynchronous
 
 // Define your states
-#[derive(Debug)]
+#[derive(Debug,PartialEq)]
 enum State {
     Initial,
     GetSample,
@@ -452,7 +453,8 @@ enum State {
 struct FrameProcessor {
     state: State,
     cont_smp_inv: u32,
-    cont_smp_valid: u32,
+    cont_smp_valid_sv_id_1: u32,
+    cont_smp_valid_sv_id_2: u32,
     error_percentage: f32,
     buffer_mu1: [[i32; N_SAMPLES as usize]; 8], // buffer MU 1 current A,B,C and N - voltage A,B,C and N
     buffer_mu2: [[i32; N_SAMPLES as usize]; 8], // buffer MU 2 current A,B,C and N - voltage A,B,C and N
@@ -463,7 +465,8 @@ impl FrameProcessor {
         Self {
             state: State::Initial,
             cont_smp_inv: 0, // Initialize cont_invalid
-            cont_smp_valid: 0,
+            cont_smp_valid_sv_id_1: 0,
+            cont_smp_valid_sv_id_2: 0,
             error_percentage: 0.0,
             buffer_mu1: [[0 ; N_SAMPLES as usize]; 8],
             buffer_mu2: [[0 ; N_SAMPLES as usize]; 8],
@@ -506,27 +509,27 @@ impl FrameProcessor {
                 State::Invalid => 
                 {
                     info!("State: Invalid");
-                    self.valid_cont_samp_inv().await;
+                    self.valid_cont_smp_inv().await;
                 }
 
                 State::Valid => 
                 {
                     info!("State: Valid");
-                    self.valid_cont_samp_valid(frame).await;
+                    self.valid_cont_smp_valid(frame).await;
                 }
 
                 State::CompleteSample => 
                 {
                     info!("State: CompleteSample");
+                    self.keep_variables().await;
                     break;
                 }
 
                 State::CheckErrorPercentage =>
                 { 
                     info!("State: CheckErrorPercentage");
-                    self.valid_error_percentage(frame).await;    
+                    self.valid_error_percentage().await;    
                 }
-                //State::KeepMU => self.parse_frame(frame).await,
                 
                 State::ToogleMU =>
                 { 
@@ -541,11 +544,8 @@ impl FrameProcessor {
                     break;
                 }
             }
-
             // Automatically transition to the next state on each tick
-            self.transition().await;
-
-            
+            self.transition().await;   
         }
         self.state = State::GetSample; // Reset state for the next frame
     }
@@ -562,13 +562,13 @@ impl FrameProcessor {
 
             State::Questionable => self.state = State::CompleteSample,
 
-            State::CompleteSample => self.state = State::GetSample,
+            State::CompleteSample => {}
 
             State::CheckErrorPercentage =>{}
 
-            State::ToogleMU => self.state = State::CompleteCycle,
+            State::ToogleMU => {}
 
-            State::CompleteCycle => self.state = State::GetSample,
+            State::CompleteCycle => {}
         }
     }
 
@@ -597,17 +597,10 @@ impl FrameProcessor {
             info!("Get Sample -> Questionable");
 
         }
-        else 
-        {
-            //self.state = State::Error;
-            info!("Get Sample -> Error");    
-        } 
-
-        // On failure:
-        // self.state = State::Error;
+    
     }
 
-    async fn valid_cont_samp_inv(&mut self) {
+    async fn valid_cont_smp_inv(&mut self) {
         info!("Validate the value of cont samples invalid: {:?}", self.cont_smp_inv);
         self.cont_smp_inv += 1;
    
@@ -629,7 +622,7 @@ impl FrameProcessor {
         
     }
 
-    async fn valid_cont_samp_valid(&mut self, _frame: &EthernetFrame) {
+    async fn valid_cont_smp_valid(&mut self, _frame: &EthernetFrame) {
 
         let magnitude = _frame.payload.apdu.logical_node.extract_v();
         let sv_id_1: [u32; 1] = [u32::from_be_bytes([0x34, 0x30, 0x30, 0x30])];
@@ -637,33 +630,46 @@ impl FrameProcessor {
         
          // SV ID 4000
          if _frame.payload.apdu.sv_id == sv_id_1
-         {
-            let counter = self.cont_smp_valid.clone() as usize;
-            for i in 0 .. 8  {
+         {  
+            let counter = self.cont_smp_valid_sv_id_1.clone() as usize;
+            if counter < self.buffer_mu1[0].len()
+            {
+                for i in 0 .. 8  
+                {
             
-               self.buffer_mu1[counter][i] = magnitude[i];
-               info!("Value of Buffer MU 1 fase: {:?} value: {:?}",i , self.buffer_mu1[counter][i] ); 
-            } 
+                    self.buffer_mu1[i][counter] = magnitude[i];
+                    info!("Value of Buffer MU 1 fase: {:?} value: {:?}",i , self.buffer_mu1[i][counter] ); 
+                }
+                self.cont_smp_valid_sv_id_1 += 1;
+                info!("The value of counter_sample_valid_of_sv_id_MU1: {:?}", self.cont_smp_valid_sv_id_1);
+            }
+             
          }
 
          // SV ID 4001
-         else if _frame.payload.apdu.sv_id == sv_id_2
-         {
-            let counter = self.cont_smp_valid.clone() as usize;
-            for i in 0 .. 8  {
+         if _frame.payload.apdu.sv_id == sv_id_2
+         {  
+            let counter = self.cont_smp_valid_sv_id_2.clone() as usize;
+            if counter < self.buffer_mu2[0].len()
+            {
+                for i in 0 .. 8  
+                {
             
-               self.buffer_mu2[counter][i] = magnitude[i];
-               info!("Value of Buffer MU 2 fase: {:?} value: {:?}",i , self.buffer_mu2[counter][i] ); 
-            } 
+                    self.buffer_mu2[i][counter] = magnitude[i];
+                    info!("Value of Buffer MU 2 fase: {:?} value: {:?}",i , self.buffer_mu2[i][counter] ); 
+                }
+                self.cont_smp_valid_sv_id_2 += 1;
+                info!("The value of counter_sample_valid_of_sv_id_MU2: {:?}", self.cont_smp_valid_sv_id_2);
+            }
+             
          }
-         self.cont_smp_valid += 1;
 
-         if self.cont_smp_valid < N_SAMPLES 
+         if self.cont_smp_valid_sv_id_1 < N_SAMPLES && self.cont_smp_valid_sv_id_2 < N_SAMPLES 
          {
             self.state = State::CompleteSample;
             info!("Valid -> CompleteSample");
          }
-         else if self.cont_smp_valid >= N_SAMPLES
+         else if self.cont_smp_valid_sv_id_1 >= N_SAMPLES && self.cont_smp_valid_sv_id_2 >= N_SAMPLES
          {
             self.state = State::CheckErrorPercentage;
             info!("Valid -> CheckErrorPercentage");
@@ -671,12 +677,19 @@ impl FrameProcessor {
          else 
         {
             //self.state = State::Error;
-            info!("Valid -> Error");    
-        }  
+            //info!("Valid -> Error");
+            self.state = State::CompleteSample;
+            info!("Valid -> CompleteSample");   
+        }
     }
 
     async fn toogle_sv(&mut self){
+
+        info!("Toogle_MU before is : {}", self.toggle_mu);
         self.toggle_mu = !self.toggle_mu;
+        self.state = State::CompleteCycle;
+        info!("Toogle_MU after is : {}", self.toggle_mu);
+        info!("ToogleMU -> CompleteCycle");
 
     }
 
@@ -684,22 +697,109 @@ impl FrameProcessor {
         self.toggle_mu
     }
 
-    async fn valid_error_percentage(&mut self, _frame: &EthernetFrame){
 
+    async fn valid_error_percentage(&mut self) {
+        let buffer_mu1 = Arc::new(Mutex::new(self.buffer_mu1));
+        let buffer_mu2 = Arc::new(Mutex::new(self.buffer_mu2));
+        info!("buffer_mu1: {:?}", self.buffer_mu1);
+        info!("buffer_mu2: {:?}", self.buffer_mu2);
+        
+        let sum_x: f32 = buffer_mu2.lock().unwrap().iter()
+            .zip(buffer_mu1.lock().unwrap().iter())
+            .flat_map(|(mu2_array, mu1_array)| {
+                mu2_array.iter().zip(mu1_array.iter()).map(|(&mu2, &mu1)| {
+                    if mu1 != 0 {
+                        (mu2 - mu1) as f32 / mu1 as f32
+                    } else {
+                        warn!("Failed acquisition value in the MU1");
+                        0.0 // Avoid division by zero
+                        
+                    }
+                })
+            })
+            .sum();
+
+        info!("Value of the sum of MU1: {:?}", &sum_x);
+
+        let sum_y: f32 = buffer_mu1.lock().unwrap().iter()
+            .zip(buffer_mu2.lock().unwrap().iter())
+            .flat_map(|(mu1_array, mu2_array)| {
+                mu1_array.iter().zip(mu2_array.iter()).map(|(&mu1, &mu2)| {
+                    if mu2 != 0 {
+                        (mu1 - mu2) as f32 / mu2 as f32
+                    } else {
+                        warn!("Failed acquisition value in the MU2");
+                        0.0 // Avoid division by zero  
+                    }
+                })
+            })
+            .sum();
+
+        info!("Value of the sum of MU2: {:?}", &sum_y);
+
+        let error_x = (sum_x / (N_SAMPLES * 8) as f32).abs();
+        info!("Value of error of MU1: {:?}", error_x);
+        let error_y = (sum_y / (N_SAMPLES * 8) as f32).abs();
+        info!("Value of error of MU2: {:?}", error_y);
+        
+        self.error_percentage = if error_x >= error_y { error_x } else { error_y };
+        info!("Value of the error: {:?}", &self.error_percentage);
+
+        //self.state = if self.error_percentage <= 0.25 && self.toggle_mu { State::CompleteCycle } else { State::ToogleMU };
+        
+        
+        if self.error_percentage >= 0.25
+        {
+            if error_x <= error_y
+            {   
+                if self.toggle_mu == false
+                {
+                    self.state = State::CompleteCycle;
+                }
+                else
+                {
+                    self.state = State::ToogleMU;
+                }
+            }
+            else if error_y < error_x 
+            {
+                if self.toggle_mu == true
+                {
+                    self.state = State::CompleteCycle; 
+                }
+                else 
+                {
+                    self.state = State::ToogleMU;    
+                }
+                
+            }
+            else
+            {
+                self.state = State::ToogleMU;
+            }
+        }
+        else
+        {
+            self.state = State::CompleteCycle;
+        }   
+        info!("Actual State: {:?}", self.state);
     }
 
-    async fn reset_variables(&mut self) {
-        // Validation logic here
-        // On success:
-        //self.state = State::Validating;
-        info!("Reset");
-        // On failure:
-        // self.state = State::Error;
+    async fn reset_variables(&mut self){
+            self.cont_smp_inv = 0;
+            self.cont_smp_valid_sv_id_1 = 0;
+            self.cont_smp_valid_sv_id_2 = 0;
+            self.error_percentage = 0.0 ;
+            self.buffer_mu1 = [[0 ; N_SAMPLES as usize]; 8];
+            self.buffer_mu2 = [[0 ; N_SAMPLES as usize]; 8];
+            info!("CompleteCycle -> GetSample")
+    }
+
+    async fn keep_variables(&mut self){
+        info!("CompleteSample -> GetSample");
     }
 
 }
-
-
 
 
 #[tokio::main]
@@ -735,7 +835,7 @@ async fn main() {
         _ = async {
             loop {
                 let choosen_mu: bool = FrameProcessor::get_toogle_mu(&mut frame_processor).await;
-                info!("Mu{:?} is sended before message", choosen_mu as u8);
+                info!("Mu{:?} before evaluation", choosen_mu as u8 +1);
                 let begin = Instant::now();
                 match rx.next() {
                     Ok(frame) => {
@@ -747,6 +847,8 @@ async fn main() {
                                     let validate_frame = EthernetFrame::verify_checksum(&ethernet_frame);
                                     if validate_frame {
                                     frame_processor.process_frame(&ethernet_frame).await;
+                                    // Break after processing the frame
+                                    
                                     }
                                 },
                                 Err(e) => warn!("Failed to parse Ethernet frame: {:?}", e),
@@ -760,11 +862,11 @@ async fn main() {
                     Err(e) => error!("An error occurred while reading: {}", e),
                 }
                 //let choosen_mu: bool = FrameProcessor::get_toogle_mu(&mut frame_processor).await;
-                info!("Mu{:?} is sended after message", choosen_mu as u8);
+                info!("Mu{:?} after evaluation", choosen_mu as u8);
                 let time_reception = begin.elapsed();
 
                 info!("Time of work of thread is: {:?}", time_reception);
-                sleep(Duration::from_micros(400)).await;
+                sleep(Duration::from_micros(1)).await;
             }
         } => {},
         _ = signal::ctrl_c() => {

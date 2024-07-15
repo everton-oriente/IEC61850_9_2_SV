@@ -36,10 +36,6 @@ const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
 const FREQUENCY: f32 = 50.0; // Frequency of the system
 const AMPLITUDE_VOLTAGE: f32 = 10000.0; // 10kV nominal voltage of the system
 const AMPLITUDE_CURRENT: f32 = 1000.0; // 1kA nominal current of the systemprintln
-const PHASE_A_RAD:f32 = 0.0;
-const PHASE_B_RAD: f32 = 2.0943951023931953; // 120º degrees in radians
-const PHASE_C_RAD: f32 = -2.0943951023931953; // -120º degrees in radians
-const TWICE: f32 = 2.0000;
 
 // Declaration of Structs to build a SV Packet
 
