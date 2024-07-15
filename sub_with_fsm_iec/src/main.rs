@@ -51,17 +51,24 @@ use crc32fast::hash as crc32;
 use log::{info, warn, error};
 use env_logger;
 
+const N_SAMPLES: u32 = 5;
+
+
+// Publisher 
+use std::f32::consts::PI;
 
 
 // Const values defined in the Standard IEC61850-9-2
 const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
 const TCI: u16 =        0x8000; // TCI for SV in IEC61850-9-2
 const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
+const FREQUENCY: f32 = 50.0; // Frequency of the system
+const AMPLITUDE_VOLTAGE: f32 = 10000.0; // 10kV nominal voltage of the system
+const AMPLITUDE_CURRENT: f32 = 1000.0; // 1kA nominal current of the systemprintln
 
-const N_SAMPLES: u32 = 5;
 
 // EthernetFrame structure definition
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct EthernetFrame {
     pub destination: [u8; 6],
     pub source: [u8; 6],
@@ -73,7 +80,7 @@ pub struct EthernetFrame {
 }
 
 // SvPDU structure definition
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct SvPDU {
     pub appid: [u8; 2],
     pub length: [u8; 2],
@@ -83,7 +90,7 @@ pub struct SvPDU {
 }
 
 // SmvData structure definition
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub struct SmvData {
     pub sav_pdu_asn: [u8; 2],
     pub no_asdu_asn: [u8; 2],
@@ -103,7 +110,7 @@ pub struct SmvData {
 }
 
 // LogicalNode structure definition
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone ,PartialEq)]
 pub struct LogicalNode {
     pub i_a: [i32; 1],
     pub q_ia: [u32; 1],
@@ -802,17 +809,115 @@ impl FrameProcessor {
 }
 
 
+
+// The publisher function to send SV packets
+async fn publisher(interface: &NetworkInterface, _frame: &EthernetFrame) {
+    //let interface_name = interface_name.trim(); // Trim any whitespace
+    //info!("Looking for interface: '{}'", interface_name);
+
+    //let interfaces = datalink::interfaces();
+
+    // Print all available interfaces for debugging purposes
+    //println!("Available network interfaces:");
+    //for iface in &interfaces {
+    //    info!("Interface: {}, MAC: {:?}", iface.name, iface.mac);
+    //}
+
+    //let interface = interfaces.into_iter()
+     //                         .find(|iface| iface.name == interface_name)
+     //                         .expect("Failed to find the required interface");
+//
+    //println!("Found interface: '{}'", interface.name);
+
+    // Create a new channel, dealing with layer 2 packets
+    let (mut tx, _rx) = match datalink::channel(&interface, Config::default()) {
+        Ok(Ethernet(tx, rx)) => (tx, rx),
+        Ok(_) => panic!("Unhandled channel type"),
+        Err(e) => panic!("An error occurred when creating the datalink channel: {}", e)
+    };
+
+    //let mut increment: u16 = 0; //work as a counter
+
+        let begin = Instant::now();
+        //if increment > 4799
+        //{
+        //    increment = 0;
+        //}
+        
+        //Create default SV packet
+        let inter = interface.clone();
+        //let now = Local::now();
+        //let seconds = now.second() as f32;
+        //let mut sv_packet = create_sv_packet();
+        // Manipulate to change the values of IA,IB,IC,IN,VA,VB,VC,VN
+        //sv_packet.payload.apdu.smp_cnt[0] = sv_packet.payload.apdu.smp_cnt[0].wrapping_add(increment);
+        //if increment > 50 && increment < 100
+        //{
+            // Implement Bad Quality to the samples
+            //println!("bad quality");
+            // The value of 0 is good quality
+            // The value of 1 and 2 is invalid
+            //The value of 3 it is questionable
+            //sv_packet.payload.apdu.logical_node.q_ia[0] = sv_packet.payload.apdu.logical_node.q_ia[0].wrapping_add(1);
+
+        //}
+
+        //if increment > 150 && increment < 200
+        //{
+            // Implement Bad Quality to the samples
+            //println!("bad quality");
+            // The value of 0 is good quality
+            // The value of 1 and 2 is invalid
+            //The value of 3 it is questionable
+            //sv_packet.payload.apdu.logical_node.q_ia[0] = sv_packet.payload.apdu.logical_node.q_ia[0].wrapping_add(3);
+
+        //}
+        // Recalculate the FCS (Frame Check Sequence)
+        //let frame_bytes = sv_packet.to_bytes();
+        //let fcs = crc32(&frame_bytes[..frame_bytes.len() - 4]).to_be_bytes();
+        //sv_packet.fcs = [fcs[0], fcs[1], fcs[2], fcs[3]];
+
+        //sv_packet.payload.apdu.logical_node.i_a = cal_current_phase_a(seconds);
+
+        // Print the SV packet for debugging
+        //println!("SV Packet: {:?}", &sv_packet);
+
+        //let sv_bytes = sv_packet.to_bytes();
+        let sv_bytes= _frame.to_bytes(); 
+        let _ = tx.send_to(&sv_bytes, Some(inter))
+            .expect("Failed to send packet");
+        
+        //increment = increment.wrapping_add(1); //work as counter and add 1
+        let time_reception = begin.elapsed();
+
+        info!("Time of work of thread is: {:?}", time_reception);
+        info!("Frame publish: {:?}", _frame);
+        
+        //sleep(Duration::from_micros(1_000)).await;
+        //sleep(Duration::from_micros(250)).await;
+}
+
 #[tokio::main]
 async fn main() {
     // Initialize the logger
     env_logger::init();
 
     // Retrieve the network interface to use
-    let interface_name = env::args().nth(1).unwrap_or_else(|| "eth0".to_string());
+    let interface_name_1 = env::args().nth(1).unwrap_or_else(|| "eth0".to_string());
+    let interface_name_2 = env::args().nth(2).unwrap_or_else(|| "eth1".to_string());
     let interfaces = datalink::interfaces();
-    let interface = interfaces
+    info!("Available interfaces: {:?}", interfaces);
+
+    let interface_1 = &interfaces.clone()
         .into_iter()
-        .filter(|iface| iface.name == interface_name)
+        .filter(|iface| iface.name == interface_name_1)
+        .next()
+        .expect("Could not find the specified network interface");
+
+
+        let interface_2 = &interfaces.clone()
+        .into_iter()
+        .filter(|iface| iface.name == interface_name_2)
         .next()
         .expect("Could not find the specified network interface");
 
@@ -820,15 +925,16 @@ async fn main() {
     let mut config = Config::default();
     config.read_timeout = Some(Duration::from_millis(1000));
 
-    let (mut _tx, mut rx) = match datalink::channel(&interface, config) {
+    let (mut _tx, mut rx) = match datalink::channel(&interface_1, config) {
         Ok(Ethernet(tx, rx)) => (tx, rx),
         Ok(_) => panic!("Unhandled channel type"),
         Err(e) => panic!("An error occurred when creating the datalink channel: {}", e),
     };
 
-    info!("Listening on interface {}", interface.name);
+    info!("Listening on interface {}", interface_1.name);
 
     let mut frame_processor = FrameProcessor::new();
+    
     //let mut frame_processor_mu2 = FrameProcessor::new();
 
     tokio::select! {
@@ -839,16 +945,27 @@ async fn main() {
                 let begin = Instant::now();
                 match rx.next() {
                     Ok(frame) => {
+                        
                         let packet = EthernetPacket::new(frame).unwrap();
+                        
                         if packet.get_ethertype() == EtherType(TPID) || packet.get_ethertype() == EtherType(ETHER_TYPE) {
                             match EthernetFrame::from_bytes(packet.packet()) {
                                 Ok(ethernet_frame) =>{ 
+                                    
                                     info!("Received Ethernet Frame: {:?}", ethernet_frame);
                                     let validate_frame = EthernetFrame::verify_checksum(&ethernet_frame);
                                     if validate_frame {
-                                    frame_processor.process_frame(&ethernet_frame).await;
-                                    // Break after processing the frame
-                                    
+                                        let sv_id_current = ethernet_frame.payload.apdu.sv_id;
+                                        let verify_mu_1: [u32; 1] = [0x3430_3030];
+                                        let verify_mu_2: [u32; 1] = [0x3430_3031];
+                                        
+                                        if choosen_mu == false && sv_id_current == verify_mu_1 {
+                                            publisher(&interface_2, &ethernet_frame).await;
+                                        }
+                                        else if choosen_mu == true && sv_id_current == verify_mu_2{
+                                            publisher(&interface_2, &ethernet_frame).await;
+                                        }
+                                        frame_processor.process_frame(&ethernet_frame).await;
                                     }
                                 },
                                 Err(e) => warn!("Failed to parse Ethernet frame: {:?}", e),
@@ -866,9 +983,14 @@ async fn main() {
                 let time_reception = begin.elapsed();
 
                 info!("Time of work of thread is: {:?}", time_reception);
-                sleep(Duration::from_micros(1)).await;
+                sleep(Duration::from_micros(30)).await;
             }
         } => {},
+        /*_ = async {
+            let publisher_task = tokio::spawn(publisher(interface_name_2));
+
+            //tokio::try_join!(publisher_task)?;
+        } => {},*/
         _ = signal::ctrl_c() => {
             info!("Received Ctrl+C, shutting down.");
         },
