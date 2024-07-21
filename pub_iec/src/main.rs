@@ -27,7 +27,7 @@ use crc32fast::hash as crc32;
 use chrono::prelude::*;
 
 //Crate Logging
-use log::{info, warn, error};
+use log::info;
 
 // Const values defined in the Standard IEC61850-9-2
 const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
@@ -608,13 +608,16 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
             .expect("Failed to send packet");
         
         increment = increment.wrapping_add(1); //work as counter and add 1
+        // the way i have found do not have the overhead regarding the sleep function always give me 1 ms of execution
+        for _i in 0..29_000{}
+ 
         let time_reception = begin.elapsed();
-
         info!("Time of work of thread is: {:?}", time_reception);
-        info!("Message publish");
-        
-        sleep(Duration::from_micros(500_000)).await;
-        //sleep(Duration::from_micros(250)).await;
+        let now = Local::now();
+        let _t: f32 = now.timestamp_subsec_micros() as f32/ 1_000_000.0;
+        info!("The frame has been sended at time: {:?}", now);
+        info!("Message publish: {:?}", sv_bytes);
+        sleep(Duration::from_millis(2_000)).await;
     }
 }
 
