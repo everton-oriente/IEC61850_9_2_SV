@@ -1,15 +1,12 @@
 //for accessing environment variables.
 use std::env;
 use std::f32::consts::PI;
+
 //Serialization crates
 use serde::{Deserialize, Serialize};
 
 // Crates that's handle time - If it is needed timezone, dates, gregorian calendar should look at chrono crate.
-use std::time::Duration;
 use std::time::Instant; // To measure time between a piece of the code
-
-//crate that's create async threads
-use tokio::time::sleep;
 
 // Crates that deal with ethernet frames
 use pnet::datalink::{self, Config};
@@ -17,11 +14,6 @@ use pnet::datalink::Channel::Ethernet;
 
 //Crate that's generate a checksum
 use crc32fast::hash as crc32;
-
-// Crate that's deal with serialization and deserialization regarding ASN1 TAG/LENGTH
-// yasna
-// def-parser
-// asn1
 
 //Crate that's guarantee the usage of date and time
 use chrono::prelude::*;
@@ -61,10 +53,6 @@ pub struct SvPDU
     pub reserved1:      [u8; 2],
     pub reserved2:      [u8; 2],
     pub apdu: SmvData,
-     // pub padding:
-    //The padding is used to guarantee the ethernet packet has more than 46 bytes to comply with the standard of Ethernet frame packets
-
-
 }
 
 //SmvData is regarding the part is responsible for the data.
@@ -86,7 +74,6 @@ pub struct SmvData
     pub smp_synch:      u8,
     pub seq_data:       [u8; 2],
     pub logical_node: LogicalNode,
-
 }
 
 // This part is regarding of the DataSet
@@ -175,7 +162,7 @@ impl SvPDU {
         let length =    [bytes[2], bytes[3]];
         let reserved1 = [bytes[4], bytes[5]];
         let reserved2 = [bytes[6], bytes[7]];
-        let apdu =            SmvData::from_bytes(&bytes[8..]);
+        let apdu =      SmvData::from_bytes(&bytes[8..]);
 
         Self {
             appid,
@@ -186,6 +173,7 @@ impl SvPDU {
         }
     }
 }
+
 // Implementation of functions regarding SmvData struct
 impl SmvData {
     pub fn to_bytes(&self) -> Vec<u8> {
@@ -250,6 +238,7 @@ impl SmvData {
         }
     }
 }
+
 impl LogicalNode {
     pub fn cal_current_phase_a ()-> [i32;1]
     {
@@ -427,7 +416,6 @@ impl LogicalNode {
     }
 }
 
-
 //Implementation about the Default function to our structs.
 impl Default for EthernetFrame {
     fn default() -> Self {
@@ -500,7 +488,6 @@ impl Default for LogicalNode {
     }
 }
 
-
 fn create_sv_packet() -> EthernetFrame {
     let destination =   [0x01, 0x0c, 0xcd, 0x04, 0xff, 0xff];
     let source =        [0x00, 0x1a, 0x11, 0x00, 0x00, 0x01];
@@ -525,10 +512,6 @@ fn create_sv_packet() -> EthernetFrame {
 
     frame
 }
-
-
-
-
 
 // The publisher function to send SV packets
 async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
@@ -617,7 +600,7 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
         let _t: f32 = now.timestamp_subsec_micros() as f32/ 1_000_000.0;
         info!("The frame has been sended at time: {:?}", now);
         info!("Message publish: {:?}", sv_bytes);
-        sleep(Duration::from_millis(2_000)).await;
+        //sleep(Duration::from_millis(2_000)).await;
     }
 }
 
