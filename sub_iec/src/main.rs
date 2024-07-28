@@ -16,20 +16,20 @@ RUST_LOG=error: Logs only error.
 
 
 use std::env;
-use pnet::packet::ethernet;
+//use pnet::packet::ethernet;
 //Serialization crates
 use serde::{Deserialize, Serialize};
 
 // Crates that's handle time - If it is needed timezone, dates, gregorian calendar should look at chrono crate.
 use std::time::Duration;
-use std::time::Instant; // To measure time between a piece of the code
+//use std::time::Instant; // To measure time between a piece of the code
 
 //crate that's create async threads
-use tokio::time::sleep;
+//use tokio::time::sleep;
 use tokio::signal;
 
 // Crates that deal with ethernet frames
-use pnet::datalink::{self, Config, NetworkInterface};
+use pnet::datalink::{self, Config};
 use pnet::datalink::Channel::Ethernet;
 use pnet::packet::ethernet::{EtherType, EthernetPacket};
 use pnet::packet::Packet;
@@ -43,7 +43,7 @@ use pnet::packet::Packet;
 // asn1
 
 //Crate that's guarantee the usage of date and time
-//use chrono::prelude::*;
+use chrono::prelude::*;
 
 //Crate that's handle Log
 use log::{info, warn,  error};
@@ -51,7 +51,6 @@ use log::{info, warn,  error};
 
 // Const values defined in the Standard IEC61850-9-2
 const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
-const TCI: u16 =        0x8000; // TCI for SV in IEC61850-9-2
 const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
 
 // EthernetFrame structure definition
@@ -59,8 +58,6 @@ const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
 pub struct EthernetFrame {
     pub destination: [u8; 6],
     pub source: [u8; 6],
-    pub tpid: u16,
-    pub tci: u16,
     pub ethertype: u16,
     pub payload: SvPDU,
     pub fcs: [u8; 4],
@@ -124,17 +121,13 @@ impl EthernetFrame {
         }
         let destination = [bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], bytes[5]];
         let source = [bytes[6], bytes[7], bytes[8], bytes[9], bytes[10], bytes[11]];
-        let tpid = u16::from_be_bytes([bytes[12], bytes[13]]);
-        let tci = u16::from_be_bytes([bytes[14], bytes[15]]);
-        let ethertype = u16::from_be_bytes([bytes[16], bytes[17]]);
-        let payload = SvPDU::from_bytes(&bytes[18..bytes.len() - 4])?;
+        let ethertype = u16::from_be_bytes([bytes[12], bytes[13]]);
+        let payload = SvPDU::from_bytes(&bytes[14..bytes.len() - 4])?;
         let fcs = [bytes[bytes.len() - 4], bytes[bytes.len() - 3], bytes[bytes.len() - 2], bytes[bytes.len() - 1]];
 
         Ok(Self {
             destination,
             source,
-            tpid,
-            tci,
             ethertype,
             payload,
             fcs,
@@ -264,8 +257,9 @@ async fn main() {
     // Create a channel to receive Ethernet frames
     let mut config = Config::default();
     config.read_timeout = Some(Duration::from_millis(1000));
+    //config.promiscuous = true;  // Enable promiscuous mode
 
-    let (mut tx, mut rx) = match datalink::channel(&interface, config) {
+    let (_tx, mut rx) = match datalink::channel(&interface, config) {
         Ok(Ethernet(tx, rx)) => (tx, rx),
         Ok(_) => panic!("Unhandled channel type"),
         Err(e) => panic!("An error occurred when creating the datalink channel: {}", e),
@@ -278,19 +272,26 @@ async fn main() {
             loop {
                 match rx.next() {
                     Ok(frame) => {
+                        //info!("Raw Frame: {:?}", frame);
+                        //info!("Frame Length: {}", frame.len());
                         let packet = EthernetPacket::new(frame).unwrap();
+                        //info!("Ethernet Packet: {:?}", packet);
                         if packet.get_ethertype() == EtherType(TPID) || packet.get_ethertype() == EtherType(ETHER_TYPE) {
+                            let now = Local::now();
+                            let _t: f32 = now.timestamp_subsec_micros() as f32/ 1_000_000.0;
+                            info!("The frame has been received at time: {:?}", now);
                             match EthernetFrame::from_bytes(packet.packet()) {
                                 Ok(ethernet_frame) => info!("Received Ethernet Frame: {:?}", ethernet_frame),
                                 Err(e) => warn!("Failed to parse Ethernet frame: {:?}", e),
                             }
+                            
                         }
                         //let received_frame = ethernet_frame.clone();
                         
                     }
                     Err(e) => error!("An error occurred while reading: {}", e),
                 }
-                sleep(Duration::from_micros(400_000)).await;
+                //*sleep(Duration::from_micros(1)).await;
             }
         } => {},
         _ = signal::ctrl_c() => {
