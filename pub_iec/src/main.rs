@@ -18,12 +18,12 @@ use crc32fast::hash as crc32;
 //Crate that's guarantee the usage of date and time
 use chrono::prelude::*;
 
-//Crate Logging
-use log::info;
+//Crate that's handle Log
+use log::{info, warn, error};
+use env_logger;
 
 //Crate Tokio
 use tokio::time::Duration;
-
 
 // Const values defined in the Standard IEC61850-9-2
 const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
@@ -254,7 +254,7 @@ impl LogicalNode {
 
         let amplitude: f32 = AMPLITUDE_CURRENT * ((omega * t + phase_radians).sin());
 
-        //println!("t: {:?}, phase_radians: {:?}, omega: {:?}, amplitude:{:?}, amplitude i32: {:?}", t, phase_radians, omega, amplitude, amplitude as i32);
+        //info!("t: {:?}, phase_radians: {:?}, omega: {:?}, amplitude:{:?}, amplitude i32: {:?}", t, phase_radians, omega, amplitude, amplitude as i32);
         [amplitude as i32;1]
     }
 
@@ -265,10 +265,9 @@ impl LogicalNode {
         let phase_degrees: f32 = 120.0; // Example phase in degrees
         let phase_radians: f32 = phase_degrees * PI / 180.0; // Convert phase to radians
         let omega: f32 = 2.0 * PI * FREQUENCY;
-
         let amplitude: f32 = AMPLITUDE_CURRENT * ((omega * t + phase_radians).sin());
 
-        //println!("t: {:?}, phase_radians: {:?}, omega: {:?}, amplitude:{:?}, amplitude i32: {:?}", t, phase_radians, omega, amplitude, amplitude as i32);
+        //info!("t: {:?}, phase_radians: {:?}, omega: {:?}, amplitude:{:?}, amplitude i32: {:?}", t, phase_radians, omega, amplitude, amplitude as i32);
         [amplitude as i32;1]
     }
 
@@ -513,7 +512,6 @@ fn create_sv_packet() -> EthernetFrame {
     let frame_bytes = frame.to_bytes();
     let fcs = crc32(&frame_bytes[..frame_bytes.len() - 4]).to_be_bytes();
     frame.fcs = [fcs[0], fcs[1], fcs[2], fcs[3]];
-
     frame
 }
 
