@@ -14,7 +14,6 @@ RUST_LOG=warn: Logs warn, error.
 RUST_LOG=error: Logs only error.
 */
 
-
 use std::env;
 //use pnet::packet::ethernet;
 //Serialization crates
@@ -46,8 +45,8 @@ use pnet::packet::Packet;
 use chrono::prelude::*;
 
 //Crate that's handle Log
-use log::{info, warn,  error};
-
+use log::{info, warn, error};
+use env_logger;
 
 // Const values defined in the Standard IEC61850-9-2
 const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
