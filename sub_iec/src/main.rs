@@ -116,7 +116,7 @@ pub struct LogicalNode {
 
 impl EthernetFrame {
     pub fn from_bytes(bytes: &[u8]) -> Result<Self, &'static str> {
-        if bytes.len() < 18 {
+        if bytes.len() < 14 {
             return Err("Invalid Ethernet frame length");
         }
         let destination = [bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], bytes[5]];
@@ -278,7 +278,6 @@ async fn main() {
                         //info!("Ethernet Packet: {:?}", packet);
                         if packet.get_ethertype() == EtherType(TPID) || packet.get_ethertype() == EtherType(ETHER_TYPE) {
                             let now = Local::now();
-                            let _t: f32 = now.timestamp_subsec_micros() as f32/ 1_000_000.0;
                             info!("The frame has been received at time: {:?}", now);
                             match EthernetFrame::from_bytes(packet.packet()) {
                                 Ok(ethernet_frame) => info!("Received Ethernet Frame: {:?}", ethernet_frame),

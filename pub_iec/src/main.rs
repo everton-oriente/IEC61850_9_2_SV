@@ -21,6 +21,10 @@ use chrono::prelude::*;
 //Crate Logging
 use log::info;
 
+//Crate Tokio
+use tokio::time::Duration;
+
+
 // Const values defined in the Standard IEC61850-9-2
 const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
 const TCI: u16 =        0x8000; // TCI for SV in IEC61850-9-2
@@ -452,7 +456,7 @@ impl Default for SmvData {
             seq_asdu_asn:   [0xa2, 0x57],
             asdu_asn:       [0x30, 0x55],
             sv_id_asn:      [0x80, 0x04],
-            sv_id:          [0x3430_3031],
+            sv_id:          [0x3430_3030],
             smp_cnt_asn:    [0x82, 0x02],
             smp_cnt:        [0x0000],
             conf_rev_asn:   [0x83, 0x04],
@@ -592,12 +596,11 @@ async fn publisher(interface_name: String) -> Result<(), Box<dyn std::error::Err
         
         increment = increment.wrapping_add(1); //work as counter and add 1
         // the way i have found do not have the overhead regarding the sleep function always give me 1 ms of execution
-        for _i in 0..29_000{}
+        for _i in 0..35_000{}
  
         let time_reception = begin.elapsed();
         info!("Time of work of thread is: {:?}", time_reception);
         let now = Local::now();
-        let _t: f32 = now.timestamp_subsec_micros() as f32/ 1_000_000.0;
         info!("The frame has been sended at time: {:?}", now);
         info!("Message publish: {:?}", sv_bytes);
         //sleep(Duration::from_millis(2_000)).await;

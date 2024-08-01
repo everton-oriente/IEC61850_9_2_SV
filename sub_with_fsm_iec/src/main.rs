@@ -79,6 +79,16 @@ pub struct EthernetFrame {
     pub fcs: [u8; 4],
 }
 
+// ReceiveEthernetFrame structure definition
+#[derive(Debug, Clone, PartialEq)]
+pub struct ReceivedEthernetFrame{
+    pub destination: [u8; 6],
+    pub source: [u8; 6],
+    pub ethertype: u16,
+    pub payload: SvPDU,
+    pub fcs: [u8; 4],
+}
+
 // SvPDU structure definition
 #[derive(Debug, Clone, PartialEq)]
 pub struct SvPDU {
@@ -197,8 +207,58 @@ impl EthernetFrame {
 
 }
     
+impl ReceivedEthernetFrame {
 
+    pub fn from_bytes(bytes: &[u8]) -> Result<Self, &'static str> {
+        if bytes.len() < 18 {
+            return Err("Invalid Ethernet frame length");
+        }
+        let destination = [bytes[0], bytes[1], bytes[2], bytes[3], bytes[4], bytes[5]];
+        let source = [bytes[6], bytes[7], bytes[8], bytes[9], bytes[10], bytes[11]];
+        let ethertype = u16::from_be_bytes([bytes[12], bytes[13]]);
+        let payload = SvPDU::from_bytes(&bytes[14..bytes.len() - 4])?;
+        let fcs = [bytes[bytes.len() - 4], bytes[bytes.len() - 3], bytes[bytes.len() - 2], bytes[bytes.len() - 1]];
 
+        Ok(Self {
+            destination,
+            source,
+            ethertype,
+            payload,
+            fcs,
+        })
+    }
+
+    pub fn convert_received_ethernet_frame_into_ethernet_frame(received_frame: ReceivedEthernetFrame) -> EthernetFrame{
+
+            let destination =   received_frame.destination;
+            let source =        received_frame.source;
+            let tpid =              TPID;
+            let tci =               TCI;
+            let ethertype =         received_frame.ethertype;
+            let payload =         received_frame.payload.clone();
+            let fcs =           received_frame.fcs;
+            let mut frame_received = EthernetFrame {
+                destination,
+                source,
+                tpid,
+                tci,
+                ethertype,
+                payload,
+                fcs, // Temporary FCS
+            };
+    
+        // Calculate the FCS using crc32fast
+        let frame_bytes = frame_received.to_bytes();
+        let fcs = crc32(&frame_bytes[..frame_bytes.len() - 4]).to_be_bytes();
+        frame_received.fcs = [fcs[0], fcs[1], fcs[2], fcs[3]];
+    
+        frame_received
+        
+    }
+    
+
+    
+}
 
 impl SvPDU {
 
@@ -452,7 +512,6 @@ enum State {
     CompleteSample,
     CheckErrorPercentage,
     ToogleMU,
-    //KeepMU,
     CompleteCycle,
     }
 
@@ -942,17 +1001,18 @@ async fn main() {
             loop {
                 let choosen_mu: bool = FrameProcessor::get_toogle_mu(&mut frame_processor).await;
                 info!("Mu{:?} before evaluation", choosen_mu as u8 +1);
+                //let now = Local::now();
+                //info!("The frame has been sended at time: {:?}", now);
                 let begin = Instant::now();
                 match rx.next() {
                     Ok(frame) => {
-                        
                         let packet = EthernetPacket::new(frame).unwrap();
-                        
                         if packet.get_ethertype() == EtherType(TPID) || packet.get_ethertype() == EtherType(ETHER_TYPE) {
-                            match EthernetFrame::from_bytes(packet.packet()) {
-                                Ok(ethernet_frame) =>{ 
-                                    
-                                    info!("Received Ethernet Frame: {:?}", ethernet_frame);
+                            info!("Bytes receveived: {:?}", frame.len());
+                            match ReceivedEthernetFrame::from_bytes(packet.packet()) {
+                                Ok(received_ethernet_frame) =>{ 
+                                    info!("Received Ethernet Frame: {:?}", received_ethernet_frame);
+                                    let ethernet_frame = ReceivedEthernetFrame::convert_received_ethernet_frame_into_ethernet_frame(received_ethernet_frame);
                                     let validate_frame = EthernetFrame::verify_checksum(&ethernet_frame);
                                     if validate_frame {
                                         let sv_id_current = ethernet_frame.payload.apdu.sv_id;
@@ -983,7 +1043,7 @@ async fn main() {
                 let time_reception = begin.elapsed();
 
                 info!("Time of work of thread is: {:?}", time_reception);
-                sleep(Duration::from_micros(30)).await;
+                //sleep(Duration::from_nanos(1)).await;
             }
         } => {},
         /*_ = async {
