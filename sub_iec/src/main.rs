@@ -255,8 +255,7 @@ async fn main() {
 
     // Create a channel to receive Ethernet frames
     let mut config = Config::default();
-    config.read_timeout = Some(Duration::from_millis(1000));
-    //config.promiscuous = true;  // Enable promiscuous mode
+    config.read_timeout = Some(Duration::from_millis(10_000));
 
     let (_tx, mut rx) = match datalink::channel(&interface, config) {
         Ok(Ethernet(tx, rx)) => (tx, rx),

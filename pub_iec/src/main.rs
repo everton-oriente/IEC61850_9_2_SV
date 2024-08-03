@@ -19,7 +19,7 @@ use crc32fast::hash as crc32;
 use chrono::prelude::*;
 
 //Crate that's handle Log
-use log::{info, warn, error};
+use log::info;
 use env_logger;
 
 //Crate Tokio
@@ -616,4 +616,3 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
 
     Ok(())
 }
-

@@ -14,7 +14,6 @@ RUST_LOG=warn: Logs warn, error.
 RUST_LOG=error: Logs only error.
 */
 
-
 use std::{env, vec};
 
 //Synchronism Mechanism
@@ -51,21 +50,12 @@ use crc32fast::hash as crc32;
 use log::{info, warn, error};
 use env_logger;
 
-const N_SAMPLES: u32 = 5;
-
-
-// Publisher 
-use std::f32::consts::PI;
-
+const N_SAMPLES: u32 = 40;
 
 // Const values defined in the Standard IEC61850-9-2
 const TPID: u16 =       0x8100; // TPID for SV in IEC61850-9-2
 const TCI: u16 =        0x8000; // TCI for SV in IEC61850-9-2
 const ETHER_TYPE: u16 = 0x88BA; // EtherType for SV in IEC61850-9-2
-const FREQUENCY: f32 = 50.0; // Frequency of the system
-const AMPLITUDE_VOLTAGE: f32 = 10000.0; // 10kV nominal voltage of the system
-const AMPLITUDE_CURRENT: f32 = 1000.0; // 1kA nominal current of the systemprintln
-
 
 // EthernetFrame structure definition
 #[derive(Debug, Clone, PartialEq)]
@@ -255,8 +245,6 @@ impl ReceivedEthernetFrame {
         frame_received
         
     }
-    
-
     
 }
 
@@ -457,7 +445,6 @@ impl LogicalNode {
         })
     }
 
-
     pub fn extract_v (&self) -> Vec<i32>{
         vec![
             self.i_a[0],
@@ -489,14 +476,9 @@ impl LogicalNode {
     pub fn sum_extracted_q(&self) -> u32 {
         // Extract the values
         let values = self.extract_q();
-
         // Sum the values
-        values.iter().sum()
-        
+        values.iter().sum()   
     }
-
-        
-
 }
 
 // Testing state machine aynchronous
@@ -550,10 +532,6 @@ impl FrameProcessor {
             // Wait for the tick, so the state machine each ticker
             ticker.tick().await;
             info!("System ticked");
-            
-
-            
-            // Here we need to apply our logic to the states the transitions will be handled in the transition function
 
             match self.state {
                 State::Initial => 
@@ -702,7 +680,6 @@ impl FrameProcessor {
             {
                 for i in 0 .. 8  
                 {
-            
                     self.buffer_mu1[i][counter] = magnitude[i];
                     info!("Value of Buffer MU 1 fase: {:?} value: {:?}",i , self.buffer_mu1[i][counter] ); 
                 }
@@ -802,7 +779,6 @@ impl FrameProcessor {
             .sum();
 
         info!("Value of the sum of MU2: {:?}", &sum_y);
-
         let error_x = (sum_x / (N_SAMPLES * 8) as f32).abs();
         info!("Value of error of MU1: {:?}", error_x);
         let error_y = (sum_y / (N_SAMPLES * 8) as f32).abs();
@@ -811,9 +787,6 @@ impl FrameProcessor {
         self.error_percentage = if error_x >= error_y { error_x } else { error_y };
         info!("Value of the error: {:?}", &self.error_percentage);
 
-        //self.state = if self.error_percentage <= 0.25 && self.toggle_mu { State::CompleteCycle } else { State::ToogleMU };
-        
-        
         if self.error_percentage >= 0.25
         {
             if error_x <= error_y
@@ -867,27 +840,8 @@ impl FrameProcessor {
 
 }
 
-
-
 // The publisher function to send SV packets
 async fn publisher(interface: &NetworkInterface, _frame: &EthernetFrame) {
-    //let interface_name = interface_name.trim(); // Trim any whitespace
-    //info!("Looking for interface: '{}'", interface_name);
-
-    //let interfaces = datalink::interfaces();
-
-    // Print all available interfaces for debugging purposes
-    //println!("Available network interfaces:");
-    //for iface in &interfaces {
-    //    info!("Interface: {}, MAC: {:?}", iface.name, iface.mac);
-    //}
-
-    //let interface = interfaces.into_iter()
-     //                         .find(|iface| iface.name == interface_name)
-     //                         .expect("Failed to find the required interface");
-//
-    //println!("Found interface: '{}'", interface.name);
-
     // Create a new channel, dealing with layer 2 packets
     let (mut tx, _rx) = match datalink::channel(&interface, Config::default()) {
         Ok(Ethernet(tx, rx)) => (tx, rx),
@@ -897,51 +851,9 @@ async fn publisher(interface: &NetworkInterface, _frame: &EthernetFrame) {
 
     //let mut increment: u16 = 0; //work as a counter
 
-        let begin = Instant::now();
-        //if increment > 4799
-        //{
-        //    increment = 0;
-        //}
-        
+        let begin = Instant::now();        
         //Create default SV packet
         let inter = interface.clone();
-        //let now = Local::now();
-        //let seconds = now.second() as f32;
-        //let mut sv_packet = create_sv_packet();
-        // Manipulate to change the values of IA,IB,IC,IN,VA,VB,VC,VN
-        //sv_packet.payload.apdu.smp_cnt[0] = sv_packet.payload.apdu.smp_cnt[0].wrapping_add(increment);
-        //if increment > 50 && increment < 100
-        //{
-            // Implement Bad Quality to the samples
-            //println!("bad quality");
-            // The value of 0 is good quality
-            // The value of 1 and 2 is invalid
-            //The value of 3 it is questionable
-            //sv_packet.payload.apdu.logical_node.q_ia[0] = sv_packet.payload.apdu.logical_node.q_ia[0].wrapping_add(1);
-
-        //}
-
-        //if increment > 150 && increment < 200
-        //{
-            // Implement Bad Quality to the samples
-            //println!("bad quality");
-            // The value of 0 is good quality
-            // The value of 1 and 2 is invalid
-            //The value of 3 it is questionable
-            //sv_packet.payload.apdu.logical_node.q_ia[0] = sv_packet.payload.apdu.logical_node.q_ia[0].wrapping_add(3);
-
-        //}
-        // Recalculate the FCS (Frame Check Sequence)
-        //let frame_bytes = sv_packet.to_bytes();
-        //let fcs = crc32(&frame_bytes[..frame_bytes.len() - 4]).to_be_bytes();
-        //sv_packet.fcs = [fcs[0], fcs[1], fcs[2], fcs[3]];
-
-        //sv_packet.payload.apdu.logical_node.i_a = cal_current_phase_a(seconds);
-
-        // Print the SV packet for debugging
-        //println!("SV Packet: {:?}", &sv_packet);
-
-        //let sv_bytes = sv_packet.to_bytes();
         let sv_bytes= _frame.to_bytes(); 
         let _ = tx.send_to(&sv_bytes, Some(inter))
             .expect("Failed to send packet");
@@ -951,9 +863,6 @@ async fn publisher(interface: &NetworkInterface, _frame: &EthernetFrame) {
 
         info!("Time of work of thread is: {:?}", time_reception);
         info!("Frame publish: {:?}", _frame);
-        
-        //sleep(Duration::from_micros(1_000)).await;
-        //sleep(Duration::from_micros(250)).await;
 }
 
 #[tokio::main]
@@ -972,7 +881,6 @@ async fn main() {
         .filter(|iface| iface.name == interface_name_1)
         .next()
         .expect("Could not find the specified network interface");
-
 
         let interface_2 = &interfaces.clone()
         .into_iter()
@@ -993,8 +901,6 @@ async fn main() {
     info!("Listening on interface {}", interface_1.name);
 
     let mut frame_processor = FrameProcessor::new();
-    
-    //let mut frame_processor_mu2 = FrameProcessor::new();
 
     tokio::select! {
         _ = async {
@@ -1029,13 +935,9 @@ async fn main() {
                                     }
                                 },
                                 Err(e) => warn!("Failed to parse Ethernet frame: {:?}", e),
-                            }
-                            
-                            
+                            }     
                         }                     
-                    }
-                    
-                    
+                    }     
                     Err(e) => error!("An error occurred while reading: {}", e),
                 }
                 //let choosen_mu: bool = FrameProcessor::get_toogle_mu(&mut frame_processor).await;
@@ -1043,14 +945,10 @@ async fn main() {
                 let time_reception = begin.elapsed();
 
                 info!("Time of work of thread is: {:?}", time_reception);
-                //sleep(Duration::from_nanos(1)).await;
+                //sleep(Duration::from_micros(1)).await;
             }
         } => {},
-        /*_ = async {
-            let publisher_task = tokio::spawn(publisher(interface_name_2));
 
-            //tokio::try_join!(publisher_task)?;
-        } => {},*/
         _ = signal::ctrl_c() => {
             info!("Received Ctrl+C, shutting down.");
         },
