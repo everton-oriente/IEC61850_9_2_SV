@@ -1,0 +1,728 @@
+\glsdefs@newdocentry{acsi}%
+{%
+name={\acronymfont {\glsentryshort {acsi}}},%
+sort={ACSI},%
+type={acronym},%
+first={ACSI},%
+firstplural={ACSIs},%
+text={ACSI},%
+plural={ACSIs},%
+description={Abstract Communication Service Interface},%
+descriptionplural={Abstract Communication Service Interface},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Abstract Communication Service Interface},%
+longplural={Abstract Communication Service Interfaces},%
+short={ACSI},%
+shortplural={ACSIs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ascii}%
+{%
+name={\acronymfont {\glsentryshort {ascii}}},%
+sort={ASCII},%
+type={acronym},%
+first={ASCII},%
+firstplural={ASCIIs},%
+text={ASCII},%
+plural={ASCIIs},%
+description={American Standard Code for Information Interchange},%
+descriptionplural={American Standard Code for Information Interchange},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={American Standard Code for Information Interchange},%
+longplural={American Standard Code for Information Interchanges},%
+short={ASCII},%
+shortplural={ASCIIs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{cb}%
+{%
+name={\acronymfont {\glsentryshort {cb}}},%
+sort={CB},%
+type={acronym},%
+first={CB},%
+firstplural={CBs},%
+text={CB},%
+plural={CBs},%
+description={Circuit Breaker},%
+descriptionplural={Circuit Breaker},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Circuit Breaker},%
+longplural={Circuit Breakers},%
+short={CB},%
+shortplural={CBs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ct}%
+{%
+name={\acronymfont {\glsentryshort {ct}}},%
+sort={CT},%
+type={acronym},%
+first={CT},%
+firstplural={CTs},%
+text={CT},%
+plural={CTs},%
+description={Current Transformer},%
+descriptionplural={Current Transformer},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Current Transformer},%
+longplural={Current Transformers},%
+short={CT},%
+shortplural={CTs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{goose}%
+{%
+name={\acronymfont {\glsentryshort {goose}}},%
+sort={GOOSE},%
+type={acronym},%
+first={GOOSE},%
+firstplural={GOOSEs},%
+text={GOOSE},%
+plural={GOOSEs},%
+description={Generic Object Oriented Substation Events},%
+descriptionplural={Generic Object Oriented Substation Events},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Generic Object Oriented Substation Events},%
+longplural={Generic Object Oriented Substation Eventss},%
+short={GOOSE},%
+shortplural={GOOSEs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{iec}%
+{%
+name={\acronymfont {\glsentryshort {iec}}},%
+sort={IEC},%
+type={acronym},%
+first={IEC},%
+firstplural={IECs},%
+text={IEC},%
+plural={IECs},%
+description={International Electrotechnical Commission},%
+descriptionplural={International Electrotechnical Commission},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={International Electrotechnical Commission},%
+longplural={International Electrotechnical Commissions},%
+short={IEC},%
+shortplural={IECs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ied}%
+{%
+name={\acronymfont {\glsentryshort {ied}}},%
+sort={IED},%
+type={acronym},%
+first={IED},%
+firstplural={IEDs},%
+text={IED},%
+plural={IEDs},%
+description={Intelligent Electronic Devices},%
+descriptionplural={Intelligent Electronic Devices},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Intelligent Electronic Devices},%
+longplural={Intelligent Electronic Devicess},%
+short={IED},%
+shortplural={IEDs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ieee}%
+{%
+name={\acronymfont {\glsentryshort {ieee}}},%
+sort={IEEE},%
+type={acronym},%
+first={IEEE},%
+firstplural={IEEEs},%
+text={IEEE},%
+plural={IEEEs},%
+description={Institute of Electrical and Electronic Engineers},%
+descriptionplural={Institute of Electrical and Electronic Engineers},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Institute of Electrical and Electronic Engineers},%
+longplural={Institute of Electrical and Electronic Engineerss},%
+short={IEEE},%
+shortplural={IEEEs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{irigb}%
+{%
+name={\acronymfont {\glsentryshort {irigb}}},%
+sort={IRIG-B},%
+type={acronym},%
+first={IRIG-B},%
+firstplural={IRIG-Bs},%
+text={IRIG-B},%
+plural={IRIG-Bs},%
+description={Inter-Range Instrumentation Group},%
+descriptionplural={Inter-Range Instrumentation Group},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Inter-Range Instrumentation Group},%
+longplural={Inter-Range Instrumentation Groups},%
+short={IRIG-B},%
+shortplural={IRIG-Bs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ip}%
+{%
+name={\acronymfont {\glsentryshort {ip}}},%
+sort={IP},%
+type={acronym},%
+first={IP},%
+firstplural={IPs},%
+text={IP},%
+plural={IPs},%
+description={Internet Protocol},%
+descriptionplural={Internet Protocol},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Internet Protocol},%
+longplural={Internet Protocols},%
+short={IP},%
+shortplural={IPs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{lan}%
+{%
+name={\acronymfont {\glsentryshort {lan}}},%
+sort={LAN},%
+type={acronym},%
+first={LAN},%
+firstplural={LANs},%
+text={LAN},%
+plural={LANs},%
+description={Local Area Network},%
+descriptionplural={Local Area Network},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Local Area Network},%
+longplural={Local Area Networks},%
+short={LAN},%
+shortplural={LANs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ld}%
+{%
+name={\acronymfont {\glsentryshort {ld}}},%
+sort={LD},%
+type={acronym},%
+first={LD},%
+firstplural={LDs},%
+text={LD},%
+plural={LDs},%
+description={Logical Device},%
+descriptionplural={Logical Device},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Logical Device},%
+longplural={Logical Devices},%
+short={LD},%
+shortplural={LDs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ln}%
+{%
+name={\acronymfont {\glsentryshort {ln}}},%
+sort={LN},%
+type={acronym},%
+first={LN},%
+firstplural={LNs},%
+text={LN},%
+plural={LNs},%
+description={Logical Node},%
+descriptionplural={Logical Node},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Logical Node},%
+longplural={Logical Nodes},%
+short={LN},%
+shortplural={LNs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{mms}%
+{%
+name={\acronymfont {\glsentryshort {mms}}},%
+sort={MMS},%
+type={acronym},%
+first={MMS},%
+firstplural={MMSs},%
+text={MMS},%
+plural={MMSs},%
+description={Manufacturing Message Specification},%
+descriptionplural={Manufacturing Message Specification},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Manufacturing Message Specification},%
+longplural={Manufacturing Message Specifications},%
+short={MMS},%
+shortplural={MMSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{os}%
+{%
+name={\acronymfont {\glsentryshort {os}}},%
+sort={OS},%
+type={acronym},%
+first={OS},%
+firstplural={OSs},%
+text={OS},%
+plural={OSs},%
+description={Operating System},%
+descriptionplural={Operating System},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Operating System},%
+longplural={Operating Systems},%
+short={OS},%
+shortplural={OSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ptp}%
+{%
+name={\acronymfont {\glsentryshort {ptp}}},%
+sort={PTP},%
+type={acronym},%
+first={PTP},%
+firstplural={PTPs},%
+text={PTP},%
+plural={PTPs},%
+description={Precision Time Protocol},%
+descriptionplural={Precision Time Protocol},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Precision Time Protocol},%
+longplural={Precision Time Protocols},%
+short={PTP},%
+shortplural={PTPs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{rtos}%
+{%
+name={\acronymfont {\glsentryshort {rtos}}},%
+sort={RTOS},%
+type={acronym},%
+first={RTOS},%
+firstplural={RTOSs},%
+text={RTOS},%
+plural={RTOSs},%
+description={Real-Time Operating System},%
+descriptionplural={Real-Time Operating System},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Real-Time Operating System},%
+longplural={Real-Time Operating Systems},%
+short={RTOS},%
+shortplural={RTOSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sas}%
+{%
+name={\acronymfont {\glsentryshort {sas}}},%
+sort={SAS},%
+type={acronym},%
+first={SAS},%
+firstplural={SASs},%
+text={SAS},%
+plural={SASs},%
+description={Substation Automation Systems},%
+descriptionplural={Substation Automation Systems},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Substation Automation Systems},%
+longplural={Substation Automation Systemss},%
+short={SAS},%
+shortplural={SASs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{scada}%
+{%
+name={\acronymfont {\glsentryshort {scada}}},%
+sort={SCADA},%
+type={acronym},%
+first={SCADA},%
+firstplural={SCADAs},%
+text={SCADA},%
+plural={SCADAs},%
+description={Supervisory Control and Data Acquisition},%
+descriptionplural={Supervisory Control and Data Acquisition},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Supervisory Control and Data Acquisition},%
+longplural={Supervisory Control and Data Acquisitions},%
+short={SCADA},%
+shortplural={SCADAs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{scl}%
+{%
+name={\acronymfont {\glsentryshort {scl}}},%
+sort={SCL},%
+type={acronym},%
+first={SCL},%
+firstplural={SCLs},%
+text={SCL},%
+plural={SCLs},%
+description={Substation Configuration description Language},%
+descriptionplural={Substation Configuration description Language},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Substation Configuration description Language},%
+longplural={Substation Configuration description Languages},%
+short={SCL},%
+shortplural={SCLs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{scsm}%
+{%
+name={\acronymfont {\glsentryshort {scsm}}},%
+sort={SCSM},%
+type={acronym},%
+first={SCSM},%
+firstplural={SCSMs},%
+text={SCSM},%
+plural={SCSMs},%
+description={Specific Communication Service Mapping},%
+descriptionplural={Specific Communication Service Mapping},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Specific Communication Service Mapping},%
+longplural={Specific Communication Service Mappings},%
+short={SCSM},%
+shortplural={SCSMs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sw}%
+{%
+name={\acronymfont {\glsentryshort {sw}}},%
+sort={SW},%
+type={acronym},%
+first={SW},%
+firstplural={SWs},%
+text={SW},%
+plural={SWs},%
+description={Disconnector},%
+descriptionplural={Disconnector},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Disconnector},%
+longplural={Disconnectors},%
+short={SW},%
+shortplural={SWs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sv}%
+{%
+name={\acronymfont {\glsentryshort {sv}}},%
+sort={SV},%
+type={acronym},%
+first={SV},%
+firstplural={SVs},%
+text={SV},%
+plural={SVs},%
+description={Sampled-Values},%
+descriptionplural={Sampled-Values},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Sampled-Values},%
+longplural={Sampled-Valuess},%
+short={SV},%
+shortplural={SVs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{tcp}%
+{%
+name={\acronymfont {\glsentryshort {tcp}}},%
+sort={TCP},%
+type={acronym},%
+first={TCP},%
+firstplural={TCPs},%
+text={TCP},%
+plural={TCPs},%
+description={Transmission Control Protocol},%
+descriptionplural={Transmission Control Protocol},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Transmission Control Protocol},%
+longplural={Transmission Control Protocols},%
+short={TCP},%
+shortplural={TCPs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{udp}%
+{%
+name={\acronymfont {\glsentryshort {udp}}},%
+sort={UDP},%
+type={acronym},%
+first={UDP},%
+firstplural={UDPs},%
+text={UDP},%
+plural={UDPs},%
+description={User Datagram Protocol},%
+descriptionplural={User Datagram Protocol},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={User Datagram Protocol},%
+longplural={User Datagram Protocols},%
+short={UDP},%
+shortplural={UDPs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{vt}%
+{%
+name={\acronymfont {\glsentryshort {vt}}},%
+sort={VT},%
+type={acronym},%
+first={VT},%
+firstplural={VTs},%
+text={VT},%
+plural={VTs},%
+description={Voltage Transformer},%
+descriptionplural={Voltage Transformer},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Voltage Transformer},%
+longplural={Voltage Transformers},%
+short={VT},%
+shortplural={VTs},%
+counter={page},%
+parent={},%
+%
+}%
+

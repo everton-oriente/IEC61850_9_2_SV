@@ -1,0 +1,81 @@
+% Chapter 7
+
+\chapter{Conclusion} % Main chapter title
+
+\label{chap:Chapter7} % For referencing the chapter elsewhere, use \ref{chap:Chapter7} 
+
+%----------------------------------------------------------------------------------------
+\section{Limitations}
+
+This project has its limitations, as the typical environment for a Merging Unit involves fiber optic communications at rates of 1 Gbps or higher, along with switches capable of high transfer rates and extremely low latencies. These conditions are crucial because Merging Units need to deliver samples every 250 microseconds. As a result, the latency must be less than this value to ensure timely packet delivery. However, in this setup, the time between sending and receiving packets exceeds 250 microseconds. Although the publisher transmits information every 250 microseconds, the subscriber receives it after a longer delay due to the latency of the setup I was able to develop. While no packets are lost, the reading speed is slower than desired, with the subscriber receiving data beyond the 250-microsecond target.
+
+Another limitation is the synchronization between the publisher and the subscriber. Currently, the devices are synchronized via Network Time Protocol (NTP), providing minimal synchronization. However, the error margin with NTP is about 1 millisecond. Since we are dealing with samples in the microsecond range, NTP does not offer the precision required for accurate synchronization. Achieving higher precision would require the implementation of Precision Time Protocol (PTP), which provides resolution in the nanosecond range.
+
+Finally, there is a hardware platform limitation. The devices used were a Jetson Nano 4GB and a personal computer, both of which come with inherent performance constraints, especially concerning Ethernet network performance. In both cases, it was necessary to add a USB-to-Ethernet adapter to provide two Ethernet ports for communication between the publisher/algorithm and the algorithm/subscriber.
+
+
+
+\section{Conclusions and Final Considerations}
+
+This project originated from a critical need in the energy industry. As substations evolve into the digital age, merging units have been introduced to digitize the acquisition of current and voltage measurements. Today, redundancy in communication networks ensures that if one network fails, data samples and communications seamlessly continue over an alternate network, safeguarding the integrity of the substation's protection systems.
+
+Similarly, the concept of redundancy was applied to Sampled Values (SVs). Two different devices acquire the same analog data and publish it digitally. In this setup, two merging units simultaneously measure the same current and voltage transformers and publish the data. This enables the protection system to select one of the two samples for its algorithms, discarding the other. Currently, no selection mechanism exists, and only the first merging unit’s sample is used. The second unit’s sample is only considered if the first fails.
+
+In response to these market challenges, this thesis focused on developing an algorithm that selects the best sample from two merging units measuring the same physical quantities, such as current and voltage, rather than defaulting to one unit. By comparing and choosing the optimal signal, the system not only provides a reliable backup but also improves the accuracy and efficiency of protective relays. This approach enhances decision-making in electrical protection systems, ultimately improving overall reliability and performance.
+
+The development of a publisher and subscriber became necessary due to the lack of existing libraries for the IEC61850 protocol. This project opens the door for the use of the RUST programming language in creating digital-era equipment like Merging Units and Protection Relays. During my research, I found libraries available in languages such as C/C++, C\#, Java, Python, and Go. However, since no library existed for RUST, it was essential to build these components from the ground up, resulting in a solid and well-structured foundation that adheres to the IEC61850 standard.
+
+The features implemented cover the core functionality of a Merging Unit, including the reading of analog values, which are automatically generated based on time with a fixed amplitude. This allows for value emulation, with the possibility of integrating an ADC (Analog to Digital Converter) in the future for real analog acquisition. The system also includes the creation and transmission of SV packets, though it currently lacks a more accurate time synchronization protocol. Presently, the setup uses NTP for time acquisition, but PTP, which offers greater precision and complies with IEC61850-9-2, would be the ideal solution.
+
+In terms of protection relays, basic functionality was established, including the reception of SV packets. However, further development is needed to create a fully functional protection relay. The starting point for such a device is acquiring the SVs, after which data processing, protection algorithms, and the necessary actions, like operating the circuit breaker, can be applied.
+
+In summary, this project represents a major step toward developing a system that, with further refinement, could be transformed into a product ready for use in the energy industry. These two components play key roles in the operation, maintenance, and prevention of issues within substations. This project introduces a new way of developing products using a previously untapped language in this domain, offering substantial value to the broader community.
+
+\section{Future Work}
+
+\subsection{Add an ADC to acquire values of Voltage Transformer and Current Transformer}
+
+According to (~\cite{laporte2024adc}), the authors examine the challenge of determining the appropriate resolution for an Analog-to-Digital Converter (ADC) when simultaneously receiving two signals of varying power levels—one weak and one strong. Traditionally, ADC performance is evaluated based on the digitization of a single signal, where quantization noise and the signal-to-noise ratio (SNR) are the primary concerns. However, this approach does not fully capture the complexity of scenarios where two signals with a large dynamic range are present, which is increasingly relevant in modern communication systems like the Internet of Things (IoT).
+
+The (~\cite{laporte2024adc}) critiques previous methods of evaluating ADC resolution, particularly formulas designed for single-signal reception, which often underestimate the impact of a second, stronger signal on the ADC’s performance. It also evaluates an existing technique that provides overestimated resolution requirements when two signals are processed, indicating a gap in accuracy. To address these limitations, the authors propose a novel method to calculate the required ADC resolution, focusing on how the interaction between the weak and strong signals can actually enhance the dynamic range, allowing for better performance than predicted by older models.
+
+Through mathematical analysis and simulations, the paper demonstrates that the required resolution for an ADC increases when dealing with two signals compared to a single signal. This is because the weaker signal must be accurately detected in the presence of the stronger one, a task complicated by the ADC's finite dynamic range. The authors show that their proposed method provides a more accurate evaluation of the necessary resolution, resulting in a dynamic range that exceeds the theoretical limits for a single-tone signal(~\cite{laporte2024adc}).
+
+Furthermore, the paper discusses how this enhanced dynamic range, though beneficial, is still not sufficient for many modern applications, particularly in the IoT domain, where systems may require dynamic ranges of up to 130 dB. Current ADC technology, limited to 12 or 14 bits of resolution, cannot achieve such high performance. The authors suggest that alternative methods, such as companding techniques, might be necessary to overcome these limitations in future ADC designs(~\cite{laporte2024adc}).
+
+This article provides a comprehensive analysis of ADC resolution in dual-signal scenarios, offering valuable guidance for designing ADCs with improved dynamic range performance, especially in systems where both weak and strong signals are processed simultaneously, which has application in our scenario(~\cite{laporte2024adc}).
+
+
+\subsection{Add a PTP server regarding the IEC61850-9-3-PTP}
+
+Substations have evolved over the years and transitioned into the digital era, synchronization protocols have become increasingly essential to ensure the proper alignment of IED (Intelligent Electronic Device) events. This synchronization allows for an accurate understanding of the event sequence in case of a fault, providing clarity on what occurred at the substation. When all devices are synchronized to a common time source, it becomes possible to interpret events chronologically. The introduction of the IEC 61850 protocol established several options for generating the master clock, including IRIG-B, DCF 77, 1PPS, Serial ASCII, NTP, and PTP.
+
+Among these, only NTP and PTP can use the existing Ethernet network for synchronization, while the others require separate electrical wiring. This made NTP popular and widely adopted as a "standard" synchronization protocol because it leverages the same Ethernet network used by IEC 61850 and offers sufficient resolution with millisecond accuracy, which was adequate for most substation applications before the advent of Merging Units. NTP was sufficient for other substation events like GOOSE, MMS, and signaling.
+
+However, the introduction of PTP (Precision Time Protocol) brought higher precision, which became necessary with the use of Sampled Values, Synchrophasor measurements, and Travelling Wave Fault Location. These applications demand precision at the level of 100 microseconds or better, down to 1 microsecond, with PTP providing nanosecond-level accuracy. Consequently, PTP became essential for synchronization only after these advanced applications were implemented, and it was incorporated into the IEC 61850 standard starting in 2015. Further improvements were made with PTPv3 in 2019, which is compatible with PTPv2.
+
+Looking ahead, there is an opportunity to enhance this project by implementing PTP to align the publisher with the IEC 61850-9-3 protocol. This will ensure the required time resolution for the Sampled Values published by the merging unit developed in this thesis (~\cite{baumgartner2024iec}).
+			
+\subsection{Implement a more secure Sampled Value (SV) packet in modern substations}
+
+SV packets are critical in IEC 61850 substation automation systems (SAS), used to transmit digitized current and voltage measurements between various devices, such as Merging Units (MUs), Protection IEDs, and Control IEDs. These packets enable real-time decision-making to protect and control the grid infrastructure. However, as modern substations adopt networked communication, SV packets are exposed to various cybersecurity risks. Vulnerabilities, such as replay attacks and masquerade attacks, pose significant threats to the integrity of these messages, potentially leading to malfunctions in protection relays and equipment failures(~\cite{hussain2024security}).
+
+The need for secure SV messages in automated substations stems from the following requirements:
+\begin{itemize}
+	\item Confidentiality: Ensuring that the data in SV packets cannot be accessed or altered by unauthorized entities.
+	\item Integrity: Guaranteeing that the SV packet content has not been tampered with during transmission.
+	\item Authentication: Confirming that the SV message originated from a legitimate source. 
+	\item Timeliness: Ensuring that security measures do not introduce delays that would impact the system's ability to respond to faults in real-time(~\cite{hussain2024security}).
+\end{itemize}
+
+So implement a more secure way the SV packets is possible thorugh this 4 principles, Message Authentication Code (MAC), Encryption of SV Payload, Timestapping for replay attack mitigation and extension fields for security mechanism following by order:
+\begin{itemize}
+	\item Message Authentication Codes (MAC): A Message Authentication Code (MAC) provides a way to ensure both the integrity and authentication of SV messages. A MAC is generated using a cryptographic algorithm based on the contents of the message and a shared secret key between the publisher (Merging Unit) and subscriber (Protection IED)(~\cite{hussain2024security}).
+	\item Encryption of SV Payload: Encryption ensures confidentiality, preventing unauthorized entities from reading the SV message contents. Advanced Encryption Standard (AES-GCM) is recommended for securing SV messages, as it supports both encryption and authentication in one operation(~\cite{hussain2024security}).
+	\item Timestamping for Replay Attack Mitigation: Replay attacks involve capturing legitimate SV packets and resending them to trick the system into accepting outdated data as current. To mitigate this, each SV message must carry a timestamp that reflects the time the message was created(~\cite{hussain2024security}).
+	\item Extension Fields for Security Mechanisms: Modifications to the SV message frame are required to support these security mechanisms. The IEC 61850-9-2 message format allows for an Extension field, which can be used to carry MAC values, encrypted payloads, and timestamps(~\cite{hussain2024security}).
+\end{itemize}
+
+Implementing a secure SV messaging scheme in IEC 61850 substations is essential to protect against modern cyber threats like replay and masquerade attacks. The combination of MAC for integrity and authentication, AES-GCM for encryption, and timestamping for replay attack prevention ensures that SV packets are protected against tampering and unauthorized access. While these enhancements increase the packet size and computational overhead, tests show that they can be implemented without compromising the real-time performance of protection systems. With the right key management practices and adherence to the IEC 62351 standard, secure SV messaging can significantly enhance the resilience and safety of automated substations(~\cite{hussain2024security}).
+
+

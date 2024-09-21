@@ -1,0 +1,26 @@
+
+    pub fn modify_sv_packet(frame: &EthernetFrame) -> EthernetFrame{
+        let destination =   frame.destination;
+        let source =        frame.source;
+        let tpid =              TPID;
+        let tci =               TCI;
+        let ethertype =         frame.ethertype;
+        let payload =         frame.payload.clone();
+        let fcs =           frame.fcs;
+        let mut frame_received = EthernetFrame {
+            destination,
+            source,
+            tpid,
+            tci,
+            ethertype,
+            payload,
+            fcs, // Temporary FCS
+        };
+
+    // Calculate the FCS using crc32fast
+    let frame_bytes = frame_received.to_bytes();
+    let fcs = crc32(&frame_bytes[..frame_bytes.len() - 4]).to_be_bytes();
+    frame_received.fcs = [fcs[0], fcs[1], fcs[2], fcs[3]];
+
+    frame_received
+    }

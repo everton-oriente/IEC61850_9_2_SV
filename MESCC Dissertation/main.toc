@@ -1,0 +1,91 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{List of Figures}{xv}{section*.7}%
+\contentsline {chapter}{List of Source Code}{xvii}{section*.9}%
+\contentsline {chapter}{List of Abbreviations}{xix}{section*.11}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.13}%
+\contentsline {section}{\numberline {1.1}Overview}{1}{section.14}%
+\contentsline {section}{\numberline {1.2}Digital Substation}{2}{section.17}%
+\contentsline {section}{\numberline {1.3}Research Motivation and Context}{4}{section.18}%
+\contentsline {section}{\numberline {1.4}Research Objectives}{5}{section.19}%
+\contentsline {section}{\numberline {1.5}Research Contributions}{5}{section.20}%
+\contentsline {section}{\numberline {1.6}Thesis Structure}{5}{section.21}%
+\contentsline {chapter}{\numberline {2}State of the Art}{7}{chapter.22}%
+\contentsline {section}{\numberline {2.1}Introduction to Substation Automation System}{7}{section.23}%
+\contentsline {section}{\numberline {2.2}Backyard System}{8}{section.26}%
+\contentsline {subsection}{\numberline {2.2.1}Circuit Breakers}{8}{subsection.27}%
+\contentsline {subsection}{\numberline {2.2.2}Switches}{9}{subsection.28}%
+\contentsline {subsection}{\numberline {2.2.3}Voltage Transformers}{9}{subsection.29}%
+\contentsline {subsection}{\numberline {2.2.4}Current Transformers}{9}{subsection.30}%
+\contentsline {section}{\numberline {2.3}Intelligent Electronic Devices}{9}{section.31}%
+\contentsline {subsection}{\numberline {2.3.1}Protection Alghorithm System}{10}{subsection.32}%
+\contentsline {subsection}{\numberline {2.3.2}Control System}{10}{subsection.33}%
+\contentsline {subsection}{\numberline {2.3.3}Measurement}{10}{subsection.34}%
+\contentsline {subsection}{\numberline {2.3.4}Monitoring}{11}{subsection.35}%
+\contentsline {subsection}{\numberline {2.3.5}Communication Protocols}{11}{subsection.36}%
+\contentsline {section}{\numberline {2.4}Overview of IEC~61850}{12}{section.38}%
+\contentsline {subsection}{\numberline {2.4.1}IEC 61850-1 - Introduction and Overview}{12}{subsection.39}%
+\contentsline {subsection}{\numberline {2.4.2}IEC 61850-2 - Glossary}{13}{subsection.40}%
+\contentsline {subsection}{\numberline {2.4.3}IEC 61850-3 - General Requirement}{13}{subsection.41}%
+\contentsline {subsection}{\numberline {2.4.4}IEC 61850-4 - System and Project Management}{13}{subsection.42}%
+\contentsline {subsection}{\numberline {2.4.5}IEC 61850-5 - Communication Requirements for Functions and Device Models}{13}{subsection.43}%
+\contentsline {subsection}{\numberline {2.4.6}IEC 61850-6 - Configuration Language for Communication in Electrical Substations}{13}{subsection.44}%
+\contentsline {subsection}{\numberline {2.4.7}IEC 61850-7 - Basic Communication Structure}{13}{subsection.45}%
+\contentsline {subsection}{\numberline {2.4.8}IEC 61850-8 - Specific Communication Service Mapping (SCSM)}{13}{subsection.46}%
+\contentsline {subsection}{\numberline {2.4.9}IEC 61850-9 - Specific Communication Service Mapping (SCSM)}{14}{subsection.47}%
+\contentsline {subsection}{\numberline {2.4.10}IEC 61850-10 - Conformance Testing}{14}{subsection.48}%
+\contentsline {section}{\numberline {2.5}IEC 61850-9-2 Sampled Values (SV)}{14}{section.49}%
+\contentsline {subsection}{\numberline {2.5.1}IEC 60044-8/2002}{14}{subsection.50}%
+\contentsline {subsection}{\numberline {2.5.2}IEC~61850-9-1/2003}{15}{subsection.53}%
+\contentsline {subsection}{\numberline {2.5.3}IEC~61850-9-2(Ed1)/2004}{15}{subsection.54}%
+\contentsline {subsection}{\numberline {2.5.4}IEC 61850-9-2 Ed2/2011}{16}{subsection.55}%
+\contentsline {subsection}{\numberline {2.5.5}IEC 61869-9/2016}{17}{subsection.56}%
+\contentsline {subsection}{\numberline {2.5.6}IEC~61850-9-2 Ed2.1/2020}{17}{subsection.59}%
+\contentsline {chapter}{\numberline {3}Research Topic}{19}{chapter.62}%
+\contentsline {section}{\numberline {3.1}Architecture of the Algorithm}{19}{section.63}%
+\contentsline {section}{\numberline {3.2}Identification of the research gap}{20}{section.66}%
+\contentsline {subsection}{\numberline {3.2.1}Existing Literature and Related Research}{21}{subsection.67}%
+\contentsline {subsection}{\numberline {3.2.2}Identification of the Gap}{21}{subsection.68}%
+\contentsline {subsection}{\numberline {3.2.3}Importance of Addressing the Gap}{21}{subsection.69}%
+\contentsline {subsection}{\numberline {3.2.4}Conclusion of the research gap}{21}{subsection.70}%
+\contentsline {chapter}{\numberline {4}Implementation}{23}{chapter.71}%
+\contentsline {section}{\numberline {4.1}Overview}{23}{section.72}%
+\contentsline {section}{\numberline {4.2}Development of the Algorithm}{23}{section.73}%
+\contentsline {subsection}{\numberline {4.2.1}Hardware}{24}{subsection.74}%
+\contentsline {subsection}{\numberline {4.2.2}Software}{25}{subsection.75}%
+\contentsline {subsection}{\numberline {4.2.3}Cargo}{26}{subsection.76}%
+\contentsline {subsection}{\numberline {4.2.4}Crates}{27}{subsection.77}%
+\contentsline {subsection}{\numberline {4.2.5}Tokio Crate}{28}{subsection.78}%
+\contentsline {subsection}{\numberline {4.2.6}Serde Crate}{29}{subsection.80}%
+\contentsline {subsection}{\numberline {4.2.7}Crc32Fast Crate}{29}{subsection.82}%
+\contentsline {subsection}{\numberline {4.2.8}Pnet Crate}{30}{subsection.84}%
+\contentsline {subsection}{\numberline {4.2.9}Log Crate}{30}{subsection.86}%
+\contentsline {subsection}{\numberline {4.2.10}Env\_Logger Crate}{31}{subsection.88}%
+\contentsline {subsection}{\numberline {4.2.11}Chrono}{31}{subsection.90}%
+\contentsline {section}{\numberline {4.3}Algorithm for Selecting the Best Sampled Values (SV's)}{31}{section.92}%
+\contentsline {subsection}{\numberline {4.3.1}Results}{34}{subsection.96}%
+\contentsline {chapter}{\numberline {5}Development of Algorithm}{37}{chapter.97}%
+\contentsline {section}{\numberline {5.1}Structure of Sampled Values}{37}{section.98}%
+\contentsline {section}{\numberline {5.2}Development of a Publisher of IEC~61850-9-2-SV}{38}{section.102}%
+\contentsline {subsection}{\numberline {5.2.1}Structuring the Data: Defining Rust Structs}{39}{subsection.103}%
+\contentsline {subsection}{\numberline {5.2.2}Implementing the Core Functions}{40}{subsection.163}%
+\contentsline {subsection}{\numberline {5.2.3}Simulating an Electrical Grid Signal}{40}{subsection.179}%
+\contentsline {subsection}{\numberline {5.2.4}Introducing Invalid Samples for Testing}{41}{subsection.192}%
+\contentsline {subsection}{\numberline {5.2.5}Finalizing the Publisher}{41}{subsection.203}%
+\contentsline {section}{\numberline {5.3}Development of a Subscriber of IEC~61850-9-2-SV}{42}{section.204}%
+\contentsline {subsection}{\numberline {5.3.1}Structs Reused in the Subscriber}{42}{subsection.205}%
+\contentsline {subsection}{\numberline {5.3.2}Implementation of Data Reception and Logging}{42}{subsection.219}%
+\contentsline {subsection}{\numberline {5.3.3}Error Handling and Invalid Data Processing}{42}{subsection.220}%
+\contentsline {subsection}{\numberline {5.3.4}Finalizing the Subscriber}{43}{subsection.221}%
+\contentsline {section}{\numberline {5.4}Development of the Algorithm}{43}{section.222}%
+\contentsline {chapter}{\numberline {6}Tests and Evaluation}{47}{chapter.252}%
+\contentsline {section}{\numberline {6.1}Test of Publisher of IEC~61850-9-2-SV}{47}{section.253}%
+\contentsline {section}{\numberline {6.2}Test of Subscriber of IEC~61850-9-2-SV}{50}{section.260}%
+\contentsline {section}{\numberline {6.3}Test of the Algorithm}{52}{section.263}%
+\contentsline {chapter}{\numberline {7}Conclusion}{55}{chapter.264}%
+\contentsline {section}{\numberline {7.1}Limitations}{55}{section.265}%
+\contentsline {section}{\numberline {7.2}Conclusions and Final Considerations}{55}{section.266}%
+\contentsline {section}{\numberline {7.3}Future Work}{56}{section.267}%
+\contentsline {subsection}{\numberline {7.3.1}Add an ADC to acquire values of Voltage Transformer and Current Transformer}{56}{subsection.268}%
+\contentsline {subsection}{\numberline {7.3.2}Add a PTP server regarding the IEC61850-9-3-PTP}{57}{subsection.269}%
+\contentsline {subsection}{\numberline {7.3.3}Implement a more secure Sampled Value (SV) packet in modern substations}{58}{subsection.270}%
+\contentsline {chapter}{Bibliography}{61}{chapter*.271}%

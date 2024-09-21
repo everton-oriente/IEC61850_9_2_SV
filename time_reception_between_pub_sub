@@ -1,0 +1,15 @@
+Sended by the Publisher
+
+[2024-08-04T11:27:35Z INFO  pub_iec] The frame has been sended at time: 2024-08-04T12:27:35.826939482+01:00
+[2024-08-04T11:27:35Z INFO  pub_iec] Message publish: [1, 12, 205, 4, 255, 255, 0, 26, 17, 0, 0, 1, 129, 0, 128, 0, 136, 186, 64, 1, 0, 102, 0, 0, 0, 0, 96, 92, 128, 1, 1, 162, 87, 48, 85, 128, 4, 52, 48, 48, 49, 130, 2, 7, 36, 131, 4, 0, 0, 0, 1, 133, 1, 1, 135, 64, 0, 0, 3, 98, 0, 0, 0, 0, 255, 255, 252, 158, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 202, 0, 0, 0, 0, 255, 255, 222, 33, 0, 0, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 127, 183, 222, 7]
+
+
+
+
+
+REceived in the subscriber/Protection
+
+The frame has been received at time: 2024-08-04T12:27:36.062362179+01:00
+[2024-08-04T11:27:36Z INFO  sub_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [1828], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [866], q_ia: [0], i_b: [-866], q_ib: [0], i_c: [1], q_ic: [0], i_n: [0], q_in: [0], v_a: [8650], q_va: [0], v_b: [-8671], q_vb: [0], v_c: [26], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [127, 183, 222, 7] }
+
+the time between them is : 235.422697ms

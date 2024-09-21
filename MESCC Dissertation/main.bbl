@@ -1,0 +1,1342 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{IEC61850_GE}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fd4608fcff3f4accbf645f25d8fbd11b}{%
+           family={Adamiak},
+           familyi={A\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ca62ef791748a980f4173645712ae3f4}{%
+           family={Baigent},
+           familyi={B\bibinitperiod},
+           given={Drew},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=2,uniquepart=given,hash=b15358587982fdb1bf97ff1c41825923}{%
+           family={Mackiewicz},
+           familyi={M\bibinitperiod},
+           given={Ralph},
+           giveni={R\bibinitperiod},
+           givenun=2}}%
+      }
+      \strng{namehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
+      \strng{fullhash}{2a3e1b09ecf52d45087ad07fbf24ba70}
+      \strng{bibnamehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
+      \strng{authorbibnamehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
+      \strng{authornamehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
+      \strng{authorfullhash}{2a3e1b09ecf52d45087ad07fbf24ba70}
+      \field{extraname}{1}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Protection \& Control Journal}
+      \field{title}{IEC 61850 Communication Networks and Systems In Substations: An Overview for Users}
+      \field{year}{2009}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.gegridsolutions.com/multilin/journals/issues/spring09/iec61850.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.gegridsolutions.com/multilin/journals/issues/spring09/iec61850.pdf
+      \endverb
+    \endentry
+    \entry{adamiak2019iec}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fd4608fcff3f4accbf645f25d8fbd11b}{%
+           family={Adamiak},
+           familyi={A\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ca62ef791748a980f4173645712ae3f4}{%
+           family={Baigent},
+           familyi={B\bibinitperiod},
+           given={Drew},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=2,uniquepart=given,hash=b15358587982fdb1bf97ff1c41825923}{%
+           family={Mackiewicz},
+           familyi={M\bibinitperiod},
+           given={Ralph},
+           giveni={R\bibinitperiod},
+           givenun=2}}%
+      }
+      \strng{namehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
+      \strng{fullhash}{2a3e1b09ecf52d45087ad07fbf24ba70}
+      \strng{bibnamehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
+      \strng{authorbibnamehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
+      \strng{authornamehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
+      \strng{authorfullhash}{2a3e1b09ecf52d45087ad07fbf24ba70}
+      \field{extraname}{2}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{IEC 61850 Communication Networks and Systems in Substations: An Overview for Users}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.gevernova.com/grid-solutions/multilin/journals/issues/spring09/iec61850.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.gevernova.com/grid-solutions/multilin/journals/issues/spring09/iec61850.pdf
+      \endverb
+    \endentry
+    \entry{baumgartner2024iec}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=145b426f058a44c14581312b7c559fda}{%
+           family={Baumgartner},
+           familyi={B\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d0c6a47b5ccc8e0042e2c04f516e28b}{%
+           family={Riesch},
+           familyi={R\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=634a39cf0e780a75ca738fc7997badd4}{%
+           family={Schenk},
+           familyi={S\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{396c001eff03284de41e718406a8fc8a}
+      \strng{fullhash}{396c001eff03284de41e718406a8fc8a}
+      \strng{bibnamehash}{396c001eff03284de41e718406a8fc8a}
+      \strng{authorbibnamehash}{396c001eff03284de41e718406a8fc8a}
+      \strng{authornamehash}{396c001eff03284de41e718406a8fc8a}
+      \strng{authorfullhash}{396c001eff03284de41e718406a8fc8a}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labeldatesource}{nodate}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{IEC 61850-9-3: Will Simplicity Supersede Complexity?}
+      \verb{urlraw}
+      \verb https://www.omicron-lab.com/fileadmin/assets/Precision-Timing/Knowledge_Applications/Article_IEC_61850-9-3/IEC_61850-9-3_-_Will_simplicity_supersede_complexity_.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.omicron-lab.com/fileadmin/assets/Precision-Timing/Knowledge_Applications/Article_IEC_61850-9-3/IEC_61850-9-3_-_Will_simplicity_supersede_complexity_.pdf
+      \endverb
+    \endentry
+    \entry{edisonperformance}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=19f6c98bfcafb34bba6003dab98c6fe5}{%
+           family={Bettler},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7f42c337d0b1d41d081b94dfeec1112f}{%
+           family={Mcdaniel},
+           familyi={M\bibinitperiod},
+           given={Ryan},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=936587d9401f4d913b1a81dc7521d0be}{%
+           family={Bowen},
+           familyi={B\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3a2c8a71be8135681a9fed3198fc4ccb}
+      \strng{fullhash}{3a2c8a71be8135681a9fed3198fc4ccb}
+      \strng{bibnamehash}{3a2c8a71be8135681a9fed3198fc4ccb}
+      \strng{authorbibnamehash}{3a2c8a71be8135681a9fed3198fc4ccb}
+      \strng{authornamehash}{3a2c8a71be8135681a9fed3198fc4ccb}
+      \strng{authorfullhash}{3a2c8a71be8135681a9fed3198fc4ccb}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{49th Annual Western Protective Relay Conference}
+      \field{title}{Performance of IEC 61850 Sampled Values Relays for a Real-World Fault}
+      \field{year}{2022}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://esic.wsu.edu/documents/2023/10/western-protective-relay-conference-2022-performance-of-iec-61850-sampled-values-relays-for-a-real-world-fault.pdf/
+      \endverb
+      \verb{url}
+      \verb https://esic.wsu.edu/documents/2023/10/western-protective-relay-conference-2022-performance-of-iec-61850-sampled-values-relays-for-a-real-world-fault.pdf/
+      \endverb
+    \endentry
+    \entry{blair2024openplatform}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=aeb115d789f7b04b11dbe56bd7eaa54d}{%
+           family={Blair},
+           familyi={B\bibinitperiod},
+           given={Steven\bibnamedelima M.},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f3c7e457b39de57224933103bdcefd48}{%
+           family={Coffele},
+           familyi={C\bibinitperiod},
+           given={Federico},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=43d06b442f647b0d6a729b0453fcdc8f}{%
+           family={Booth},
+           familyi={B\bibinitperiod},
+           given={Campbell\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3b89a598e749e88ee9efee52c5920bc9}{%
+           family={Burt},
+           familyi={B\bibinitperiod},
+           given={Graeme\bibnamedelima M.},
+           giveni={G\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1cad9bb80064d9c9017bf76deb6d5766}
+      \strng{fullhash}{910a19206e0713189990d7f33c84966d}
+      \strng{bibnamehash}{1cad9bb80064d9c9017bf76deb6d5766}
+      \strng{authorbibnamehash}{1cad9bb80064d9c9017bf76deb6d5766}
+      \strng{authornamehash}{1cad9bb80064d9c9017bf76deb6d5766}
+      \strng{authorfullhash}{910a19206e0713189990d7f33c84966d}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{An Open Platform for Rapid-Prototyping Protection and Control Schemes with IEC 61850}
+      \field{year}{2013}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/6479251
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/6479251
+      \endverb
+    \endentry
+    \entry{Tekvel}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d9bfd123990f44ccde3bfdccfcde1ff3}{%
+           family={Blog},
+           familyi={B\bibinitperiod},
+           given={Tekvel},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d9bfd123990f44ccde3bfdccfcde1ff3}
+      \strng{fullhash}{d9bfd123990f44ccde3bfdccfcde1ff3}
+      \strng{bibnamehash}{d9bfd123990f44ccde3bfdccfcde1ff3}
+      \strng{authorbibnamehash}{d9bfd123990f44ccde3bfdccfcde1ff3}
+      \strng{authornamehash}{d9bfd123990f44ccde3bfdccfcde1ff3}
+      \strng{authorfullhash}{d9bfd123990f44ccde3bfdccfcde1ff3}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2024-08-15}
+      \field{title}{Disrespectful Sampled Values subscriber behaviour}
+      \field{year}{2024}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://tekvel.com/en/web/blog/post/disrespectful-sv-subscriber-behaviour/
+      \endverb
+      \verb{url}
+      \verb https://tekvel.com/en/web/blog/post/disrespectful-sv-subscriber-behaviour/
+      \endverb
+    \endentry
+    \entry{chen2016performance}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c6649d02b24225ca4c9012cee6c790de}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Xi},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c6649d02b24225ca4c9012cee6c790de}
+      \strng{fullhash}{c6649d02b24225ca4c9012cee6c790de}
+      \strng{bibnamehash}{c6649d02b24225ca4c9012cee6c790de}
+      \strng{authorbibnamehash}{c6649d02b24225ca4c9012cee6c790de}
+      \strng{authornamehash}{c6649d02b24225ca4c9012cee6c790de}
+      \strng{authorfullhash}{c6649d02b24225ca4c9012cee6c790de}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Performance Analysis of IEC 61850 Process Bus and Interoperability Test among Multi-Vendor System}
+      \field{type}{phdthesis}
+      \field{year}{2016}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://research.manchester.ac.uk/en/studentTheses/performance-analysis-of-iec-61850-process-bus-and-interoperabilit
+      \endverb
+      \verb{url}
+      \verb https://research.manchester.ac.uk/en/studentTheses/performance-analysis-of-iec-61850-process-bus-and-interoperabilit
+      \endverb
+    \endentry
+    \entry{iec61850}{report}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=871eb3248d2e2f6c89614456c4ffb447}{%
+           family={Comission},
+           familyi={C\bibinitperiod},
+           given={International\bibnamedelima Electrotechnical},
+           giveni={I\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {International Electrotechnical Commission (IEC)}%
+      }
+      \strng{namehash}{871eb3248d2e2f6c89614456c4ffb447}
+      \strng{fullhash}{871eb3248d2e2f6c89614456c4ffb447}
+      \strng{bibnamehash}{871eb3248d2e2f6c89614456c4ffb447}
+      \strng{authorbibnamehash}{871eb3248d2e2f6c89614456c4ffb447}
+      \strng{authornamehash}{871eb3248d2e2f6c89614456c4ffb447}
+      \strng{authorfullhash}{871eb3248d2e2f6c89614456c4ffb447}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{IEC 61850 Communication Networks and Systems for Power Utility Automation}
+      \field{type}{techreport}
+      \field{year}{2003}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://webstore.iec.ch/publication/6028
+      \endverb
+      \verb{url}
+      \verb https://webstore.iec.ch/publication/6028
+      \endverb
+    \endentry
+    \entry{galkin2024microcomputer}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=960ff368e094a3812a1589ab983dc0e0}{%
+           family={Galkin},
+           familyi={G\bibinitperiod},
+           given={Nikolai},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=30aad2b154852acbf6c99983abaec64b}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Chen-Wei},
+           giveni={C\bibinithyphendelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=05dd1069630cc0b522df22c9f432cb43}{%
+           family={Etherden},
+           familyi={E\bibinitperiod},
+           given={Nicholas},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=37471d9c315a94087abe889259a4e8a5}{%
+           family={Vyatkin},
+           familyi={V\bibinitperiod},
+           given={Valeriy},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fd4f10ad7304c45c8bd27bf230cc8664}
+      \strng{fullhash}{7f829709a1d3b211e3b19585d3779f25}
+      \strng{bibnamehash}{fd4f10ad7304c45c8bd27bf230cc8664}
+      \strng{authorbibnamehash}{fd4f10ad7304c45c8bd27bf230cc8664}
+      \strng{authornamehash}{fd4f10ad7304c45c8bd27bf230cc8664}
+      \strng{authorfullhash}{7f829709a1d3b211e3b19585d3779f25}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Microcomputer Prototyping of IEC61850-9-2 with Performance Analysis}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://ltu.diva-portal.org/smash/record.jsf?pid=diva2%3A1825382\&dswid=-5158
+      \endverb
+      \verb{url}
+      \verb https://ltu.diva-portal.org/smash/record.jsf?pid=diva2%3A1825382%5C&dswid=-5158
+      \endverb
+    \endentry
+    \entry{elhariri2019iec}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=d0c00f407d495a1ee19a91de68c424b5}{%
+           family={Hariri},
+           familyi={H\bibinitperiod},
+           given={Mohamad\bibnamedelima El},
+           giveni={M\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f87485876a8f1bb34ba5749b4fa94e2e}{%
+           family={Harmon},
+           familyi={H\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a7f731672dd7582ac423f2b1c80a5589}{%
+           family={Youssef},
+           familyi={Y\bibinitperiod},
+           given={Tarek},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aa1170a5367f7d0eb8a11133f63277ac}{%
+           family={Saleh},
+           familyi={S\bibinitperiod},
+           given={Mahmoud},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62cfbeef48ef5ad151815ca7e59defed}{%
+           family={Habib},
+           familyi={H\bibinitperiod},
+           given={Hany},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a0b1616232d9654ed8939714121fe5a}{%
+           family={Mohammed},
+           familyi={M\bibinitperiod},
+           given={Osama},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c23e6deb49679b845a98ab25d0818ffa}
+      \strng{fullhash}{d2f516e2b9a4f26e36ec61a8172e39a5}
+      \strng{bibnamehash}{c23e6deb49679b845a98ab25d0818ffa}
+      \strng{authorbibnamehash}{c23e6deb49679b845a98ab25d0818ffa}
+      \strng{authornamehash}{c23e6deb49679b845a98ab25d0818ffa}
+      \strng{authorfullhash}{d2f516e2b9a4f26e36ec61a8172e39a5}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The IEC 61850 Sampled Measured Values Protocol: Analysis, Threat Identification, and Feasibility of Using NN Forecasters to Detect Spoofed Packets}
+      \field{year}{2019}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/8783253
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/8783253
+      \endverb
+    \endentry
+    \entry{hussain2024security}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=354fc55867630b5798c8e45829f31105}{%
+           family={Hussain},
+           familyi={H\bibinitperiod},
+           given={S.\bibnamedelimi M.\bibnamedelimi Suhail},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d8307d6e81f1b4f012a3ec016ee8963d}{%
+           family={Aftab},
+           familyi={A\bibinitperiod},
+           given={Mohd\bibnamedelima Asim},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4eaa574d75e0d519502513395319e8f3}{%
+           family={Farooq},
+           familyi={F\bibinitperiod},
+           given={Shaik\bibnamedelima Mullapathi},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a0bbc046f00039fc181119f55c458f24}{%
+           family={Ali},
+           familyi={A\bibinitperiod},
+           given={Ikbal},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=901454f304edffa92747d9bba00ff33c}{%
+           family={Ustun},
+           familyi={U\bibinitperiod},
+           given={Taha\bibnamedelima Selim},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e1d6fb800b0e0eeb0e4f000604c88acd}{%
+           family={Konstantinou},
+           familyi={K\bibinitperiod},
+           given={Charalambos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{16abd174c1f42da75600e9c58602194e}
+      \strng{fullhash}{90bbedd55ff77510056b313017570ccd}
+      \strng{bibnamehash}{16abd174c1f42da75600e9c58602194e}
+      \strng{authorbibnamehash}{16abd174c1f42da75600e9c58602194e}
+      \strng{authornamehash}{16abd174c1f42da75600e9c58602194e}
+      \strng{authorfullhash}{90bbedd55ff77510056b313017570ccd}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Open Access Journal of Power and Energy}
+      \field{title}{An Effective Security Scheme for Attacks on Sample Value Messages in IEC 61850 Automated Substations}
+      \field{volume}{10}
+      \field{year}{2023}
+      \field{pages}{304\bibrangedash 315}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/OAJPE.2023.3255790
+      \endverb
+    \endentry
+    \entry{konka2024traffic}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=ee604c1cdbdd80b2e9af37b12a8f12a3}{%
+           family={Konka},
+           familyi={K\bibinitperiod},
+           given={Jakub\bibnamedelima W.},
+           giveni={J\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=27dd45a37bf3a448908c4c867c8c591f}{%
+           family={Arthur},
+           familyi={A\bibinitperiod},
+           given={Colin\bibnamedelima M.},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ce5237e8d4c11180b1b767c2dfa052bf}{%
+           family={Garcia},
+           familyi={G\bibinitperiod},
+           given={Francisco\bibnamedelima J.},
+           giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c8c76ceae0c52d3fda53ba1011054c1a}{%
+           family={Atkinson},
+           familyi={A\bibinitperiod},
+           given={Robert\bibnamedelima C.},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2bf7dd1b709380ed6b32ac1d7fd25881}
+      \strng{fullhash}{e3597b5066128688ce5041e22ad476d9}
+      \strng{bibnamehash}{2bf7dd1b709380ed6b32ac1d7fd25881}
+      \strng{authorbibnamehash}{2bf7dd1b709380ed6b32ac1d7fd25881}
+      \strng{authornamehash}{2bf7dd1b709380ed6b32ac1d7fd25881}
+      \strng{authorfullhash}{e3597b5066128688ce5041e22ad476d9}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Traffic Generation of IEC 61850 Sampled Values}
+      \field{year}{2011}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://personal.strath.ac.uk/robert.c.atkinson/papers/sgms2011.pdf
+      \endverb
+      \verb{url}
+      \verb https://personal.strath.ac.uk/robert.c.atkinson/papers/sgms2011.pdf
+      \endverb
+    \endentry
+    \entry{kumar2024iec}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=3e5c6d96eb647e2c70b943778a6678d0}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Shantanu},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=192e7d95d36c90f8db3e749e3dfef6e8}{%
+           family={Abu-Siada},
+           familyi={A\bibinithyphendelim S\bibinitperiod},
+           given={Ahmed},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=be63519c5b66b1430a619056664df671}{%
+           family={Das},
+           familyi={D\bibinitperiod},
+           given={Narottam},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5a3724ad2fb0081bb17d753a79a536de}{%
+           family={Islam},
+           familyi={I\bibinitperiod},
+           given={Syed},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d4dd35c672b0f1e438853e159674746e}
+      \strng{fullhash}{0926e048a4ac31216bcf3968f5c304ca}
+      \strng{bibnamehash}{d4dd35c672b0f1e438853e159674746e}
+      \strng{authorbibnamehash}{d4dd35c672b0f1e438853e159674746e}
+      \strng{authornamehash}{d4dd35c672b0f1e438853e159674746e}
+      \strng{authorfullhash}{0926e048a4ac31216bcf3968f5c304ca}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{2079-9292}
+      \field{journaltitle}{Electronics}
+      \field{number}{15}
+      \field{title}{Review of the Legacy and Future of IEC 61850 Protocols Encompassing Substation Automation System}
+      \field{volume}{12}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{doi}
+      \verb 10.3390/electronics12153345
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2079-9292/12/15/3345
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2079-9292/12/15/3345
+      \endverb
+    \endentry
+    \entry{laporte2024adc}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=ab766e7c7d06642538bc6b89fd375a98}{%
+           family={Laporte-Fauret},
+           familyi={L\bibinithyphendelim F\bibinitperiod},
+           given={Baptiste},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b01835671bb7623b52c305032d4bee60}{%
+           family={Ferré},
+           familyi={F\bibinitperiod},
+           given={Guillaume},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5349304d03530dda8b87f8b798732f30}{%
+           family={Dallet},
+           familyi={D\bibinitperiod},
+           given={Dominique},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bb5a87e2c8d6f9c1384b4a8894b9feaa}{%
+           family={Minger},
+           familyi={M\bibinitperiod},
+           given={Bryce},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=96240ba4b1aacc56248204a0d0b3f3db}{%
+           family={Fuché},
+           familyi={F\bibinitperiod},
+           given={Loïc},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{943ab6c2341a1efd7ee0564c4f635de9}
+      \strng{fullhash}{703592c5555cb53654b71a088e5bb2fa}
+      \strng{bibnamehash}{943ab6c2341a1efd7ee0564c4f635de9}
+      \strng{authorbibnamehash}{943ab6c2341a1efd7ee0564c4f635de9}
+      \strng{authornamehash}{943ab6c2341a1efd7ee0564c4f635de9}
+      \strng{authorfullhash}{703592c5555cb53654b71a088e5bb2fa}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2018 25th IEEE International Conference on Electronics, Circuits and Systems (ICECS)}
+      \field{title}{ADC Resolution for Simultaneous Reception of Two Signals with High Dynamic Range}
+      \field{year}{2018}
+      \field{pages}{729\bibrangedash 732}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/ICECS.2018.8617945
+      \endverb
+    \endentry
+    \entry{Overview_of_IEC_61850_and_Benefits}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{un=2,uniquepart=given,hash=e5366287d33aad8bfed053b0f6ef825f}{%
+           family={Mackiewicz},
+           familyi={M\bibinitperiod},
+           given={R.E.},
+           giveni={R\bibinitperiod},
+           givenun=2}}%
+      }
+      \strng{namehash}{e5366287d33aad8bfed053b0f6ef825f}
+      \strng{fullhash}{e5366287d33aad8bfed053b0f6ef825f}
+      \strng{bibnamehash}{e5366287d33aad8bfed053b0f6ef825f}
+      \strng{authorbibnamehash}{e5366287d33aad8bfed053b0f6ef825f}
+      \strng{authornamehash}{e5366287d33aad8bfed053b0f6ef825f}
+      \strng{authorfullhash}{e5366287d33aad8bfed053b0f6ef825f}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2006 IEEE PES Power Systems Conference and Exposition}
+      \field{title}{Overview of IEC 61850 and Benefits}
+      \field{year}{2006}
+      \field{pages}{623\bibrangedash 630}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/PSCE.2006.296392
+      \endverb
+    \endentry
+    \entry{ren2022differential}{article}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=62341ebcc57e03720c55a39d93f0b17d}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={Xiang},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d8004d777fb7865070b7b410002c24b5}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Tianxiao},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a7075ae7ece2122b10f05a4bfa199ad4}{%
+           family={Xin},
+           familyi={X\bibinitperiod},
+           given={Guangming},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4d0c2b1ef387cabfa88346c2a1ded791}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xiaofei},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da9f7c9885c62f90094bae30cd44886c}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Lu},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0474cc7d2cd3785ad22074a7b4abeb8b}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Miao},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c3f7a3ec5fddf9c39f20e0f9178461a8}
+      \strng{fullhash}{c5968b7b19974a2d7d8456470a1865ed}
+      \strng{bibnamehash}{c3f7a3ec5fddf9c39f20e0f9178461a8}
+      \strng{authorbibnamehash}{c3f7a3ec5fddf9c39f20e0f9178461a8}
+      \strng{authornamehash}{c3f7a3ec5fddf9c39f20e0f9178461a8}
+      \strng{authorfullhash}{c5968b7b19974a2d7d8456470a1865ed}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A New Differential Protection for Transmission Lines Connecting Renewable Energy Sources to MMC-HVDC Converter Stations Based on Dynamic Time Warping Algorithm}
+      \field{year}{2022}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=\&arnumber=9952282
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=%5C&arnumber=9952282
+      \endverb
+    \endentry
+    \entry{NormaIEC61850}{report}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e6337a760e5ca4c7eb2ce4509f308920}{%
+           family={Ribeiro},
+           familyi={R\bibinitperiod},
+           given={R.R.R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Universidade Federal de Campina Grande}%
+      }
+      \list{location}{1}{%
+        {Campina Grande, Brazil}%
+      }
+      \strng{namehash}{e6337a760e5ca4c7eb2ce4509f308920}
+      \strng{fullhash}{e6337a760e5ca4c7eb2ce4509f308920}
+      \strng{bibnamehash}{e6337a760e5ca4c7eb2ce4509f308920}
+      \strng{authorbibnamehash}{e6337a760e5ca4c7eb2ce4509f308920}
+      \strng{authornamehash}{e6337a760e5ca4c7eb2ce4509f308920}
+      \strng{authorfullhash}{e6337a760e5ca4c7eb2ce4509f308920}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Estudo da Norma IEC~61850}
+      \field{type}{techreport}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb http://dspace.sti.ufcg.edu.br:8080/jspui/bitstream/riufcg/18130/1/RODOLPHO%20RATHGE%20RANGEL%20RIBEIRO%20-%20TCC%20ENG.%20EL%C3%89TRICA%202010.pdf
+      \endverb
+      \verb{url}
+      \verb http://dspace.sti.ufcg.edu.br:8080/jspui/bitstream/riufcg/18130/1/RODOLPHO%20RATHGE%20RANGEL%20RIBEIRO%20-%20TCC%20ENG.%20EL%C3%89TRICA%202010.pdf
+      \endverb
+    \endentry
+    \entry{IEC61850_Diogo}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8176a6c056f12d924eb2761759a78165}{%
+           family={Saraiva},
+           familyi={S\bibinitperiod},
+           given={Diogo\bibnamedelimb Emanuel\bibnamedelima Morgado},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Universidade de Aveiro}%
+      }
+      \list{location}{1}{%
+        {Aveiro, Portugal}%
+      }
+      \strng{namehash}{8176a6c056f12d924eb2761759a78165}
+      \strng{fullhash}{8176a6c056f12d924eb2761759a78165}
+      \strng{bibnamehash}{8176a6c056f12d924eb2761759a78165}
+      \strng{authorbibnamehash}{8176a6c056f12d924eb2761759a78165}
+      \strng{authornamehash}{8176a6c056f12d924eb2761759a78165}
+      \strng{authorfullhash}{8176a6c056f12d924eb2761759a78165}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{IEC 61850 Routable GOOSE and SV profiles over IP Telecom Networks}
+      \field{type}{mathesis}
+      \field{year}{2018}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://ria.ua.pt/handle/10773/25970
+      \endverb
+      \verb{url}
+      \verb https://ria.ua.pt/handle/10773/25970
+      \endverb
+    \endentry
+    \entry{IEC61850_SEL_9_2}{inproceedings}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=97c60cb0e4f3868f9c3f4583aeae77f3}{%
+           family={Skendzic},
+           familyi={S\bibinitperiod},
+           given={Veselin},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4212fc898188c7c1c3877790e1b1e300}{%
+           family={Ender},
+           familyi={E\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b36129ffcfb663a57c0efacfb180007f}{%
+           family={Zweigle},
+           familyi={Z\bibinitperiod},
+           given={Greg},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0a170aee14f9c2d5d3f62178676145fb}
+      \strng{fullhash}{0a170aee14f9c2d5d3f62178676145fb}
+      \strng{bibnamehash}{0a170aee14f9c2d5d3f62178676145fb}
+      \strng{authorbibnamehash}{0a170aee14f9c2d5d3f62178676145fb}
+      \strng{authornamehash}{0a170aee14f9c2d5d3f62178676145fb}
+      \strng{authorfullhash}{0a170aee14f9c2d5d3f62178676145fb}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{proceedings of the 9th Annual Western Power Delivery Automation Conference, Spokane, WA}
+      \field{title}{IEC 61850-9-2 process bus and its impact on power system protection and control reliability}
+      \field{year}{2007}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://selinc.com/api/download/3479/
+      \endverb
+      \verb{url}
+      \verb https://selinc.com/api/download/3479/
+      \endverb
+    \endentry
+    \entry{janne2013switchgear}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=c6071d1c6079c9d5ef508d253f4bb90a}{%
+           family={Starck},
+           familyi={S\bibinitperiod},
+           given={Janne},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d8bc3c2645ad579c53a7c02ff1cd74f9}{%
+           family={Wimmer},
+           familyi={W\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c9ff0709d86c86eeaa02df70915be576}{%
+           family={Majer},
+           familyi={M\bibinitperiod},
+           given={Karol},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b16d5e77f4d81eed3eebb4eadb26c419}
+      \strng{fullhash}{b16d5e77f4d81eed3eebb4eadb26c419}
+      \strng{bibnamehash}{b16d5e77f4d81eed3eebb4eadb26c419}
+      \strng{authorbibnamehash}{b16d5e77f4d81eed3eebb4eadb26c419}
+      \strng{authornamehash}{b16d5e77f4d81eed3eebb4eadb26c419}
+      \strng{authorfullhash}{b16d5e77f4d81eed3eebb4eadb26c419}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{22nd International Conference and Exhibition on Electricity Distribution (CIRED 2013)}
+      \field{title}{Switchgear optimization using IEC 61850-9-2}
+      \field{year}{2013}
+      \field{pages}{1\bibrangedash 4}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1049/cp.2013.0616
+      \endverb
+    \endentry
+    \entry{IEC61850_HAL}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b4cf7ecb124f9bc310ea1be9cad876c5}{%
+           family={Stéphane},
+           familyi={S\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=54fca3f83908b45f0918ad9ea1b76a9a}{%
+           family={Jean-Marc},
+           familyi={J\bibinithyphendelim M\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0fc941f5d4517aac5f3766a5b6448706}
+      \strng{fullhash}{0fc941f5d4517aac5f3766a5b6448706}
+      \strng{bibnamehash}{0fc941f5d4517aac5f3766a5b6448706}
+      \strng{authorbibnamehash}{0fc941f5d4517aac5f3766a5b6448706}
+      \strng{authornamehash}{0fc941f5d4517aac5f3766a5b6448706}
+      \strng{authorfullhash}{0fc941f5d4517aac5f3766a5b6448706}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Real-Time Performance and Security of IEC 61850 Process Bus Communications}
+      \field{year}{2021}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://hal.science/hal-03192264/file/5711-Research%20Article-23495-1-10-20210407.pdf
+      \endverb
+      \verb{url}
+      \verb https://hal.science/hal-03192264/file/5711-Research%20Article-23495-1-10-20210407.pdf
+      \endverb
+    \endentry
+    \entry{History_Sample_Value}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=594e54f6c57e0d0ef29e50a7cb787de1}{%
+           family={Tibor},
+           familyi={T\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{594e54f6c57e0d0ef29e50a7cb787de1}
+      \strng{fullhash}{594e54f6c57e0d0ef29e50a7cb787de1}
+      \strng{bibnamehash}{594e54f6c57e0d0ef29e50a7cb787de1}
+      \strng{authorbibnamehash}{594e54f6c57e0d0ef29e50a7cb787de1}
+      \strng{authornamehash}{594e54f6c57e0d0ef29e50a7cb787de1}
+      \strng{authorfullhash}{594e54f6c57e0d0ef29e50a7cb787de1}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{History of IEC 61850 Sampled Values}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://www.linkedin.com/pulse/history-iec-61850-sampled-values-tibor-congo/
+      \endverb
+      \verb{url}
+      \verb https://www.linkedin.com/pulse/history-iec-61850-sampled-values-tibor-congo/
+      \endverb
+    \endentry
+    \entry{uca2024guideline}{manual}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4ac6b6a53ab2f2b4d1cd3cddc932a3c9}{%
+           family={{UCA International Users Group}},
+           familyi={U\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {10604 Candler Falls Court, Raleigh, NC 27614}%
+      }
+      \list{organization}{1}{%
+        {UCA International Users Group}%
+      }
+      \strng{namehash}{4ac6b6a53ab2f2b4d1cd3cddc932a3c9}
+      \strng{fullhash}{4ac6b6a53ab2f2b4d1cd3cddc932a3c9}
+      \strng{bibnamehash}{4ac6b6a53ab2f2b4d1cd3cddc932a3c9}
+      \strng{authorbibnamehash}{4ac6b6a53ab2f2b4d1cd3cddc932a3c9}
+      \strng{authornamehash}{4ac6b6a53ab2f2b4d1cd3cddc932a3c9}
+      \strng{authorfullhash}{4ac6b6a53ab2f2b4d1cd3cddc932a3c9}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Tel: +919-847-2241, Fax: +919-847-2939}
+      \field{title}{Implementation Guideline for Digital Interface to Instrument Transformers Using IEC 61850-9-2}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb http://www.ucainternational.org
+      \endverb
+      \verb{url}
+      \verb http://www.ucainternational.org
+      \endverb
+    \endentry
+    \entry{wannous2024sharing}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b1bab0d9f44231d3e2e1c703a56f4b18}{%
+           family={Wannous},
+           familyi={W\bibinitperiod},
+           given={Kinan},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c7ecc0440a9c0231fb1ffb6b1c88a24}{%
+           family={Toman},
+           familyi={T\bibinitperiod},
+           given={Petr},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{354dd47a344d69a84191e54292be17de}
+      \strng{fullhash}{354dd47a344d69a84191e54292be17de}
+      \strng{bibnamehash}{354dd47a344d69a84191e54292be17de}
+      \strng{authorbibnamehash}{354dd47a344d69a84191e54292be17de}
+      \strng{authornamehash}{354dd47a344d69a84191e54292be17de}
+      \strng{authorfullhash}{354dd47a344d69a84191e54292be17de}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Sharing Sampled Values Between Two Protection Relays According to Standard IEC 61850-9-2LE}
+      \field{year}{2019}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.mdpi.com/1996-1073/12/9/1618
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/1996-1073/12/9/1618
+      \endverb
+    \endentry
+    \entry{wannous2019iec}{article}{}
+      \name{author}{4}{ul=3}{%
+        {{un=0,uniquepart=base,hash=b1bab0d9f44231d3e2e1c703a56f4b18}{%
+           family={Wannous},
+           familyi={W\bibinitperiod},
+           given={Kinan},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c7ecc0440a9c0231fb1ffb6b1c88a24}{%
+           family={Toman},
+           familyi={T\bibinitperiod},
+           given={Petr},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=70d5262fae1b8c69b5fe686269f4fb8c}{%
+           family={Jurák},
+           familyi={J\bibinitperiod},
+           given={Viktor},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f16e995907a31f251a50761bdb4b037a}{%
+           family={Wasserbauer},
+           familyi={W\bibinitperiod},
+           given={Vojtěch},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
+      \strng{fullhash}{78c2cfb6176c4396662493d8af814678}
+      \strng{bibnamehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
+      \strng{authorbibnamehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
+      \strng{authornamehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
+      \strng{authorfullhash}{78c2cfb6176c4396662493d8af814678}
+      \field{extraname}{1}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Analysis of IEC 61850-9-2LE Measured Values Using a Neural Network}
+      \field{year}{2019}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.mdpi.com/1996-1073/12/9/1618
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/1996-1073/12/9/1618
+      \endverb
+    \endentry
+    \entry{IEC61850_energies_N_N_Network}{article}{}
+      \name{author}{4}{ul=3}{%
+        {{un=0,uniquepart=base,hash=b1bab0d9f44231d3e2e1c703a56f4b18}{%
+           family={Wannous},
+           familyi={W\bibinitperiod},
+           given={Kinan},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c7ecc0440a9c0231fb1ffb6b1c88a24}{%
+           family={Toman},
+           familyi={T\bibinitperiod},
+           given={Petr},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=70d5262fae1b8c69b5fe686269f4fb8c}{%
+           family={Jurák},
+           familyi={J\bibinitperiod},
+           given={Viktor},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f16e995907a31f251a50761bdb4b037a}{%
+           family={Wasserbauer},
+           familyi={W\bibinitperiod},
+           given={Vojtěch},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
+      \strng{fullhash}{78c2cfb6176c4396662493d8af814678}
+      \strng{bibnamehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
+      \strng{authorbibnamehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
+      \strng{authornamehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
+      \strng{authorfullhash}{78c2cfb6176c4396662493d8af814678}
+      \field{extraname}{2}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Energies}
+      \field{number}{9}
+      \field{title}{Analysis of IEC 61850-9-2LE Measured Values Using a Neural Network}
+      \field{volume}{12}
+      \field{year}{2019}
+      \true{nocite}
+      \verb{doi}
+      \verb 10.3390/en12091618
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/1996-1073/12/9/1618
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/1996-1073/12/9/1618
+      \endverb
+    \endentry
+    \entry{wang2024intelligent}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=689f5c48e1ab2168f1f707b5052d0d9c}{%
+           family={Wei-ming},
+           familyi={W\bibinithyphendelim m\bibinitperiod},
+           given={Wang},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3d9cdb03c34c5b63926963b9dd310940}{%
+           family={Xiong-ying},
+           familyi={X\bibinithyphendelim y\bibinitperiod},
+           given={Duan},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=855c34409b1a69f41999a19a8bdc6d0a}{%
+           family={Yan},
+           familyi={Y\bibinitperiod},
+           given={Luo},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{61c2fb3a1af946d3e7bb7e700b7e70db}
+      \strng{fullhash}{61c2fb3a1af946d3e7bb7e700b7e70db}
+      \strng{bibnamehash}{61c2fb3a1af946d3e7bb7e700b7e70db}
+      \strng{authorbibnamehash}{61c2fb3a1af946d3e7bb7e700b7e70db}
+      \strng{authornamehash}{61c2fb3a1af946d3e7bb7e700b7e70db}
+      \strng{authorfullhash}{61c2fb3a1af946d3e7bb7e700b7e70db}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Research and Development of an Intelligent Merging Unit Based on IEC61850-9-2}
+      \field{year}{2011}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/5994084
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/5994084
+      \endverb
+    \endentry
+    \entry{Testing_IEC_61850_MU}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{un=1,uniquepart=given,hash=5250bc2475750a21c9dfd8db50d41436}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Qiaoyin},
+           giveni={Q\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=162ad6f226aaec18328389f4924eb36f}{%
+           family={Keckalo},
+           familyi={K\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aeb8c8c89073b7155263473c4a7c3428}{%
+           family={Dolezilek},
+           familyi={D\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a0b07d79aae9269f0413ade995c3ecbe}{%
+           family={Cenzon},
+           familyi={C\bibinitperiod},
+           given={Ed},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3b045151a8fef2eff957755f76657591}
+      \strng{fullhash}{fe05d4a709b27d8c10c50488a214c3a2}
+      \strng{bibnamehash}{3b045151a8fef2eff957755f76657591}
+      \strng{authorbibnamehash}{3b045151a8fef2eff957755f76657591}
+      \strng{authornamehash}{3b045151a8fef2eff957755f76657591}
+      \strng{authorfullhash}{fe05d4a709b27d8c10c50488a214c3a2}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{44th Annual Western Protective Relay Conference}
+      \field{title}{Testing IEC 61850 Merging Units}
+      \field{year}{2017}
+      \true{nocite}
+    \endentry
+    \entry{yang2015asynchronous}{article}{}
+      \name{author}{4}{}{%
+        {{un=1,uniquepart=given,hash=88414b4e21ed57c0a707183f1142f35f}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Yanting},
+           giveni={Y\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=a83eea5ff82c82f18c23ee7469186536}{%
+           family={Liang},
+           familyi={L\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a03b4a09b3e2fcb25e194d208a1a0a03}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Yanbo},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2e9448bb44da97bc198bc7bf3b0f18ec}{%
+           family={Qin},
+           familyi={Q\bibinitperiod},
+           given={Yuemei},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{a09a59922d781a577803bcce0ab0782a}
+      \strng{fullhash}{1bff38e064cacef7e9446171c9db9360}
+      \strng{bibnamehash}{a09a59922d781a577803bcce0ab0782a}
+      \strng{authorbibnamehash}{a09a59922d781a577803bcce0ab0782a}
+      \strng{authornamehash}{a09a59922d781a577803bcce0ab0782a}
+      \strng{authorfullhash}{1bff38e064cacef7e9446171c9db9360}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Information Fusion}
+      \field{title}{Asynchronous Track-to-Track Association Algorithm Based on Dynamic Time Warping Distance}
+      \field{year}{2015}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=\&arnumber=7260378
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=%5C&arnumber=7260378
+      \endverb
+    \endentry
+    \entry{IEC61850_KTH}{thesis}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=31da9094e6c3d0631f3e8728a78b13a8}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Pengcheng},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {KTH Royal Institute of Technology}%
+      }
+      \list{location}{1}{%
+        {Stockholm, Sweden}%
+      }
+      \strng{namehash}{31da9094e6c3d0631f3e8728a78b13a8}
+      \strng{fullhash}{31da9094e6c3d0631f3e8728a78b13a8}
+      \strng{bibnamehash}{31da9094e6c3d0631f3e8728a78b13a8}
+      \strng{authorbibnamehash}{31da9094e6c3d0631f3e8728a78b13a8}
+      \strng{authornamehash}{31da9094e6c3d0631f3e8728a78b13a8}
+      \strng{authorfullhash}{31da9094e6c3d0631f3e8728a78b13a8}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{IEC 61850-9-2 Process Bus Communication Interface for Light Weight Merging Unit Testing Environment}
+      \field{type}{mathesis}
+      \field{year}{2012}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

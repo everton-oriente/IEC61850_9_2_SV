@@ -1,0 +1,9 @@
+/home/evertonoriente/Documents/IEC61850_9_2_SV/pub_iec/target/debug/deps/libanstyle_parse-b2cb97f8d2cf770e.rmeta: /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/lib.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/params.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/state/mod.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/state/definitions.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/state/table.rs
+
+/home/evertonoriente/Documents/IEC61850_9_2_SV/pub_iec/target/debug/deps/anstyle_parse-b2cb97f8d2cf770e.d: /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/lib.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/params.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/state/mod.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/state/definitions.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/state/table.rs
+
+/home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/lib.rs:
+/home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/params.rs:
+/home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/state/mod.rs:
+/home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/state/definitions.rs:
+/home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/anstyle-parse-0.2.4/src/state/table.rs:

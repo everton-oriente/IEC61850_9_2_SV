@@ -1,0 +1,10 @@
+/home/evertonoriente/Documents/IEC61850_9_2_SV/pub_iec/target/debug/deps/libenv_filter-f76e87941ee1eaac.rmeta: /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/lib.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/directive.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/filter.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/filtered_log.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/op.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/parser.rs
+
+/home/evertonoriente/Documents/IEC61850_9_2_SV/pub_iec/target/debug/deps/env_filter-f76e87941ee1eaac.d: /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/lib.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/directive.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/filter.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/filtered_log.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/op.rs /home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/parser.rs
+
+/home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/lib.rs:
+/home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/directive.rs:
+/home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/filter.rs:
+/home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/filtered_log.rs:
+/home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/op.rs:
+/home/evertonoriente/.cargo/registry/src/index.crates.io-6f17d22bba15001f/env_filter-0.1.0/src/parser.rs:

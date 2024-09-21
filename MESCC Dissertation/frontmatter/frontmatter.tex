@@ -1,0 +1,235 @@
+
+% we include the glossary here (frontmatter is included with \input, so this command is as if it was in main.tex)
+\input{frontmatter/glossary}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+%\sloppy
+\maketitlepage
+
+
+%----------------------------------------------------------------------------------------
+%	STATEMENT of INTEGRITY
+%----------------------------------------------------------------------------------------
+\integritystatement
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION  (optional)
+%----------------------------------------------------------------------------------------
+%
+%\dedicatory{For/Dedicated to/To my\ldots}
+%\begin{dedicatory}
+%The dedicatory is optional. 
+%\end{dedicatory}
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+	
+	%\sloppy
+	%\raggedright
+	% here you put the abstract in the main language of the work.
+	
+	%With the advancement of technology, electromechanical relays have evolved into Intelligent Electronic Devices (IEDs) and, as a result, protection relays have gained the ability to communicate. They not only provide equipment protection but also communicate with other devices and exchange information among themselves.
+	Protection devices are essential elements in the electric power grid, as they safeguard equipment and ensure the stability and reliability of the network by detecting faults and preventing damage through timely isolation of affected areas.
+	With technological advancements, electromechanical protection relays have evolved into Intelligent Electronic Devices (IEDs), essentially protection relays with built-in communication capabilities.
+	These modern relays not only protect equipment but also exchange critical information with other devices.
+	
+	%Communication protocols bring many advantages and challenges.
+	%They reduce the amount of wiring needed to transmit information.
+	%Previously, a wire was required for each piece of information, but with communication protocols, a pair of wires is sufficient to convey various pieces of information. However, the knowledge required to implement this is significantly greater.
+	However, the variety of events and data exchanged between power grid components is substantial.
+	In this respect, communication protocols present both advantages and challenges.
+	On one hand, they enable the signalling of diverse events and the transmission of multiple pieces of information over a single medium.
+	On the other hand, a protocol is only effective if all components within the system comply with it.
+	
+	%With the introduction of the IEC61850 protocol, the energy sector has established a communication standard for the entire segment. This protocol has brought interoperability among manufacturers, one of the numerous advantages it has over other protocols. Real-time information exchange occurs through specific protocols that are part of the IEC 61850 standard, ensuring higher data quality and availability.
+	The introduction of the IEC~61850 protocol has established a unified communication standard across the energy sector.
+	This protocol promotes interoperability between manufacturers, offering significant advantages over other standards.
+	Real-time data exchange is facilitated by specific protocols within the IEC 61850 framework, which specifically address the communication requirements of IEDs, ensuring enhanced data quality and availability.
+	%Now, a customer is no longer bound to a single manufacturer, not having to replace all equipment when upgrading devices. This is because all devices are required to communicate following the established protocol. As Intelligent Electronic Devices play a critical role in substations, and many of their functions are critical and need to be executed at the right time, any development incorporated into the device has an impact on the entire product.
+	
+	As IEDs play a crucial role in substations, with many of their functions being both critical and time-sensitive, any developments incorporated into these devices can significantly impact the entire system.
+	An IED analyses the stream of Sampled Values (SVs) sent by a Merging Unit to detect faults and implement protective measures.
+	The Merging Unit sends SVs over two independent channels: the primary and the secondary (redundant) channels.
+	When the primary channel fails, the secondary channel takes over, ensuring the information that the primary channel could not transmit is conveyed.
+	As such, the current decision-making process for switching channels is based solely on the occurrence of a total channel failure.
+	
+	This thesis aims to enhance IED functionality by adding intelligence to this channel selection method.
+	It proposes ways to evaluate, quantify, and qualify the received information to determine the most reliable signal source, whether from Channel 1 (primary) or Channel 2 (secondary).
+	This approach ensures that protection relays receive better information, enabling protection algorithms to act correctly and promptly within their operating parameters.
+	
+	\todo[inline]{AMB: Modifiquei o ABSTRACT de forma a remover texto redundante, e ligando algumas ideias de forma mais fluída.}
+	\todo[inline]{AMB: Nas keywords "Sampled Values" não me parece uma boa palavra-chave. "Intelligent Electronic Devices" e "Protection Relays" (ou um termo mais técnico são boas palavras-chave.}
+	\todo[inline]{AMB: Aprovando esta versão do Abstract, é ir ao Google Translate ou ao ChatGPT e pedir para traduzir o texto para português.}
+	
+	%This thesis aims to develop a new functionality for IEDs.
+	%Currently, the treatment for SV's (Sampled Values) in the protection relay involves checking communication with the Merging Unit, which acquires and sends information to the protection relays.
+	%When the primary channel fails to transmit, the secondary channel takes over, informing the protection relay about the information that the first channel failed to send.
+	%If one channel fails, the other can provide the lost information and assume the primary communication.
+	
+	%For example, the channel 1 provides information as the primary channel.
+	%As soon as Channel 1 is interrupted for any reason, Channel 2 takes over, providing information to the protection relay.
+	%This is the decision-making method; when there is a total system failure, the other channel assumes control.
+	%The proposed functionality in this master's thesis aims to add intelligence to this selection method by suggesting ways to evaluate, quantify, and qualify the received information.
+	%It aims to determine which signal to use based on indicators, whether through Channel 1 (primary) or Channel 2 (secondary).
+	%This ensures better information for protection relays, allowing protection algorithms to take the correct actions as quickly as possible within their operating parameters.
+	
+	%It is through Sample Values that protection algorithms determine if there is a fault in the electrical network, becoming a highly critical component for the entire system with a direct impact on product performance in terms of quality, efficiency, and reliability.
+	%%%%%%%%%%
+	
+	%As IEDs play a crucial role in substations, with many of their functions being both critical and time-sensitive, any developments incorporated into these devices can have a significant impact on the entire system.
+	%This thesis aims to develop a new functionality for IEDs.
+	%Currently, the treatment for SV's (Sampled Values) in the protection relay involves checking communication with the Merging Unit, which acquires and sends information to the protection relays.
+	%When the primary channel fails to transmit, the secondary channel takes over, informing the protection relay about the information that the first channel failed to send.
+	%If one channel fails, the other can provide the lost information and assume the primary communication.
+	
+	%For example, the channel 1 provides information as the primary channel.
+	%As soon as Channel 1 is interrupted for any reason, Channel 2 takes over, providing information to the protection relay.
+	%This is the decision-making method; when there is a total system failure, the other channel assumes control.
+	%The proposed functionality in this master's thesis aims to add intelligence to this selection method by suggesting ways to evaluate, quantify, and qualify the received information.
+	%It aims to determine which signal to use based on indicators, whether through Channel 1 (primary) or Channel 2 (secondary).
+	%This ensures better information for protection relays, allowing protection algorithms to take the correct actions as quickly as possible within their operating parameters.
+	
+	%It is through Sample Values that protection algorithms determine if there is a fault in the electrical network, becoming a highly critical component for the entire system with a direct impact on product performance in terms of quality, efficiency, and reliability.
+	
+\end{abstract}
+
+\begin{abstractotherlanguage}
+	% here you put the abstract in the "other language": English, if the work is written in Portuguese; Portuguese, if the work is written in English.
+	
+	Relés de proteção são elementos essenciais na rede elétrica, pois protegem os equipamentos e garantem a estabilidade e confiabilidade da rede, detectando falhas e prevenindo danos através da isolação oportuna das áreas afetadas.
+	
+	Com os avanços tecnológicos, os relés de proteção eletromecânicos evoluíram para Dispositivos Eletrônicos Inteligentes (IEDs), essencialmente relés de proteção com capacidades de comunicação integradas. Esses relés modernos não apenas protegem os equipamentos, mas também trocam informações críticas com outros dispositivos.
+	
+	No entanto, a variedade de eventos e dados trocados entre os componentes da rede elétrica é substancial. Nesse aspecto, os protocolos de comunicação apresentam tanto vantagens quanto desafios. Por um lado, eles permitem a sinalização de diversos eventos e a transmissão de múltiplas informações através de um único meio. Por outro lado, um protocolo só é eficaz se todos os componentes do sistema o seguirem.
+	
+	A introdução do protocolo IEC 61850 estabeleceu um padrão de comunicação unificado no setor energético. Esse protocolo promove a interoperabilidade entre fabricantes, oferecendo vantagens significativas sobre outros padrões. A troca de dados em tempo real é facilitada por protocolos específicos dentro da estrutura do IEC 61850, que atendem às exigências de comunicação dos IEDs, garantindo uma melhor qualidade e disponibilidade dos dados.
+	
+	Como os IEDs desempenham um papel crucial nas subestações, com muitas de suas funções sendo críticas e sensíveis ao tempo, qualquer desenvolvimento incorporado a esses dispositivos pode impactar significativamente todo o sistema. Um IED analisa o fluxo de Valores Amostrados (SVs) enviados por uma Unidade de Mesclagem para detectar falhas e implementar medidas de proteção. A Unidade de Mesclagem envia SVs por dois canais independentes: o canal primário e o canal secundário (redundante). Quando o canal primário falha, o canal secundário assume, garantindo que a informação que o canal primário não pôde transmitir seja transmitida.
+	
+	Assim, o processo de tomada de decisão atual para a troca de canais baseia-se unicamente na ocorrência de uma falha total do canal.
+	
+	Esta tese tem como objetivo aprimorar a funcionalidade dos IEDs, adicionando inteligência a esse método de seleção de canal. Propõe maneiras de avaliar, quantificar e qualificar a informação recebida para determinar a fonte de sinal mais confiável, seja do Canal 1 (primário) ou do Canal 2 (secundário). Essa abordagem garante que os relés de proteção recebam informações de melhor qualidade, permitindo que os algoritmos de proteção atuem de forma correta e rápida dentro dos seus parâmetros de operação.
+		
+\end{abstractotherlanguage}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS (optional)
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+	
+I would like to express my deepest gratitude to my wife, Graziela Preisegalavicius, for her unwavering support and encouragement throughout this journey. Your patience, love, and understanding have been my greatest source of strength.
+
+To my son, Theo Preisegalavicius Oriente, thank you for bringing endless joy into my life and giving me the motivation to push forward. Your smiles and laughter have been my driving force.
+
+I am also profoundly grateful to my parents, Irani Matheus Oriente and Hamilton Angelo Oriente, for their lifelong support and guidance. Your belief in me has been the foundation upon which I have built my achievements.
+
+Finally, I would like to extend my sincere thanks to my supervisor, Antonio Barros, for his insightful guidance and encouragement throughout the development of this thesis.
+	
+\end{acknowledgements}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+%\listoftables % Prints the list of tables
+
+%\iflanguage{portuguese}{
+%	\renewcommand{\listalgorithmname}{Lista de Algor\'itmos}
+%}
+%\listofalgorithms % Prints the list of algorithms
+%\addchaptertocentry{\listalgorithmname}
+
+
+\renewcommand{\lstlistlistingname}{List of Source Code}
+\iflanguage{portuguese}{
+	\renewcommand{\lstlistlistingname}{Lista de C\'odigo}
+}
+\lstlistoflistings % Prints the list of listings (programming language source code)
+\addchaptertocentry{\lstlistlistingname}
+
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+\textbf{ACSI} & \textbf{A}bstract \textbf{C}ommunication \textbf{S}ervice \textbf{I}nterface \\
+\textbf{ASCII} & \textbf{A}merican \textbf{S}tandard \textbf{C}ode for \textbf{I}nformation \textbf{I}nterchange \\
+\textbf{CB} & \textbf{C}ircuit \textbf{B}reaker \\
+\textbf{CT} & \textbf{C}urrent \textbf{T}ransformer \\
+\textbf{GOOSE} & \textbf{G}eneric \textbf{O}bject \textbf{O}riented \textbf{S}ubstation \textbf{E}vents \\
+\textbf{IEC} & \textbf{I}nternational \textbf{E}lectrotechnical \textbf{C}ommission \\
+\textbf{IED} & \textbf{I}ntelligent \textbf{E}lectronic \textbf{D}evices \\
+\textbf{IEEE} & \textbf{I}nstitute of \textbf{E}lectrical and \textbf{E}lectronic \textbf{E}ngineers \\
+\textbf{IRIG-B} & \textbf{I}nter-\textbf{R}ange \textbf{I}nstrumentation \textbf{G}roup \\
+\textbf{IP} & \textbf{I}nternet \textbf{P}rotocol \\
+\textbf{LAN} & \textbf{L}ocal \textbf{A}rea \textbf{N}etwork \\
+\textbf{LD} & \textbf{L}ogical \textbf{D}evice \\
+\textbf{LN} & \textbf{L}ogical \textbf{N}ode \\
+\textbf{MMS} & \textbf{M}anufacturing \textbf{M}essage \textbf{S}pecification \\
+\textbf{OS} & \textbf{O}perating \textbf{S}ystem \\
+\textbf{PTP} & \textbf{P}recision \textbf{T}ime \textbf{P}rotocol \\
+\textbf{RTOS} & \textbf{R}eal-\textbf{T}ime \textbf{O}perating \textbf{S}ystem \\
+\textbf{SAS} & \textbf{S}ubstation \textbf{A}utomation \textbf{S}ystems \\
+\textbf{SCADA} & \textbf{S}upervisory \textbf{C}ontrol and \textbf{D}ata \textbf{A}cquisition \\
+\textbf{SCL} & \textbf{S}ubstation \textbf{C}onfiguration description \textbf{L}anguage \\
+\textbf{SCSM} & \textbf{S}pecific \textbf{C}ommunication \textbf{S}ervice \textbf{M}apping \\
+\textbf{SW} & \textbf{D}isconnector \\
+\textbf{SV} & \textbf{S}ampled-\textbf{V}alues \\
+\textbf{TCP} & \textbf{T}ransmission \textbf{C}ontrol \textbf{P}rotocol \\
+\textbf{UDP} & \textbf{U}ser \textbf{D}atagram \textbf{P}rotocol \\
+\textbf{VT} & \textbf{V}oltage \textbf{T}ransformer \\
+\end{abbreviations}
+
+%----------------------------------------------------------------------------------------
+%	SYMBOLS
+%----------------------------------------------------------------------------------------
+
+%\begin{symbols}{lll} % Include a list of Symbols (a three column table)
+	
+	% [Note: Although acronyms and symbols are defined in this section, they should also be defined at least the first time used in the dissertation body.]
+	
+%	$a$ & distance & \si{\meter} \\
+%	$P$ & power & \si{\watt} (\si{\joule\per\second}) \\
+	%Symbol & Name & Unit \\
+	
+%	\addlinespace % Gap to separate the Roman symbols from the Greek
+	
+%	$\omega$ & angular frequency & \si{\radian} \\
+	
+%\end{symbols}
+
+
+
+%----------------------------------------------------------------------------------------
+%	ACRONYMS
+%----------------------------------------------------------------------------------------
+
+\newcommand{\listacronymname}{List of Acronyms}
+\iflanguage{portuguese}{
+	\renewcommand{\listacronymname}{Lista de Acr\'onimos}
+}
+
+%Use GLS
+\glsresetall
+\printglossary[title=\listacronymname,type=\acronymtype,style=long]
+
+%----------------------------------------------------------------------------------------
+%	DONE
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
