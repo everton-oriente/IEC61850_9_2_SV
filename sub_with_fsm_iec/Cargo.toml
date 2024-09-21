@@ -10,6 +10,7 @@ pnet = "0.35.0"
 tokio = { version = "1.0", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }
 crc32fast = "1.4.2"
+chrono = "0.4.38"
 
 [profile.release]
 opt-level = 2     # Optimization level (0-3, s, z)

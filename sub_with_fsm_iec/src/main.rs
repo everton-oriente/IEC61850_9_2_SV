@@ -44,7 +44,7 @@ use crc32fast::hash as crc32;
 // asn1
 
 //Crate that's guarantee the usage of date and time
-//use chrono::prelude::*;
+use chrono::prelude::*;
 
 //Crate that's handle Log
 use log::{info, warn, error};
@@ -890,7 +890,7 @@ async fn main() {
 
     // Create a channel to receive Ethernet frames
     let mut config = Config::default();
-    config.read_timeout = Some(Duration::from_millis(1000));
+    config.read_timeout = Some(Duration::from_millis(10_000));
 
     let (mut _tx, mut rx) = match datalink::channel(&interface_1, config) {
         Ok(Ethernet(tx, rx)) => (tx, rx),
@@ -905,11 +905,14 @@ async fn main() {
     tokio::select! {
         _ = async {
             loop {
+                let begin = Instant::now();
+                let now = Local::now();
+                info!("Reception of the frame: {:?}", now);
                 let choosen_mu: bool = FrameProcessor::get_toogle_mu(&mut frame_processor).await;
                 info!("Mu{:?} before evaluation", choosen_mu as u8 +1);
                 //let now = Local::now();
                 //info!("The frame has been sended at time: {:?}", now);
-                let begin = Instant::now();
+                
                 match rx.next() {
                     Ok(frame) => {
                         let packet = EthernetPacket::new(frame).unwrap();
@@ -944,7 +947,7 @@ async fn main() {
                 info!("Mu{:?} after evaluation", choosen_mu as u8);
                 let time_reception = begin.elapsed();
 
-                info!("Time of work of thread is: {:?}", time_reception);
+                info!("Finish analyzing the frame: {:?}", time_reception);
                 //sleep(Duration::from_micros(1)).await;
             }
         } => {},
