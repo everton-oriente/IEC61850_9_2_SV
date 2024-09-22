@@ -1,0 +1,1300 @@
+debug git:(main) sudo RUST_LOG=info ./sub_with_fsm_iec wlp0s20f3
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Listening on interface wlp0s20f3
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Time of work of thread is: 112.979418ms
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Time of work of thread is: 18.965microseconds
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Time of work of thread is: 20.073microseconds
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Time of work of thread is: 9.477microseconds
+[2024-07-14T18:22:49Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2118], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [558], q_ia: [0], i_b: [-997], q_ib: [0], i_c: [443], q_ic: [0], i_n: [0], q_in: [0], v_a: [5540], q_va: [0], v_b: [-9980], q_vb: [0], v_c: [4446], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [255, 99, 229, 192] }
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2118], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [558], q_ia: [0], i_b: [-997], q_ib: [0], i_c: [443], q_ic: [0], i_n: [0], q_in: [0], v_a: [5540], q_va: [0], v_b: [-9980], q_vb: [0], v_c: [4446], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [255, 99, 229, 192] }
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: Initial
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: 558
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: -997
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: 443
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: 5540
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: -9980
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: 4446
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 1
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Time of work of thread is: 287.475447ms
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2122], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-642], q_ia: [0], i_b: [-338], q_ib: [0], i_c: [984], q_ic: [0], i_n: [0], q_in: [0], v_a: [-6458], q_va: [0], v_b: [-3380], q_vb: [0], v_c: [9840], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [110, 147, 65, 36] }
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2122], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-642], q_ia: [0], i_b: [-338], q_ib: [0], i_c: [984], q_ic: [0], i_n: [0], q_in: [0], v_a: [-6458], q_va: [0], v_b: [-3380], q_vb: [0], v_c: [9840], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [110, 147, 65, 36] }
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -642
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: -338
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: 984
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -6458
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: -3380
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: 9840
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 1
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Time of work of thread is: 82.047737ms
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2119], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-75], q_ia: [0], i_b: [-822], q_ib: [0], i_c: [904], q_ic: [0], i_n: [0], q_in: [0], v_a: [-821], q_va: [0], v_b: [-8219], q_vb: [0], v_c: [9043], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [116, 110, 236, 40] }
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2119], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-75], q_ia: [0], i_b: [-822], q_ib: [0], i_c: [904], q_ic: [0], i_n: [0], q_in: [0], v_a: [-821], q_va: [0], v_b: [-8219], q_vb: [0], v_c: [9043], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [116, 110, 236, 40] }
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: -75
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: -822
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: 904
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: -821
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: -8219
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: 9043
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 2
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Time of work of thread is: 416.734426ms
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2123], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-949], q_ia: [0], i_b: [209], q_ib: [0], i_c: [741], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9517], q_va: [0], v_b: [2101], q_vb: [0], v_c: [7392], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [244, 142, 174, 38] }
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2123], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-949], q_ia: [0], i_b: [209], q_ib: [0], i_c: [741], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9517], q_va: [0], v_b: [2101], q_vb: [0], v_c: [7392], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [244, 142, 174, 38] }
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -949
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: 209
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: 741
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -9517
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: 2101
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: 7392
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 2
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Time of work of thread is: 81.506315ms
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Time of work of thread is: 125.978514ms
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Time of work of thread is: 11.278microseconds
+[2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2120], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-619], q_ia: [0], i_b: [-368], q_ib: [0], i_c: [989], q_ic: [0], i_n: [0], q_in: [0], v_a: [-6214], q_va: [0], v_b: [-3675], q_vb: [0], v_c: [9891], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [98, 174, 168, 174] }
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2120], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-619], q_ia: [0], i_b: [-368], q_ib: [0], i_c: [989], q_ic: [0], i_n: [0], q_in: [0], v_a: [-6214], q_va: [0], v_b: [-3675], q_vb: [0], v_c: [9891], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [98, 174, 168, 174] }
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: -619
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: -368
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: 989
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: -6214
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: -3675
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: 9891
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 3
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Time of work of thread is: 288.166014ms
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2124], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-964], q_ia: [0], i_b: [712], q_ib: [0], i_c: [251], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9640], q_va: [0], v_b: [7123], q_vb: [0], v_c: [2514], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [174, 92, 174, 178] }
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2124], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-964], q_ia: [0], i_b: [712], q_ib: [0], i_c: [251], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9640], q_va: [0], v_b: [7123], q_vb: [0], v_c: [2514], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [174, 92, 174, 178] }
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -964
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: 712
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: 251
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -9640
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: 7123
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: 2514
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 3
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Time of work of thread is: 83.727664ms
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2121], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-949], q_ia: [0], i_b: [210], q_ib: [0], i_c: [741], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9519], q_va: [0], v_b: [2109], q_vb: [0], v_c: [7409], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [38, 88, 70, 172] }
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2121], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-949], q_ia: [0], i_b: [210], q_ib: [0], i_c: [741], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9519], q_va: [0], v_b: [2109], q_vb: [0], v_c: [7409], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [38, 88, 70, 172] }
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: -949
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: 210
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: 741
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: -9519
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: 2109
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: 7409
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 4
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Time of work of thread is: 417.070147ms
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2125], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-762], q_ia: [0], i_b: [943], q_ib: [0], i_c: [-185], q_ic: [0], i_n: [0], q_in: [0], v_a: [-7584], q_va: [0], v_b: [9436], q_vb: [0], v_c: [-1855], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [247, 235, 252, 55] }
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2125], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-762], q_ia: [0], i_b: [943], q_ib: [0], i_c: [-185], q_ic: [0], i_n: [0], q_in: [0], v_a: [-7584], q_va: [0], v_b: [9436], q_vb: [0], v_c: [-1855], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [247, 235, 252, 55] }
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -762
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: 943
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -185
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -7584
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: 9436
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -1855
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 4
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Time of work of thread is: 82.023732ms
+[2024-07-14T18:22:51Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2122], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-964], q_ia: [0], i_b: [711], q_ib: [0], i_c: [252], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9640], q_va: [0], v_b: [7122], q_vb: [0], v_c: [2516], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [33, 116, 140, 136] }
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2122], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-964], q_ia: [0], i_b: [711], q_ib: [0], i_c: [252], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9640], q_va: [0], v_b: [7122], q_vb: [0], v_c: [2516], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [33, 116, 140, 136] }
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: -964
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: 711
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: 252
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: -9640
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: 7122
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: 2516
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 5
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Time of work of thread is: 417.45059ms
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Time of work of thread is: 25.455468ms
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2126], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-549], q_ia: [0], i_b: [998], q_ib: [0], i_c: [-450], q_ic: [0], i_n: [0], q_in: [0], v_a: [-5474], q_va: [0], v_b: [9984], q_vb: [0], v_c: [-4512], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [7, 196, 45, 5] }
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2126], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-549], q_ia: [0], i_b: [998], q_ib: [0], i_c: [-450], q_ic: [0], i_n: [0], q_in: [0], v_a: [-5474], q_va: [0], v_b: [9984], q_vb: [0], v_c: [-4512], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [7, 196, 45, 5] }
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -549
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: 998
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -450
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -5474
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: 9984
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -4512
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 5
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Valid -> CheckErrorPercentage
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: CheckErrorPercentage
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] buffer_mu1: [[558, -75, -619, -949, -964], [-997, -822, -368, 210, 711], [443, 904, 989, 741, 252], [0, 0, 0, 0, 0], [5540, -821, -6214, -9519, -9640], [-9980, -8219, -3675, 2109, 7122], [4446, 9043, 9891, 7409, 2516], [0, 0, 0, 0, 0]]
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] buffer_mu2: [[-642, -949, -964, -762, -549], [-338, 209, 712, 943, 998], [984, 741, 251, -185, -450], [0, 0, 0, 0, 0], [-6458, -9517, -9640, -7584, -5474], [-3380, 2101, 7123, 9436, 9984], [9840, 7392, 2514, -1855, -4512], [0, 0, 0, 0, 0]]
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of the sum of MU1: 8.340152
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:52Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of the sum of MU2: -23.258024
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of error of MU1: 0.2085038
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of error of MU2: 0.5814506
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of the error: 0.5814506
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Actual State: CompleteCycle
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: CompleteCycle
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] CompleteCycle -> GetSample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Time of work of thread is: 55.535516ms
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Time of work of thread is: 9.849874ms
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Time of work of thread is: 239.521815ms
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2123], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-841], q_ia: [0], i_b: [893], q_ib: [0], i_c: [-57], q_ic: [0], i_n: [0], q_in: [0], v_a: [-8355], q_va: [0], v_b: [8937], q_vb: [0], v_c: [-589], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [61, 52, 11, 70] }
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2123], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-841], q_ia: [0], i_b: [893], q_ib: [0], i_c: [-57], q_ic: [0], i_n: [0], q_in: [0], v_a: [-8355], q_va: [0], v_b: [8937], q_vb: [0], v_c: [-589], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [61, 52, 11, 70] }
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: -841
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: 893
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: -57
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: -8355
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: 8937
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: -589
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 1
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Time of work of thread is: 164.721695ms
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2127], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-13], q_ia: [0], i_b: [869], q_ib: [0], i_c: [-862], q_ic: [0], i_n: [0], q_in: [0], v_a: [-76], q_va: [0], v_b: [8697], q_vb: [0], v_c: [-8623], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [9, 235, 140, 58] }
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2127], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-13], q_ia: [0], i_b: [869], q_ib: [0], i_c: [-862], q_ic: [0], i_n: [0], q_in: [0], v_a: [-76], q_va: [0], v_b: [8697], q_vb: [0], v_c: [-8623], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [9, 235, 140, 58] }
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -13
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: 869
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -862
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -76
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: 8697
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -8623
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 1
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Time of work of thread is: 82.201612ms
+[2024-07-14T18:22:52Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2124], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-393], q_ia: [0], i_b: [992], q_ib: [0], i_c: [-601], q_ic: [0], i_n: [0], q_in: [0], v_a: [-3904], q_va: [0], v_b: [9924], q_vb: [0], v_c: [-6023], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [161, 27, 175, 68] }
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2124], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-393], q_ia: [0], i_b: [992], q_ib: [0], i_c: [-601], q_ic: [0], i_n: [0], q_in: [0], v_a: [-3904], q_va: [0], v_b: [9924], q_vb: [0], v_c: [-6023], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [161, 27, 175, 68] }
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: -393
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: 992
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: -601
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: -3904
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: 9924
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: -6023
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 2
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Time of work of thread is: 417.770846ms
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2128], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [561], q_ia: [0], i_b: [431], q_ib: [0], i_c: [-997], q_ic: [0], i_n: [0], q_in: [0], v_a: [5657], q_va: [0], v_b: [4308], q_vb: [0], v_c: [-9969], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [85, 92, 201, 255] }
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2128], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [561], q_ia: [0], i_b: [431], q_ib: [0], i_c: [-997], q_ic: [0], i_n: [0], q_in: [0], v_a: [5657], q_va: [0], v_b: [4308], q_vb: [0], v_c: [-9969], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [85, 92, 201, 255] }
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: 561
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: 431
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -997
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: 5657
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: 4308
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -9969
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 2
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Time of work of thread is: 81.426253ms
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2125], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-97], q_ia: [0], i_b: [907], q_ib: [0], i_c: [-817], q_ic: [0], i_n: [0], q_in: [0], v_a: [-906], q_va: [0], v_b: [9077], q_vb: [0], v_c: [-8172], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [127, 133, 164, 9] }
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2125], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-97], q_ia: [0], i_b: [907], q_ib: [0], i_c: [-817], q_ic: [0], i_n: [0], q_in: [0], v_a: [-906], q_va: [0], v_b: [9077], q_vb: [0], v_c: [-8172], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [127, 133, 164, 9] }
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: -97
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: 907
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: -817
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: -906
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: 9077
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: -8172
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 3
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Time of work of thread is: 417.023148ms
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2129], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [818], q_ia: [0], i_b: [81], q_ib: [0], i_c: [-903], q_ic: [0], i_n: [0], q_in: [0], v_a: [8226], q_va: [0], v_b: [808], q_vb: [0], v_c: [-9035], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [118, 74, 12, 209] }
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2129], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [818], q_ia: [0], i_b: [81], q_ib: [0], i_c: [-903], q_ic: [0], i_n: [0], q_in: [0], v_a: [8226], q_va: [0], v_b: [808], q_vb: [0], v_c: [-9035], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [118, 74, 12, 209] }
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: 818
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: 81
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -903
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: 8226
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: 808
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -9035
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 3
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Time of work of thread is: 82.271011ms
+[2024-07-14T18:22:53Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2126], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [69], q_ia: [0], i_b: [827], q_ib: [0], i_c: [-899], q_ic: [0], i_n: [0], q_in: [0], v_a: [720], q_va: [0], v_b: [8276], q_vb: [0], v_c: [-8999], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [24, 207, 158, 218] }
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2126], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [69], q_ia: [0], i_b: [827], q_ib: [0], i_c: [-899], q_ic: [0], i_n: [0], q_in: [0], v_a: [720], q_va: [0], v_b: [8276], q_vb: [0], v_c: [-8999], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [24, 207, 158, 218] }
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: 69
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: 827
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: -899
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: 720
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: 8276
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: -8999
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 4
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Time of work of thread is: 416.146999ms
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2130], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [999], q_ia: [0], i_b: [-477], q_ib: [0], i_c: [-521], q_ic: [0], i_n: [0], q_in: [0], v_a: [9996], q_va: [0], v_b: [-4781], q_vb: [0], v_c: [-5214], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [132, 82, 185, 175] }
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2130], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [999], q_ia: [0], i_b: [-477], q_ib: [0], i_c: [-521], q_ic: [0], i_n: [0], q_in: [0], v_a: [9996], q_va: [0], v_b: [-4781], q_vb: [0], v_c: [-5214], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [132, 82, 185, 175] }
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: 999
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: -477
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -521
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: 9996
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: -4781
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -5214
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 4
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Time of work of thread is: 83.508245ms
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Time of work of thread is: 189.679953ms
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Time of work of thread is: 11.025microseconds
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2127], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [627], q_ia: [0], i_b: [350], q_ib: [0], i_c: [-986], q_ic: [0], i_n: [0], q_in: [0], v_a: [6363], q_va: [0], v_b: [3495], q_vb: [0], v_c: [-9860], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [67, 100, 160, 202] }
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2127], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [627], q_ia: [0], i_b: [350], q_ib: [0], i_c: [-986], q_ic: [0], i_n: [0], q_in: [0], v_a: [6363], q_va: [0], v_b: [3495], q_vb: [0], v_c: [-9860], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [67, 100, 160, 202] }
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: 627
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: 350
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: -986
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: 6363
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: 3495
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: -9860
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 5
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Time of work of thread is: 225.200327ms
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2131], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [848], q_ia: [0], i_b: [-888], q_ib: [0], i_c: [48], q_ic: [0], i_n: [0], q_in: [0], v_a: [8405], q_va: [0], v_b: [-8895], q_vb: [0], v_c: [496], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [8, 182, 171, 226] }
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2131], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [848], q_ia: [0], i_b: [-888], q_ib: [0], i_c: [48], q_ic: [0], i_n: [0], q_in: [0], v_a: [8405], q_va: [0], v_b: [-8895], q_vb: [0], v_c: [496], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [8, 182, 171, 226] }
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: 848
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: -888
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: 48
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: 8405
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: -8895
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: 496
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 5
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Valid -> CheckErrorPercentage
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: CheckErrorPercentage
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] buffer_mu1: [[-841, -393, -97, 69, 627], [893, 992, 907, 827, 350], [-57, -601, -817, -899, -986], [0, 0, 0, 0, 0], [-8355, -3904, -906, 720, 6363], [8937, 9924, 9077, 8276, 3495], [-589, -6023, -8172, -8999, -9860], [0, 0, 0, 0, 0]]
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] buffer_mu2: [[-13, 561, 818, 999, 848], [869, 431, 81, -477, -888], [-862, -997, -903, -521, 48], [0, 0, 0, 0, 0], [-76, 5657, 8226, 9996, 8405], [8697, 4308, 808, -4781, -8895], [-8623, -9969, -9035, -5214, 496], [0, 0, 0, 0, 0]]
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of the sum of MU1: 13.774796
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:54Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of the sum of MU2: 135.66617
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of error of MU1: 0.3443699
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of error of MU2: 3.3916543
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Value of the error: 3.3916543
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Actual State: CompleteCycle
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] State: CompleteCycle
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] CompleteCycle -> GetSample
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Time of work of thread is: 82.687632ms
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Time of work of thread is: 109.291529ms
+[2024-07-14T18:22:54Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2128], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [871], q_ia: [0], i_b: [-27], q_ib: [0], i_c: [-851], q_ic: [0], i_n: [0], q_in: [0], v_a: [8800], q_va: [0], v_b: [-291], q_vb: [0], v_c: [-8508], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [251, 186, 141, 48] }
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2128], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [871], q_ia: [0], i_b: [-27], q_ib: [0], i_c: [-851], q_ic: [0], i_n: [0], q_in: [0], v_a: [8800], q_va: [0], v_b: [-291], q_vb: [0], v_c: [-8508], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [251, 186, 141, 48] }
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: 871
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: -27
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: -851
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: 8800
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: -291
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: -8508
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 1
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Time of work of thread is: 304.907186ms
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2132], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [314], q_ia: [0], i_b: [-978], q_ib: [0], i_c: [668], q_ic: [0], i_n: [0], q_in: [0], v_a: [3097], q_va: [0], v_b: [-9782], q_vb: [0], v_c: [6691], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [239, 127, 56, 162] }
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2132], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [314], q_ia: [0], i_b: [-978], q_ib: [0], i_c: [668], q_ic: [0], i_n: [0], q_in: [0], v_a: [3097], q_va: [0], v_b: [-9782], q_vb: [0], v_c: [6691], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [239, 127, 56, 162] }
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: 314
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: -978
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: 668
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: 3097
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: -9782
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: 6691
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 1
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Time of work of thread is: 84.460747ms
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2129], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [984], q_ia: [0], i_b: [-353], q_ib: [0], i_c: [-632], q_ic: [0], i_n: [0], q_in: [0], v_a: [9870], q_va: [0], v_b: [-3551], q_vb: [0], v_c: [-6315], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [71, 34, 159, 108] }
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2129], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [984], q_ia: [0], i_b: [-353], q_ib: [0], i_c: [-632], q_ic: [0], i_n: [0], q_in: [0], v_a: [9870], q_va: [0], v_b: [-3551], q_vb: [0], v_c: [-6315], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [71, 34, 159, 108] }
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: 984
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: -353
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: -632
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: 9870
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: -3551
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: -6315
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 2
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Time of work of thread is: 412.952982ms
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2133], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-82], q_ia: [0], i_b: [-818], q_ib: [0], i_c: [907], q_ic: [0], i_n: [0], q_in: [0], v_a: [-892], q_va: [0], v_b: [-8178], q_vb: [0], v_c: [9073], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [93, 17, 93, 25] }
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2133], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-82], q_ia: [0], i_b: [-818], q_ib: [0], i_c: [907], q_ic: [0], i_n: [0], q_in: [0], v_a: [-892], q_va: [0], v_b: [-8178], q_vb: [0], v_c: [9073], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [93, 17, 93, 25] }
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -82
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: -818
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: 907
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -892
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: -8178
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: 9073
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 2
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Time of work of thread is: 84.613805ms
+[2024-07-14T18:22:55Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2130], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [995], q_ia: [0], i_b: [-585], q_ib: [0], i_c: [-409], q_ic: [0], i_n: [0], q_in: [0], v_a: [9947], q_va: [0], v_b: [-5863], q_vb: [0], v_c: [-4080], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [55, 241, 85, 161] }
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2130], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [995], q_ia: [0], i_b: [-585], q_ib: [0], i_c: [-409], q_ic: [0], i_n: [0], q_in: [0], v_a: [9947], q_va: [0], v_b: [-5863], q_vb: [0], v_c: [-4080], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [55, 241, 85, 161] }
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: 995
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: -585
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: -409
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: 9947
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: -5863
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: -4080
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 3
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Time of work of thread is: 414.937207ms
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2134], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-381], q_ia: [0], i_b: [-607], q_ib: [0], i_c: [991], q_ic: [0], i_n: [0], q_in: [0], v_a: [-3844], q_va: [0], v_b: [-6071], q_vb: [0], v_c: [9917], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [28, 107, 96, 103] }
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2134], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-381], q_ia: [0], i_b: [-607], q_ib: [0], i_c: [991], q_ic: [0], i_n: [0], q_in: [0], v_a: [-3844], q_va: [0], v_b: [-6071], q_vb: [0], v_c: [9917], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [28, 107, 96, 103] }
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -381
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: -607
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: 991
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -3844
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: -6071
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: 9917
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 3
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Time of work of thread is: 83.379774ms
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Time of work of thread is: 92.178706ms
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Time of work of thread is: 243.278937ms
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2131], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [922], q_ia: [0], i_b: [-798], q_ib: [0], i_c: [-121], q_ic: [0], i_n: [0], q_in: [0], v_a: [9204], q_va: [0], v_b: [-7988], q_vb: [0], v_c: [-1213], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [98, 161, 157, 210] }
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2131], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [922], q_ia: [0], i_b: [-798], q_ib: [0], i_c: [-121], q_ic: [0], i_n: [0], q_in: [0], v_a: [9204], q_va: [0], v_b: [-7988], q_vb: [0], v_c: [-1213], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [98, 161, 157, 210] }
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: 922
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: -798
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: -121
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: 9204
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: -7988
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: -1213
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 4
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Time of work of thread is: 75.982875ms
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2135], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-623], q_ia: [0], i_b: [-359], q_ib: [0], i_c: [987], q_ic: [0], i_n: [0], q_in: [0], v_a: [-6285], q_va: [0], v_b: [-3592], q_vb: [0], v_c: [9878], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [117, 36, 168, 137] }
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2135], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-623], q_ia: [0], i_b: [-359], q_ib: [0], i_c: [987], q_ic: [0], i_n: [0], q_in: [0], v_a: [-6285], q_va: [0], v_b: [-3592], q_vb: [0], v_c: [9878], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [117, 36, 168, 137] }
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -623
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: -359
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: 987
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -6285
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: -3592
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: 9878
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 4
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Time of work of thread is: 83.372299ms
+[2024-07-14T18:22:56Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2132], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [525], q_ia: [0], i_b: [-999], q_ib: [0], i_c: [476], q_ic: [0], i_n: [0], q_in: [0], v_a: [5226], q_va: [0], v_b: [-9996], q_vb: [0], v_c: [4772], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [242, 100, 169, 122] }
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2132], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [525], q_ia: [0], i_b: [-999], q_ib: [0], i_c: [476], q_ic: [0], i_n: [0], q_in: [0], v_a: [5226], q_va: [0], v_b: [-9996], q_vb: [0], v_c: [4772], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [242, 100, 169, 122] }
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: 525
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: -999
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: 476
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: 5226
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: -9996
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: 4772
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 5
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Time of work of thread is: 416.174097ms
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Time of work of thread is: 40.586331ms
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2136], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-958], q_ia: [0], i_b: [235], q_ib: [0], i_c: [724], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9593], q_va: [0], v_b: [2355], q_vb: [0], v_c: [7237], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [86, 167, 2, 210] }
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2136], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-958], q_ia: [0], i_b: [235], q_ib: [0], i_c: [724], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9593], q_va: [0], v_b: [2355], q_vb: [0], v_c: [7237], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [86, 167, 2, 210] }
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -958
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: 235
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: 724
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -9593
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: 2355
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: 7237
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 5
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Valid -> CheckErrorPercentage
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: CheckErrorPercentage
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] buffer_mu1: [[871, 984, 995, 922, 525], [-27, -353, -585, -798, -999], [-851, -632, -409, -121, 476], [0, 0, 0, 0, 0], [8800, 9870, 9947, 9204, 5226], [-291, -3551, -5863, -7988, -9996], [-8508, -6315, -4080, -1213, 4772], [0, 0, 0, 0, 0]]
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] buffer_mu2: [[314, -82, -381, -623, -958], [-978, -818, -607, -359, 235], [668, 907, 991, 987, 724], [0, 0, 0, 0, 0], [3097, -892, -3844, -6285, -9593], [-9782, -8178, -6071, -3592, 2355], [6691, 9073, 9917, 9878, 7237], [0, 0, 0, 0, 0]]
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of the sum of MU1: 19.150064
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:57Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of the sum of MU2: -61.57344
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of error of MU1: 0.4787516
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of error of MU2: 1.539336
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of the error: 1.539336
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Actual State: CompleteCycle
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: CompleteCycle
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] CompleteCycle -> GetSample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Time of work of thread is: 41.759234ms
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2133], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [235], q_ia: [0], i_b: [-957], q_ib: [0], i_c: [728], q_ic: [0], i_n: [0], q_in: [0], v_a: [2294], q_va: [0], v_b: [-9576], q_vb: [0], v_c: [7284], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [133, 0, 24, 75] }
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2133], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [235], q_ia: [0], i_b: [-957], q_ib: [0], i_c: [728], q_ic: [0], i_n: [0], q_in: [0], v_a: [2294], q_va: [0], v_b: [-9576], q_vb: [0], v_c: [7284], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [133, 0, 24, 75] }
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: 235
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: -957
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: 728
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: 2294
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: -9576
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: 7284
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 1
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Time of work of thread is: 414.905567ms
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2137], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-950], q_ia: [0], i_b: [748], q_ib: [0], i_c: [199], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9475], q_va: [0], v_b: [7507], q_vb: [0], v_c: [1963], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [124, 8, 229, 226] }
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2137], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-950], q_ia: [0], i_b: [748], q_ib: [0], i_c: [199], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9475], q_va: [0], v_b: [7507], q_vb: [0], v_c: [1963], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [124, 8, 229, 226] }
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -950
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: 748
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: 199
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -9475
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: 7507
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: 1963
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 1
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Time of work of thread is: 85.699797ms
+[2024-07-14T18:22:57Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2134], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-270], q_ia: [0], i_b: [-695], q_ib: [0], i_c: [969], q_ic: [0], i_n: [0], q_in: [0], v_a: [-2748], q_va: [0], v_b: [-6950], q_vb: [0], v_c: [9702], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [31, 142, 241, 254] }
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2134], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-270], q_ia: [0], i_b: [-695], q_ib: [0], i_c: [969], q_ic: [0], i_n: [0], q_in: [0], v_a: [-2748], q_va: [0], v_b: [-6950], q_vb: [0], v_c: [9702], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [31, 142, 241, 254] }
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: -270
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: -695
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: 969
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: -2748
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: -6950
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: 9702
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 2
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Time of work of thread is: 414.437569ms
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2138], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-596], q_ia: [0], i_b: [993], q_ib: [0], i_c: [-400], q_ic: [0], i_n: [0], q_in: [0], v_a: [-5934], q_va: [0], v_b: [9937], q_vb: [0], v_c: [-4005], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [73, 239, 55, 38] }
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2138], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-596], q_ia: [0], i_b: [993], q_ib: [0], i_c: [-400], q_ic: [0], i_n: [0], q_in: [0], v_a: [-5934], q_va: [0], v_b: [9937], q_vb: [0], v_c: [-4005], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [73, 239, 55, 38] }
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -596
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: 993
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -400
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -5934
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: 9937
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -4005
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 2
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Time of work of thread is: 85.223941ms
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2135], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-808], q_ia: [0], i_b: [-90], q_ib: [0], i_c: [907], q_ic: [0], i_n: [0], q_in: [0], v_a: [-8180], q_va: [0], v_b: [-887], q_vb: [0], v_c: [9068], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [26, 149, 85, 246] }
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2135], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-808], q_ia: [0], i_b: [-90], q_ib: [0], i_c: [907], q_ic: [0], i_n: [0], q_in: [0], v_a: [-8180], q_va: [0], v_b: [-887], q_vb: [0], v_c: [9068], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [26, 149, 85, 246] }
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: -808
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: -90
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: 907
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: -8180
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: -887
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: 9068
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 3
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Time of work of thread is: 415.63286ms
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2139], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-53], q_ia: [0], i_b: [888], q_ib: [0], i_c: [-842], q_ic: [0], i_n: [0], q_in: [0], v_a: [-455], q_va: [0], v_b: [8878], q_vb: [0], v_c: [-8426], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [57, 212, 78, 221] }
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2139], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-53], q_ia: [0], i_b: [888], q_ib: [0], i_c: [-842], q_ic: [0], i_n: [0], q_in: [0], v_a: [-455], q_va: [0], v_b: [8878], q_vb: [0], v_c: [-8426], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [57, 212, 78, 221] }
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: -53
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: 888
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -842
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: -455
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: 8878
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -8426
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 3
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Time of work of thread is: 83.993118ms
+[2024-07-14T18:22:58Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Time of work of thread is: 278.510854ms
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Time of work of thread is: 16.962microseconds
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Time of work of thread is: 4.279195ms
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2136], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-999], q_ia: [0], i_b: [499], q_ib: [0], i_c: [499], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9999], q_va: [0], v_b: [5007], q_vb: [0], v_c: [4987], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [225, 211, 40, 158] }
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2136], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-999], q_ia: [0], i_b: [499], q_ib: [0], i_c: [499], q_ic: [0], i_n: [0], q_in: [0], v_a: [-9999], q_va: [0], v_b: [5007], q_vb: [0], v_c: [4987], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [225, 211, 40, 158] }
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: -999
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: 499
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: 499
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: -9999
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: 5007
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: 4987
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 4
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Time of work of thread is: 129.567503ms
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Time of work of thread is: 10.144637ms
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Time of work of thread is: 1.35792ms
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Time of work of thread is: 3.24933ms
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Time of work of thread is: 10.81microseconds
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2140], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [553], q_ia: [0], i_b: [441], q_ib: [0], i_c: [-997], q_ic: [0], i_n: [0], q_in: [0], v_a: [5567], q_va: [0], v_b: [4407], q_vb: [0], v_c: [-9977], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [149, 110, 218, 79] }
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2140], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [553], q_ia: [0], i_b: [441], q_ib: [0], i_c: [-997], q_ic: [0], i_n: [0], q_in: [0], v_a: [5567], q_va: [0], v_b: [4407], q_vb: [0], v_c: [-9977], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [149, 110, 218, 79] }
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: 553
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: 441
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -997
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: 5567
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: 4407
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -9977
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 4
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Time of work of thread is: 67.900748ms
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2137], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-812], q_ia: [0], i_b: [913], q_ib: [0], i_c: [-105], q_ic: [0], i_n: [0], q_in: [0], v_a: [-8086], q_va: [0], v_b: [9138], q_vb: [0], v_c: [-1054], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [81, 228, 146, 142] }
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2137], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-812], q_ia: [0], i_b: [913], q_ib: [0], i_c: [-105], q_ic: [0], i_n: [0], q_in: [0], v_a: [-8086], q_va: [0], v_b: [9138], q_vb: [0], v_c: [-1054], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [81, 228, 146, 142] }
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: -812
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: 913
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: -105
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: -8086
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: 9138
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: -1054
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 5
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Time of work of thread is: 411.944223ms
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 before evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2141], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [935], q_ia: [0], i_b: [-167], q_ib: [0], i_c: [-769], q_ic: [0], i_n: [0], q_in: [0], v_a: [9376], q_va: [0], v_b: [-1678], q_vb: [0], v_c: [-7697], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [34, 206, 122, 81] }
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2141], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [935], q_ia: [0], i_b: [-167], q_ib: [0], i_c: [-769], q_ic: [0], i_n: [0], q_in: [0], v_a: [9376], q_va: [0], v_b: [-1678], q_vb: [0], v_c: [-7697], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [34, 206, 122, 81] }
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: 935
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: -167
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -769
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: 9376
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: -1678
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -7697
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 5
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Valid -> CheckErrorPercentage
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: CheckErrorPercentage
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] buffer_mu1: [[235, -270, -808, -999, -812], [-957, -695, -90, 499, 913], [728, 969, 907, 499, -105], [0, 0, 0, 0, 0], [2294, -2748, -8180, -9999, -8086], [-9576, -6950, -887, 5007, 9138], [7284, 9702, 9068, 4987, -1054], [0, 0, 0, 0, 0]]
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] buffer_mu2: [[-950, -596, -53, 553, 935], [748, 993, 888, 441, -167], [199, -400, -842, -997, -769], [0, 0, 0, 0, 0], [-9475, -5934, -455, 5567, 9376], [7507, 9937, 8878, 4407, -1678], [1963, -4005, -8426, -9977, -7697], [0, 0, 0, 0, 0]]
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU1
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of the sum of MU1: -51.52102
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:59Z WARN  sub_with_fsm_iec] Failed acquisition value in the MU2
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of the sum of MU2: -14.840608
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of error of MU1: 1.2880255
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of error of MU2: 0.3710152
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of the error: 1.2880255
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Actual State: ToogleMU
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: ToogleMU
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Toogle_MU before is : false
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Toogle_MU after is : true
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] ToogleMU -> CompleteCycle
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: CompleteCycle
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] CompleteCycle -> GetSample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu0 after evaluation
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Time of work of thread is: 87.513681ms
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Mu1 before evaluation
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2138], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-327], q_ia: [0], i_b: [980], q_ib: [0], i_c: [-660], q_ic: [0], i_n: [0], q_in: [0], v_a: [-3201], q_va: [0], v_b: [9804], q_vb: [0], v_c: [-6610], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [178, 253, 62, 186] }
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2138], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [-327], q_ia: [0], i_b: [980], q_ib: [0], i_c: [-660], q_ic: [0], i_n: [0], q_in: [0], v_a: [-3201], q_va: [0], v_b: [9804], q_vb: [0], v_c: [-6610], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [178, 253, 62, 186] }
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: -327
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: 980
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: -660
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: -3201
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: 9804
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: -6610
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 1
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Mu1 after evaluation
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Time of work of thread is: 413.770782ms
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Mu1 before evaluation
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2142], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [994], q_ia: [0], i_b: [-588], q_ib: [0], i_c: [-405], q_ic: [0], i_n: [0], q_in: [0], v_a: [9943], q_va: [0], v_b: [-5893], q_vb: [0], v_c: [-4045], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [130, 133, 232, 46] }
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2142], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [994], q_ia: [0], i_b: [-588], q_ib: [0], i_c: [-405], q_ic: [0], i_n: [0], q_in: [0], v_a: [9943], q_va: [0], v_b: [-5893], q_vb: [0], v_c: [-4045], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [130, 133, 232, 46] }
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: 994
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: -588
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -405
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: 9943
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: -5893
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -4045
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 1
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Mu1 after evaluation
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Time of work of thread is: 84.714773ms
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Mu1 before evaluation
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2139], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [312], q_ia: [0], i_b: [659], q_ib: [0], i_c: [-980], q_ic: [0], i_n: [0], q_in: [0], v_a: [3215], q_va: [0], v_b: [6590], q_vb: [0], v_c: [-9809], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [247, 57, 60, 246] }
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573296], smp_cnt_asn: [130, 2], smp_cnt: [2139], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [312], q_ia: [0], i_b: [659], q_ib: [0], i_c: [-980], q_ic: [0], i_n: [0], q_in: [0], v_a: [3215], q_va: [0], v_b: [6590], q_vb: [0], v_c: [-9809], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [247, 57, 60, 246] }
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 0 value: 312
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 1 value: 659
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 2 value: -980
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 3 value: 0
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 4 value: 3215
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 5 value: 6590
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 6 value: -9809
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 1 fase: 7 value: 0
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU1: 2
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Mu1 after evaluation
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Time of work of thread is: 412.867674ms
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Mu1 before evaluation
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Received Ethernet Frame: EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2143], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [913], q_ia: [0], i_b: [-816], q_ib: [0], i_c: [-90], q_ic: [0], i_n: [0], q_in: [0], v_a: [9075], q_va: [0], v_b: [-8176], q_vb: [0], v_c: [-892], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [139, 13, 105, 218] }
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] frame inside FSM EthernetFrame { destination: [1, 12, 205, 4, 255, 255], source: [0, 26, 17, 0, 0, 1], tpid: 33024, tci: 32768, ethertype: 35002, payload: SvPDU { appid: [64, 1], length: [0, 102], reserved1: [0, 0], reserved2: [0, 0], apdu: SmvData { sav_pdu_asn: [96, 92], no_asdu_asn: [128, 1], no_asdu: 1, seq_asdu_asn: [162, 87], asdu_asn: [48, 85], sv_id_asn: [128, 4], sv_id: [875573297], smp_cnt_asn: [130, 2], smp_cnt: [2143], conf_rev_asn: [131, 4], conf_rev: [1], smp_synch_asn: [133, 1], smp_synch: 1, seq_data: [135, 64], logical_node: LogicalNode { i_a: [913], q_ia: [0], i_b: [-816], q_ib: [0], i_c: [-90], q_ic: [0], i_n: [0], q_in: [0], v_a: [9075], q_va: [0], v_b: [-8176], q_vb: [0], v_c: [-892], q_vc: [0], v_n: [0], q_vn: [0] } } }, fcs: [139, 13, 105, 218] }
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: 913
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: -816
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -90
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: 9075
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: -8176
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -892
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 2
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Valid -> CompleteSample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] State: CompleteSample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] CompleteSample -> GetSample
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Mu1 after evaluation
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Time of work of thread is: 86.007624ms
+[2024-07-14T18:23:00Z INFO  sub_with_fsm_iec] Mu1 before evaluation
+^C[2024-07-14T18:23:01Z ERROR sub_with_fsm_iec] An error occurred while reading: Interrupted system call (os error 4)
+[2024-07-14T18:23:01Z INFO  sub_with_fsm_iec] Mu1 after evaluation
+[2024-07-14T18:23:01Z INFO  sub_with_fsm_iec] Time of work of thread is: 333.169445ms
+[2024-07-14T18:23:01Z INFO  sub_with_fsm_iec] Received Ctrl+C, shutting down.
