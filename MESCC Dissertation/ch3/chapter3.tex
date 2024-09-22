@@ -8,7 +8,7 @@ To address this issue, the proposed solution involves developing an algorithm th
 
 \begin{figure}[tbh]
 	\centering
-	\includegraphics[width=0.8\textwidth, keepaspectratio]{ch3/assets/SLD_Diagram.png}
+	\includegraphics[width=0.77\textwidth, keepaspectratio]{ch3/assets/SLD_Diagram.png}
 	\caption{Simple Single Line Diagram (SLD) of Electrical Substation with SV's. (Credits: Efacec Energia, Máquinas e Equipamentos Eléctricos, S.A.)}
 	\label{fig:SLD_Diagram}
 \end{figure}
@@ -26,13 +26,13 @@ The advent of the IEC 61850 standard has significantly revolutionized the substa
 
 A comprehensive literature review was conducted using databases such as IEEE Xplore, ScienceDirect, and Google Scholar. Keywords included "IEC 61850-9-2", "sampled values", "merging units", "protection relay", and "algorithm optimization". The search encompassed studies published from 2000 to 2023. The review revealed numerous studies addressing various aspects of IEC 61850-9-2, such as its implementation challenges, communication performance, and impact on substation automation.
 
-For example, [Study A] explores the general benefits of IEC 61850-9-2 in improving the accuracy and speed of data transmission in substations. Similarly, [Study B] investigates the synchronization issues in SV transmission and proposes methods to mitigate these challenges. Additionally, [Study C] examines the integration of IEC 61850-9-2 with other substation protocols to enhance system reliability.
+For example,(~\cite{AbbReport2010}) explores the general benefits of IEC 61850-9-2 in improving the accuracy and speed of data transmission in substations. Similarly, (~\cite{baumgartner2024iec}) investigates the synchronization issues in SV transmission and proposes methods to mitigate these challenges. Additionally, (~\cite{chen2016performance})  examines the integration of IEC 61850-9-2 with other substation protocols to enhance system reliability.
 
 \subsection{Identification of the Gap}
 
 Despite these valuable contributions, none of the reviewed studies specifically address the development of an algorithm to select the optimal SV from multiple MUs for protection relays. This gap is critical, given the increasing complexity of modern substations where multiple MUs may collect data from the same current transformers (CTs), leading to potential conflicts and inefficiencies in data selection for protection purposes.
 
-For instance, while [Study D] discusses the general principles of SV selection, it does not propose a concrete algorithmic approach to dynamically choose the best SV in real-time. Moreover, [Study E] focuses on the latency and accuracy of SV transmission but does not consider the scenario of multiple MUs and the subsequent need for optimal SV selection.
+For instance, while (~\cite{IEC61850_SEL_9_2}) discusses the general principles of SV selection, it does not propose a concrete algorithmic approach to dynamically choose the best SV in real-time. Moreover, (~\cite{galkin2024microcomputer}) focuses on the latency and performance of SV transmission but does not consider the scenario of multiple MUs and the subsequent need for optimal SV selection.
 
 \subsection{Importance of Addressing the Gap}
 

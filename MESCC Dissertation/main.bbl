@@ -295,7 +295,6 @@
       \field{title}{Performance Analysis of IEC 61850 Process Bus and Interoperability Test among Multi-Vendor System}
       \field{type}{phdthesis}
       \field{year}{2016}
-      \true{nocite}
       \verb{urlraw}
       \verb https://research.manchester.ac.uk/en/studentTheses/performance-analysis-of-iec-61850-process-bus-and-interoperabilit
       \endverb
@@ -379,7 +378,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Microcomputer Prototyping of IEC61850-9-2 with Performance Analysis}
       \field{year}{2023}
-      \true{nocite}
       \verb{urlraw}
       \verb https://ltu.diva-portal.org/smash/record.jsf?pid=diva2%3A1825382\&dswid=-5158
       \endverb
@@ -668,6 +666,49 @@
       \verb 10.1109/ICECS.2018.8617945
       \endverb
     \endentry
+    \entry{AbbReport2010}{report}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=fdd5ea5d5fe20166a06559019f932132}{%
+           family={Leupp},
+           familyi={L\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eab6edf1b4062cd037ef04d274ac33e5}{%
+           family={Rytoft},
+           familyi={R\bibinitperiod},
+           given={Claes},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {ABB}%
+      }
+      \list{location}{1}{%
+        {Zurich, Switzerland}%
+      }
+      \strng{namehash}{7f11b0d1b4a32ae786cc767eba27c063}
+      \strng{fullhash}{7f11b0d1b4a32ae786cc767eba27c063}
+      \strng{bibnamehash}{7f11b0d1b4a32ae786cc767eba27c063}
+      \strng{authorbibnamehash}{7f11b0d1b4a32ae786cc767eba27c063}
+      \strng{authornamehash}{7f11b0d1b4a32ae786cc767eba27c063}
+      \strng{authorfullhash}{7f11b0d1b4a32ae786cc767eba27c063}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Special Report IEC61850}
+      \field{type}{techreport}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb https://library.e.abb.com/public/a56430e1e7c06fdfc12577a00043ab8b/3BSE063756_en_ABB_Review_Special_Report_IEC_61850.pdf
+      \endverb
+      \verb{url}
+      \verb https://library.e.abb.com/public/a56430e1e7c06fdfc12577a00043ab8b/3BSE063756_en_ABB_Review_Special_Report_IEC_61850.pdf
+      \endverb
+    \endentry
     \entry{Overview_of_IEC_61850_and_Benefits}{inproceedings}{}
       \name{author}{1}{}{%
         {{un=2,uniquepart=given,hash=e5366287d33aad8bfed053b0f6ef825f}{%
@@ -872,7 +913,6 @@
       \field{booktitle}{proceedings of the 9th Annual Western Power Delivery Automation Conference, Spokane, WA}
       \field{title}{IEC 61850-9-2 process bus and its impact on power system protection and control reliability}
       \field{year}{2007}
-      \true{nocite}
       \verb{urlraw}
       \verb https://selinc.com/api/download/3479/
       \endverb

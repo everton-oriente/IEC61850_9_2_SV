@@ -67,7 +67,7 @@ A range of information from a substation is collected and analyzed in real-time 
 	\item Disturbance Recorder - Recordings of disturbances for fault analysis.
 \end{itemize}
 
-This vast amount of information can assist in studies such as load flow analysis and planning for disturbances, in addition to being essential for protection and control functions ~\cite{NormaIEC61850}.
+This vast amount of information can assist in studies such as load flow analysis and planning for disturbances, in addition to being essential for protection and control functions (~\cite{NormaIEC61850}).
 
 \subsection{Monitoring}
 It is a sequence of events or part of the automation system with information that allows monitoring the state of the substation, such as equipment status, maintenance alerts, relay configurations, etc. This improves the overall system efficiency, enhancing the effectiveness of protection and control. These pieces of information are useful in fault analysis, determining what happened, when, where, and how it happened (location, time, and sequence)(~\cite{NormaIEC61850}).
@@ -137,12 +137,12 @@ This segment specifies a standardized language for articulating the configuratio
 
 Establishing the fundamental communication structure for substation and feeder equipment, Part 7 provides a foundational framework. It defines essential elements necessary for communication within substations, fostering a standardized structure for various devices (~\cite{Overview_of_IEC_61850_and_Benefits}).
 
-\subsection{IEC 61850-8 - Specific Communication Service Mapping (SCSM)}
+\subsection{IEC 61850-8 - Specific Communication Service Mapping}
 
-Part 8 concentrates on specific communication service mappings, offering guidance for mapping diverse protocols used in substation communication. This ensures compatibility and smooth interaction between devices employing different communication protocols (~\cite{Overview_of_IEC_61850_and_Benefits}).
+Part 8 concentrates on Specific Communication Service Mappings (SCSM), offering guidance for mapping diverse protocols used in substation communication. This ensures compatibility and smooth interaction between devices employing different communication protocols (~\cite{Overview_of_IEC_61850_and_Benefits}).
 
-\subsection{IEC 61850-9 - Specific Communication Service Mapping (SCSM)}
-Part 9 specifically deals with defining Specific Communication Service Mappings (SCSM) tailored for diverse protocols used in substation communication. It establishes a standardized framework to ensure compatibility and seamless interaction among different devices within substation automation systems. IEC 61850-9 is crucial for promoting interoperability and facilitating efficient communication among IEDs in substations by addressing the intricacies of various network layers (~\cite{Overview_of_IEC_61850_and_Benefits}).
+\subsection{IEC 61850-9 - Specific Communication Service Mapping}
+Part 9 specifically deals with defining SCSM tailored for diverse protocols used in substation communication. It establishes a standardized framework to ensure compatibility and seamless interaction among different devices within substation automation systems. IEC 61850-9 is crucial for promoting interoperability and facilitating efficient communication among IEDs in substations by addressing the intricacies of various network layers (~\cite{Overview_of_IEC_61850_and_Benefits}).
 
 \subsection{IEC 61850-10 - Conformance Testing}
 
@@ -154,10 +154,9 @@ This section discusses the evolution of the IEC 61850-9-2 protocols, tracing its
 
 \subsection{IEC 60044-8/2002}
 
-Many in the industry are familiar with the IEC 60044 standard, a predecessor to the current IEC 61869 standard for instrument transformers. Part 8 of IEC 60044, dealing with electronic instrument transformers, introduced the concept of a "merging unit." This unit acts as a bridge between analog and digital signals, facilitating the conversion of analog network signals for use in digital IEDs. Additionally, the standard introduced the idea of a data set, later utilized in IEC 61850 for network communication. Figure~\ref{fig:Merging-Unit} The concept of the MU in modern SAS. It represents the integration of various sensor data, such as current and voltage measurements, into a single digital output, streamlining communication between equipment and control systems. This concept laid the foundation for the development of the MUs available in the market today. The initial integration and design of MUs introduced a unified approach to handling data, which has since evolved into a critical component for ensuring efficient, reliable, and accurate data transmission in substations.
+Many in the industry are familiar with the IEC 60044 standard, a predecessor to the current IEC 61869 standard for instrument transformers. Part 8 of IEC 60044, dealing with electronic instrument transformers, introduced the concept of a "merging unit." This unit acts as a bridge between analog and digital signals, facilitating the conversion of analog network signals for use in digital IEDs. Additionally, the standard introduced the idea of a data set, later utilized in IEC 61850 for network communication.
 
-
-\footnote{\url{https://www.linkedin.com/pulse/history-iec-61850-sampled-values-tibor-congo/}}
+Figure~\ref{fig:Merging-Unit} The concept of the MU in modern SAS. It represents the integration of various sensor data, such as current and voltage measurements, into a single digital output, streamlining communication between equipment and control systems. This concept laid the foundation for the development of the MUs available in the market today. The initial integration and design of MUs introduced a unified approach to handling data, which has since evolved into a critical component for ensuring efficient, reliable, and accurate data transmission in substations. \footnote{\url{https://www.linkedin.com/pulse/history-iec-61850-sampled-values-tibor-congo/}}
 
 \begin{figure}[tbh]
 	\centering
@@ -173,7 +172,7 @@ This marks the beginning of the protocol known today. However, it initially lean
 
 \subsection{IEC~61850-9-2(Ed1)/2004}
 
-After adjusting our approach from an earlier mistake, we are now making a second major step toward implementing Sampled Values. At this stage, the abstraction of the IEC 61850 standard is being carefully applied once more. Initially introduced in the IEC 61850-7-2 standard, this service specification has since developed into a well-defined standard within IEC 61850-9-2, where it is clearly outlined within the context of Ethernet communication.
+At this stage, the abstraction of the IEC 61850 standard is being carefully applied once more. Initially introduced in the IEC 61850-7-2 standard, this service specification has since developed into a well-defined standard within IEC 61850-9-2, where it is clearly outlined within the context of Ethernet communication.
 
 The data structure is characterized by its generic definition, and the communication process operates entirely independently. This implies that, in the future, we could seamlessly transition to another standard beyond Ethernet, tailored to the system's evolving needs. This flexibility is a testament to the power that abstraction brings. However, it's important to note that, thus far, the Ethernet protocol has been utilized and has consistently met the expected performance requirements.
 
@@ -227,4 +226,3 @@ The evolution from IEC 60044-8 to IEC 61850-9-2 ED2.1 marks the shift from analo
 
 ~\footnote{\url{https://www.linkedin.com/pulse/history-iec-61850-sampled-values-tibor-congo/}}.
 \FloatBarrier
-%\section{IEC 61850-9-3 Precision Time Protocol (PTP)}

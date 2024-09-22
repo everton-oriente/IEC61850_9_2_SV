@@ -5,7 +5,8 @@
 \label{chap:Chapter6} % For referencing the chapter elsewhere, use \ref{chap:Chapter6} 
 
 %----------------------------------------------------------------------------------------
-This chapter outlines the testing of the code used by the publisher, subscriber, algorithm and the evaluation process to achieve the project’s objectives. It provides detailed insights into key portions of the code and the structures involved, with a particular focus on the state machine implemented to select the best sample of the analog signal. The chapter also details the testing approach, emphasizing the steps taken to rigorously validate the algorithm's performance. Initially, the testing path wasn't entirely clear, but as it progressed, the necessary methods and solutions were identified to ensure the algorithm's successful validation and the overall project's success.
+
+This chapter outlines the testing and evaluation processes crucial to achieving the project’s objectives. It begins with Section 6.1, which focuses on the tests conducted on the merging unit ()publisher of IEC 61850-9-2-SV, ensuring it performs accurately under various conditions. Section 6.2 details the testing of the subscriber, examining its ability to receive and process the data correctly. Finally, Section 6.3 evaluates the algorithm, particularly the state machine implemented to select the best sample of the analog signal. Throughout this chapter, rigorous testing approaches are emphasized, highlighting the steps taken to validate the algorithm's performance and secure the project's overall success. Initially, the testing path wasn’t entirely clear, but as it progressed, the necessary methods and solutions were identified to ensure the algorithm’s successful validation.
 
 \section{Test of Publisher of IEC~61850-9-2-SV}
 
@@ -91,7 +92,7 @@ Figure~\ref{fig:subscriber_side} Here, we have the wireshark sniffing the inform
 
 \begin{figure}[tbh]
 	\centering
-	\includegraphics[width=0.90\textwidth, keepaspectratio]{ch6/assets/information_packet_sub_pub.png} % Reduce to 90% of the text width
+	\includegraphics[width=0.85\textwidth, keepaspectratio]{ch6/assets/information_packet_sub_pub.png} % Reduce to 90% of the text width
 	\caption{Information provided by Log of publisher and subscriber, the same packet in both equipment}
 	\label{fig:information_packet_sub_pub}
 \end{figure}
@@ -124,3 +125,7 @@ The Initial state is responsible for initializing all necessary variables to zer
 When dealing with Invalid samples, the process begins in the Get Sample state, similar to Valid samples. After the analysis confirms the sample is invalid, the state transitions to Invalid. If the number of invalid samples exceeds n\_samples, the system moves to the Toggle MU state; otherwise, it transitions to Complete Sample.
 
 Finally, for Questionable samples, the state machine simply waits for the tick and then transitions to Complete Sample. No additional handling is applied for questionable samples.
+
+The following debug output captures the comprehensive testing of the state machine. This output provides a clear record of the testing process, illustrating how each message corresponds to various scenarios within the state machine. By tracing these messages, one can see the meticulous examination of every possible state and transition, ensuring that all functionalities were thoroughly validated. Additionally, the debug information offers insights into the algorithm's performance, demonstrating its ability to respond accurately to different conditions. This rigorous testing process was essential for confirming the reliability and effectiveness of both the state machine and the algorithm. Look at the debug below.
+
+\lstinputlisting{ch6/assets/test_of_sub_with_fsm_iec61850_9_2.txt}

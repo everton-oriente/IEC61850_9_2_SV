@@ -5,7 +5,8 @@
 \label{chap:Chapter5} % For referencing the chapter elsewhere, use \ref{chap:Chapter5} 
 
 %----------------------------------------------------------------------------------------
-This chapter outlines the development of publisher, subscriber, algorithm and the evaluation process for achieving the project’s objectives. It provides detailed insights into key portions of the code and the structures involved, particularly focusing on the state machine implemented to select the best sample of the analog signal. The chapter also highlights the development approach, identifying the essential steps needed to advance the project. Initially, the path forward wasn't always clear, but as the development progressed, the necessary methods and solutions were uncovered to ensure the successful completion of the project.
+
+This chapter focuses on the development of the merging unit (publisher), the protection relay (subscriber), and algorithm essential to this project. It begins with Section 5.1, which explains the structure of SVs, laying the foundation for the algorithm's operation. Section 5.2 details the development of a publisher for IEC 61850-9-2-SV, covering data structuring, core function implementation, and testing through simulated signals. Section 5.3 addresses the development of a subscriber, highlighting the reuse of structures, data reception, error handling, and final implementation. The chapter also provides detailed insights into key portions of the code and the structures involved, particularly focusing on the state machine implemented to select the best sample of the analog signal. Finally, Section 5.4 discusses the overall development of the algorithm, integrating the components into a cohesive system and identifying the essential steps needed to advance the project. Initially, the path forward wasn't always clear, but as development progressed, the necessary methods and solutions were uncovered to ensure the successful completion of the project.
 
 \section{Structure of Sampled Values}
 
@@ -264,9 +265,7 @@ For example, the implementation of a constructor for the 'EthernetFrame' struct 
 			}
 		\end{lstlisting}
 		
-		The SVs are received through one Ethernet port and transmitted through another after selecting the optimal signal for the protection devices.
-		
-		Figure~\ref{fig:test_setup} Here has a representation of the connection between the publisher, algorithm and subscriber of the algorithm.
+		Figure~\ref{fig:test_setup} This diagram represents the connection between the two Merging Units (MUs) and the algorithm. After the algorithm selects the optimal sample, it transmits the selected data to the IED.
 		
 		\begin{figure}[tbh]
 			\centering
@@ -275,3 +274,7 @@ For example, the implementation of a constructor for the 'EthernetFrame' struct 
 			\label{fig:test_setup}
 		\end{figure}
 		\FloatBarrier
+		
+All information regarding the development is available on GitHub, along with additional resources in the following location:\url{https://github.com/everton-oriente/IEC61850_9_2_SV/tree/main}
+
+These platforms collectively provide comprehensive access to the project's documentation, code, and related materials.

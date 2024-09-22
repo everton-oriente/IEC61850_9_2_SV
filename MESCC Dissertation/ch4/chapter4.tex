@@ -5,7 +5,8 @@
 \label{chap:Chapter4} % For referencing the chapter elsewhere, use \ref{chap:Chapter4} 
 
 %----------------------------------------------------------------------------------------
-This chapter details the research methodology and the comprehensive process for evaluating the objectives of this study. Section 4.1 provides an overview of the methods and tools employed throughout the development of this project. Section 4.2 outlines the approach for evaluating the algorithm's development, covering aspects such as hardware, software, progress, and results. Finally, Section 4.3 presents the roadmap for the entire development of the thesis, detailing the steps and milestones to be achieved.
+
+This chapter details on the practical implementation of the proposed algorithm. It begins with an overview in Section 4.1, which outlines the key methods and tools used throughout the development process. Section 4.2 dives into the detailed steps taken to develop the algorithm, including both hardware and software components, as well as the various tools and libraries (crates) employed. Section 4.3 then describes the algorithm designed to select the best SVs and presents the results of this selection process. This chapter provides a comprehensive view of how the theoretical concepts were translated into a working solution.
 
 \section{Overview}
 
@@ -190,14 +191,13 @@ Chrono\footnote{\url{https://crates.io/crates/chrono}} is a comprehensive and ro
 
 One of Chrono's most significant advantages is its flexibility and precision, making it suitable for a wide range of applications. Whether you need to manage timestamps in a database, schedule tasks, log events, or handle time-sensitive operations in a global application, Chrono provides the tools you need. It also supports custom date and time formats, allowing you to work with both standard and non-standard representations of time. Chrono is widely adopted in the Rust ecosystem for any application that requires accurate and reliable date/time handling.
 
-\section{Algorithm for Selecting the Best Sampled Values (SV's)}
+\section{Algorithm for Selecting the Best Sampled Values}
 
 This thesis proposes a method for selecting the best analog/digital signal sent by multiple Merging Units. The signal is initially analog because it is acquired in that form from VT and CT, but the Merging Unit converts it into a digital signal following the IEC~61850-9-2 protocol. The device proposed in this work receives the digital signal, reconverts it to its real value, and compares it with another analog signal that's come from another Merging Unit. After this comparison, an algorithm implemented using a state machine selects which signal will be forwarded to the protection systems subscribing to these SV.
 
 To achieve this, it was necessary to develop and implement the IEC~61850-9-2 protocol from the ground up. Since there is no available library for the RUST programming language, one had to be created. As a result, a publisher, a subscriber, and the core algorithm which is the main focus of this thesis were developed. This algorithm must receive information from two Merging Units and, after processing it, send the selected data to the protection system.
 
-Figure~\ref{fig:overview_of_implementation} How the parts of the thesis 
-are connected with each other.
+Figure~\ref{fig:overview_of_implementation} The components of the thesis are interconnected as follows: Two MUs send data to the algorithm. The algorithm then evaluates the information from both MUs, selects the most optimal data, and transmits it to the Protection Relay. This selection process ensures that the Protection Relay receives the best possible data based on the criteria defined by the algorithm.
 
 \begin{figure}[tbh]
 	\centering
