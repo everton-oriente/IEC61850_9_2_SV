@@ -1,22 +1,5 @@
 % Chapter 3
-\chapter{Research Topic} % Main c%----------------------------------------------------------------------------------------
-\section{Architecture of the Algorithm}
-
-The algorithm involves receiving two measurements from the same measuring sensor (Current Transformers or Voltage Transformers), providing redundancy in the data acquisition required by the IED to process electrical protection algorithms. From a critical acquisition perspective, this approach is beneficial to address the scenario where one Merging Unit fails; the other Merging Unit can still send the data from that sensor. However, from the perspective of the IED, it needs to determine which of the two samples to use for running the protection algorithm to detect faults that may or may not occur based on the measurements received by the Merging Unit.
-
-To address this issue, the proposed solution involves developing an algorithm that first monitors the SVs, classifying them, and then delivering only the sample that is most well-qualified to run the protection algorithms. The architecture of this solution is akin to a switch, where two or more SVs from the same current or voltage transformer arrive, and the switch allows only the path of the best-qualified sample, discarding the others. Consequently, two SVs may arrive, but the protection system will only consider one SVs with the best metric, Figure~\ref{fig:SLD_Diagram}, shown has a simple connection.
-
-\begin{figure}[tbh]
-	\centering
-	\includegraphics[width=0.77\textwidth, keepaspectratio]{ch3/assets/SLD_Diagram.png}
-	\caption{Simple Single Line Diagram (SLD) of Electrical Substation with SV's. (Credits: Efacec Energia, Máquinas e Equipamentos Eléctricos, S.A.)}
-	\label{fig:SLD_Diagram}
-\end{figure}
-\FloatBarrier
-
-
-~\footnote{\url{https://www.efacec.pt/en/wp-content/uploads/2022/08/CS491I2207A1_MCU-500.pdf}}.
-\FloatBarrier
+\chapter{Insights} % Main c%----------------------------------------------------------------------------------------
 
 \section{Identification of the research gap}
 
@@ -43,3 +26,17 @@ By focusing on the development of an algorithm that selects the optimal SV arriv
 \subsection{Conclusion of the research gap}
 
 In summary, while the IEC 61850-9-2 standard has been extensively studied, there remains a significant gap concerning the development of real-time algorithms for optimal SV selection from multiple MUs. This research aims to address this gap, providing a much-needed solution that enhances protection relay performance and overall substation reliability.
+
+\section{Architecture of the Algorithm}
+
+The algorithm involves receiving two measurements from the same measuring sensor (Current Transformers or Voltage Transformers), providing redundancy in the data acquisition required by the IED to process electrical protection algorithms. From a critical acquisition perspective, this approach is beneficial to address the scenario where one Merging Unit fails; the other Merging Unit can still send the data from that sensor. However, from the perspective of the IED, it needs to determine which of the two samples to use for running the protection algorithm to detect faults that may or may not occur based on the measurements received by the Merging Unit.
+
+To address this issue, the proposed solution involves developing an algorithm that first monitors the SVs, classifying them, and then delivering only the sample that is most well-qualified to run the protection algorithms. The architecture of this solution is akin to a switch, where two or more SVs from the same current or voltage transformer arrive, and the switch allows only the path of the best-qualified sample, discarding the others. Consequently, two SVs may arrive, but the protection system will only consider one SVs with the best metric, Figure~\ref{fig:SLD_Diagram}~\footnote{\url{https://www.efacec.pt/en/wp-content/uploads/2022/08/CS491I2207A1_MCU-500.pdf}}, shown has a simple connection.
+
+\begin{figure}[tbh]
+	\centering
+	\includegraphics[width=0.77\textwidth, keepaspectratio]{ch3/assets/SLD_Diagram.png}
+	\caption{Simple Single Line Diagram (SLD) of Electrical Substation with SV's. (Credits: Efacec Energia, Máquinas e Equipamentos Eléctricos, S.A.)}
+	\label{fig:SLD_Diagram}
+\end{figure}
+\FloatBarrier

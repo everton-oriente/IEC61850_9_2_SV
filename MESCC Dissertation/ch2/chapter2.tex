@@ -77,21 +77,30 @@ The significant progress in substation automation has led to substantial investm
 
 Faced with the communication challenges between devices, standardized protocols have emerged with the goal of achieving the desired interoperability. In other words, these protocols aim to enable communication between devices from different manufacturers on the same network. Figure~\ref{fig:table-protocols} displays some of the most commonly used protocols in substation networks (~\cite{NormaIEC61850}).
 
-\begin{figure}[tbh]
+\begin{table}[h]
 	\centering
-	\includegraphics[width=\textwidth, keepaspectratio]{ch2/assets/table_protocols.png}
-	\caption{Communication Protocols specifications.}
-	\label{fig:table-protocols}
-\end{figure}
-\FloatBarrier
+	\scriptsize
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{@{}lcccc@{}}
+			\toprule
+			\textbf{Protocol} & \textbf{Originally used by} & \textbf{Speed} & \textbf{Access Principle} & \textbf{OSI Layers} \\ \midrule
+			MODBUS                      & Gould-Modicon                    & 19.2 kbps           & Cyclic scanning             & 1, 2, 7              \\
+			SPABUS                      & ABB (exclusive)                  & 19.2 kbps           & Cyclic scanning             & 1, 2, 7              \\
+			DNP3.0                      & GE-Harris                        & 19.2 kbps           & Cyclic scanning\textsuperscript{2}            & 1, 2, 7\textsuperscript{3}             \\
+			IEC 60870-5                 & All manufacturers                & 19.2 kbps           & Cyclic scanning             & 1, 2, 7              \\
+			MODBUS+                     & Gould-Modicon                    & Token               & Cyclic scanning             & 1, 2, 7              \\
+			PROFIBUS                    & Siemens                          & 12 Mbps             & Token                        & 1, 2, 7              \\
+			MVB                         & ABB                              & 1.5 Mbps            & TDM                          & 1, 2, 7\textsuperscript{4}             \\
+			FIP                         & Merlin-Gerin                     & 2.5 Mbps            & TDM                          & 1, 2, 7              \\
+			Ethernet + TCP/IP           & All manufacturers                & 10 Mbps             & CSMA/CD                      & 1-7                  \\
+			LON                         & ABB (exclusive)                  & 1.25 Mbps           & PCMSA/CD                     & 1-7                  \\
+			UCA 2.0                     & GE                               & 10 Mbps             & CSMA/CD                      & 1-7                  \\ \bottomrule
+		\end{tabular}
+	}
+	\caption{Communication Protocols used by energy company.}
+	\label{table:protocols}
+\end{table}
 
-%\subsection{Data Model of IED in IEC 61850}
-%\subsection{Physical Device}
-%\subsection{Logical Device}
-%\subsection{Logical Node}
-%\subsection{IEC 81346 - How to give a name to the equipment}
-%\subsection{Conclusion}
-%Conclusion, talking about how we can convert a physical equipment in a virtual equipment and each name we can give.
 
 
 \section{Overview of IEC~61850}
@@ -156,7 +165,7 @@ This section discusses the evolution of the IEC 61850-9-2 protocols, tracing its
 
 Many in the industry are familiar with the IEC 60044 standard, a predecessor to the current IEC 61869 standard for instrument transformers. Part 8 of IEC 60044, dealing with electronic instrument transformers, introduced the concept of a "merging unit." This unit acts as a bridge between analog and digital signals, facilitating the conversion of analog network signals for use in digital IEDs. Additionally, the standard introduced the idea of a data set, later utilized in IEC 61850 for network communication.
 
-Figure~\ref{fig:Merging-Unit} The concept of the MU in modern SAS. It represents the integration of various sensor data, such as current and voltage measurements, into a single digital output, streamlining communication between equipment and control systems. This concept laid the foundation for the development of the MUs available in the market today. The initial integration and design of MUs introduced a unified approach to handling data, which has since evolved into a critical component for ensuring efficient, reliable, and accurate data transmission in substations. \footnote{\url{https://www.linkedin.com/pulse/history-iec-61850-sampled-values-tibor-congo/}}
+Figure~\ref{fig:Merging-Unit} The concept of the MU represents the integration of various sensor data, such as current and voltage measurements, into a single digital output, streamlining communication between equipment and control systems. This concept laid the foundation for the development of the MUs available in the market today. The initial integration and design of MUs introduced a unified approach to handling data, which has since evolved into a critical component for ensuring efficient, reliable, and accurate data transmission in substations. \footnote{\url{https://www.linkedin.com/pulse/history-iec-61850-sampled-values-tibor-congo/}}
 
 \begin{figure}[tbh]
 	\centering
@@ -178,7 +187,7 @@ The data structure is characterized by its generic definition, and the communica
 
 In this revised standard, the noteworthy inclusion is the implementation of the process bus for Sampled Values, signaling a departure from the initial point-to-point communication approach. Here, to propagate Ethernet packets across the network, it leverages the existing multicast definition of the Ethernet protocol.
 
-I would like to highlight a widely embraced guideline employed by manufacturers in the development of Sampled Values, known as the UCA Implementation Guideline for IEC 61850-9-2. It's crucial to recognize that this is a guideline, not a standard(~\cite{History_Sample_Value}).
+A widely embraced guideline employed by manufacturers in the development of Sampled Values is the UCA Implementation Guideline for IEC 61850-9-2.. It's crucial to recognize that this is a guideline, not a standard(~\cite{History_Sample_Value}).
 
 \subsection{IEC 61850-9-2 Ed2/2011}
 
@@ -215,7 +224,7 @@ The IEC61869-9 standard mentions the use of configurable datasets. The IEC 61850
 In this latest update, there was a small reinforcement of what was mentioned in the previous version. Here, a new field called SynchSrcID was introduced, which is used to specify the synchronization source of the merging unit. This new feature is one of the optional fields. In the IEC~61850-9-2-LE version, there was only one field, but breaking free from the limitations of this version, now there are more fields to configure. Again, a note on what was mentioned above, it is essential to analyze configuration issues and implementation costs, as it will be more complex(~\cite{History_Sample_Value}).\newline
 
 
-The evolution from IEC 60044-8 to IEC 61850-9-2 ED2.1 marks the shift from analog to digital in substation communication. Starting with the digitization of transformer outputs, it progressed through increasingly sophisticated standards (IEC 61850-9-1, 9-2 ED1, and 9-2 LE), refining the transmission of sampled values over Ethernet. The development culminated in IEC 61869-9 and IEC 61850-9-2 ED2.1, which ensure interoperability and advanced digital communication in modern substations, in Figure~\ref{fig:Evolution of IEC 61850-9-2} has showned the progress through years.
+The evolution from IEC 60044-8 to IEC 61850-9-2 ED2.1 marks the shift from analog to digital in substation communication. Starting with the digitization of transformer outputs, it progressed through increasingly sophisticated standards (IEC 61850-9-1, 9-2 ED1, and 9-2 LE), refining the transmission of sampled values over Ethernet. The development culminated in IEC 61869-9 and IEC 61850-9-2 ED2.1, which ensure interoperability and advanced digital communication in modern substations, in Figure~\ref{fig:Evolution of IEC 61850-9-2} ~\footnote{\url{https://www.linkedin.com/pulse/history-iec-61850-sampled-values-tibor-congo/}} has showned the progress through years.
 
 \begin{figure}[tbh]
 	\centering
@@ -224,5 +233,5 @@ The evolution from IEC 60044-8 to IEC 61850-9-2 ED2.1 marks the shift from analo
 	\label{fig:Evolution of IEC 61850-9-2}
 \end{figure}
 
-~\footnote{\url{https://www.linkedin.com/pulse/history-iec-61850-sampled-values-tibor-congo/}}.
+
 \FloatBarrier

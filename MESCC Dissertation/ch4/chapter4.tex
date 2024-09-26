@@ -1,6 +1,6 @@
 % Chapter 4
 
-\chapter{Implementation} % Main chapter title
+\chapter{Architecture} % Main chapter title
 
 \label{chap:Chapter4} % For referencing the chapter elsewhere, use \ref{chap:Chapter4} 
 
@@ -16,9 +16,9 @@ Consequently, formerly non-critical equipment like switches must now meet string
 
 Merging units are ushering substations into the digital age, yet they also introduce new challenges. In older substations, concerns about analog signals were limited to issues like broken wires and induction. Today, with numerous interconnected devices requiring precise timing and high performance, ensuring proper system operation becomes crucial.
 
-\section{Development of the Algorithm}
+\section{Setup of the Algorithm}
 
-It was developed using two hardwares and deploy the programs to run my algorithm, one of them is a jetson nano and the another is my personal computer. The reason i have chosen the jetson nano, it is the easy usage, i can setup all the tools I needed to deploy my program with jetson nano, and also i can add one more ethernet card using a adapter of USB to ethernet really plug and play, because in my setup i need two interfaces of ethernet.
+The development was carried out using two hardware platforms to deploy the programs for running the algorithm. One of these platforms is a Jetson Nano, and the other is a personal computer. The Jetson Nano was selected due to its ease of use, as it allows for straightforward setup of all the necessary tools to deploy the program. Additionally, an extra Ethernet card can be added using a USB-to-Ethernet adapter, which is truly plug-and-play. This feature is essential for the setup, as it requires two Ethernet interfaces.
 
 \subsection{Hardware}
 
@@ -59,16 +59,6 @@ The decision to use Rust was also influenced by its modern design principles and
 Furthermore, Rust's rich type system and pattern matching capabilities facilitate the development of robust and maintainable code. The language's concurrency model is designed to prevent data races, making it a suitable choice for applications requiring high performance and safety.
 
 By choosing Rust, the development process benefits from both high efficiency and enhanced safety, ensuring that the algorithm operates reliably within the substation automation system. This strategic choice underscores the commitment to using cutting-edge technologies to achieve optimal performance and reliability in critical system applications.
-
-An essential aspect of Rust's ecosystem that significantly benefits this project is the Tokio crate. Tokio is a runtime for writing reliable, asynchronous applications with Rust. It provides the necessary tools to handle concurrent and parallel operations efficiently.
-
-Concurrency and Parallelism: Tokio allows for handling many tasks at the same time, enabling the development of highly efficient and responsive applications. By using asynchronous programming, Tokio helps in managing multiple operations concurrently without blocking the execution of other tasks.
-
-Asynchronous I/O: Tokio excels at performing non-blocking I/O operations, which is crucial for applications that need to handle numerous network connections simultaneously, such as the merging unit and protection relay functions in this project.
-
-Scalability: With Tokio, the developed system can scale efficiently, handling increased loads without a significant impact on performance. This is particularly beneficial for real-time data processing and network simulations required in substation automation systems.
-
-By incorporating Rust and leveraging the Tokio crate, the development process benefits from both high efficiency and enhanced safety, ensuring that the algorithm operates reliably within the substation automation system. This strategic choice underscores the commitment to using cutting-edge technologies to achieve optimal performance and reliability in critical system applications.
 
 \subsection{Cargo}
 
@@ -147,13 +137,23 @@ Crates are central to the Rust ecosystem, promoting code reuse, modularity, and 
 
 \subsection{Tokio Crate}
 
-Tokio\footnote{\url{https://crates.io/crates/tokio}} is one of the most popular and powerful asynchronous runtimes available in the Rust ecosystem. It provides the essential components for building fast, reliable, and scalable network applications, taking full advantage of Rust's concurrency model. At its core, Tokio uses an event-driven, non-blocking I/O model, which allows developers to handle thousands of concurrent connections with minimal overhead. This is particularly useful in scenarios where applications need to perform I/O operations, such as reading from or writing to sockets, without waiting for these operations to complete before proceeding.
+Tokio\footnote{\url{https://crates.io/crates/tokio}} is one of the most popular and robust asynchronous runtimes in the Rust ecosystem, offering essential components for building high-performance, reliable, and scalable network applications. Leveraging Rust’s concurrency model, Tokio provides an event-driven, non-blocking I/O system that allows developers to handle thousands of concurrent connections with minimal overhead. This is particularly beneficial for applications that perform extensive I/O operations, such as reading from or writing to sockets, without needing to wait for these operations to complete before continuing with other tasks.
 
-Beyond its asynchronous runtime, Tokio offers a suite of utilities, including timers, channels, and synchronization primitives, which are invaluable when managing complex concurrent systems. For example, its integration with Rust’s async/await syntax simplifies writing asynchronous code, making it easier to read and maintain.
+In addition to its asynchronous runtime, Tokio includes a comprehensive set of utilities such as timers, channels, and synchronization primitives, which are invaluable in managing complex concurrent systems. Its seamless integration with Rust's async/await syntax significantly simplifies the development of asynchronous code, making it more readable and maintainable.
 
-Tokio features a sophisticated multithreaded, work-stealing based task scheduler, which plays a critical role in optimizing the performance of asynchronous Rust applications. This scheduler efficiently distributes tasks across multiple threads, allowing the system to fully utilize the available CPU cores. By employing a work-stealing approach, Tokio ensures that no single thread becomes a bottleneck. If one thread finishes its tasks while others are still busy, it can "steal" tasks from those other threads, leading to a more balanced and efficient workload distribution.
+A key feature of Tokio is its advanced multithreaded, work-stealing task scheduler, which is critical for optimizing the performance of asynchronous applications in Rust. This scheduler distributes tasks efficiently across multiple threads, ensuring full utilization of available CPU cores. By using a work-stealing approach, Tokio ensures that no single thread becomes a performance bottleneck. If one thread finishes its tasks while others are still occupied, it can "steal" tasks from the busy threads, leading to a more balanced and efficient distribution of workload.
 
-This design is particularly advantageous in scenarios where the application must handle a large number of concurrent operations, such as managing network connections or processing real-time data streams. The Tokio's scheduler minimizes idle time and maximizes throughput, which is essential for maintaining high-performance levels in demanding applications. Furthermore, by automatically balancing the load, the scheduler reduces the need for manual optimization, allowing developers to focus on the core logic of their applications rather than fine-tuning performance across multiple threads. This makes Tokio's scheduler a powerful tool for building scalable and responsive systems in Rust.
+This design is particularly beneficial in scenarios where an application must manage a large number of concurrent operations, such as handling network connections or processing real-time data streams. The scheduler minimizes idle time and maximizes throughput, which is essential for maintaining high-performance levels in demanding applications. Additionally, by automatically balancing the load, the scheduler reduces the need for manual optimization, allowing developers to concentrate on the core logic of their applications rather than focusing on performance tuning across threads. This makes Tokio an ideal choice for building scalable and responsive systems in Rust.
+
+Tokio has to offer essential tools for managing concurrency and parallelism efficiently like:
+
+\begin{itemize} 
+	\item Concurrency and Parallelism: Tokio enables the handling of numerous tasks concurrently, facilitating the development of highly efficient and responsive applications. By utilizing asynchronous programming, Tokio helps manage multiple operations simultaneously without blocking the execution of other tasks. 
+	\item Asynchronous I/O: Tokio excels in non-blocking I/O operations, making it ideal for applications that need to handle multiple network connections concurrently. This is particularly relevant for the merging unit and protection relay functions in this project. 
+	\item Scalability: With Tokio, systems can scale efficiently, handling increased loads without a significant decline in performance. This is especially important for real-time data processing and network simulations required in substation automation systems.
+\end{itemize}
+
+By incorporating Rust and leveraging the Tokio crate, the development process benefits from high efficiency and enhanced safety, ensuring that the algorithm functions reliably within the substation automation system. This strategic choice highlights the commitment to using cutting-edge technologies to deliver optimal performance and reliability in critical system applications.
 
 \subsection{Serde Crate}
 
@@ -193,7 +193,7 @@ One of Chrono's most significant advantages is its flexibility and precision, ma
 
 \section{Algorithm for Selecting the Best Sampled Values}
 
-This thesis proposes a method for selecting the best analog/digital signal sent by multiple Merging Units. The signal is initially analog because it is acquired in that form from VT and CT, but the Merging Unit converts it into a digital signal following the IEC~61850-9-2 protocol. The device proposed in this work receives the digital signal, reconverts it to its real value, and compares it with another analog signal that's come from another Merging Unit. After this comparison, an algorithm implemented using a state machine selects which signal will be forwarded to the protection systems subscribing to these SV.
+This thesis proposes a method for selecting the best analog/digital signal sent by multiple Merging Units. The signal is initially analog because it is acquired in that form from VT and CT, but the Merging Unit converts it into a digital signal following the IEC-61850-9-2 protocol. The device proposed in this work receives the digital signal, compares it with another one that's come from another Merging Unit. After this comparison, an algorithm implemented using a state machine selects which signal will be forwarded to the protection systems subscribing to these SV.
 
 To achieve this, it was necessary to develop and implement the IEC~61850-9-2 protocol from the ground up. Since there is no available library for the RUST programming language, one had to be created. As a result, a publisher, a subscriber, and the core algorithm which is the main focus of this thesis were developed. This algorithm must receive information from two Merging Units and, after processing it, send the selected data to the protection system.
 
