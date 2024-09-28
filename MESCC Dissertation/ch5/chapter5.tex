@@ -18,10 +18,10 @@ These elements are divided into the header, payload, and checksum. The header in
 Figure~\ref{fig:sv_packet_fields} Below in the figure has how it is compound the sampled values packets.~\footnote{\url{https://www.mdpi.com/1996-1073/12/19/3731}}.
 
 \begin{figure}[tbh]
-	\centering
-	\includegraphics[width=0.95\textwidth, keepaspectratio]{ch5/assets/sv_packets_fields.png} % Reduce to 90% of the text width
-	\caption{Sampled Value packets fields. (Image credits: MDPI)}
-	\label{fig:sv_packet_fields}
+\centering
+\includegraphics[width=0.95\textwidth, keepaspectratio]{ch5/assets/sv_packets_fields.png} % Reduce to 90% of the text width
+\caption{Sampled Value packets fields. (Image credits: MDPI)}
+\label{fig:sv_packet_fields}
 \end{figure}
 \FloatBarrier
 
@@ -31,10 +31,10 @@ Following the recommendations of \cite{uca2024guideline}, the description is wel
 Figure~\ref{fig:Sv_packet_full} Here has a representation of all the field until the values, and all the layers of the packet. \cite{uca2024guideline}
 
 \begin{figure}[tbh]
-	\centering
-	\includegraphics[width=0.95\textwidth, keepaspectratio]{ch5/assets/Sv_packet_full.png} % Reduce to 90% of the text width
-	\caption{Sampled Value packets fields. (Image credits: UCA International)}
-	\label{fig:Sv_packet_full}
+\centering
+\includegraphics[width=0.95\textwidth, keepaspectratio]{ch5/assets/Sv_packet_full.png} % Reduce to 90% of the text width
+\caption{Sampled Value packets fields. (Image credits: UCA International)}
+\label{fig:Sv_packet_full}
 \end{figure}
 \FloatBarrier
 
@@ -50,64 +50,64 @@ The primary structs used in this project are designed to mirror the components o
 
 
 \begin{lstlisting}[caption={Structs added}]
-	pub struct EthernetFrame
-	{
-		pub destination:    [u8; 6],
-		pub source:         [u8; 6],
-		pub tpid:           u16,
-		pub tci:            u16,
-		pub ethertype:      u16,
-		pub payload:        SvPDU,
-		pub fcs:            [u8; 4],
-	}
-	
-	pub struct SvPDU
-	{
-		pub appid:          [u8; 2],
-		pub length:         [u8; 2],
-		pub reserved1:      [u8; 2],
-		pub reserved2:      [u8; 2],
-		pub apdu: SmvData,
-	}
-	
-	pub struct SmvData
-	{
-		pub sav_pdu_asn:    [u8; 2],
-		pub no_asdu_asn:    [u8; 2],
-		pub no_asdu:        u8,
-		pub seq_asdu_asn:   [u8; 2],
-		pub asdu_asn:       [u8; 2],
-		pub sv_id_asn:      [u8; 2],
-		pub sv_id:          [u32; 1],
-		pub smp_cnt_asn:    [u8; 2],
-		pub smp_cnt:        [u16; 1],
-		pub conf_rev_asn:   [u8; 2],
-		pub conf_rev:       [u32; 1],
-		pub smp_synch_asn:  [u8; 2],
-		pub smp_synch:      u8,
-		pub seq_data:       [u8; 2],
-		pub logical_node: LogicalNode,
-	}
-	
-	pub struct LogicalNode
-	{
-		pub i_a:    [i32; 1],
-		pub q_ia:   [u32; 1],
-		pub i_b:    [i32; 1],
-		pub q_ib:   [u32; 1],
-		pub i_c:    [i32; 1],
-		pub q_ic:   [u32; 1],
-		pub i_n:    [i32; 1],
-		pub q_in:   [u32; 1],
-		pub v_a:    [i32; 1],
-		pub q_va:   [u32; 1],
-		pub v_b:    [i32; 1],
-		pub q_vb:   [u32; 1],
-		pub v_c:    [i32; 1],
-		pub q_vc:   [u32; 1],
-		pub v_n:    [i32; 1],
-		pub q_vn:   [u32; 1],
-	}
+pub struct EthernetFrame
+{
+pub destination:    [u8; 6],
+pub source:         [u8; 6],
+pub tpid:           u16,
+pub tci:            u16,
+pub ethertype:      u16,
+pub payload:        SvPDU,
+pub fcs:            [u8; 4],
+}
+
+pub struct SvPDU
+{
+pub appid:          [u8; 2],
+pub length:         [u8; 2],
+pub reserved1:      [u8; 2],
+pub reserved2:      [u8; 2],
+pub apdu: SmvData,
+}
+
+pub struct SmvData
+{
+pub sav_pdu_asn:    [u8; 2],
+pub no_asdu_asn:    [u8; 2],
+pub no_asdu:        u8,
+pub seq_asdu_asn:   [u8; 2],
+pub asdu_asn:       [u8; 2],
+pub sv_id_asn:      [u8; 2],
+pub sv_id:          [u32; 1],
+pub smp_cnt_asn:    [u8; 2],
+pub smp_cnt:        [u16; 1],
+pub conf_rev_asn:   [u8; 2],
+pub conf_rev:       [u32; 1],
+pub smp_synch_asn:  [u8; 2],
+pub smp_synch:      u8,
+pub seq_data:       [u8; 2],
+pub logical_node: LogicalNode,
+}
+
+pub struct LogicalNode
+{
+pub i_a:    [i32; 1],
+pub q_ia:   [u32; 1],
+pub i_b:    [i32; 1],
+pub q_ib:   [u32; 1],
+pub i_c:    [i32; 1],
+pub q_ic:   [u32; 1],
+pub i_n:    [i32; 1],
+pub q_in:   [u32; 1],
+pub v_a:    [i32; 1],
+pub q_va:   [u32; 1],
+pub v_b:    [i32; 1],
+pub q_vb:   [u32; 1],
+pub v_c:    [i32; 1],
+pub q_vc:   [u32; 1],
+pub v_n:    [i32; 1],
+pub q_vn:   [u32; 1],
+}
 \end{lstlisting}
 
 These structs allow for a comprehensive representation of the Ethernet frame and the SV data contained within, ensuring that each element of the SV packet is accurately captured and can be easily manipulated during transmission.
@@ -119,162 +119,97 @@ Once the data structures are in place, the next step is to implement the functio
 For example, the implementation of a constructor for the 'EthernetFrame' struct might look like this:
 
 \begin{lstlisting}[caption={How to implement an impl for the struct}]
-	/ Implementation of functions regarding EthernetFrame struct
-	impl EthernetFrame {
-		pub fn new(destination: [u8; 6], source: [u8; 6], tpid: u16, tci: u16, ethertype: u16, payload: SvPDU, fcs: [u8; 4]) -> Self {
-			Self {
-				destination,
-				source,
-				tpid,
-				tci,
-				ethertype,
-				payload,
-				fcs,
-			}
-		}
-	\end{lstlisting}
-	
-	This function allows for the creation of a new EthernetFrame instance, ensuring that all necessary fields are initialized correctly.
-	
-	\subsection{Simulating an Electrical Grid Signal}
-	
-	A key functionality of the publisher is to simulate the sinusoidal signal of an electrical grid. This simulation is essential for generating realistic SV packets that can be used to test and validate the SV communication system.
-	
-	To achieve this, the current time is used as an input to calculate the voltage and current values, with predefined amplitudes representing the electrical parameters. This simulation is implemented in the following function:
-	
-	\begin{lstlisting}[caption={How to calculate the value of the SV's }]
-		pub fn cal_current_phase_b ()-> [i32;1]
-		{
-			let now = Local::now();
-			let t: f32 = now.timestamp_subsec_nanos() as f32 / 1_000_000_000.0;
-			let phase_degrees: f32 = 120.0; // Example phase in degrees
-			let phase_radians: f32 = phase_degrees * PI / 180.0; // Convert phase to radians
-			let omega: f32 = 2.0 * PI * FREQUENCY;
-			let amplitude: f32 = AMPLITUDE_CURRENT * ((omega * t + phase_radians).sin());
-			[amplitude as i32;1]
-		}
-	\end{lstlisting}
-	
-	This function calculates the current value for phase B at a given moment, using the system's local time to simulate the progression of the sinusoidal wave. The result is an array containing the current value, which can then be included in the SV packet.
-	
-	\subsection{Introducing Invalid Samples for Testing}
-	
-	To fully test the algorithm's ability to handle real-world scenarios, it was necessary to introduce invalid samples. This was accomplished by altering the quality of certain samples within the SV packets, making them invalid. The publisher was enhanced with a feature that allows these quality changes, enabling the testing of how well the algorithm can identify and respond to invalid data.
-	
-	\begin{lstlisting}[caption={How to calculate the value of the SV's }]
-		if increment > 50 \&\& increment < 100
-		{
-			// Implement Bad Quality to the samples
-			// The value of 0 is good quality
-			// The value of 1 and 2 is invalid
-			//The value of 3 it is questionable
-			sv_packet.payload.apdu.logical_node.q_ia[0] = sv_packet.payload.apdu.logical_node.q_ia[0].wrapping_add(1);	
-		}
-	\end{lstlisting}
-	
-	This method directly modifies the 'sv\_packet.payload.apdu.logical\_node.q\_ia' field, effectively marking the sample as invalid. This invalid data can then be used to test the robustness of the SV communication and processing algorithm.
-	
-	\subsection{Finalizing the Publisher}
-	
-	With the basic structure, implementation, and testing features in place, the development of the publisher was completed. The final publisher is capable of generating and transmitting SV packets, simulating electrical grid signals, and introducing invalid data for testing purposes. These features are critical to the overall success of the thesis, as they enable comprehensive testing and validation of the IEC~61850-9-2 SV standard.
-	
-	\section{Development of a Subscriber of IEC~61850-9-2-SV}
-	
-	The development process for the subscriber followed a similar structured approach as that of the publisher. Having already established the necessary structs during the publisher's development, the focus for the subscriber shifted towards receiving and processing the data transmitted by the publisher over the network.
-	
-	In this context, the subscriber was designed to handle incoming Sampled Values (SV) packets, log the received data, and print the relevant information to the log. This approach not only facilitated real-time monitoring of the transmitted SV data but also provided a foundation for verifying the integrity and accuracy of the data exchange between the publisher and subscriber.
-	
-	\subsection{Structs Reused in the Subscriber}
-	
-	Given that the subscriber's primary role is to interpret the data sent by the publisher, the same set of structs, including 'EthernetFrame', 'SvPDU', 'SmvData', and 'LogicalNode', were reused. These structs allowed the subscriber to decode the incoming Ethernet frames and extract the necessary information from the SV packets.
-	
-	\begin{lstlisting}[caption={EthernetFrame struct. }]
-		pub struct EthernetFrame {
-			pub destination: [u8; 6],
-			pub source: [u8; 6],
-			pub tpid: u16,
-			pub tci: u16,
-			pub ethertype: u16,
-			pub payload: SvPDU,
-			pub fcs: [u8; 4],
-		}
-		
-		// Other structs reused as shown in the publisher's code...
-	\end{lstlisting}
-	
-	\subsection{Implementation of Data Reception and Logging}
-	
-	The implementation phase involved creating functions to capture the network packets, parse them into the appropriate struct fields, and log the data for analysis. The impl blocks provided a seamless way to define these methods, ensuring that the subscriber could efficiently process the data.
-	
-	\subsection{Error Handling and Invalid Data Processing}
-	
-	An essential part of the subscriber’s functionality involved handling errors and invalid data. Similar to the publisher, where invalid samples were introduced to test the algorithm, the subscriber needed to identify and appropriately respond to these invalid samples. This was achieved by checking the quality of the received data and ensuring that any invalid samples were flagged and processed correctly.
-	
-	\subsection{Finalizing the Subscriber}
-	
-	By incorporating robust data reception, validation, and logging mechanisms, the subscriber was completed with the essential features required to support the overall thesis objectives. The subscriber was now fully equipped to interact with the publisher, process the received SV packets, and handle any errors or invalid data that might arise during transmission. This setup provided a solid foundation for testing and verifying the performance of the implemented communication protocol.
-	
-	
-	\section{Development of the Algorithm}
-	
-	The development of the algorithm hinges on a deep understanding of both the publisher and subscriber functions. The aim is to create an algorithm capable of selecting the optimal samples from two independent devices that measure the same electrical quantity. This involves transmitting these measurements via a protocol, decompressing the data, extracting the necessary values, evaluating them, and ultimately selecting the best sample. All of this must be accomplished within a timeframe that ensures the SVs reach the protection devices without delay each SV being transmitted every 250 microseconds.
-	
-	The algorithm is triggered upon the reception of an SV from one of the merging units. Once received, the SV is processed and evaluated to determine whether it is valid, invalid, or questionable. If the sample is valid, its values are extracted for comparison with those from the other merging unit. In the case of an invalid or questionable sample, it is excluded from the value acquisition process. However, the algorithm keeps track of the number of invalid samples, which is one of the criteria used to decide whether to switch the SVs being sent to the protection relays.
-	
-	For valid samples, a comparison is made on a sample-by-sample basis to ensure the best result. If the error does not exceed 25\%, the current SV is maintained; however, if the error surpasses 25\%, the SV being sent to the protection relays is switched. A state machine was implemented to make the decision on which SV to send to the protection devices. Although the system receives values from two merging units, only one of the two received SVs is transmitted.
-	
-	The state machine processes all incoming SV frames according to the logic outlined below.
-	
-	Figure~\ref{fig:state_machine} Here has a representation of the state machines it was implemented to make a decision which SV's is going to send.
-	
-	\begin{figure}[tbh]
-		\centering
-		\includegraphics[width=0.95\textwidth, keepaspectratio]{ch5/assets/state_machine.png} % Reduce to 90% of the text width
-		\caption{State Machine of Decision Make.}
-		\label{fig:state_machine}
-	\end{figure}
-	\FloatBarrier
-	
-	The state machine was implemented in Rust, utilizing two mechanisms for state transitions: events and ticks. Events are specific actions that must occur to progress through the state machine, while ticks represent units of time. When the stipulated time elapses and the state requires only a tick to advance, the state machine proceeds to the next state, just as it does in response to events.
-	
-	\begin{lstlisting}[caption={State Machine struct. }]
-		// Define the state machine
-		struct FrameProcessor {
-			state: State,
-			cont_smp_inv: u32,
-			cont_smp_valid_sv_id_1: u32,
-			cont_smp_valid_sv_id_2: u32,
-			error_percentage: f32,
-			buffer_mu1: [[i32; N_SAMPLES as usize]; 8], // buffer MU 1 current A,B,C and N - voltage A,B,C and N
-			buffer_mu2: [[i32; N_SAMPLES as usize]; 8], // buffer MU 2 current A,B,C and N - voltage A,B,C and N
-			toggle_mu: bool,
-		}
-		impl FrameProcessor {
-			fn new() -> Self {
-				Self {
-					state: State::Initial,
-					cont_smp_inv: 0, // Initialize cont_invalid
-					cont_smp_valid_sv_id_1: 0,
-					cont_smp_valid_sv_id_2: 0,
-					error_percentage: 0.0,
-					buffer_mu1: [[0 ; N_SAMPLES as usize]; 8],
-					buffer_mu2: [[0 ; N_SAMPLES as usize]; 8],
-					toggle_mu: false,
-					
-				}
-			}
-		\end{lstlisting}
-		
-		Figure~\ref{fig:test_setup} This diagram represents the connection between the two Merging Units (MUs) and the algorithm. After the algorithm selects the optimal sample, it transmits the selected data to the IED.
-		
-		\begin{figure}[tbh]
-			\centering
-			\includegraphics[width=0.95\textwidth, keepaspectratio]{ch5/assets/test_setup.png}
-			\caption{How is connected the two simulators of SV's to exchange the information.}
-			\label{fig:test_setup}
-		\end{figure}
-		\FloatBarrier
-		
-All information regarding the development is available on GitHub, along with additional resources in the following location:\url{https://github.com/everton-oriente/IEC61850_9_2_SV/tree/main}
+/ Implementation of functions regarding EthernetFrame struct
+impl EthernetFrame {
+pub fn new(destination: [u8; 6], source: [u8; 6], tpid: u16, tci: u16, ethertype: u16, payload: SvPDU, fcs: [u8; 4]) -> Self {
+Self {
+	destination,
+	source,
+	tpid,
+	tci,
+	ethertype,
+	payload,
+	fcs,
+}
+}
+\end{lstlisting}
 
-These platforms collectively provide comprehensive access to the project's documentation, code, and related materials.
+This function allows for the creation of a new EthernetFrame instance, ensuring that all necessary fields are initialized correctly.
+
+\subsection{Simulating an Electrical Grid Signal}
+
+A key functionality of the publisher is to simulate the sinusoidal signal of an electrical grid. This simulation is essential for generating realistic SV packets that can be used to test and validate the SV communication system.
+
+To achieve this, the current time is used as an input to calculate the voltage and current values, with predefined amplitudes representing the electrical parameters. This simulation is implemented in the following function:
+
+\begin{lstlisting}[caption={How to calculate the value of the SV's }]
+pub fn cal_current_phase_b ()-> [i32;1]
+{
+let now = Local::now();
+let t: f32 = now.timestamp_subsec_nanos() as f32 / 1_000_000_000.0;
+let phase_degrees: f32 = 120.0; // Example phase in degrees
+let phase_radians: f32 = phase_degrees * PI / 180.0; // Convert phase to radians
+let omega: f32 = 2.0 * PI * FREQUENCY;
+let amplitude: f32 = AMPLITUDE_CURRENT * ((omega * t + phase_radians).sin());
+[amplitude as i32;1]
+}
+\end{lstlisting}
+
+This function calculates the current value for phase B at a given moment, using the system's local time to simulate the progression of the sinusoidal wave. The result is an array containing the current value, which can then be included in the SV packet.
+
+\subsection{Introducing Invalid Samples for Testing}
+
+To fully test the algorithm's ability to handle real-world scenarios, it was necessary to introduce invalid samples. This was accomplished by altering the quality of certain samples within the SV packets, making them invalid. The publisher was enhanced with a feature that allows these quality changes, enabling the testing of how well the algorithm can identify and respond to invalid data.
+
+\begin{lstlisting}[caption={How to calculate the value of the SV's }]
+if increment > 50 \&\& increment < 100
+{
+// Implement Bad Quality to the samples
+// The value of 0 is good quality
+// The value of 1 and 2 is invalid
+//The value of 3 it is questionable
+sv_packet.payload.apdu.logical_node.q_ia[0] = sv_packet.payload.apdu.logical_node.q_ia[0].wrapping_add(1);	
+}
+\end{lstlisting}
+
+This method directly modifies the 'sv\_packet.payload.apdu.logical\_node.q\_ia' field, effectively marking the sample as invalid. This invalid data can then be used to test the robustness of the SV communication and processing algorithm.
+
+\subsection{Finalizing the Publisher}
+
+With the basic structure, implementation, and testing features in place, the development of the publisher was completed. The final publisher is capable of generating and transmitting SV packets, simulating electrical grid signals, and introducing invalid data for testing purposes. These features are critical to the overall success of the thesis, as they enable comprehensive testing and validation of the IEC~61850-9-2 SV standard.
+
+\section{Development of a Subscriber of IEC~61850-9-2-SV}
+
+The development process for the subscriber followed a similar structured approach as that of the publisher. Having already established the necessary structs during the publisher's development, the focus for the subscriber shifted towards receiving and processing the data transmitted by the publisher over the network.
+
+In this context, the subscriber was designed to handle incoming Sampled Values (SV) packets, log the received data, and print the relevant information to the log. This approach not only facilitated real-time monitoring of the transmitted SV data but also provided a foundation for verifying the integrity and accuracy of the data exchange between the publisher and subscriber.
+
+\subsection{Structs Reused in the Subscriber}
+
+Given that the subscriber's primary role is to interpret the data sent by the publisher, the same set of structs, including 'EthernetFrame', 'SvPDU', 'SmvData', and 'LogicalNode', were reused. These structs allowed the subscriber to decode the incoming Ethernet frames and extract the necessary information from the SV packets.
+
+\begin{lstlisting}[caption={EthernetFrame struct. }]
+	pub struct EthernetFrame {
+		pub destination: [u8; 6],
+		pub source: [u8; 6],
+		pub tpid: u16,
+		pub tci: u16,
+		pub ethertype: u16,
+		pub payload: SvPDU,
+		pub fcs: [u8; 4],
+}
+
+// Other structs reused as shown in the publisher's code...
+\end{lstlisting}
+
+\subsection{Implementation of Data Reception and Logging}
+
+The implementation phase involved creating functions to capture the network packets, parse them into the appropriate struct fields, and log the data for analysis. The impl blocks provided a seamless way to define these methods, ensuring that the subscriber could efficiently process the data.
+
+\subsection{Error Handling and Invalid Data Processing}
+
+An essential part of the subscriber’s functionality involved handling errors and invalid data. Similar to the publisher, where invalid samples were introduced to test the algorithm, the subscriber needed to identify and appropriately respond to these invalid samples. This was achieved by checking the quality of the received data and ensuring that any invalid samples were flagged and processed correctly.
+
+\subsection{Finalizing the Subscriber}
+
+By incorporating robust data reception, validation, and logging mechanisms, the subscriber was completed with the essential features required to support the overall thesis objectives. The subscriber was now fully equipped to interact with the publisher, process the received SV packets, and handle any errors or invalid data that might arise during transmission. This setup provided a solid foundation for testing and verifying the performance of the implemented communication protocol.

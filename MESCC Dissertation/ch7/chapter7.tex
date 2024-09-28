@@ -5,15 +5,6 @@
 \label{chap:Chapter7} % For referencing the chapter elsewhere, use \ref{chap:Chapter7} 
 
 %----------------------------------------------------------------------------------------
-\section{Limitations}
-
-This project has its limitations, as the typical environment for a Merging Unit involves fiber optic communications at rates of 1 Gbps or higher, along with switches capable of high transfer rates and extremely low latencies. These conditions are crucial because Merging Units need to deliver samples every 250 microseconds. As a result, the latency must be less than this value to ensure timely packet delivery. However, in this setup, the time between sending and receiving packets exceeds 250 microseconds. Although the publisher transmits information every 250 microseconds, the subscriber receives it after a longer delay due to the latency of the setup I was able to develop. While no packets are lost, the reading speed is slower than desired, with the subscriber receiving data beyond the 250-microsecond target.
-
-Another limitation is the synchronization between the publisher and the subscriber. Currently, the devices are synchronized via Network Time Protocol (NTP), providing minimal synchronization. However, the error margin with NTP is about 1 millisecond. Since we are dealing with samples in the microsecond range, NTP does not offer the precision required for accurate synchronization. Achieving higher precision would require the implementation of Precision Time Protocol (PTP), which provides resolution in the nanosecond range.
-
-Finally, there is a hardware platform limitation. The devices used were a Jetson Nano 4GB and a personal computer, both of which come with inherent performance constraints, especially concerning Ethernet network performance. In both cases, it was necessary to add a USB-to-Ethernet adapter to provide two Ethernet ports for communication between the publisher/algorithm and the algorithm/subscriber.
-
-
 
 \section{Conclusions and Final Considerations}
 
@@ -31,20 +22,25 @@ In terms of protection relays, basic functionality was established, including th
 
 In summary, this project represents a major step toward developing a system that, with further refinement, could be transformed into a product ready for use in the energy industry. These two components play key roles in the operation, maintenance, and prevention of issues within substations. This project introduces a new way of developing products using a previously untapped language in this domain, offering substantial value to the broader community.
 
+\section{Limitations}
+
+This project has its limitations, as the typical environment for a Merging Unit involves fiber optic communications at rates of 1 Gbps or higher, along with switches capable of high transfer rates and extremely low latencies. These conditions are crucial because Merging Units need to deliver samples every 250 microseconds. As a result, the latency must be less than this value to ensure timely packet delivery. However, in this setup, the time between sending and receiving packets exceeds 250 microseconds. Although the publisher transmits information every 250 microseconds, the subscriber receives it after a longer delay due to the latency of the setup I was able to develop. While no packets are lost, the reading speed is slower than desired, with the subscriber receiving data beyond the 250-microsecond target.
+
+Another limitation is the synchronization between the publisher and the subscriber. Currently, the devices are synchronized via Network Time Protocol (NTP), providing minimal synchronization. However, the error margin with NTP is about 1 millisecond. Since we are dealing with samples in the microsecond range, NTP does not offer the precision required for accurate synchronization. Achieving higher precision would require the implementation of Precision Time Protocol (PTP), which provides resolution in the nanosecond range.
+
+Finally, there is a hardware platform limitation. The devices used were a Jetson Nano 4GB and a personal computer, both of which come with inherent performance constraints, especially concerning Ethernet network performance. In both cases, it was necessary to add a USB-to-Ethernet adapter to provide two Ethernet ports for communication between the publisher/algorithm and the algorithm/subscriber.
+
 \section{Future Work}
 
 \subsection{Add an ADC to acquire values of Voltage Transformer and Current Transformer}
 
-According to (~\cite{laporte2024adc}), the authors examine the challenge of determining the appropriate resolution for an Analog-to-Digital Converter (ADC) when simultaneously receiving two signals of varying power levels—one weak and one strong. Traditionally, ADC performance is evaluated based on the digitization of a single signal, where quantization noise and the signal-to-noise ratio (SNR) are the primary concerns. However, this approach does not fully capture the complexity of scenarios where two signals with a large dynamic range are present, which is increasingly relevant in modern communication systems like the Internet of Things (IoT).
+The merging unit was tested using simulated values to demonstrate proof of concept, but in real-world applications, an ADC is required to accurately measure signals from Voltage Transformers (VT) and Current Transformers (CT). While simulations validate initial functionality, testing with real equipment is essential for a reliable assessment of performance.
 
-The (~\cite{laporte2024adc}) critiques previous methods of evaluating ADC resolution, particularly formulas designed for single-signal reception, which often underestimate the impact of a second, stronger signal on the ADC’s performance. It also evaluates an existing technique that provides overestimated resolution requirements when two signals are processed, indicating a gap in accuracy. To address these limitations, the authors propose a novel method to calculate the required ADC resolution, focusing on how the interaction between the weak and strong signals can actually enhance the dynamic range, allowing for better performance than predicted by older models.
+In modern protection relay systems, ADCs often face the challenge of processing signals with varying power levels, such as one weak and one strong. Traditionally, ADC resolution has been evaluated using single-signal scenarios, focusing on quantization noise and signal-to-noise ratio (SNR). However, this approach does not adequately address the complexity of handling multiple signals with large dynamic ranges. As noted by Laporte et al. (~\cite{laporte2024adc}), previous evaluation methods either underestimate or overestimate the resolution required in dual-signal scenarios.
 
-Through mathematical analysis and simulations, the paper demonstrates that the required resolution for an ADC increases when dealing with two signals compared to a single signal. This is because the weaker signal must be accurately detected in the presence of the stronger one, a task complicated by the ADC's finite dynamic range. The authors show that their proposed method provides a more accurate evaluation of the necessary resolution, resulting in a dynamic range that exceeds the theoretical limits for a single-tone signal(~\cite{laporte2024adc}).
+The authors propose a new method for calculating the necessary ADC resolution by accounting for the interaction between weak and strong signals, demonstrating that this interaction can enhance the dynamic range beyond what older models predicted. Despite improvements in ADC technology, current 12- or 14-bit ADCs remain insufficient for many modern protection relay applications, where dynamic ranges of up to 130 dB are required. The authors suggest that techniques such as companding may be necessary to overcome these limitations.
 
-Furthermore, the paper discusses how this enhanced dynamic range, though beneficial, is still not sufficient for many modern applications, particularly in the IoT domain, where systems may require dynamic ranges of up to 130 dB. Current ADC technology, limited to 12 or 14 bits of resolution, cannot achieve such high performance. The authors suggest that alternative methods, such as companding techniques, might be necessary to overcome these limitations in future ADC designs(~\cite{laporte2024adc}).
-
-This article provides a comprehensive analysis of ADC resolution in dual-signal scenarios, offering valuable guidance for designing ADCs with improved dynamic range performance, especially in systems where both weak and strong signals are processed simultaneously, which has application in our scenario(~\cite{laporte2024adc}).
-
+This analysis is particularly relevant to the system under development, where both weak and strong signals are processed, requiring a thorough understanding of ADC resolution to ensure reliable performance in substation automation systems.
 
 \subsection{Add a PTP server regarding the IEC61850-9-3-PTP}
 

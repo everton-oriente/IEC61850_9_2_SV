@@ -16,11 +16,7 @@ Consequently, formerly non-critical equipment like switches must now meet string
 
 Merging units are ushering substations into the digital age, yet they also introduce new challenges. In older substations, concerns about analog signals were limited to issues like broken wires and induction. Today, with numerous interconnected devices requiring precise timing and high performance, ensuring proper system operation becomes crucial.
 
-\section{Setup of the Algorithm}
-
-The development was carried out using two hardware platforms to deploy the programs for running the algorithm. One of these platforms is a Jetson Nano, and the other is a personal computer. The Jetson Nano was selected due to its ease of use, as it allows for straightforward setup of all the necessary tools to deploy the program. Additionally, an extra Ethernet card can be added using a USB-to-Ethernet adapter, which is truly plug-and-play. This feature is essential for the setup, as it requires two Ethernet interfaces.
-
-\subsection{Hardware}
+\section{Hardware Setup}
 
 For the development and execution of this project, a Dell Inspiron personal computer has been utilized. This machine is equipped with robust specifications to support the complex computational and networking requirements of the research. The key features of this computer are as follows:
 
@@ -48,7 +44,7 @@ The Jetson Nano is equally well-suited for executing the algorithm designed to o
 
 By harnessing the strengths of both the Dell Inspiron and the Jetson Nano, this research project benefits from a synergistic blend of hardware capabilities. The Dell Inspiron serves as a robust foundation for development, testing, and executing the algorithm, leveraging its computational power and memory capacity. Meanwhile, the Jetson Nano operates as both a merging unit and a protection relay, demonstrating its adaptability and connectivity. This dual functionality makes the Jetson Nano an optimal platform for handling real-time data processing and network simulations. Together, these platforms play a pivotal role in advancing substation automation, improving operational efficiency, and bolstering the reliability of substation systems.
 
-\subsection{Software}
+\section{Software Technologies}
 
 The software development process began with selecting the programming language for developing the algorithm. Today, we have many languages that meet performance needs and are widely used in the market, such as C and C++. These languages prioritize performance, which is why they are predominantly used in embedded systems. However, we also have languages that are easier to develop and write, although not as performant, such as Python/MicroPython.
 
@@ -191,7 +187,7 @@ Chrono\footnote{\url{https://crates.io/crates/chrono}} is a comprehensive and ro
 
 One of Chrono's most significant advantages is its flexibility and precision, making it suitable for a wide range of applications. Whether you need to manage timestamps in a database, schedule tasks, log events, or handle time-sensitive operations in a global application, Chrono provides the tools you need. It also supports custom date and time formats, allowing you to work with both standard and non-standard representations of time. Chrono is widely adopted in the Rust ecosystem for any application that requires accurate and reliable date/time handling.
 
-\section{Algorithm for Selecting the Best Sampled Values}
+\section{Solution Design}
 
 This thesis proposes a method for selecting the best analog/digital signal sent by multiple Merging Units. The signal is initially analog because it is acquired in that form from VT and CT, but the Merging Unit converts it into a digital signal following the IEC-61850-9-2 protocol. The device proposed in this work receives the digital signal, compares it with another one that's come from another Merging Unit. After this comparison, an algorithm implemented using a state machine selects which signal will be forwarded to the protection systems subscribing to these SV.
 
@@ -230,6 +226,87 @@ The third phase centered on developing the algorithm for selecting the best SV. 
 The algorithm utilizes the Tokio crate, which provides a work-stealing task scheduler, allowing for concurrent and parallel processing. This enables the immediate retransmission of packets from the Merging Unit with the better signal, with the algorithm switching only when another Merging Unit provides a superior analog signal. This approach ensures real-time performance, essential for the required application.
 
 This thesis specifically addresses scenarios involving two Merging Units. Although the case of more than two Merging Units was not considered, the algorithm can be adapted to handle such situations.
+	
+\section{Algorithm Description}
+
+The description of the algorithm hinges on a deep understanding of both the publisher and subscriber functions. The aim is to create an algorithm capable of selecting the optimal samples from two independent devices that measure the same electrical quantity. This involves transmitting these measurements via a protocol, decompressing the data, extracting the necessary values, evaluating them, and ultimately selecting the best sample. All of this must be accomplished within a timeframe that ensures the SVs reach the protection devices without delay each SV being transmitted every 250 microseconds.
+
+The algorithm is triggered upon the reception of an SV from one of the merging units. Once received, the SV is processed and evaluated to determine whether it is valid, invalid, or questionable. If the sample is valid, its values are extracted for comparison with those from the other merging unit. In the case of an invalid or questionable sample, it is excluded from the value acquisition process. However, the algorithm keeps track of the number of invalid samples, which is one of the criteria used to decide whether to switch the SVs being sent to the protection relays.
+
+For valid samples, a comparison is made on a sample-by-sample basis to ensure the best result. If the error does not exceed 25\%, the current SV is maintained; however, if the error surpasses 25\%, the SV being sent to the protection relays is switched. A state machine was implemented to make the decision on which SV to send to the protection devices. Although the system receives values from two merging units, only one of the two received SVs is transmitted.
+
+The state machine processes all incoming SV frames according to the logic outlined below.
+
+Figure~\ref{fig:state_machine} Here has a representation of the state machines it was implemented to make a decision which SV's is going to send. 
+
+\begin{figure}[tbh]
+	\centering
+	\includegraphics[width=0.95\textwidth, keepaspectratio]{ch4/assets/state_machine.png} % Reduce to 90% of the text width
+	\caption{State Machine of Decision Make.}
+	\label{fig:state_machine}
+\end{figure}
+\FloatBarrier
+
+The state machine is implemented in Rust and operates using two mechanisms for state transitions: events and ticks. Events are specific actions that trigger progress within the state machine, while ticks represent units of time. When a specified time elapses and the state requires only a tick to proceed, the machine advances, similar to how it transitions in response to events.
+\begin{itemize}
+	\item Initial State: This state runs only once when the algorithm is first executed. After this, the state can only be re-entered by a reset. After a tick, the state machine transitions to the 'Get Sample' state.
+	\item Get Sample: In this state, the sample data is received, and information about the packet is processed. Based on the packet’s validity, the state machine decides to transition to one of three states: Valid, Invalid, or Questionable. The packet's status (valid, questionable, or invalid) determines the next state.
+	\item Questionable: In the 'Questionable' state, no further action is taken other than validating the received packet. After a tick, the machine moves to the 'Complete Sample' state.
+	\item Invalid: In the 'Invalid' state, the machine checks whether the number of valid packets received is below a defined threshold (n\_samples). If so, it advances to the 'Complete Sample' state; otherwise, it transitions to the 'Toggle MU' state.
+	\item Valid: In the 'Valid' state, the system checks if the number of valid packets is below the threshold (n\_samples). If so, it transitions to the 'Complete Sample' state; otherwise, it moves to 'Check Error Percentage'. Additionally, the sample is placed in the appropriate index of the buffer, corresponding to the three-phase and neutral current and voltage measurements (Phase A to N) for the two MUs (Merging Units).
+	\item Complete Sample: This state is essentially a waiting period, where the machine waits for a tick before transitioning back to the 'Get Sample' state.
+	\item Toggle MU: In the 'Toggle MU' state, the Merging Unit is toggled, and the machine waits for a tick before transitioning to the 'Complete Cycle' state.
+	\item Check Error Percentage: In this state, the entire buffer is evaluated to calculate the error percentage. If the error is below 25\%, the machine remains in the same MU and moves to the 'Complete Cycle' state. If the error exceeds 25\%, it transitions to the 'Toggle MU' state.
+	\item Complete Cycle: In the 'Complete Cycle' state, all variables are reset to begin a new cycle of the algorithm. After resetting, the machine waits for a tick to return to the 'Get Sample' state.
+\end{itemize}
+
+This state machine ensures efficient processing and evaluation of sampled values from the Merging Units, adapting dynamically based on packet validity and system performance thresholds.
+
+\begin{lstlisting}[caption={State Machine struct.}]
+// Define the state machine
+struct FrameProcessor {
+	state: State,
+	cont_smp_inv: u32,
+	cont_smp_valid_sv_id_1: u32,
+	cont_smp_valid_sv_id_2: u32,
+	error_percentage: f32,
+	buffer_mu1: [[i32; N_SAMPLES as usize]; 8], // buffer MU 1 current A,B,C and N - voltage A,B,C and N
+	buffer_mu2: [[i32; N_SAMPLES as usize]; 8], // buffer MU 2 current A,B,C and N - voltage A,B,C and N
+	toggle_mu: bool,
+}
+impl FrameProcessor {
+	fn new() -> Self {
+		Self {
+			state: State::Initial,
+			cont_smp_inv: 0, // Initialize cont_invalid
+			cont_smp_valid_sv_id_1: 0,
+			cont_smp_valid_sv_id_2: 0,
+			error_percentage: 0.0,
+			buffer_mu1: [[0 ; N_SAMPLES as usize]; 8],
+			buffer_mu2: [[0 ; N_SAMPLES as usize]; 8],
+			toggle_mu: false,
+			
+		}
+	}
+\end{lstlisting}
+
+Figure~\ref{fig:test_setup} This diagram represents the connection between the two Merging Units (MUs) and the algorithm. After the algorithm selects the optimal sample, it transmits the selected data to the IED.
+
+\begin{figure}[tbh]
+	\centering
+	\includegraphics[width=0.95\textwidth, keepaspectratio]{ch4/assets/test_setup.png}
+	\caption{How is connected the two simulators of SV's to exchange the information.}
+	\label{fig:test_setup}
+\end{figure}
+\FloatBarrier
+
+All information regarding the development is available on GitHub, along with additional resources in the following location:\url{https://github.com/everton-oriente/IEC61850_9_2_SV/tree/main}
+
+These platforms collectively provide comprehensive access to the project's documentation, code, and related materials.
+
+
+\begin{comment}
+
 
 \subsection{Results}
 
@@ -238,7 +315,9 @@ Leading the development and implementation of a communication protocol like IEC~
 The results obtained after all phases of development were satisfactory, considering the existing conditions. We used the Network Time Protocol (NTP) as the master clock, which provides a precision of 1 millisecond. However, achieving 100\% accuracy in timing was challenging because the protocol itself has a precision that exceeds the 250-microsecond interval at which we were transmitting the SV packets. Despite this limitation, the tests yielded values that were close to what was expected, demonstrating the feasibility of the models used. The ability to achieve such precision, even within these constraints, underscored the robustness and potential of the developed solution.
 
 This experience not only deepened my technical understanding but also highlighted the complexities involved in real-time data transmission. It provided valuable insights into the challenges of ensuring data integrity, synchronization, and performance in real-time critical systems, where even the slightest delay or error can have significant consequences.
-	content...
+
+\end{comment}
+
 \begin{comment}
 \section{Roadmap}
 

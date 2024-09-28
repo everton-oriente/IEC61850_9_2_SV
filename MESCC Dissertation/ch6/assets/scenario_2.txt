@@ -1,0 +1,29 @@
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: Get Sample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Logical Node : 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Get Sample -> Valid
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: Valid
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 0 value: 935
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 1 value: -167
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 2 value: -769
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 3 value: 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 4 value: 9376
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 5 value: -1678
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 6 value: -7697
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of Buffer MU 2 fase: 7 value: 0
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] The value of counter_sample_valid_of_sv_id_MU2: 5
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Valid -> CheckErrorPercentage
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: CheckErrorPercentage
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Value of the error: 1.2880255
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Actual State: ToogleMU
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: ToogleMU
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Toogle_MU before is : false
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Toogle_MU after is : true
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] ToogleMU -> CompleteCycle
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: CompleteCycle
+[2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] CompleteCycle -> GetSample
