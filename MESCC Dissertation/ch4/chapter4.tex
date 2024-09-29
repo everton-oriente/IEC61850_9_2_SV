@@ -204,7 +204,9 @@ Figure~\ref{fig:overview_of_implementation} The components of the thesis are int
 \FloatBarrier
 
 %\raggedright
-The development process began with the creation of the publisher, a software that emulates the operation of a Merging Unit. This software was built in accordance with the standard IEC~61850-9-2 for SV packets. Figure~\ref{fig:sv_packet} how is constructed a Sampled Value Packet~\footnote{\url{https://www.typhoon-hil.com/documentation/typhoon-hil-software-manual/References/iec_61850_sampled_values_protocol.html}}.
+The development process began with the creation of the publisher, a software that emulates the operation of a Merging Unit. This software was built in accordance with the standard IEC~61850-9-2 for SV packets.
+
+Figure~\ref{fig:sv_packet} shows the frame structure of a Sampled Value (SV) Packet~\footnote{\url{https://www.typhoon-hil.com/documentation/typhoon-hil-software-manual/References/iec_61850_sampled_values_protocol.html}}.
 
 \begin{figure}[tbh]
 	\centering
@@ -290,7 +292,17 @@ impl FrameProcessor {
 	}
 \end{lstlisting}
 
-Figure~\ref{fig:test_setup} This diagram represents the connection between the two Merging Units (MUs) and the algorithm. After the algorithm selects the optimal sample, it transmits the selected data to the IED.
+The diagram in Figure~\ref{fig:test_setup} illustrates the deployment of the software components on the hardware platforms.
+The Merging Units and Protection Relay are simulated on the Jetson Nano node, while the Algorithm runs on the PC.
+An Ethernet link connects the Merging Units to the Algorithm, and another Ethernet link connects the Algorithm to the Protection Relay.
+
+The workflow is as follows:
+\begin{enumerate}
+	\item The MUs send sampled values (SV) to the Algorithm.
+	\item The Algorithm analyses the received data and adaptively selects the best source.
+	\item The Algorithm forwards the SV to the Protection Relay.
+\end{enumerate}
+
 
 \begin{figure}[tbh]
 	\centering
@@ -300,9 +312,12 @@ Figure~\ref{fig:test_setup} This diagram represents the connection between the t
 \end{figure}
 \FloatBarrier
 
-All information regarding the development is available on GitHub, along with additional resources in the following location:\url{https://github.com/everton-oriente/IEC61850_9_2_SV/tree/main}
+All information regarding the development is available on GitHub, along with additional resources in the following location:
 
-These platforms collectively provide comprehensive access to the project's documentation, code, and related materials.
+\hspace{1cm} \url{https://github.com/everton-oriente/IEC61850_9_2_SV}
+
+% COMENTADO POR AMB
+%These platforms collectively provide comprehensive access to the project's documentation, source code, and related materials.
 
 
 \begin{comment}
