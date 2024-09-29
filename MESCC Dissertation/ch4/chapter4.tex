@@ -198,7 +198,14 @@ This thesis proposes a method for selecting the best analog/digital signal sent 
 
 To achieve this, it was necessary to develop and implement the IEC~61850-9-2 protocol from the ground up. Since there is no available library for the RUST programming language, one had to be created. As a result, a publisher, a subscriber, and the core algorithm which is the main focus of this thesis were developed. This algorithm must receive information from two Merging Units and, after processing it, send the selected data to the protection system.
 
-Figure~\ref{fig:overview_of_implementation} The components of the thesis are interconnected as follows: Two MUs send data to the algorithm. The algorithm then evaluates the information from both MUs, selects the most optimal data, and transmits it to the Protection Relay. This selection process ensures that the Protection Relay receives the best possible data based on the criteria defined by the algorithm.
+The components of the proposed solution are interconnected as follows (see Figure~\ref{fig:overview_of_implementation}):
+\begin{enumerate}
+	\item Two MUs send a Sample Value packet data to the Algorithm.
+ 	\item The algorithm evaluates the quality of the SVs from both MUs and selects the best SV source.
+  	\item The Algorithm forwards the best SV to the Protection Relay.
+\end{enumerate}
+
+ This selection process ensures that the Protection Relay receives the best possible data based on the criteria defined by the algorithm.
 
 \begin{figure}[tbh!]
 	\centering
