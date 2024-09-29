@@ -78,7 +78,7 @@ The insights gained from my pursuit of a Master's degree in Critical Computing S
 
 \section{Research Objectives}
 
-The ongoing digital transformation of electrical substations has led to the development of a crucial component known as the Merging Unit. This advanced equipment plays a significant role in modernizing substations by enabling the acquisition of data from current and voltage transformers. Its main function is to read and process these values and then transmit them via the IEC 61850-9-2 Sampled Values (SV) protocol.
+The ongoing digital transformation of electrical substations has led to the development of a crucial component known as the Merging Unit. This advanced equipment plays a significant role in modernizing substations by enabling the acquisition of data from current and voltage transformers. Its main function is to read and process these values and then transmit them via the IEC~61850-9-2 Sampled Values (SV) protocol.
 
 A scenario may occur in which two Merging Units simultaneously read data from the same current or voltage transformer. Both units independently send Sampled Values over the Ethernet network, creating a need for a decision-making mechanism within the IED. The IED, which is a key element in protection systems, must possess the capability to identify and select the optimal sample for use in its protection algorithms.
 
@@ -86,6 +86,11 @@ This research focuses on developing the intelligence required for the IED to aut
 
 \section{Research Contributions}
 This thesis introduces a significant contribution through the proposition of an algorithm designed to optimize the selection of samples from each current transformer and voltage transformer for individual electrical protection relays. These algorithms are instrumental in ensuring that electrical protection systems adhere to the four key principles of protection philosophy. Recognizing that the same Merging Unit may not yield optimal results for all protection relays, the effectiveness of the algorithm is contingent on various factors, including communication routes, the distance information travels, and potential network issues such as information overload, given the abundance of sampled values in the network. As such, the primary contribution of this thesis lies in the development of an algorithm capable of discerning the most suitable sample for consumption by the IED in the network.
+
+This work also investigates the use of the Rust programming language to facilitate communication using the IEC~61850 standard.
+In the absence of a Rust library for this purpose, we developed custom functions to pack and unpack SV into IEC~61850 packets.
+The source code is openly available at \url{https://github.com/everton-oriente/IEC61850_9_2_SV} and can be integrated into other projects or compiled for any platform supported by Rust.
+
 
 \section{Thesis Structure}
 
