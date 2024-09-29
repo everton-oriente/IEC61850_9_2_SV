@@ -37,7 +37,7 @@ The algorithm operates like a switch, receiving two or more SV streams from the 
 
 This process repeats at each cycle, ensuring that the protection system operates with the most reliable data at all times. Figure~\ref{fig:SLD_Diagram}~\footnote{\url{https://www.efacec.pt/en/wp-content/uploads/2022/08/CS491I2207A1_MCU-500.pdf}} illustrates a simplified single-line diagram (SLD) of a substation using this architecture, showing the relationship between MUs and the protection relay.
 
-\begin{figure}[tbh!]
+\begin{figure}[tbh]
 	\centering
 	\includegraphics[width=0.77\textwidth, keepaspectratio]{ch3/assets/SLD_Diagram.png}
 	\caption{Simple Single Line Diagram (SLD) of an Electrical Substation with SV streams. (Source: Efacec Energia, Máquinas e Equipamentos Eléctricos, S.A.)}
@@ -51,9 +51,3 @@ The proposed solution efficiently manages redundancy by ensuring that the relay 
 \section{Conclusion}
 
 In this chapter, we first outlined the configuration and roles of the MUs and protection relays in the substation, explaining how they operate within the context of IEC 61850. We then highlighted the limitations of the current system, particularly the absence of an effective mechanism for selecting the best SV from multiple MUs. Finally, we introduced the architecture of a novel algorithm that dynamically selects the most reliable SV, ensuring higher accuracy and reliability in protection relay operations.
-
-
-
-
-
-

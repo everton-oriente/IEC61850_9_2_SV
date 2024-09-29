@@ -213,3 +213,32 @@ An essential part of the subscriber’s functionality involved handling errors a
 \subsection{Finalizing the Subscriber}
 
 By incorporating robust data reception, validation, and logging mechanisms, the subscriber was completed with the essential features required to support the overall thesis objectives. The subscriber was now fully equipped to interact with the publisher, process the received SV packets, and handle any errors or invalid data that might arise during transmission. This setup provided a solid foundation for testing and verifying the performance of the implemented communication protocol.
+
+\section{Development of the Algorithm}
+
+The development of the algorithm hinges on a deep understanding of both the publisher and subscriber functions. The aim is to create an algorithm capable of selecting the optimal samples from two independent devices that measure the same electrical quantity. This involves transmitting these measurements via a protocol, decompressing the data, extracting the necessary values, evaluating them, and ultimately selecting the best sample. All of this must be accomplished within a timeframe that ensures the Sampled Values (SVs) reach the protection devices without delay—each SV being transmitted every 250 microseconds.
+
+The algorithm is triggered upon the reception of an SV from one of the merging units. Once received, the SV is processed and evaluated to determine whether it is valid, invalid, or questionable. If the sample is valid, its values are extracted for comparison with those from the other merging unit. In the case of an invalid or questionable sample, it is excluded from the value acquisition process. However, the algorithm keeps track of the number of invalid samples, which is one of the criteria used to decide whether to switch the SVs being sent to the protection relays.
+
+For valid samples, a comparison is made on a sample-by-sample basis to ensure the best result. If the error does not exceed 25\%, the current SV is maintained; however, if the error surpasses 25\%, the SV being sent to the protection relays is switched. A state machine was implemented to make the decision on which SV to send to the protection devices. Although the system receives values from two merging units, only one of the two received SVs is transmitted.
+
+\subsection{Algorithm Logic and Structure}
+
+The core of the algorithm revolves around a decision-making structure that ensures reliable selection of SVs. The state machine is implemented to manage the comparison process and handle the switching of samples. Each incoming SV is processed in real time, where the following steps are taken:
+
+\begin{itemize}
+	\item Data Decompression: Upon reception of the SVs from the publisher, the algorithm first decompresses the data to retrieve the individual fields necessary for processing. These fields include the sample count (smpCnt), configuration revision (confRev), and the actual sampled values.
+	\item Data Validation: Each Sampled Value undergoes an integrity check using a checksum before processing. If the sample is flagged as invalid or questionable in terms of quality, it is excluded from the comparison. This ensures that only trustworthy SVs are considered for further analysis, enhancing the reliability of the results.
+	\item Comparison Between SVs: For valid SVs, the algorithm compares the sampled values from both merging units. If the absolute difference between the two SVs is within an acceptable threshold (25\%), the system continues using the current SV. If the difference exceeds this threshold, the algorithm triggers the switching mechanism.	
+	\item Decision Process Using State Machine: The algorithm utilizes a state machine to manage the decision-making process for switching between Sampled Values. This system ensures that switching occurs only when the error between the two SVs exceeds a predefined threshold and a series of checks confirm that the alternative SV is more suitable for transmission. Additionally, the state machine monitors the data stream for invalid samples and initiates a switch if a persistent stream of invalid samples is detected, ensuring that the most accurate data is consistently transmitted.
+\end{itemize}
+
+\subsection{Handling Invalid and Questionable Samples}
+Invalid or questionable SVs are handled by implementing a robust error-checking mechanism. The algorithm is designed to track the occurrence of invalid samples and make decisions accordingly. If a sample is deemed invalid, it is discarded from further evaluation, but the algorithm logs this occurrence to maintain an awareness of the merging unit's performance.
+
+If invalid samples persist over a defined threshold, the state machine initiates a switch to the other merging unit. This mechanism ensures that the system continuously provides reliable SVs to the protection relays, even in cases where one merging unit is producing questionable data.
+
+\subsection{Decision-Making Through Error Tracking and Switching}
+The state machine tracks various error conditions, such as large deviations between SVs and a high number of invalid samples. The switching logic takes into account both real-time error tracking and historical data from previous SVs to decide whether to maintain the current sample or switch to the alternate SV.
+
+The algorithm operates within a deterministic timeframe, where decisions must be made in under 250 microseconds to maintain real-time performance. This ensures that protection relays receive the most accurate and reliable data without introducing delays in decision-making.
