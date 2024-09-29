@@ -126,9 +126,11 @@ When dealing with Invalid samples, the process begins in the Get Sample state, s
 
 Finally, for Questionable samples, the state machine simply waits for the tick and then transitions to Complete Sample. No additional handling is applied for questionable samples.
 
-The following debug output captures the comprehensive testing of the state machine. This output provides a clear record of the testing process, illustrating how each message corresponds to various scenarios within the state machine. By tracing these messages, one can see the meticulous examination of every possible state and transition, ensuring that all functionalities were thoroughly validated. Additionally, the debug information offers insights into the algorithm's performance, demonstrating its ability to respond accurately to different conditions. This rigorous testing process was essential for confirming the reliability and effectiveness of both the state machine and the algorithm. Here are shown two examples of the state machine, when the samples are valid, the first scenario has showned the acquisition of the data, verify if the quality is good and after return to pick one more sample, and the second scenario is showned when it's finish the value stipulated and make the decicion to keep in the same MU or change the MU in this case has showned changing the MU. 
+The following debug output captures the comprehensive testing of the state machine. This output provides a clear record of the testing process, illustrating how each message corresponds to various scenarios within the state machine. By tracing these messages, one can see the meticulous examination of every possible state and transition, ensuring that all functionalities were thoroughly validated. Additionally, the debug information offers insights into the algorithm's performance, demonstrating its ability to respond accurately to different conditions. This rigorous testing process was essential for confirming the reliability and effectiveness of both the state machine and the algorithm. Here are shown two examples of the state machine, when the samples are valid.
 
-\begin{lstlisting}[caption={First scenario showing the steps through the state machine between the state Get Sample -> Valid, Valid -> Complete Sample -> Get Sample.}]
+In the first scenario shown in Listing~\ref{lst:scenario1} the system acquires the data, checks if the quality is good, and then returns to collect another sample.
+
+\begin{lstlisting}[caption={First scenario showing the steps through the state machine between the state Get Sample -> Valid, Valid -> Complete Sample -> Get Sample.}, label={lst:scenario1}]
 [2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
 [2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] State: Initial
 [2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] System ticked
@@ -156,7 +158,9 @@ The following debug output captures the comprehensive testing of the state machi
 [2024-07-14T18:22:50Z INFO  sub_with_fsm_iec] Mu0 before evaluation
 \end{lstlisting}
 
-\begin{lstlisting}[caption={Second scenario showing the steps through the state machine between the state Get Sample -> Valid, Valid -> Check the Error Percentage -> Toogle MU -> Complete Cycle -> Get Sample.}]
+In the second scenario shown in Listing~\ref{lst:scenario2}, once the error percentage threshold is reached, the system decides whether to stay with the same MU or switch to a different one. In this case, the scenario demonstrates switching the MU.
+
+\begin{lstlisting}[caption={Second scenario showing the steps through the state machine between the state Get Sample -> Valid, Valid -> Check the Error Percentage -> Toogle MU -> Complete Cycle -> Get Sample.}, label={lst:scenario2}]
 [2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] System ticked
 [2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] State: Get Sample
 [2024-07-14T18:22:59Z INFO  sub_with_fsm_iec] Verify Quality of the Sample
