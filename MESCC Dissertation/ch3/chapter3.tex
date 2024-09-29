@@ -1,42 +1,59 @@
 % Chapter 3
-\chapter{Insights} % Main c%----------------------------------------------------------------------------------------
+\chapter{Analysis and Design of the Solution} % Main c%----------------------------------------------------------------------------------------
 
-\section{Identification of the research gap}
+\section{Description of Equipment and Functions}
 
-The advent of the IEC 61850 standard has significantly revolutionized the substation automation systems by facilitating interoperability and enhancing communication efficiency. Particularly, IEC 61850-9-2, which specifies the transmission of SV from MU to protection and control devices, has been pivotal in this transformation. Despite the substantial body of literature focusing on the implementation and benefits of IEC 61850-9-2, there remains a notable gap concerning the development of algorithms designed to optimize the selection of SVs in real-time protection scenarios involving multiple merging units.
+This work focuses on the equipment configuration within an electrical substation following the IEC 61850 standard, specifically addressing MUs and their role in substation automation. Merging Units are responsible for converting analog signals from current transformers and voltage transformers into digital data, known as sampled values, which are then transmitted to protection relays. These relays ensure the safe operation of the electrical grid by monitoring data and acting on potential faults.
 
-\subsection{Existing Literature and Related Research}
+In the system studied, two MUs are connected to the same CTs and VTs, providing redundant SV streams to the protection relays. This redundancy ensures continuous operation, even if one MU fails, as the other can still deliver accurate data. However, this dual-stream configuration poses a challenge: the protection relay must decide which of the two SVs to use for executing protection algorithms. These algorithms detect anomalies or faults in the grid, so selecting the most reliable SV is crucial for maintaining system performance and safety.
 
-A comprehensive literature review was conducted using databases such as IEEE Xplore, ScienceDirect, and Google Scholar. Keywords included "IEC 61850-9-2", "sampled values", "merging units", "protection relay", and "algorithm optimization". The search encompassed studies published from 2000 to 2023. The review revealed numerous studies addressing various aspects of IEC 61850-9-2, such as its implementation challenges, communication performance, and impact on substation automation.
+In the current setup, the protection relay passively receives SVs from both MUs, with no dynamic mechanism in place to prioritize or select the best sample in real-time. This can lead to inefficiencies or even errors if the data from one MU is compromised.
 
-For example,(~\cite{AbbReport2010}) explores the general benefits of IEC 61850-9-2 in improving the accuracy and speed of data transmission in substations. Similarly, (~\cite{baumgartner2024iec}) investigates the synchronization issues in SV transmission and proposes methods to mitigate these challenges. Additionally, (~\cite{chen2016performance})  examines the integration of IEC 61850-9-2 with other substation protocols to enhance system reliability.
+\section{Limitations of the Current Solution}
 
-\subsection{Identification of the Gap}
+The primary limitation of the existing system is the lack of an algorithm that dynamically selects the best SV from the multiple streams sent by the MUs. Without this, the protection relay may process suboptimal or even erroneous data, especially in cases where one MU is malfunctioning or sending corrupted SVs. This limitation is critical, as the protection relay’s decisions directly impact the safety and reliability of the substation.
 
-Despite these valuable contributions, none of the reviewed studies specifically address the development of an algorithm to select the optimal SV from multiple MUs for protection relays. This gap is critical, given the increasing complexity of modern substations where multiple MUs may collect data from the same current transformers (CTs), leading to potential conflicts and inefficiencies in data selection for protection purposes.
+Moreover, the current system does not fully exploit the redundancy provided by the MUs. Although two SV streams are available, the relay does not have a built-in method to evaluate the quality of these samples and select the most reliable one. This absence of real-time evaluation increases the risk of incorrect fault detection, which could compromise the protection system's integrity.
 
-For instance, while (~\cite{IEC61850_SEL_9_2}) discusses the general principles of SV selection, it does not propose a concrete algorithmic approach to dynamically choose the best SV in real-time. Moreover, (~\cite{galkin2024microcomputer}) focuses on the latency and performance of SV transmission but does not consider the scenario of multiple MUs and the subsequent need for optimal SV selection.
+\section{Architecture of the Proposed Solution}
 
-\subsection{Importance of Addressing the Gap}
+To address the limitations identified, we propose an algorithm designed to dynamically evaluate and select the most reliable SV from multiple streams sent by the MUs. This solution acts as an intelligent selector that monitors the incoming SVs, assesses their quality, and ensures that only the most accurate and reliable sample is used in protection calculations.
 
-Addressing this gap is essential for several reasons. First, the ability to dynamically select the best SV from multiple MUs can significantly enhance the reliability and speed of protection relays, thereby improving overall substation safety and performance. Second, developing such an algorithm can provide a blueprint for future research and practical implementations, fostering further advancements in substation automation.
+\subsection{SV Selection Algorithm}
 
-By focusing on the development of an algorithm that selects the optimal SV arriving before the protection relay, this research aims to fill a crucial void in the existing literature. This study will not only propose a novel solution to the identified problem but also provide empirical validation through simulations and real-world testing, thereby contributing valuable insights and practical tools to the field of substation automation and protection.
+The algorithm continuously monitors SVs arriving from two MUs connected to the same CTs and VTs. It evaluates these samples based on predefined quality metrics, such as accuracy, transmission latency, and packet integrity. Once the evaluation is complete, the algorithm selects the SV with the best overall performance, allowing the protection relay to process only the most reliable data.
 
-\subsection{Conclusion of the research gap}
+This approach ensures that even in the event of a partial MU failure, the protection relay will continue to operate with accurate data. By dynamically selecting the best SV, the algorithm mitigates the risk of using unreliable or corrupted data, thus enhancing the reliability of the entire protection system.
 
-In summary, while the IEC 61850-9-2 standard has been extensively studied, there remains a significant gap concerning the development of real-time algorithms for optimal SV selection from multiple MUs. This research aims to address this gap, providing a much-needed solution that enhances protection relay performance and overall substation reliability.
+\subsection{Operational Flow of the Algorithm}
 
-\section{Architecture of the Algorithm}
+The algorithm operates like a switch, receiving two or more SV streams from the same sensor (CT or VT) and passing only the best sample to the protection relay. The selection process involves the following steps:
+\begin{itemize}
+	\item Data Monitoring: The algorithm receives SVs from both MUs and continuously monitors the quality of each stream.
+	\item Classification: The SVs are classified based on criteria such as latency, accuracy, and error detection.
+	\item Selection: The sample with the highest classification is selected, while the other is discarded.
+	\item Protection Execution: The protection relay uses the selected SV to run fault detection algorithms.
+\end{itemize}
 
-The algorithm involves receiving two measurements from the same measuring sensor (Current Transformers or Voltage Transformers), providing redundancy in the data acquisition required by the IED to process electrical protection algorithms. From a critical acquisition perspective, this approach is beneficial to address the scenario where one Merging Unit fails; the other Merging Unit can still send the data from that sensor. However, from the perspective of the IED, it needs to determine which of the two samples to use for running the protection algorithm to detect faults that may or may not occur based on the measurements received by the Merging Unit.
-
-To address this issue, the proposed solution involves developing an algorithm that first monitors the SVs, classifying them, and then delivering only the sample that is most well-qualified to run the protection algorithms. The architecture of this solution is akin to a switch, where two or more SVs from the same current or voltage transformer arrive, and the switch allows only the path of the best-qualified sample, discarding the others. Consequently, two SVs may arrive, but the protection system will only consider one SVs with the best metric, Figure~\ref{fig:SLD_Diagram}~\footnote{\url{https://www.efacec.pt/en/wp-content/uploads/2022/08/CS491I2207A1_MCU-500.pdf}}, shown has a simple connection.
+This process repeats at each cycle, ensuring that the protection system operates with the most reliable data at all times. Figure~\ref{fig:SLD_Diagram}~\footnote{\url{https://www.efacec.pt/en/wp-content/uploads/2022/08/CS491I2207A1_MCU-500.pdf}} illustrates a simplified single-line diagram (SLD) of a substation using this architecture, showing the relationship between MUs and the protection relay.
 
 \begin{figure}[tbh]
 	\centering
 	\includegraphics[width=0.77\textwidth, keepaspectratio]{ch3/assets/SLD_Diagram.png}
-	\caption{Simple Single Line Diagram (SLD) of Electrical Substation with SV's. (Credits: Efacec Energia, Máquinas e Equipamentos Eléctricos, S.A.)}
+	\caption{Simple Single Line Diagram (SLD) of an Electrical Substation with SV streams. (Source: Efacec Energia, Máquinas e Equipamentos Eléctricos, S.A.)}
 	\label{fig:SLD_Diagram}
 \end{figure}
-\FloatBarrier
+
+\subsection{Handling Redundancy and Failures}
+
+The proposed solution efficiently manages redundancy by ensuring that the relay always uses the best available data. If one MU fails or its SV stream becomes unreliable, the algorithm automatically switches to the stream with the highest quality, maintaining uninterrupted and accurate protection relay operation. This dynamic handling of redundancy adds an extra layer of resilience to the protection system, preventing erroneous detections and unnecessary interruptions in service.
+
+\section{Conclusion}
+
+In this chapter, we first outlined the configuration and roles of the MUs and protection relays in the substation, explaining how they operate within the context of IEC 61850. We then highlighted the limitations of the current system, particularly the absence of an effective mechanism for selecting the best SV from multiple MUs. Finally, we introduced the architecture of a novel algorithm that dynamically selects the most reliable SV, ensuring higher accuracy and reliability in protection relay operations.
+
+
+
+
+
+
