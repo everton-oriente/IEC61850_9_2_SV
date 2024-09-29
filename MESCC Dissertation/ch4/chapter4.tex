@@ -201,7 +201,7 @@ Figure~\ref{fig:overview_of_implementation} The components of the thesis are int
 	\caption{How the implementation was designed to work.}
 	\label{fig:overview_of_implementation}
 \end{figure}
-\FloatBarrier
+%\FloatBarrier
 
 %\raggedright
 The development process began with the creation of the publisher, a software that emulates the operation of a Merging Unit. This software was built in accordance with the standard IEC~61850-9-2 for SV packets.
@@ -214,7 +214,7 @@ Figure~\ref{fig:sv_packet} shows the frame structure of a Sampled Value (SV) Pac
 	\caption{How is constructed a Sampled Values Packet following the standard IEC~61850-9-2 (Image credits: Typhoon HIL)}
 	\label{fig:sv_packet}
 \end{figure}
-\FloatBarrier
+%\FloatBarrier
 
 
 Once the packet structure was defined, a function was created to calculate the values to be sent along with the SVs. This function uses the current execution time to generate similar values between the two Merging Units.
@@ -247,7 +247,7 @@ Figure~\ref{fig:state_machine} Here has a representation of the state machines i
 	\caption{State Machine of Decision Make.}
 	\label{fig:state_machine}
 \end{figure}
-\FloatBarrier
+%\FloatBarrier
 
 The state machine is implemented in Rust and operates using two mechanisms for state transitions: events and ticks. Events are specific actions that trigger progress within the state machine, while ticks represent units of time. When a specified time elapses and the state requires only a tick to proceed, the machine advances, similar to how it transitions in response to events.
 \begin{itemize}
@@ -310,7 +310,7 @@ The workflow is as follows:
 	\caption{How is connected the two simulators of SV's to exchange the information.}
 	\label{fig:test_setup}
 \end{figure}
-\FloatBarrier
+%\FloatBarrier
 
 All information regarding the development is available on GitHub, along with additional resources in the following location:
 
