@@ -46,7 +46,6 @@
       \strng{authorbibnamehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
       \strng{authornamehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
       \strng{authorfullhash}{2a3e1b09ecf52d45087ad07fbf24ba70}
-      \field{extraname}{1}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{extradatescope}{labelyear}
@@ -62,48 +61,6 @@
       \endverb
       \verb{url}
       \verb https://www.gegridsolutions.com/multilin/journals/issues/spring09/iec61850.pdf
-      \endverb
-    \endentry
-    \entry{adamiak2019iec}{article}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=fd4608fcff3f4accbf645f25d8fbd11b}{%
-           family={Adamiak},
-           familyi={A\bibinitperiod},
-           given={Mark},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ca62ef791748a980f4173645712ae3f4}{%
-           family={Baigent},
-           familyi={B\bibinitperiod},
-           given={Drew},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=2,uniquepart=given,hash=b15358587982fdb1bf97ff1c41825923}{%
-           family={Mackiewicz},
-           familyi={M\bibinitperiod},
-           given={Ralph},
-           giveni={R\bibinitperiod},
-           givenun=2}}%
-      }
-      \strng{namehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
-      \strng{fullhash}{2a3e1b09ecf52d45087ad07fbf24ba70}
-      \strng{bibnamehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
-      \strng{authorbibnamehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
-      \strng{authornamehash}{2a3e1b09ecf52d45087ad07fbf24ba70}
-      \strng{authorfullhash}{2a3e1b09ecf52d45087ad07fbf24ba70}
-      \field{extraname}{2}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{labeldatesource}{nodate}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{IEC 61850 Communication Networks and Systems in Substations: An Overview for Users}
-      \true{nocite}
-      \verb{urlraw}
-      \verb https://www.gevernova.com/grid-solutions/multilin/journals/issues/spring09/iec61850.pdf
-      \endverb
-      \verb{url}
-      \verb https://www.gevernova.com/grid-solutions/multilin/journals/issues/spring09/iec61850.pdf
       \endverb
     \endentry
     \entry{baumgartner2024iec}{article}{}
@@ -295,6 +252,7 @@
       \field{title}{Performance Analysis of IEC 61850 Process Bus and Interoperability Test among Multi-Vendor System}
       \field{type}{phdthesis}
       \field{year}{2016}
+      \true{nocite}
       \verb{urlraw}
       \verb https://research.manchester.ac.uk/en/studentTheses/performance-analysis-of-iec-61850-process-bus-and-interoperabilit
       \endverb
@@ -378,6 +336,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Microcomputer Prototyping of IEC61850-9-2 with Performance Analysis}
       \field{year}{2023}
+      \true{nocite}
       \verb{urlraw}
       \verb https://ltu.diva-portal.org/smash/record.jsf?pid=diva2%3A1825382\&dswid=-5158
       \endverb
@@ -702,6 +661,7 @@
       \field{title}{Special Report IEC61850}
       \field{type}{techreport}
       \field{year}{2010}
+      \true{nocite}
       \verb{urlraw}
       \verb https://library.e.abb.com/public/a56430e1e7c06fdfc12577a00043ab8b/3BSE063756_en_ABB_Review_Special_Report_IEC_61850.pdf
       \endverb
@@ -913,6 +873,7 @@
       \field{booktitle}{proceedings of the 9th Annual Western Power Delivery Automation Conference, Spokane, WA}
       \field{title}{IEC 61850-9-2 process bus and its impact on power system protection and control reliability}
       \field{year}{2007}
+      \true{nocite}
       \verb{urlraw}
       \verb https://selinc.com/api/download/3479/
       \endverb
@@ -1100,59 +1061,8 @@
       \verb https://www.mdpi.com/1996-1073/12/9/1618
       \endverb
     \endentry
-    \entry{wannous2019iec}{article}{}
-      \name{author}{4}{ul=3}{%
-        {{un=0,uniquepart=base,hash=b1bab0d9f44231d3e2e1c703a56f4b18}{%
-           family={Wannous},
-           familyi={W\bibinitperiod},
-           given={Kinan},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2c7ecc0440a9c0231fb1ffb6b1c88a24}{%
-           family={Toman},
-           familyi={T\bibinitperiod},
-           given={Petr},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=70d5262fae1b8c69b5fe686269f4fb8c}{%
-           family={Jurák},
-           familyi={J\bibinitperiod},
-           given={Viktor},
-           giveni={V\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f16e995907a31f251a50761bdb4b037a}{%
-           family={Wasserbauer},
-           familyi={W\bibinitperiod},
-           given={Vojtěch},
-           giveni={V\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
-      \strng{fullhash}{78c2cfb6176c4396662493d8af814678}
-      \strng{bibnamehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
-      \strng{authorbibnamehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
-      \strng{authornamehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
-      \strng{authorfullhash}{78c2cfb6176c4396662493d8af814678}
-      \field{extraname}{1}
-      \field{sortinit}{W}
-      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
-      \field{extradate}{1}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Analysis of IEC 61850-9-2LE Measured Values Using a Neural Network}
-      \field{year}{2019}
-      \true{nocite}
-      \verb{urlraw}
-      \verb https://www.mdpi.com/1996-1073/12/9/1618
-      \endverb
-      \verb{url}
-      \verb https://www.mdpi.com/1996-1073/12/9/1618
-      \endverb
-    \endentry
     \entry{IEC61850_energies_N_N_Network}{article}{}
-      \name{author}{4}{ul=3}{%
+      \name{author}{4}{ul=2}{%
         {{un=0,uniquepart=base,hash=b1bab0d9f44231d3e2e1c703a56f4b18}{%
            family={Wannous},
            familyi={W\bibinitperiod},
@@ -1178,16 +1088,14 @@
            giveni={V\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
+      \strng{namehash}{c0c1055907aa0e8aafcbb29cfaa4425e}
       \strng{fullhash}{78c2cfb6176c4396662493d8af814678}
-      \strng{bibnamehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
-      \strng{authorbibnamehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
-      \strng{authornamehash}{b8ffb607f6b370f0b1443ca87e2fb13c}
+      \strng{bibnamehash}{c0c1055907aa0e8aafcbb29cfaa4425e}
+      \strng{authorbibnamehash}{c0c1055907aa0e8aafcbb29cfaa4425e}
+      \strng{authornamehash}{c0c1055907aa0e8aafcbb29cfaa4425e}
       \strng{authorfullhash}{78c2cfb6176c4396662493d8af814678}
-      \field{extraname}{2}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
-      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \field{labelnamesource}{author}

@@ -3,27 +3,26 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Electricity Generation, Transmission, and Distribution Pathway (Image credits: U.S. Energy Information Administration)}}{2}{figure.caption.16}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Design of Substation Automation Systems(Image credits: KTH, "Lecture 5: Substation Automation Systems")}}{8}{figure.caption.25}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Communication Protocols specifications.}}{11}{figure.caption.37}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Concept of the Merging Unit.}}{15}{figure.caption.52}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Frequency regarding Sampled Values.}}{17}{figure.caption.58}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Evolution of IEC 61850-9-2}}{18}{figure.caption.60}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Concept of the Merging Unit.}}{15}{figure.caption.52}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Frequency regarding Sampled Values.}}{17}{figure.caption.58}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Evolution of IEC 61850-9-2}}{18}{figure.caption.61}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Simple Single Line Diagram (SLD) of Electrical Substation with SV's. (Credits: Efacec Energia, Máquinas e Equipamentos Eléctricos, S.A.)}}{20}{figure.caption.64}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Simple Single Line Diagram (SLD) of an Electrical Substation with SV streams. (Source: Efacec Energia, Máquinas e Equipamentos Eléctricos, S.A.)}}{21}{figure.caption.69}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces How the implementation was designed to work.}}{32}{figure.caption.93}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces How is constructed a Sampled Values Packet following the standard IEC~61850-9-2 (Image credits: Typhoon HIL)}}{33}{figure.caption.95}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces State Machine of Decision Make.}}{35}{figure.caption.97}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces How is connected the two simulators of SV's to exchange the information.}}{37}{figure.caption.127}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Sampled Value packets fields. (Image credits: MDPI)}}{38}{figure.caption.100}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Sampled Value packets fields. (Image credits: UCA International)}}{38}{figure.caption.101}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces State Machine of Decision Make.}}{44}{figure.caption.223}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces How is connected the two simulators of SV's to exchange the information.}}{45}{figure.caption.251}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Sampled Value packets fields. (Image credits: MDPI)}}{40}{figure.caption.131}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Sampled Value packets fields. (Image credits: UCA International)}}{40}{figure.caption.132}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Wireshark view of the SV packets.}}{48}{figure.caption.254}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces SV packet with sample counter with value 0.}}{48}{figure.caption.255}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces SV packet with sample counter with value 1.}}{49}{figure.caption.256}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces SV packet with sample counter with value 2.}}{49}{figure.caption.257}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces SV packet with bad quality sample counter with value 114.}}{50}{figure.caption.258}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces SV packet with bad quality sample counter with value 115.}}{50}{figure.caption.259}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces SV packet at subscriber side}}{51}{figure.caption.261}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Information provided by Log of publisher and subscriber, the same packet in both equipment}}{52}{figure.caption.262}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Wireshark view of the SV packets.}}{48}{figure.caption.255}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces SV packet with sample counter with value 0.}}{48}{figure.caption.256}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces SV packet with sample counter with value 1.}}{48}{figure.caption.257}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces SV packet with sample counter with value 2.}}{49}{figure.caption.258}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces SV packet with bad quality sample counter with value 114.}}{49}{figure.caption.259}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces SV packet with bad quality sample counter with value 115.}}{50}{figure.caption.260}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces SV packet at subscriber side}}{50}{figure.caption.262}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Information provided by Log of publisher and subscriber, the same packet in both equipment}}{51}{figure.caption.263}%
 \addvspace {10\p@ }
