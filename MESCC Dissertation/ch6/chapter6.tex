@@ -22,7 +22,7 @@ Figure~\ref{fig:simple_sv} Below is a Wireshark capture that illustrates the int
 	\caption{Wireshark view of the SV packets.}
 	\label{fig:simple_sv}
 \end{figure}
-\FloatBarrier
+%\FloatBarrier
 
 Figure~\ref{fig:sv_seq_1} The packets are sequentially numbered, ensuring proper identification. The following image demonstrates that the frames are correctly ordered, the field to check it is sample counter as smpcnt.
 
@@ -32,7 +32,7 @@ Figure~\ref{fig:sv_seq_1} The packets are sequentially numbered, ensuring proper
 	\caption{SV packet with sample counter with value 0.}
 	\label{fig:sv_seq_1}
 \end{figure}
-\FloatBarrier
+%\FloatBarrier
 
 \begin{figure}[tbh]
 	\centering
@@ -40,7 +40,7 @@ Figure~\ref{fig:sv_seq_1} The packets are sequentially numbered, ensuring proper
 	\caption{SV packet with sample counter with value 1.}
 	\label{fig:sv_seq_2}
 \end{figure}
-\FloatBarrier
+%\FloatBarrier
 
 \begin{figure}[tbh]
 	\centering
@@ -48,7 +48,7 @@ Figure~\ref{fig:sv_seq_1} The packets are sequentially numbered, ensuring proper
 	\caption{SV packet with sample counter with value 2.}
 	\label{fig:sv_seq_3}
 \end{figure}
-\FloatBarrier
+%\FloatBarrier
 
 Figure~\ref{fig:sv_seq_bad_1} Here, we showcase samples marked with bad quality, which were used to test the handling of invalid samples and trigger a switch to alternate samples received from another merging unit. The following images provide examples of the transmitted packets.
 
@@ -58,7 +58,7 @@ Figure~\ref{fig:sv_seq_bad_1} Here, we showcase samples marked with bad quality,
 	\caption{SV packet with bad quality sample counter with value 114.}
 	\label{fig:sv_seq_bad_1}
 \end{figure}
-\FloatBarrier
+%\FloatBarrier
 
 \begin{figure}[tbh]
 	\centering
@@ -66,7 +66,7 @@ Figure~\ref{fig:sv_seq_bad_1} Here, we showcase samples marked with bad quality,
 	\caption{SV packet with bad quality sample counter with value 115.}
 	\label{fig:sv_seq_bad_2}
 \end{figure}
-\FloatBarrier
+%\FloatBarrier
 
 These comprehensive tests confirm the publisher's correct functionality, ensuring reliable and accurate information exchange between different devices.  The three pictures above show a invalid in the field of quality of the samples, this means I have tested also the way through bad quality samples and ensure the algorithm change which Merging Unit is sending the SV packets, it is also possible to verify the sample counter to realize it is also in order the packets.
 
@@ -88,7 +88,7 @@ Figure~\ref{fig:subscriber_side} Here, we have the wireshark sniffing the inform
 	\caption{SV packet at subscriber side}
 	\label{fig:subscriber_side}
 \end{figure}
-\FloatBarrier
+%\FloatBarrier
 
 \begin{figure}[tbh]
 	\centering
@@ -96,7 +96,7 @@ Figure~\ref{fig:subscriber_side} Here, we have the wireshark sniffing the inform
 	\caption{Information provided by Log of publisher and subscriber, the same packet in both equipment}
 	\label{fig:information_packet_sub_pub}
 \end{figure}
-\FloatBarrier
+%\FloatBarrier
 
 Upon completing the tests, it was confirmed that the data sent by the publisher was correctly received and properly serialized by the subscriber, from the destination fields to the Frame Check Sequence (FCS).
 
