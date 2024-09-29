@@ -1,6 +1,6 @@
 % Chapter 4
 
-\chapter{Architecture} % Main chapter title
+\chapter{Solution Architecture} % Main chapter title
 
 \label{chap:Chapter4} % For referencing the chapter elsewhere, use \ref{chap:Chapter4} 
 
@@ -192,7 +192,7 @@ Chrono\footnote{\url{https://crates.io/crates/chrono}} is a comprehensive and ro
 
 One of Chrono's most significant advantages is its flexibility and precision, making it suitable for a wide range of applications. Whether you need to manage timestamps in a database, schedule tasks, log events, or handle time-sensitive operations in a global application, Chrono provides the tools you need. It also supports custom date and time formats, allowing you to work with both standard and non-standard representations of time. Chrono is widely adopted in the Rust ecosystem for any application that requires accurate and reliable date/time handling.
 
-\section{Solution Design}
+\section{System Design}
 
 This thesis proposes a method for selecting the best analog/digital signal sent by multiple Merging Units. The signal is initially analog because it is acquired in that form from VT and CT, but the Merging Unit converts it into a digital signal following the IEC-61850-9-2 protocol. The device proposed in this work receives the digital signal, compares it with another one that's come from another Merging Unit. After this comparison, an algorithm implemented using a state machine selects which signal will be forwarded to the protection systems subscribing to these SV.
 
