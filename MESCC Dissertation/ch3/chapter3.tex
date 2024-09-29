@@ -15,7 +15,7 @@ The primary limitation of the existing system is the lack of an algorithm that d
 
 Moreover, the current system does not fully exploit the redundancy provided by the MUs. Although two SV streams are available, the relay does not have a built-in method to evaluate the quality of these samples and select the most reliable one. This absence of real-time evaluation increases the risk of incorrect fault detection, which could compromise the protection system's integrity.
 
-\section{Architecture of the Proposed Solution}
+\section{Proposed Solution}
 
 To address the limitations identified, we propose an algorithm designed to dynamically evaluate and select the most reliable SV from multiple streams sent by the MUs. This solution acts as an intelligent selector that monitors the incoming SVs, assesses their quality, and ensures that only the most accurate and reliable sample is used in protection calculations.
 
