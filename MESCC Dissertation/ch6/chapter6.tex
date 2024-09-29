@@ -16,7 +16,7 @@ Initial tests focused on validating that the publisher was generating Sampled Va
 
 Figure~\ref{fig:simple_sv} Below is a Wireshark capture that illustrates the integrity of the acquired packets and their identification as SV packets.
 
-\begin{figure}[tbh]
+\begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=1.00\textwidth, keepaspectratio]{ch6/assets/simple_sv.png} % Reduce to 90% of the text width
 	\caption{Wireshark view of the SV packets.}
@@ -26,7 +26,7 @@ Figure~\ref{fig:simple_sv} Below is a Wireshark capture that illustrates the int
 
 Figure~\ref{fig:sv_seq_1} The packets are sequentially numbered, ensuring proper identification. The following image demonstrates that the frames are correctly ordered, the field to check it is sample counter as smpcnt.
 
-\begin{figure}[tbh]
+\begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=1.00\textwidth, keepaspectratio]{ch6/assets/sv_seq_1.png} % Reduce to 90% of the text width
 	\caption{SV packet with sample counter with value 0.}
@@ -34,7 +34,7 @@ Figure~\ref{fig:sv_seq_1} The packets are sequentially numbered, ensuring proper
 \end{figure}
 %\FloatBarrier
 
-\begin{figure}[tbh]
+\begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=1.00\textwidth, keepaspectratio]{ch6/assets/sv_seq_2.png} % Reduce to 90% of the text width
 	\caption{SV packet with sample counter with value 1.}
@@ -42,7 +42,7 @@ Figure~\ref{fig:sv_seq_1} The packets are sequentially numbered, ensuring proper
 \end{figure}
 %\FloatBarrier
 
-\begin{figure}[tbh]
+\begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=1.00\textwidth, keepaspectratio]{ch6/assets/sv_seq_3.png} % Reduce to 90% of the text width
 	\caption{SV packet with sample counter with value 2.}
@@ -52,7 +52,7 @@ Figure~\ref{fig:sv_seq_1} The packets are sequentially numbered, ensuring proper
 
 Figure~\ref{fig:sv_seq_bad_1} Here, we showcase samples marked with bad quality, which were used to test the handling of invalid samples and trigger a switch to alternate samples received from another merging unit. The following images provide examples of the transmitted packets.
 
-\begin{figure}[tbh]
+\begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=1.00\textwidth, keepaspectratio]{ch6/assets/sv_seq_bad_1.png} % Reduce to 90% of the text width
 	\caption{SV packet with bad quality sample counter with value 114.}
@@ -60,7 +60,7 @@ Figure~\ref{fig:sv_seq_bad_1} Here, we showcase samples marked with bad quality,
 \end{figure}
 %\FloatBarrier
 
-\begin{figure}[tbh]
+\begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=1.00\textwidth, keepaspectratio]{ch6/assets/sv_seq_bad_2.png} % Reduce to 90% of the text width
 	\caption{SV packet with bad quality sample counter with value 115.}
@@ -82,7 +82,7 @@ Once the core issues were resolved, testing confirmed the accurate exchange of d
 
 Figure~\ref{fig:subscriber_side} Here, we have the wireshark sniffing the information at the subscriber side, and also one packet of the publisher and the subscriber side.
 
-\begin{figure}[tbh]
+\begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=1.00\textwidth, keepaspectratio]{ch6/assets/subscriber_side.png} % Reduce to 90% of the text width
 	\caption{SV packet at subscriber side}
@@ -90,7 +90,7 @@ Figure~\ref{fig:subscriber_side} Here, we have the wireshark sniffing the inform
 \end{figure}
 %\FloatBarrier
 
-\begin{figure}[tbh]
+\begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.85\textwidth, keepaspectratio]{ch6/assets/information_packet_sub_pub.png} % Reduce to 90% of the text width
 	\caption{Information provided by Log of publisher and subscriber, the same packet in both equipment}
