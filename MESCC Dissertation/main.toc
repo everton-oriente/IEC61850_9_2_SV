@@ -43,12 +43,12 @@
 \contentsline {chapter}{\numberline {3}Analysis and Design of the Solution}{19}{chapter.62}%
 \contentsline {section}{\numberline {3.1}Description of Equipment and Functions}{19}{section.63}%
 \contentsline {section}{\numberline {3.2}Limitations of the Current Solution}{19}{section.64}%
-\contentsline {section}{\numberline {3.3}Architecture of the Proposed Solution}{20}{section.65}%
+\contentsline {section}{\numberline {3.3}Proposed Solution}{20}{section.65}%
 \contentsline {subsection}{\numberline {3.3.1}SV Selection Algorithm}{20}{subsection.66}%
 \contentsline {subsection}{\numberline {3.3.2}Operational Flow of the Algorithm}{20}{subsection.67}%
 \contentsline {subsection}{\numberline {3.3.3}Handling Redundancy and Failures}{20}{subsection.70}%
 \contentsline {section}{\numberline {3.4}Conclusion}{21}{section.71}%
-\contentsline {chapter}{\numberline {4}Architecture}{23}{chapter.72}%
+\contentsline {chapter}{\numberline {4}Solution Architecture}{23}{chapter.72}%
 \contentsline {section}{\numberline {4.1}Overview}{23}{section.73}%
 \contentsline {section}{\numberline {4.2}Hardware Setup}{23}{section.74}%
 \contentsline {section}{\numberline {4.3}Software Technologies}{25}{section.75}%
@@ -61,34 +61,34 @@
 \contentsline {subsection}{\numberline {4.3.7}Log Crate}{30}{subsection.86}%
 \contentsline {subsection}{\numberline {4.3.8}Env\_Logger Crate}{30}{subsection.88}%
 \contentsline {subsection}{\numberline {4.3.9}Chrono}{31}{subsection.90}%
-\contentsline {section}{\numberline {4.4}Solution Design}{31}{section.92}%
-\contentsline {section}{\numberline {4.5}Algorithm Description}{34}{section.96}%
-\contentsline {chapter}{\numberline {5}Implementation}{39}{chapter.128}%
-\contentsline {section}{\numberline {5.1}Structure of Sampled Values}{39}{section.129}%
-\contentsline {section}{\numberline {5.2}Development of a Publisher of IEC~61850-9-2-SV}{40}{section.133}%
-\contentsline {subsection}{\numberline {5.2.1}Structuring the Data: Defining Rust Structs}{41}{subsection.134}%
-\contentsline {subsection}{\numberline {5.2.2}Implementing the Core Functions}{42}{subsection.194}%
-\contentsline {subsection}{\numberline {5.2.3}Simulating an Electrical Grid Signal}{42}{subsection.209}%
-\contentsline {subsection}{\numberline {5.2.4}Introducing Invalid Samples for Testing}{43}{subsection.221}%
-\contentsline {subsection}{\numberline {5.2.5}Finalizing the Publisher}{43}{subsection.231}%
-\contentsline {section}{\numberline {5.3}Development of a Subscriber of IEC~61850-9-2-SV}{44}{section.232}%
-\contentsline {subsection}{\numberline {5.3.1}Structs Reused in the Subscriber}{44}{subsection.233}%
-\contentsline {subsection}{\numberline {5.3.2}Implementation of Data Reception and Logging}{44}{subsection.246}%
-\contentsline {subsection}{\numberline {5.3.3}Error Handling and Invalid Data Processing}{44}{subsection.247}%
-\contentsline {subsection}{\numberline {5.3.4}Finalizing the Subscriber}{45}{subsection.248}%
-\contentsline {section}{\numberline {5.4}Development of the Algorithm}{45}{section.249}%
-\contentsline {subsection}{\numberline {5.4.1}Algorithm Logic and Structure}{45}{subsection.250}%
-\contentsline {subsection}{\numberline {5.4.2}Handling Invalid and Questionable Samples}{46}{subsection.251}%
-\contentsline {subsection}{\numberline {5.4.3}Decision-Making Through Error Tracking and Switching}{46}{subsection.252}%
-\contentsline {chapter}{\numberline {6}Tests and Evaluation}{47}{chapter.253}%
-\contentsline {section}{\numberline {6.1}Test of Publisher of IEC~61850-9-2-SV}{47}{section.254}%
-\contentsline {section}{\numberline {6.2}Test of Subscriber of IEC~61850-9-2-SV}{49}{section.261}%
-\contentsline {section}{\numberline {6.3}Test of the Algorithm}{51}{section.264}%
-\contentsline {chapter}{\numberline {7}Conclusion}{55}{chapter.321}%
-\contentsline {section}{\numberline {7.1}Conclusions and Final Considerations}{55}{section.322}%
-\contentsline {section}{\numberline {7.2}Limitations}{56}{section.323}%
-\contentsline {section}{\numberline {7.3}Future Work}{57}{section.324}%
-\contentsline {subsection}{\numberline {7.3.1}Add an ADC to acquire values of Voltage Transformer and Current Transformer}{57}{subsection.325}%
-\contentsline {subsection}{\numberline {7.3.2}Add a PTP server regarding the IEC61850-9-3-PTP}{57}{subsection.326}%
-\contentsline {subsection}{\numberline {7.3.3}Implement a more secure Sampled Value (SV) packet in modern substations}{58}{subsection.327}%
-\contentsline {chapter}{Bibliography}{61}{chapter*.328}%
+\contentsline {section}{\numberline {4.4}System Design}{31}{section.92}%
+\contentsline {section}{\numberline {4.5}Algorithm Description}{34}{section.99}%
+\contentsline {chapter}{\numberline {5}Implementation}{39}{chapter.131}%
+\contentsline {section}{\numberline {5.1}Structure of Sampled Values}{39}{section.132}%
+\contentsline {section}{\numberline {5.2}Development of a Publisher of IEC~61850-9-2-SV}{40}{section.136}%
+\contentsline {subsection}{\numberline {5.2.1}Structuring the Data: Defining Rust Structs}{41}{subsection.137}%
+\contentsline {subsection}{\numberline {5.2.2}Implementing the Core Functions}{42}{subsection.197}%
+\contentsline {subsection}{\numberline {5.2.3}Simulating an Electrical Grid Signal}{42}{subsection.212}%
+\contentsline {subsection}{\numberline {5.2.4}Introducing Invalid Samples for Testing}{43}{subsection.224}%
+\contentsline {subsection}{\numberline {5.2.5}Finalizing the Publisher}{43}{subsection.234}%
+\contentsline {section}{\numberline {5.3}Development of a Subscriber of IEC~61850-9-2-SV}{44}{section.235}%
+\contentsline {subsection}{\numberline {5.3.1}Structs Reused in the Subscriber}{44}{subsection.236}%
+\contentsline {subsection}{\numberline {5.3.2}Implementation of Data Reception and Logging}{44}{subsection.249}%
+\contentsline {subsection}{\numberline {5.3.3}Error Handling and Invalid Data Processing}{44}{subsection.250}%
+\contentsline {subsection}{\numberline {5.3.4}Finalizing the Subscriber}{45}{subsection.251}%
+\contentsline {section}{\numberline {5.4}Development of the Algorithm}{45}{section.252}%
+\contentsline {subsection}{\numberline {5.4.1}Algorithm Logic and Structure}{45}{subsection.253}%
+\contentsline {subsection}{\numberline {5.4.2}Handling Invalid and Questionable Samples}{48}{subsection.347}%
+\contentsline {subsection}{\numberline {5.4.3}Decision-Making Through Error Tracking and Switching}{49}{subsection.379}%
+\contentsline {chapter}{\numberline {6}Tests and Evaluation}{51}{chapter.463}%
+\contentsline {section}{\numberline {6.1}Test of Publisher of IEC~61850-9-2-SV}{51}{section.464}%
+\contentsline {section}{\numberline {6.2}Test of Subscriber of IEC~61850-9-2-SV}{53}{section.471}%
+\contentsline {section}{\numberline {6.3}Test of the Algorithm}{55}{section.474}%
+\contentsline {chapter}{\numberline {7}Conclusion}{59}{chapter.531}%
+\contentsline {section}{\numberline {7.1}Conclusions and Final Considerations}{59}{section.532}%
+\contentsline {section}{\numberline {7.2}Limitations}{60}{section.533}%
+\contentsline {section}{\numberline {7.3}Future Work}{61}{section.534}%
+\contentsline {subsection}{\numberline {7.3.1}Add an ADC to acquire values of Voltage Transformer and Current Transformer}{61}{subsection.535}%
+\contentsline {subsection}{\numberline {7.3.2}Add a PTP server regarding the IEC61850-9-3-PTP}{61}{subsection.536}%
+\contentsline {subsection}{\numberline {7.3.3}Implement a more secure Sampled Value (SV) packet in modern substations}{62}{subsection.537}%
+\contentsline {chapter}{Bibliography}{65}{chapter*.538}%

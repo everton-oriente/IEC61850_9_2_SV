@@ -119,7 +119,7 @@ Once the data structures are in place, the next step is to implement the functio
 For example, the implementation of a constructor for the 'EthernetFrame' struct might look like this:
 
 \begin{lstlisting}[caption={How to implement an impl for the struct}]
-/ Implementation of functions regarding EthernetFrame struct
+// Implementation of functions regarding EthernetFrame struct
 impl EthernetFrame {
 pub fn new(destination: [u8; 6], source: [u8; 6], tpid: u16, tci: u16, ethertype: u16, payload: SvPDU, fcs: [u8; 4]) -> Self {
 Self {
@@ -130,7 +130,7 @@ Self {
 	ethertype,
 	payload,
 	fcs,
-}
+	}
 }
 \end{lstlisting}
 
@@ -142,7 +142,7 @@ A key functionality of the publisher is to simulate the sinusoidal signal of an 
 
 To achieve this, the current time is used as an input to calculate the voltage and current values, with predefined amplitudes representing the electrical parameters. This simulation is implemented in the following function:
 
-\begin{lstlisting}[caption={How to calculate the value of the SV's }]
+\begin{lstlisting}[caption={How to calculate the value of the SV's}]
 pub fn cal_current_phase_b ()-> [i32;1]
 {
 let now = Local::now();
@@ -161,7 +161,7 @@ This function calculates the current value for phase B at a given moment, using 
 
 To fully test the algorithm's ability to handle real-world scenarios, it was necessary to introduce invalid samples. This was accomplished by altering the quality of certain samples within the SV packets, making them invalid. The publisher was enhanced with a feature that allows these quality changes, enabling the testing of how well the algorithm can identify and respond to invalid data.
 
-\begin{lstlisting}[caption={How to calculate the value of the SV's }]
+\begin{lstlisting}[caption={How to calculate the value of the SV's}]
 if increment > 50 \&\& increment < 100
 {
 // Implement Bad Quality to the samples
@@ -188,7 +188,7 @@ In this context, the subscriber was designed to handle incoming Sampled Values (
 
 Given that the subscriber's primary role is to interpret the data sent by the publisher, the same set of structs, including 'EthernetFrame', 'SvPDU', 'SmvData', and 'LogicalNode', were reused. These structs allowed the subscriber to decode the incoming Ethernet frames and extract the necessary information from the SV packets.
 
-\begin{lstlisting}[caption={EthernetFrame struct. }]
+\begin{lstlisting}[caption={EthernetFrame struct.}]
 	pub struct EthernetFrame {
 		pub destination: [u8; 6],
 		pub source: [u8; 6],
@@ -233,12 +233,229 @@ The core of the algorithm revolves around a decision-making structure that ensur
 	\item Decision Process Using State Machine: The algorithm utilizes a state machine to manage the decision-making process for switching between Sampled Values. This system ensures that switching occurs only when the error between the two SVs exceeds a predefined threshold and a series of checks confirm that the alternative SV is more suitable for transmission. Additionally, the state machine monitors the data stream for invalid samples and initiates a switch if a persistent stream of invalid samples is detected, ensuring that the most accurate data is consistently transmitted.
 \end{itemize}
 
+\begin{lstlisting}[caption={The main logic and structure of the state machine are implemented here, showcasing the tick time, state evolution, log messages, and transitions.}]
+async fn process_frame(&mut self, frame: &EthernetFrame) {
+	// Ensure the state machine processes at each tick
+	let mut ticker = interval(Duration::from_micros(1));
+	info!("frame inside FSM {:?}", frame);
+	
+	loop {
+		// Wait for the tick, so the state machine each ticker
+		ticker.tick().await;
+		info!("System ticked");
+		
+		match self.state {
+			State::Initial => 
+			{
+				info!("State: Initial");
+			}
+			
+			State::GetSample =>
+			{ 
+				info!("State: Get Sample");
+				self.valid_qual_smp(frame).await;   
+			}
+			
+			State::Questionable => 
+			{
+				info!("State: Questionable");
+			}
+			
+			State::Invalid => 
+			{
+				info!("State: Invalid");
+				self.valid_cont_smp_inv().await;
+			}
+			
+			State::Valid => 
+			{
+				info!("State: Valid");
+				self.valid_cont_smp_valid(frame).await;
+			}
+			
+			State::CompleteSample => 
+			{
+				info!("State: CompleteSample");
+				self.keep_variables().await;
+				break;
+			}
+			
+			State::CheckErrorPercentage =>
+			{ 
+				info!("State: CheckErrorPercentage");
+				self.valid_error_percentage().await;    
+			}
+			
+			State::ToogleMU =>
+			{ 
+				info!("State: ToogleMU");
+				self.toogle_sv().await;
+			}
+			
+			State::CompleteCycle => 
+			{
+				info!("State: CompleteCycle");
+				self.reset_variables().await;
+				break;
+			}
+		}
+		// Automatically transition to the next state on each tick
+		self.transition().await;   
+	}
+	self.state = State::GetSample; // Reset state for the next frame
+}
+
+async fn transition(&mut self) {
+	match self.state {
+		State::Initial => self.state = State::GetSample,
+		
+		State::GetSample =>{}
+		
+		State::Invalid =>{}
+		
+		State::Valid =>{}
+		
+		State::Questionable => self.state = State::CompleteSample,
+		
+		State::CompleteSample => {}
+		
+		State::CheckErrorPercentage =>{}
+		
+		State::ToogleMU => {}
+		
+		State::CompleteCycle => {}
+	}
+}
+\end{lstlisting}
+
+\pagebreak
+
 \subsection{Handling Invalid and Questionable Samples}
 Invalid or questionable SVs are handled by implementing a robust error-checking mechanism. The algorithm is designed to track the occurrence of invalid samples and make decisions accordingly. If a sample is deemed invalid, it is discarded from further evaluation, but the algorithm logs this occurrence to maintain an awareness of the merging unit's performance.
 
 If invalid samples persist over a defined threshold, the state machine initiates a switch to the other merging unit. This mechanism ensures that the system continuously provides reliable SVs to the protection relays, even in cases where one merging unit is producing questionable data.
 
+\begin{lstlisting}[caption={This function handles invalid samples by comparing their value to N\_SAMPLES. If less, it increments a counter and transitions to CompleteSample, if greater or equal, it moves to ToggleMU. This must happen before reaching CompleteCycle, where variables are reset.}]
+async fn valid_cont_smp_inv(&mut self) {
+	info!("Validate the value of cont samples invalid: {:?}", self.cont_smp_inv);
+	self.cont_smp_inv += 1;
+	
+	if  self.cont_smp_inv < N_SAMPLES
+	{
+		self.state = State::CompleteSample;
+		info!("Invalid -> Complete Sample");
+	}
+	else if self.cont_smp_inv >= N_SAMPLES 
+	{
+		self.state = State::ToogleMU;
+		info!("Invalid -> Toogle MU");
+	}
+	else 
+	{
+		//self.state = State::Error;
+		info!("Invalid -> Error");    
+	}      
+	
+}
+\end{lstlisting}
+
+\begin{lstlisting}[caption={This function handles questionable samples by simply waiting for the next tick to transition to the CompleteSample state.}]
+
+async fn transition(&mut self) {
+	match self.state {
+		
+		State::Questionable => self.state = State::CompleteSample,
+
+	}
+}
+\end{lstlisting}
+
 \subsection{Decision-Making Through Error Tracking and Switching}
 The state machine tracks various error conditions, such as large deviations between SVs and a high number of invalid samples. The switching logic takes into account both real-time error tracking and historical data from previous SVs to decide whether to maintain the current sample or switch to the alternate SV.
 
 The algorithm operates within a deterministic timeframe, where decisions must be made in under 250 microseconds to maintain real-time performance. This ensures that protection relays receive the most accurate and reliable data without introducing delays in decision-making.
+
+\begin{lstlisting}[caption={This function processes valid samples by summing and dividing buffer values. The error is calculated as the ratio of buffer 1 to the total of both buffers and vice-versa. If the error percentage is less than 25\%, it transitions to CompleteCycle; otherwise, it goes to ToggleMU.}]
+async fn valid_error_percentage(&mut self) {
+	let buffer_mu1 = Arc::new(Mutex::new(self.buffer_mu1));
+	let buffer_mu2 = Arc::new(Mutex::new(self.buffer_mu2));
+	info!("buffer_mu1: {:?}", self.buffer_mu1);
+	info!("buffer_mu2: {:?}", self.buffer_mu2);
+	
+	let sum_x: f32 = buffer_mu2.lock().unwrap().iter()
+	.zip(buffer_mu1.lock().unwrap().iter())
+	.flat_map(|(mu2_array, mu1_array)| {
+		mu2_array.iter().zip(mu1_array.iter()).map(|(&mu2, &mu1)| {
+			if mu1 != 0 {
+				(mu2 - mu1) as f32 / mu1 as f32
+			} else {
+				warn!("Failed acquisition value in the MU1");
+				0.0 // Avoid division by zero
+				
+			}
+		})
+	})
+	.sum();
+	
+	info!("Value of the sum of MU1: {:?}", &sum_x);
+	
+	let sum_y: f32 = buffer_mu1.lock().unwrap().iter()
+	.zip(buffer_mu2.lock().unwrap().iter())
+	.flat_map(|(mu1_array, mu2_array)| {
+		mu1_array.iter().zip(mu2_array.iter()).map(|(&mu1, &mu2)| {
+			if mu2 != 0 {
+				(mu1 - mu2) as f32 / mu2 as f32
+			} else {
+				warn!("Failed acquisition value in the MU2");
+				0.0 // Avoid division by zero  
+			}
+		})
+	})
+	.sum();
+	
+	info!("Value of the sum of MU2: {:?}", &sum_y);
+	let error_x = (sum_x / (N_SAMPLES * 8) as f32).abs();
+	info!("Value of error of MU1: {:?}", error_x);
+	let error_y = (sum_y / (N_SAMPLES * 8) as f32).abs();
+	info!("Value of error of MU2: {:?}", error_y);
+	
+	self.error_percentage = if error_x >= error_y { error_x } else { error_y };
+	info!("Value of the error: {:?}", &self.error_percentage);
+	
+	if self.error_percentage >= 0.25
+	{
+		if error_x <= error_y
+		{   
+			if self.toggle_mu == false
+			{
+				self.state = State::CompleteCycle;
+			}
+			else
+			{
+				self.state = State::ToogleMU;
+			}
+		}
+		else if error_y < error_x 
+		{
+			if self.toggle_mu == true
+			{
+				self.state = State::CompleteCycle; 
+			}
+			else 
+			{
+				self.state = State::ToogleMU;    
+			}
+			
+		}
+		else
+		{
+			self.state = State::ToogleMU;
+		}
+	}
+	else
+	{
+		self.state = State::CompleteCycle;
+	}   
+	info!("Actual State: {:?}", self.state);
+}
+\end{lstlisting}

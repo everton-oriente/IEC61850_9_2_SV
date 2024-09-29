@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.13)  29 SEP 2024 18:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.13)  29 SEP 2024 23:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1908,7 +1908,19 @@ ow-ing the stan-dard IEC 61850-
 1: section
 [15] [16
 
-] (./main.lol)
+] (./main.lol
+Overfull \hbox (24.97803pt too wide) in paragraph at lines 9--9
+ [][] [][]\T1/phv/m/n/10.95 This func-tion han-dles in-valid sam-ples by com-pa
+r-ing their value to N_SAMPLES. 
+ []
+
+
+Overfull \hbox (5.56778pt too wide) in paragraph at lines 9--9
+ \T1/phv/m/n/10.95 If less, it in-cre-ments a counter and tran-si-tions to Com-
+plete-Sam-ple, if greater 
+ []
+
+)
 \tf@lol=\write13
 \openout13 = `main.lol'.
 
@@ -1944,7 +1956,7 @@ LaTeX Font Info:    Trying to load font information for T1+cmtl on input line 3
  (/usr/share/texlive/texmf-dist/tex/latex/cmbright/t1cmtl.fd
 File: t1cmtl.fd 2005/04/13 v8.1 (WaS)
 )
-<ch1/assets/Way_of_electricity.png, id=649, 689.57625pt x 350.30875pt>
+<ch1/assets/Way_of_electricity.png, id=666, 689.57625pt x 350.30875pt>
 File: ch1/assets/Way_of_electricity.png Graphic file (type png)
 <use ch1/assets/Way_of_electricity.png>
 Package pdftex.def Info: ch1/assets/Way_of_electricity.png  used on input line 
@@ -1971,7 +1983,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--13
 substation-[]automation-[]systems-[]course-[]map .
  []
 
-<ch2/assets/SAS.png, id=681, 763.85374pt x 463.7325pt>
+<ch2/assets/SAS.png, id=697, 763.85374pt x 463.7325pt>
 File: ch2/assets/SAS.png Graphic file (type png)
 <use ch2/assets/SAS.png>
 Package pdftex.def Info: ch2/assets/SAS.png  used on input line 17.
@@ -1991,7 +2003,7 @@ Overfull \hbox (4.3931pt too wide) in paragraph at lines 127--128
  []
 
 [12] [13]
-<ch2/assets/Idea_of_Merging_Unit.png, id=739, 552.56438pt x 405.01312pt>
+<ch2/assets/Idea_of_Merging_Unit.png, id=756, 552.56438pt x 405.01312pt>
 File: ch2/assets/Idea_of_Merging_Unit.png Graphic file (type png)
 <use ch2/assets/Idea_of_Merging_Unit.png>
 Package pdftex.def Info: ch2/assets/Idea_of_Merging_Unit.png  used on input lin
@@ -2003,7 +2015,7 @@ Overfull \hbox (4.39131pt too wide) in paragraph at lines 201--202
 ro-vides re-dun-dancy through
  []
 
-<ch2/assets/table_SVs_Frequency.png, id=759, 737.75626pt x 342.27875pt>
+<ch2/assets/table_SVs_Frequency.png, id=775, 737.75626pt x 342.27875pt>
 File: ch2/assets/table_SVs_Frequency.png Graphic file (type png)
 <use ch2/assets/table_SVs_Frequency.png>
 Package pdftex.def Info: ch2/assets/table_SVs_Frequency.png  used on input line
@@ -2014,7 +2026,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
-<ch2/assets/evolucao_SV_protocol.png, id=770, 756.8275pt x 326.21875pt>
+<ch2/assets/evolucao_SV_protocol.png, id=786, 756.8275pt x 326.21875pt>
 File: ch2/assets/evolucao_SV_protocol.png Graphic file (type png)
 <use ch2/assets/evolucao_SV_protocol.png>
 Package pdftex.def Info: ch2/assets/evolucao_SV_protocol.png  used on input lin
@@ -2027,7 +2039,7 @@ Chapter 3.
 [19
 
 ]
-<ch3/assets/SLD_Diagram.png, id=790, 352.31625pt x 411.5375pt>
+<ch3/assets/SLD_Diagram.png, id=806, 352.31625pt x 411.5375pt>
 File: ch3/assets/SLD_Diagram.png Graphic file (type png)
 <use ch3/assets/SLD_Diagram.png>
 Package pdftex.def Info: ch3/assets/SLD_Diagram.png  used on input line 42.
@@ -2038,57 +2050,56 @@ Package pdftex.def Info: ch3/assets/SLD_Diagram.png  used on input line 42.
 Chapter 4.
 1: section
 [23] [24] [25] [26] [27] [28] [29] [30]
-<ch4/assets/Implementation.png, id=861, 758.08218pt x 467.49657pt>
+<ch4/assets/Implementation.png, id=877, 758.08218pt x 467.49657pt>
 File: ch4/assets/Implementation.png Graphic file (type png)
 <use ch4/assets/Implementation.png>
-Package pdftex.def Info: ch4/assets/Implementation.png  used on input line 200.
+Package pdftex.def Info: ch4/assets/Implementation.png  used on input line 212.
 
 (pdftex.def)             Requested size: 339.158pt x 209.15169pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--209
+ [31]
+Underfull \hbox (badness 10000) in paragraph at lines 221--221
 [][][][]$\T1/cmtl/m/n/9 https : / / www . typhoon-[]hil . com / documentation /
  typhoon-[]hil-[]software-[]manual / References / iec _
  []
 
-<ch4/assets/SV_Packtes.png, id=865, 408.77719pt x 682.80093pt>
+<ch4/assets/SV_Packtes.png, id=889, 408.77719pt x 682.80093pt>
 File: ch4/assets/SV_Packtes.png Graphic file (type png)
 <use ch4/assets/SV_Packtes.png>
-Package pdftex.def Info: ch4/assets/SV_Packtes.png  used on input line 213.
+Package pdftex.def Info: ch4/assets/SV_Packtes.png  used on input line 225.
 (pdftex.def)             Requested size: 317.95943pt x 531.13438pt.
-[31] [32 <./ch4/assets/Implementation.png>] [33 <./ch4/assets/SV_Packtes.png>]
-<ch4/assets/state_machine.png, id=884, 846.16125pt x 681.54625pt>
+[32 <./ch4/assets/Implementation.png>] [33 <./ch4/assets/SV_Packtes.png>]
+<ch4/assets/state_machine.png, id=903, 846.16125pt x 681.54625pt>
 File: ch4/assets/state_machine.png Graphic file (type png)
 <use ch4/assets/state_machine.png>
-Package pdftex.def Info: ch4/assets/state_machine.png  used on input line 246.
+Package pdftex.def Info: ch4/assets/state_machine.png  used on input line 258.
 (pdftex.def)             Requested size: 402.74731pt x 324.393pt.
 
-[34]
+[34] [35 <./ch4/assets/state_machine.png>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 267.
- [35 <./ch4/assets/state_machine.png>]
-<ch4/assets/test_setup.png, id=896, 738.76pt x 678.535pt>
+nput line 279.
+<ch4/assets/test_setup.png, id=915, 738.76pt x 678.535pt>
 File: ch4/assets/test_setup.png Graphic file (type png)
 <use ch4/assets/test_setup.png>
-Package pdftex.def Info: ch4/assets/test_setup.png  used on input line 309.
-(pdftex.def)             Requested size: 402.74731pt x 369.91331pt.
+Package pdftex.def Info: ch4/assets/test_setup.png  used on input line 321.
+(pdftex.def)             Requested size: 296.76083pt x 272.56879pt.
 ) (./ch5/chapter5.tex [36] [37 <./ch4/assets/test_setup.png>] [38
 
 ]
 Chapter 5.
-<ch5/assets/sv_packets_fields.png, id=942, 1368.11125pt x 626.34pt>
+<ch5/assets/sv_packets_fields.png, id=962, 1368.11125pt x 626.34pt>
 File: ch5/assets/sv_packets_fields.png Graphic file (type png)
 <use ch5/assets/sv_packets_fields.png>
 Package pdftex.def Info: ch5/assets/sv_packets_fields.png  used on input line 2
 2.
 (pdftex.def)             Requested size: 402.74731pt x 184.37685pt.
-<ch5/assets/Sv_packet_full.png, id=947, 1068.24094pt x 482.55281pt>
+<ch5/assets/Sv_packet_full.png, id=967, 1068.24094pt x 482.55281pt>
 File: ch5/assets/Sv_packet_full.png Graphic file (type png)
 <use ch5/assets/Sv_packet_full.png>
 Package pdftex.def Info: ch5/assets/Sv_packet_full.png  used on input line 35.
 (pdftex.def)             Requested size: 402.74731pt x 181.92879pt.
 1: section
 [39] [40 <./ch5/assets/sv_packets_fields.png> <./ch5/assets/Sv_packet_full.png>
-] [41] [42] [43] [44] [45]) (./ch6/chapter6.tex [46]
+] [41] [42] [43] [44] [45] [46] [47] [48] [49]) (./ch6/chapter6.tex [50]
 Chapter 6.
 
 Overfull \hbox (6.0884pt too wide) in paragraph at lines 9--10
@@ -2096,52 +2107,52 @@ Overfull \hbox (6.0884pt too wide) in paragraph at lines 9--10
 sses cru-cial to achiev-ing the project's
  []
 
-<ch6/assets/simple_sv.png, id=1089, 1599.9775pt x 661.47125pt>
+<ch6/assets/simple_sv.png, id=1330, 1599.9775pt x 661.47125pt>
 File: ch6/assets/simple_sv.png Graphic file (type png)
 <use ch6/assets/simple_sv.png>
 Package pdftex.def Info: ch6/assets/simple_sv.png  used on input line 21.
 (pdftex.def)             Requested size: 423.9459pt x 175.26886pt.
-<ch6/assets/sv_seq_1.png, id=1091, 1371.1225pt x 621.32124pt>
+<ch6/assets/sv_seq_1.png, id=1332, 1371.1225pt x 621.32124pt>
 File: ch6/assets/sv_seq_1.png Graphic file (type png)
 <use ch6/assets/sv_seq_1.png>
 Package pdftex.def Info: ch6/assets/sv_seq_1.png  used on input line 31.
 (pdftex.def)             Requested size: 423.9459pt x 192.10512pt.
-<ch6/assets/sv_seq_2.png, id=1092, 1371.1225pt x 621.32124pt>
+<ch6/assets/sv_seq_2.png, id=1333, 1371.1225pt x 621.32124pt>
 File: ch6/assets/sv_seq_2.png Graphic file (type png)
 <use ch6/assets/sv_seq_2.png>
 Package pdftex.def Info: ch6/assets/sv_seq_2.png  used on input line 39.
 (pdftex.def)             Requested size: 423.9459pt x 192.10512pt.
-<ch6/assets/sv_seq_3.png, id=1093, 1371.1225pt x 621.32124pt>
+<ch6/assets/sv_seq_3.png, id=1334, 1371.1225pt x 621.32124pt>
 File: ch6/assets/sv_seq_3.png Graphic file (type png)
 <use ch6/assets/sv_seq_3.png>
 Package pdftex.def Info: ch6/assets/sv_seq_3.png  used on input line 47.
 (pdftex.def)             Requested size: 423.9459pt x 192.10512pt.
-<ch6/assets/sv_seq_bad_1.png, id=1095, 1371.1225pt x 621.32124pt>
+<ch6/assets/sv_seq_bad_1.png, id=1336, 1371.1225pt x 621.32124pt>
 File: ch6/assets/sv_seq_bad_1.png Graphic file (type png)
 <use ch6/assets/sv_seq_bad_1.png>
 Package pdftex.def Info: ch6/assets/sv_seq_bad_1.png  used on input line 57.
 (pdftex.def)             Requested size: 423.9459pt x 192.10512pt.
-<ch6/assets/sv_seq_bad_2.png, id=1096, 1371.1225pt x 621.32124pt>
+<ch6/assets/sv_seq_bad_2.png, id=1337, 1371.1225pt x 621.32124pt>
 File: ch6/assets/sv_seq_bad_2.png Graphic file (type png)
 <use ch6/assets/sv_seq_bad_2.png>
 Package pdftex.def Info: ch6/assets/sv_seq_bad_2.png  used on input line 65.
 (pdftex.def)             Requested size: 423.9459pt x 192.10512pt.
 1: section
-[47
+[51
 
 ]
 
-LaTeX Warning: Text page 48 contains only floats.
+LaTeX Warning: Text page 52 contains only floats.
 
-[48 <./ch6/assets/simple_sv.png> <./ch6/assets/sv_seq_1.png> <./ch6/assets/sv_s
-eq_2.png>] [49 <./ch6/assets/sv_seq_3.png> <./ch6/assets/sv_seq_bad_1.png>]
-<ch6/assets/subscriber_side.png, id=1116, 1869.98625pt x 713.66624pt>
+[52 <./ch6/assets/simple_sv.png> <./ch6/assets/sv_seq_1.png> <./ch6/assets/sv_s
+eq_2.png>] [53 <./ch6/assets/sv_seq_3.png> <./ch6/assets/sv_seq_bad_1.png>]
+<ch6/assets/subscriber_side.png, id=1358, 1869.98625pt x 713.66624pt>
 File: ch6/assets/subscriber_side.png Graphic file (type png)
 <use ch6/assets/subscriber_side.png>
 Package pdftex.def Info: ch6/assets/subscriber_side.png  used on input line 87.
 
 (pdftex.def)             Requested size: 423.9459pt x 161.78761pt.
-<ch6/assets/information_packet_sub_pub.png, id=1117, 490.83376pt x 316.93407pt>
+<ch6/assets/information_packet_sub_pub.png, id=1359, 490.83376pt x 316.93407pt>
 
 File: ch6/assets/information_packet_sub_pub.png Graphic file (type png)
 <use ch6/assets/information_packet_sub_pub.png>
@@ -2149,20 +2160,20 @@ Package pdftex.def Info: ch6/assets/information_packet_sub_pub.png  used on inp
 ut line 95.
 (pdftex.def)             Requested size: 360.3566pt x 232.68985pt.
 
-[50 <./ch6/assets/sv_seq_bad_2.png> <./ch6/assets/subscriber_side.png>]
-[51 <./ch6/assets/information_packet_sub_pub.png>] [52] [53])
-(./ch7/chapter7.tex [54]
+[54 <./ch6/assets/sv_seq_bad_2.png> <./ch6/assets/subscriber_side.png>]
+[55 <./ch6/assets/information_packet_sub_pub.png>] [56] [57])
+(./ch7/chapter7.tex [58]
 Chapter 7.
 1: section
-[55
+[59
 
-] [56] [57]
+] [60] [61]
 Overfull \hbox (4.37935pt too wide) in paragraph at lines 63--64
 []\T1/phv/m/n/10.95 Authentication: Con-firm-ing that the SV mes-sage orig-i-na
 ted from a le-git-i-mate source. 
  []
 
-[58]) [59] [60
+[62]) [63] [64
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
@@ -2175,7 +2186,7 @@ l\T1/phv/m/n/10.95 : []$\T1/cmtl/m/n/10.95 https : / / ieeexplore . ieee . org
  []
 
 1: section
-[61]
+[65]
 Overfull \hbox (80.71242pt too wide) in paragraph at lines 172--172
 \T1/phv/m/n/10.95 Switzer-land: ABB. \T1/phv/m/sc/10.95 url\T1/phv/m/n/10.95 : 
 []$\T1/cmtl/m/n/10.95 https : / / library . e . abb . com / public / a56430e1e7
@@ -2189,7 +2200,7 @@ Overfull \hbox (3.0305pt too wide) in paragraph at lines 172--172
 l -[] 03192264 /
  []
 
-[62] [63] (./main.aux)
+[66] [67] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2199,16 +2210,16 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C6D3C68C86F237D88214A4E9A077D607;18521.
+(rerunfilecheck)             Checksum: 201D6784CDC9711D2A1D22E929E79533;18450.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 59290 strings out of 474222
- 1366272 string characters out of 5748733
- 2690675 words of memory out of 5000000
- 80236 multiletter control sequences out of 15000+600000
+ 59541 strings out of 474222
+ 1369480 string characters out of 5748733
+ 2706676 words of memory out of 5000000
+ 80273 multiletter control sequences out of 15000+600000
  628796 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  110i,20n,131p,2324b,2804s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2216,10 +2227,10 @@ Here is how much of TeX's memory you used:
 /texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (83 pages, 2773605 bytes).
+Output written on main.pdf (87 pages, 2798427 bytes).
 PDF statistics:
- 1441 PDF objects out of 1728 (max. 8388607)
- 1293 compressed objects within 13 object streams
- 441 named destinations out of 1000 (max. 500000)
+ 1726 PDF objects out of 1728 (max. 8388607)
+ 1571 compressed objects within 16 object streams
+ 655 named destinations out of 1000 (max. 500000)
  862 words of extra memory for PDF output out of 10000 (max. 10000000)
 
