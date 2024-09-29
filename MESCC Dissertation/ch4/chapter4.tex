@@ -195,7 +195,7 @@ To achieve this, it was necessary to develop and implement the IEC~61850-9-2 pro
 
 Figure~\ref{fig:overview_of_implementation} The components of the thesis are interconnected as follows: Two MUs send data to the algorithm. The algorithm then evaluates the information from both MUs, selects the most optimal data, and transmits it to the Protection Relay. This selection process ensures that the Protection Relay receives the best possible data based on the criteria defined by the algorithm.
 
-\begin{figure}[tbh]
+\begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.80\textwidth, keepaspectratio]{ch4/assets/Implementation.png} % Reduce to 90% of the text width
 	\caption{How the implementation was designed to work.}
@@ -208,7 +208,7 @@ The development process began with the creation of the publisher, a software tha
 
 Figure~\ref{fig:sv_packet} shows the frame structure of a Sampled Value (SV) Packet~\footnote{\url{https://www.typhoon-hil.com/documentation/typhoon-hil-software-manual/References/iec_61850_sampled_values_protocol.html}}.
 
-\begin{figure}[tbh]
+\begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.75\textwidth, keepaspectratio]{ch4/assets/SV_Packtes.png} % Reduce to 90% of the text width
 	\caption{How is constructed a Sampled Values Packet following the standard IEC~61850-9-2 (Image credits: Typhoon HIL)}
@@ -241,7 +241,7 @@ The state machine processes all incoming SV frames according to the logic outlin
 
 Figure~\ref{fig:state_machine} Here has a representation of the state machines it was implemented to make a decision which SV's is going to send. 
 
-\begin{figure}[tbh]
+\begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.95\textwidth, keepaspectratio]{ch4/assets/state_machine.png} % Reduce to 90% of the text width
 	\caption{State Machine of Decision Make.}
@@ -304,7 +304,7 @@ The workflow is as follows:
 \end{enumerate}
 
 
-\begin{figure}[tbh]
+\begin{figure}[tbh!]
 	\centering
 	\includegraphics[width=0.95\textwidth, keepaspectratio]{ch4/assets/test_setup.png}
 	\caption{How is connected the two simulators of SV's to exchange the information.}
