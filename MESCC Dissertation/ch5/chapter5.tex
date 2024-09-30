@@ -233,65 +233,59 @@ The core of the algorithm revolves around a decision-making structure that ensur
 	\item Decision Process Using State Machine: The algorithm utilizes a state machine to manage the decision-making process for switching between Sampled Values. This system ensures that switching occurs only when the error between the two SVs exceeds a predefined threshold and a series of checks confirm that the alternative SV is more suitable for transmission. Additionally, the state machine monitors the data stream for invalid samples and initiates a switch if a persistent stream of invalid samples is detected, ensuring that the most accurate data is consistently transmitted.
 \end{itemize}
 
-\begin{lstlisting}[caption={The main logic and structure of the state machine are implemented here, showcasing the tick time, state evolution, log messages, and transitions.}]
+
+As shown in Listing~\ref{lst:AlgorithmLogicandStructure}, it is presented the core logic and structure of the implemented state machine. It highlights key aspects such as the tick time, which defines the intervals at which the state machine operates, and how the system evolves through different states. Additionally, the log messages generated during the process provide insight into the system's behavior, while the transitions between states are outlined, demonstrating how the machine responds to various conditions and triggers.
+
+\begin{lstlisting}[breaklines=true, caption={Asynchronous function process frame() that processes a received SV.}, label={lst:AlgorithmLogicandStructure}]
+	
 async fn process_frame(&mut self, frame: &EthernetFrame) {
 	// Ensure the state machine processes at each tick
 	let mut ticker = interval(Duration::from_micros(1));
-	info!("frame inside FSM {:?}", frame);
-	
+	info!("frame inside FSM {:?}", frame);	
 	loop {
 		// Wait for the tick, so the state machine each ticker
 		ticker.tick().await;
-		info!("System ticked");
-		
+		info!("System ticked");		
 		match self.state {
 			State::Initial => 
 			{
 				info!("State: Initial");
-			}
-			
+			}			
 			State::GetSample =>
 			{ 
 				info!("State: Get Sample");
 				self.valid_qual_smp(frame).await;   
-			}
-			
+			}			
 			State::Questionable => 
 			{
 				info!("State: Questionable");
-			}
-			
+			}			
 			State::Invalid => 
 			{
 				info!("State: Invalid");
 				self.valid_cont_smp_inv().await;
-			}
-			
+			}			
 			State::Valid => 
 			{
 				info!("State: Valid");
 				self.valid_cont_smp_valid(frame).await;
-			}
-			
+			}			
 			State::CompleteSample => 
 			{
 				info!("State: CompleteSample");
 				self.keep_variables().await;
 				break;
-			}
-			
+			}			
 			State::CheckErrorPercentage =>
 			{ 
 				info!("State: CheckErrorPercentage");
 				self.valid_error_percentage().await;    
-			}
-			
+			}			
 			State::ToogleMU =>
 			{ 
 				info!("State: ToogleMU");
 				self.toogle_sv().await;
-			}
-			
+			}			
 			State::CompleteCycle => 
 			{
 				info!("State: CompleteCycle");
@@ -335,7 +329,10 @@ Invalid or questionable SVs are handled by implementing a robust error-checking 
 
 If invalid samples persist over a defined threshold, the state machine initiates a switch to the other merging unit. This mechanism ensures that the system continuously provides reliable SVs to the protection relays, even in cases where one merging unit is producing questionable data.
 
-\begin{lstlisting}[caption={This function handles invalid samples by comparing their value to N\_SAMPLES. If less, it increments a counter and transitions to CompleteSample, if greater or equal, it moves to ToggleMU. This must happen before reaching CompleteCycle, where variables are reset.}]
+As shown in Listing~\ref{lst:HandlingInvalid}, this function handles invalid samples by comparing their value to N\_SAMPLES. If less, it increments a counter and transitions to CompleteSample, if greater or equal, it moves to ToggleMU. This must happen before reaching CompleteCycle, where variables are reset.
+
+\begin{lstlisting}[breaklines=true, caption={Asynchronous function valid cont smp inv() that processes a .}, label={lst:HandlingInvalid}]
+	
 async fn valid_cont_smp_inv(&mut self) {
 	info!("Validate the value of cont samples invalid: {:?}", self.cont_smp_inv);
 	self.cont_smp_inv += 1;
@@ -359,7 +356,9 @@ async fn valid_cont_smp_inv(&mut self) {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[caption={This function handles questionable samples by simply waiting for the next tick to transition to the CompleteSample state.}]
+As shown in Listing~\ref{lst:HandlingQuestionable}, This function handles questionable samples by simply waiting for the next tick to transition to the CompleteSample state.
+
+\begin{lstlisting}[breaklines=true, caption={It's wait the transition tick.}, label={lst:HandlingQuestionable}]
 
 async fn transition(&mut self) {
 	match self.state {
@@ -375,7 +374,10 @@ The state machine tracks various error conditions, such as large deviations betw
 
 The algorithm operates within a deterministic timeframe, where decisions must be made in under 250 microseconds to maintain real-time performance. This ensures that protection relays receive the most accurate and reliable data without introducing delays in decision-making.
 
-\begin{lstlisting}[caption={This function processes valid samples by summing and dividing buffer values. The error is calculated as the ratio of buffer 1 to the total of both buffers and vice-versa. If the error percentage is less than 25\%, it transitions to CompleteCycle; otherwise, it goes to ToggleMU.}]
+As shown in Listing~\ref{lst:DecisionMaking}, this function manages all information related to valid samples. It processes the buffers by summing and dividing their values—specifically, summing the contents of buffer 1 and buffer 2. The error value is calculated by taking the ratio of buffer 1 to (buffer 1 + buffer 2) and vice versa. After this, the error percentage is checked. If it is less than 25\%, the system transitions to the CompleteCycle state; otherwise, it moves to the ToggleMU state.
+
+\begin{lstlisting}[breaklines=true, caption={Asynchronous function async fn valid error percentage() that processes the buffers and calculate the error.}, label={lst:DecisionMaking}]
+
 async fn valid_error_percentage(&mut self) {
 	let buffer_mu1 = Arc::new(Mutex::new(self.buffer_mu1));
 	let buffer_mu2 = Arc::new(Mutex::new(self.buffer_mu2));

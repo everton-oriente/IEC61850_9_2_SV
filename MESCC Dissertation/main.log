@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.13)  29 SEP 2024 23:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.13)  30 SEP 2024 22:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1908,19 +1908,7 @@ ow-ing the stan-dard IEC 61850-
 1: section
 [15] [16
 
-] (./main.lol
-Overfull \hbox (24.97803pt too wide) in paragraph at lines 9--9
- [][] [][]\T1/phv/m/n/10.95 This func-tion han-dles in-valid sam-ples by com-pa
-r-ing their value to N_SAMPLES. 
- []
-
-
-Overfull \hbox (5.56778pt too wide) in paragraph at lines 9--9
- \T1/phv/m/n/10.95 If less, it in-cre-ments a counter and tran-si-tions to Com-
-plete-Sam-ple, if greater 
- []
-
-)
+] (./main.lol)
 \tf@lol=\write13
 \openout13 = `main.lol'.
 
@@ -1956,7 +1944,7 @@ LaTeX Font Info:    Trying to load font information for T1+cmtl on input line 3
  (/usr/share/texlive/texmf-dist/tex/latex/cmbright/t1cmtl.fd
 File: t1cmtl.fd 2005/04/13 v8.1 (WaS)
 )
-<ch1/assets/Way_of_electricity.png, id=666, 689.57625pt x 350.30875pt>
+<ch1/assets/Way_of_electricity.png, id=659, 689.57625pt x 350.30875pt>
 File: ch1/assets/Way_of_electricity.png Graphic file (type png)
 <use ch1/assets/Way_of_electricity.png>
 Package pdftex.def Info: ch1/assets/Way_of_electricity.png  used on input line 
@@ -1983,7 +1971,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--13
 substation-[]automation-[]systems-[]course-[]map .
  []
 
-<ch2/assets/SAS.png, id=697, 763.85374pt x 463.7325pt>
+<ch2/assets/SAS.png, id=690, 763.85374pt x 463.7325pt>
 File: ch2/assets/SAS.png Graphic file (type png)
 <use ch2/assets/SAS.png>
 Package pdftex.def Info: ch2/assets/SAS.png  used on input line 17.
@@ -1991,19 +1979,14 @@ Package pdftex.def Info: ch2/assets/SAS.png  used on input line 17.
 1: section
 [7
 
-] [8 <./ch2/assets/SAS.png>] [9] [10]
-
-LaTeX Warning: Reference `fig:table-protocols' on page 11 undefined on input li
-ne 78.
-
-[11]
+] [8 <./ch2/assets/SAS.png>] [9] [10] [11]
 Overfull \hbox (4.3931pt too wide) in paragraph at lines 127--128
 \T1/phv/m/n/10.95 Part 2 of the stan-dard IEC61850, metic-u-lously de-fines the
  glos-sary of terms used through-
  []
 
 [12] [13]
-<ch2/assets/Idea_of_Merging_Unit.png, id=756, 552.56438pt x 405.01312pt>
+<ch2/assets/Idea_of_Merging_Unit.png, id=749, 552.56438pt x 405.01312pt>
 File: ch2/assets/Idea_of_Merging_Unit.png Graphic file (type png)
 <use ch2/assets/Idea_of_Merging_Unit.png>
 Package pdftex.def Info: ch2/assets/Idea_of_Merging_Unit.png  used on input lin
@@ -2015,7 +1998,7 @@ Overfull \hbox (4.39131pt too wide) in paragraph at lines 201--202
 ro-vides re-dun-dancy through
  []
 
-<ch2/assets/table_SVs_Frequency.png, id=775, 737.75626pt x 342.27875pt>
+<ch2/assets/table_SVs_Frequency.png, id=769, 737.75626pt x 342.27875pt>
 File: ch2/assets/table_SVs_Frequency.png Graphic file (type png)
 <use ch2/assets/table_SVs_Frequency.png>
 Package pdftex.def Info: ch2/assets/table_SVs_Frequency.png  used on input line
@@ -2026,7 +2009,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
-<ch2/assets/evolucao_SV_protocol.png, id=786, 756.8275pt x 326.21875pt>
+<ch2/assets/evolucao_SV_protocol.png, id=780, 756.8275pt x 326.21875pt>
 File: ch2/assets/evolucao_SV_protocol.png Graphic file (type png)
 <use ch2/assets/evolucao_SV_protocol.png>
 Package pdftex.def Info: ch2/assets/evolucao_SV_protocol.png  used on input lin
@@ -2039,18 +2022,18 @@ Chapter 3.
 [19
 
 ]
-<ch3/assets/SLD_Diagram.png, id=806, 352.31625pt x 411.5375pt>
+<ch3/assets/SLD_Diagram.png, id=800, 352.31625pt x 411.5375pt>
 File: ch3/assets/SLD_Diagram.png Graphic file (type png)
 <use ch3/assets/SLD_Diagram.png>
 Package pdftex.def Info: ch3/assets/SLD_Diagram.png  used on input line 42.
-(pdftex.def)             Requested size: 326.44016pt x 381.31302pt.
+(pdftex.def)             Requested size: 317.95943pt x 371.4039pt.
  [20]) (./ch4/chapter4.tex [21 <./ch3/assets/SLD_Diagram.png>] [22
 
 ]
 Chapter 4.
 1: section
 [23] [24] [25] [26] [27] [28] [29] [30]
-<ch4/assets/Implementation.png, id=877, 758.08218pt x 467.49657pt>
+<ch4/assets/Implementation.png, id=871, 758.08218pt x 467.49657pt>
 File: ch4/assets/Implementation.png Graphic file (type png)
 <use ch4/assets/Implementation.png>
 Package pdftex.def Info: ch4/assets/Implementation.png  used on input line 212.
@@ -2062,13 +2045,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 221--221
  typhoon-[]hil-[]software-[]manual / References / iec _
  []
 
-<ch4/assets/SV_Packtes.png, id=889, 408.77719pt x 682.80093pt>
+<ch4/assets/SV_Packtes.png, id=883, 408.77719pt x 682.80093pt>
 File: ch4/assets/SV_Packtes.png Graphic file (type png)
 <use ch4/assets/SV_Packtes.png>
 Package pdftex.def Info: ch4/assets/SV_Packtes.png  used on input line 225.
 (pdftex.def)             Requested size: 317.95943pt x 531.13438pt.
 [32 <./ch4/assets/Implementation.png>] [33 <./ch4/assets/SV_Packtes.png>]
-<ch4/assets/state_machine.png, id=903, 846.16125pt x 681.54625pt>
+<ch4/assets/state_machine.png, id=897, 846.16125pt x 681.54625pt>
 File: ch4/assets/state_machine.png Graphic file (type png)
 <use ch4/assets/state_machine.png>
 Package pdftex.def Info: ch4/assets/state_machine.png  used on input line 258.
@@ -2077,7 +2060,7 @@ Package pdftex.def Info: ch4/assets/state_machine.png  used on input line 258.
 [34] [35 <./ch4/assets/state_machine.png>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 279.
-<ch4/assets/test_setup.png, id=915, 738.76pt x 678.535pt>
+<ch4/assets/test_setup.png, id=909, 738.76pt x 678.535pt>
 File: ch4/assets/test_setup.png Graphic file (type png)
 <use ch4/assets/test_setup.png>
 Package pdftex.def Info: ch4/assets/test_setup.png  used on input line 321.
@@ -2086,13 +2069,13 @@ Package pdftex.def Info: ch4/assets/test_setup.png  used on input line 321.
 
 ]
 Chapter 5.
-<ch5/assets/sv_packets_fields.png, id=962, 1368.11125pt x 626.34pt>
+<ch5/assets/sv_packets_fields.png, id=955, 1368.11125pt x 626.34pt>
 File: ch5/assets/sv_packets_fields.png Graphic file (type png)
 <use ch5/assets/sv_packets_fields.png>
 Package pdftex.def Info: ch5/assets/sv_packets_fields.png  used on input line 2
 2.
 (pdftex.def)             Requested size: 402.74731pt x 184.37685pt.
-<ch5/assets/Sv_packet_full.png, id=967, 1068.24094pt x 482.55281pt>
+<ch5/assets/Sv_packet_full.png, id=960, 1068.24094pt x 482.55281pt>
 File: ch5/assets/Sv_packet_full.png Graphic file (type png)
 <use ch5/assets/Sv_packet_full.png>
 Package pdftex.def Info: ch5/assets/Sv_packet_full.png  used on input line 35.
@@ -2107,32 +2090,32 @@ Overfull \hbox (6.0884pt too wide) in paragraph at lines 9--10
 sses cru-cial to achiev-ing the project's
  []
 
-<ch6/assets/simple_sv.png, id=1330, 1599.9775pt x 661.47125pt>
+<ch6/assets/simple_sv.png, id=1321, 1599.9775pt x 661.47125pt>
 File: ch6/assets/simple_sv.png Graphic file (type png)
 <use ch6/assets/simple_sv.png>
 Package pdftex.def Info: ch6/assets/simple_sv.png  used on input line 21.
 (pdftex.def)             Requested size: 423.9459pt x 175.26886pt.
-<ch6/assets/sv_seq_1.png, id=1332, 1371.1225pt x 621.32124pt>
+<ch6/assets/sv_seq_1.png, id=1325, 1371.1225pt x 621.32124pt>
 File: ch6/assets/sv_seq_1.png Graphic file (type png)
 <use ch6/assets/sv_seq_1.png>
 Package pdftex.def Info: ch6/assets/sv_seq_1.png  used on input line 31.
 (pdftex.def)             Requested size: 423.9459pt x 192.10512pt.
-<ch6/assets/sv_seq_2.png, id=1333, 1371.1225pt x 621.32124pt>
+<ch6/assets/sv_seq_2.png, id=1326, 1371.1225pt x 621.32124pt>
 File: ch6/assets/sv_seq_2.png Graphic file (type png)
 <use ch6/assets/sv_seq_2.png>
 Package pdftex.def Info: ch6/assets/sv_seq_2.png  used on input line 39.
 (pdftex.def)             Requested size: 423.9459pt x 192.10512pt.
-<ch6/assets/sv_seq_3.png, id=1334, 1371.1225pt x 621.32124pt>
+<ch6/assets/sv_seq_3.png, id=1327, 1371.1225pt x 621.32124pt>
 File: ch6/assets/sv_seq_3.png Graphic file (type png)
 <use ch6/assets/sv_seq_3.png>
 Package pdftex.def Info: ch6/assets/sv_seq_3.png  used on input line 47.
 (pdftex.def)             Requested size: 423.9459pt x 192.10512pt.
-<ch6/assets/sv_seq_bad_1.png, id=1336, 1371.1225pt x 621.32124pt>
+<ch6/assets/sv_seq_bad_1.png, id=1329, 1371.1225pt x 621.32124pt>
 File: ch6/assets/sv_seq_bad_1.png Graphic file (type png)
 <use ch6/assets/sv_seq_bad_1.png>
 Package pdftex.def Info: ch6/assets/sv_seq_bad_1.png  used on input line 57.
 (pdftex.def)             Requested size: 423.9459pt x 192.10512pt.
-<ch6/assets/sv_seq_bad_2.png, id=1337, 1371.1225pt x 621.32124pt>
+<ch6/assets/sv_seq_bad_2.png, id=1330, 1371.1225pt x 621.32124pt>
 File: ch6/assets/sv_seq_bad_2.png Graphic file (type png)
 <use ch6/assets/sv_seq_bad_2.png>
 Package pdftex.def Info: ch6/assets/sv_seq_bad_2.png  used on input line 65.
@@ -2146,13 +2129,13 @@ LaTeX Warning: Text page 52 contains only floats.
 
 [52 <./ch6/assets/simple_sv.png> <./ch6/assets/sv_seq_1.png> <./ch6/assets/sv_s
 eq_2.png>] [53 <./ch6/assets/sv_seq_3.png> <./ch6/assets/sv_seq_bad_1.png>]
-<ch6/assets/subscriber_side.png, id=1358, 1869.98625pt x 713.66624pt>
+<ch6/assets/subscriber_side.png, id=1350, 1869.98625pt x 713.66624pt>
 File: ch6/assets/subscriber_side.png Graphic file (type png)
 <use ch6/assets/subscriber_side.png>
 Package pdftex.def Info: ch6/assets/subscriber_side.png  used on input line 87.
 
 (pdftex.def)             Requested size: 423.9459pt x 161.78761pt.
-<ch6/assets/information_packet_sub_pub.png, id=1359, 490.83376pt x 316.93407pt>
+<ch6/assets/information_packet_sub_pub.png, id=1351, 490.83376pt x 316.93407pt>
 
 File: ch6/assets/information_packet_sub_pub.png Graphic file (type png)
 <use ch6/assets/information_packet_sub_pub.png>
@@ -2205,21 +2188,17 @@ l -[] 03192264 /
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 201D6784CDC9711D2A1D22E929E79533;18450.
+(rerunfilecheck)             Checksum: F090AC90F31ABB5087ADDE578829EDE1;18450.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 59541 strings out of 474222
- 1369480 string characters out of 5748733
- 2706676 words of memory out of 5000000
- 80273 multiletter control sequences out of 15000+600000
+ 59537 strings out of 474222
+ 1369467 string characters out of 5748733
+ 2691061 words of memory out of 5000000
+ 80276 multiletter control sequences out of 15000+600000
  628796 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  110i,20n,131p,2324b,2804s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2227,10 +2206,10 @@ Here is how much of TeX's memory you used:
 /texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/helvetic/uhvro8a.pfb>
-Output written on main.pdf (87 pages, 2798427 bytes).
+Output written on main.pdf (87 pages, 2798114 bytes).
 PDF statistics:
- 1726 PDF objects out of 1728 (max. 8388607)
- 1571 compressed objects within 16 object streams
- 655 named destinations out of 1000 (max. 500000)
+ 1715 PDF objects out of 1728 (max. 8388607)
+ 1560 compressed objects within 16 object streams
+ 648 named destinations out of 1000 (max. 500000)
  862 words of extra memory for PDF output out of 10000 (max. 10000000)
 

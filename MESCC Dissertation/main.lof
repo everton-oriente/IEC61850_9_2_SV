@@ -17,12 +17,12 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Sampled Value packets fields. (Image credits: MDPI)}}{40}{figure.caption.134}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Sampled Value packets fields. (Image credits: UCA International)}}{40}{figure.caption.135}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Wireshark view of the SV packets.}}{52}{figure.caption.465}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces SV packet with sample counter with value 0.}}{52}{figure.caption.466}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces SV packet with sample counter with value 1.}}{52}{figure.caption.467}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces SV packet with sample counter with value 2.}}{53}{figure.caption.468}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces SV packet with bad quality sample counter with value 114.}}{53}{figure.caption.469}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces SV packet with bad quality sample counter with value 115.}}{54}{figure.caption.470}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces SV packet at subscriber side}}{54}{figure.caption.472}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Information provided by Log of publisher and subscriber, the same packet in both equipment}}{55}{figure.caption.473}%
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Wireshark view of the SV packets.}}{52}{figure.caption.458}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces SV packet with sample counter with value 0.}}{52}{figure.caption.459}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces SV packet with sample counter with value 1.}}{52}{figure.caption.460}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces SV packet with sample counter with value 2.}}{53}{figure.caption.461}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces SV packet with bad quality sample counter with value 114.}}{53}{figure.caption.462}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces SV packet with bad quality sample counter with value 115.}}{54}{figure.caption.463}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces SV packet at subscriber side}}{54}{figure.caption.465}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Information provided by Log of publisher and subscriber, the same packet in both equipment}}{55}{figure.caption.466}%
 \addvspace {10\p@ }

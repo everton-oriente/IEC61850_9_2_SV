@@ -78,17 +78,17 @@
 \contentsline {subsection}{\numberline {5.3.4}Finalizing the Subscriber}{45}{subsection.251}%
 \contentsline {section}{\numberline {5.4}Development of the Algorithm}{45}{section.252}%
 \contentsline {subsection}{\numberline {5.4.1}Algorithm Logic and Structure}{45}{subsection.253}%
-\contentsline {subsection}{\numberline {5.4.2}Handling Invalid and Questionable Samples}{48}{subsection.347}%
-\contentsline {subsection}{\numberline {5.4.3}Decision-Making Through Error Tracking and Switching}{49}{subsection.379}%
-\contentsline {chapter}{\numberline {6}Tests and Evaluation}{51}{chapter.463}%
-\contentsline {section}{\numberline {6.1}Test of Publisher of IEC~61850-9-2-SV}{51}{section.464}%
-\contentsline {section}{\numberline {6.2}Test of Subscriber of IEC~61850-9-2-SV}{53}{section.471}%
-\contentsline {section}{\numberline {6.3}Test of the Algorithm}{55}{section.474}%
-\contentsline {chapter}{\numberline {7}Conclusion}{59}{chapter.531}%
-\contentsline {section}{\numberline {7.1}Conclusions and Final Considerations}{59}{section.532}%
-\contentsline {section}{\numberline {7.2}Limitations}{60}{section.533}%
-\contentsline {section}{\numberline {7.3}Future Work}{61}{section.534}%
-\contentsline {subsection}{\numberline {7.3.1}Add an ADC to acquire values of Voltage Transformer and Current Transformer}{61}{subsection.535}%
-\contentsline {subsection}{\numberline {7.3.2}Add a PTP server regarding the IEC61850-9-3-PTP}{61}{subsection.536}%
-\contentsline {subsection}{\numberline {7.3.3}Implement a more secure Sampled Value (SV) packet in modern substations}{62}{subsection.537}%
-\contentsline {chapter}{Bibliography}{65}{chapter*.538}%
+\contentsline {subsection}{\numberline {5.4.2}Handling Invalid and Questionable Samples}{48}{subsection.338}%
+\contentsline {subsection}{\numberline {5.4.3}Decision-Making Through Error Tracking and Switching}{49}{subsection.371}%
+\contentsline {chapter}{\numberline {6}Tests and Evaluation}{51}{chapter.456}%
+\contentsline {section}{\numberline {6.1}Test of Publisher of IEC~61850-9-2-SV}{51}{section.457}%
+\contentsline {section}{\numberline {6.2}Test of Subscriber of IEC~61850-9-2-SV}{53}{section.464}%
+\contentsline {section}{\numberline {6.3}Test of the Algorithm}{55}{section.467}%
+\contentsline {chapter}{\numberline {7}Conclusion}{59}{chapter.524}%
+\contentsline {section}{\numberline {7.1}Conclusions and Final Considerations}{59}{section.525}%
+\contentsline {section}{\numberline {7.2}Limitations}{60}{section.526}%
+\contentsline {section}{\numberline {7.3}Future Work}{61}{section.527}%
+\contentsline {subsection}{\numberline {7.3.1}Add an ADC to acquire values of Voltage Transformer and Current Transformer}{61}{subsection.528}%
+\contentsline {subsection}{\numberline {7.3.2}Add a PTP server regarding the IEC61850-9-3-PTP}{61}{subsection.529}%
+\contentsline {subsection}{\numberline {7.3.3}Implement a more secure Sampled Value (SV) packet in modern substations}{62}{subsection.530}%
+\contentsline {chapter}{Bibliography}{65}{chapter*.531}%

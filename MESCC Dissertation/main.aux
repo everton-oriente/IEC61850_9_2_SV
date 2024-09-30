@@ -228,51 +228,55 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Finalizing the Subscriber}{45}{subsection.251}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5.4}Development of the Algorithm}{45}{section.252}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Algorithm Logic and Structure}{45}{subsection.253}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.6}{\ignorespaces The main logic and structure of the state machine are implemented here, showcasing the tick time, state evolution, log messages, and transitions.}}{46}{lstlisting.254}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Handling Invalid and Questionable Samples}{48}{subsection.347}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.7}{\ignorespaces This function handles invalid samples by comparing their value to N\_SAMPLES. If less, it increments a counter and transitions to CompleteSample, if greater or equal, it moves to ToggleMU. This must happen before reaching CompleteCycle, where variables are reset.}}{48}{lstlisting.348}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.8}{\ignorespaces This function handles questionable samples by simply waiting for the next tick to transition to the CompleteSample state.}}{48}{lstlisting.370}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Decision-Making Through Error Tracking and Switching}{49}{subsection.379}\protected@file@percent }
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.9}{\ignorespaces This function processes valid samples by summing and dividing buffer values. The error is calculated as the ratio of buffer 1 to the total of both buffers and vice-versa. If the error percentage is less than 25\%, it transitions to CompleteCycle; otherwise, it goes to ToggleMU.}}{49}{lstlisting.380}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Tests and Evaluation}{51}{chapter.463}\protected@file@percent }
+\newlabel{lst:AlgorithmLogicandStructure}{{5.6}{46}{Asynchronous function process frame() that processes a received SV}{lstlisting.254}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.6}{\ignorespaces Asynchronous function process frame() that processes a received SV.}}{46}{lstlisting.254}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Handling Invalid and Questionable Samples}{48}{subsection.338}\protected@file@percent }
+\newlabel{lst:HandlingInvalid}{{5.7}{48}{Asynchronous function valid cont smp inv() that processes a }{lstlisting.339}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.7}{\ignorespaces Asynchronous function valid cont smp inv() that processes a .}}{48}{lstlisting.339}\protected@file@percent }
+\newlabel{lst:HandlingQuestionable}{{5.8}{48}{It's wait the transition tick}{lstlisting.362}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.8}{\ignorespaces It's wait the transition tick.}}{48}{lstlisting.362}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Decision-Making Through Error Tracking and Switching}{49}{subsection.371}\protected@file@percent }
+\newlabel{lst:DecisionMaking}{{5.9}{49}{Asynchronous function async fn valid error percentage() that processes the buffers and calculate the error}{lstlisting.372}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5.9}{\ignorespaces Asynchronous function async fn valid error percentage() that processes the buffers and calculate the error.}}{49}{lstlisting.372}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Tests and Evaluation}{51}{chapter.456}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:Chapter6}{{6}{51}{Tests and Evaluation}{chapter.463}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Test of Publisher of IEC~61850-9-2-SV}{51}{section.464}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Wireshark view of the SV packets.}}{52}{figure.caption.465}\protected@file@percent }
-\newlabel{fig:simple_sv}{{6.1}{52}{Wireshark view of the SV packets}{figure.caption.465}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces SV packet with sample counter with value 0.}}{52}{figure.caption.466}\protected@file@percent }
-\newlabel{fig:sv_seq_1}{{6.2}{52}{SV packet with sample counter with value 0}{figure.caption.466}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces SV packet with sample counter with value 1.}}{52}{figure.caption.467}\protected@file@percent }
-\newlabel{fig:sv_seq_2}{{6.3}{52}{SV packet with sample counter with value 1}{figure.caption.467}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces SV packet with sample counter with value 2.}}{53}{figure.caption.468}\protected@file@percent }
-\newlabel{fig:sv_seq_3}{{6.4}{53}{SV packet with sample counter with value 2}{figure.caption.468}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces SV packet with bad quality sample counter with value 114.}}{53}{figure.caption.469}\protected@file@percent }
-\newlabel{fig:sv_seq_bad_1}{{6.5}{53}{SV packet with bad quality sample counter with value 114}{figure.caption.469}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Test of Subscriber of IEC~61850-9-2-SV}{53}{section.471}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces SV packet with bad quality sample counter with value 115.}}{54}{figure.caption.470}\protected@file@percent }
-\newlabel{fig:sv_seq_bad_2}{{6.6}{54}{SV packet with bad quality sample counter with value 115}{figure.caption.470}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces SV packet at subscriber side}}{54}{figure.caption.472}\protected@file@percent }
-\newlabel{fig:subscriber_side}{{6.7}{54}{SV packet at subscriber side}{figure.caption.472}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.8}{\ignorespaces Information provided by Log of publisher and subscriber, the same packet in both equipment}}{55}{figure.caption.473}\protected@file@percent }
-\newlabel{fig:information_packet_sub_pub}{{6.8}{55}{Information provided by Log of publisher and subscriber, the same packet in both equipment}{figure.caption.473}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Test of the Algorithm}{55}{section.474}\protected@file@percent }
-\newlabel{lst:scenario1}{{6.1}{57}{First scenario showing the steps through the state machine between the state Get Sample -> Valid, Valid -> Complete Sample -> Get Sample}{lstlisting.475}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.1}{\ignorespaces First scenario showing the steps through the state machine between the state Get Sample -> Valid, Valid -> Complete Sample -> Get Sample.}}{57}{lstlisting.475}\protected@file@percent }
-\newlabel{lst:scenario2}{{6.2}{57}{Second scenario showing the steps through the state machine between the state Get Sample -> Valid, Valid -> Check the Error Percentage -> Toogle MU -> Complete Cycle -> Get Sample}{lstlisting.501}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.2}{\ignorespaces Second scenario showing the steps through the state machine between the state Get Sample -> Valid, Valid -> Check the Error Percentage -> Toogle MU -> Complete Cycle -> Get Sample.}}{57}{lstlisting.501}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusion}{59}{chapter.531}\protected@file@percent }
+\newlabel{chap:Chapter6}{{6}{51}{Tests and Evaluation}{chapter.456}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Test of Publisher of IEC~61850-9-2-SV}{51}{section.457}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Wireshark view of the SV packets.}}{52}{figure.caption.458}\protected@file@percent }
+\newlabel{fig:simple_sv}{{6.1}{52}{Wireshark view of the SV packets}{figure.caption.458}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces SV packet with sample counter with value 0.}}{52}{figure.caption.459}\protected@file@percent }
+\newlabel{fig:sv_seq_1}{{6.2}{52}{SV packet with sample counter with value 0}{figure.caption.459}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces SV packet with sample counter with value 1.}}{52}{figure.caption.460}\protected@file@percent }
+\newlabel{fig:sv_seq_2}{{6.3}{52}{SV packet with sample counter with value 1}{figure.caption.460}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces SV packet with sample counter with value 2.}}{53}{figure.caption.461}\protected@file@percent }
+\newlabel{fig:sv_seq_3}{{6.4}{53}{SV packet with sample counter with value 2}{figure.caption.461}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces SV packet with bad quality sample counter with value 114.}}{53}{figure.caption.462}\protected@file@percent }
+\newlabel{fig:sv_seq_bad_1}{{6.5}{53}{SV packet with bad quality sample counter with value 114}{figure.caption.462}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Test of Subscriber of IEC~61850-9-2-SV}{53}{section.464}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces SV packet with bad quality sample counter with value 115.}}{54}{figure.caption.463}\protected@file@percent }
+\newlabel{fig:sv_seq_bad_2}{{6.6}{54}{SV packet with bad quality sample counter with value 115}{figure.caption.463}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces SV packet at subscriber side}}{54}{figure.caption.465}\protected@file@percent }
+\newlabel{fig:subscriber_side}{{6.7}{54}{SV packet at subscriber side}{figure.caption.465}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.8}{\ignorespaces Information provided by Log of publisher and subscriber, the same packet in both equipment}}{55}{figure.caption.466}\protected@file@percent }
+\newlabel{fig:information_packet_sub_pub}{{6.8}{55}{Information provided by Log of publisher and subscriber, the same packet in both equipment}{figure.caption.466}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Test of the Algorithm}{55}{section.467}\protected@file@percent }
+\newlabel{lst:scenario1}{{6.1}{57}{First scenario showing the steps through the state machine between the state Get Sample -> Valid, Valid -> Complete Sample -> Get Sample}{lstlisting.468}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.1}{\ignorespaces First scenario showing the steps through the state machine between the state Get Sample -> Valid, Valid -> Complete Sample -> Get Sample.}}{57}{lstlisting.468}\protected@file@percent }
+\newlabel{lst:scenario2}{{6.2}{57}{Second scenario showing the steps through the state machine between the state Get Sample -> Valid, Valid -> Check the Error Percentage -> Toogle MU -> Complete Cycle -> Get Sample}{lstlisting.494}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6.2}{\ignorespaces Second scenario showing the steps through the state machine between the state Get Sample -> Valid, Valid -> Check the Error Percentage -> Toogle MU -> Complete Cycle -> Get Sample.}}{57}{lstlisting.494}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusion}{59}{chapter.524}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:Chapter7}{{7}{59}{Conclusion}{chapter.531}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7.1}Conclusions and Final Considerations}{59}{section.532}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7.2}Limitations}{60}{section.533}\protected@file@percent }
+\newlabel{chap:Chapter7}{{7}{59}{Conclusion}{chapter.524}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}Conclusions and Final Considerations}{59}{section.525}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Limitations}{60}{section.526}\protected@file@percent }
 \abx@aux@cite{0}{laporte2024adc}
 \abx@aux@segm{0}{0}{laporte2024adc}
-\@writefile{toc}{\contentsline {section}{\numberline {7.3}Future Work}{61}{section.534}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.1}Add an ADC to acquire values of Voltage Transformer and Current Transformer}{61}{subsection.535}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7.3}Future Work}{61}{section.527}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.1}Add an ADC to acquire values of Voltage Transformer and Current Transformer}{61}{subsection.528}\protected@file@percent }
 \abx@aux@page{29}{61}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.2}Add a PTP server regarding the IEC61850-9-3-PTP}{61}{subsection.536}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.2}Add a PTP server regarding the IEC61850-9-3-PTP}{61}{subsection.529}\protected@file@percent }
 \abx@aux@cite{0}{baumgartner2024iec}
 \abx@aux@segm{0}{0}{baumgartner2024iec}
 \abx@aux@cite{0}{hussain2024security}
@@ -284,7 +288,7 @@
 \abx@aux@cite{0}{hussain2024security}
 \abx@aux@segm{0}{0}{hussain2024security}
 \abx@aux@page{30}{62}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.3}Implement a more secure Sampled Value (SV) packet in modern substations}{62}{subsection.537}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3.3}Implement a more secure Sampled Value (SV) packet in modern substations}{62}{subsection.530}\protected@file@percent }
 \abx@aux@page{31}{62}
 \abx@aux@page{32}{62}
 \abx@aux@page{33}{62}
@@ -298,7 +302,7 @@
 \abx@aux@page{35}{63}
 \abx@aux@page{36}{63}
 \abx@aux@page{37}{63}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{65}{chapter*.538}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{65}{chapter*.531}\protected@file@percent }
 \abx@aux@page{38}{65}
 \abx@aux@page{39}{65}
 \abx@aux@page{40}{65}
