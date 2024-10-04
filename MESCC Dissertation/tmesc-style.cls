@@ -349,13 +349,13 @@ KOMA-script documentation for details.}]{fancyhdr}
 	{\normalsize \bfseries \noindent \supervisorlabel: \supname } \\
 	\ifdefined\cosupname {\normalsize \bfseries \cosupervisorlabel: \cosupname} \\ \fi
 	\vfill
-%	{\normalsize \bfseries \noindent \evallabel:} \\
-%	{\normalsize \presidentlabel: } \\
-%	\bigskip
-%	{\normalsize \presidentname } \\
-%	{\normalsize \memberslabel:} \\
-%	{\normalsize \committee } \\
-%	\smallskip \\
+	{\normalsize \bfseries \noindent \evallabel:} \\
+	{\normalsize \presidentlabel: } \\
+	\bigskip
+	{\normalsize \presidentname } \\
+	{\normalsize \memberslabel:} \\
+	{\normalsize \committee } \\
+	\smallskip \\
 	\begin{center}
 	{\normalsize \tdate} % Date
 	\end{center}
