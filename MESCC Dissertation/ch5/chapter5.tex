@@ -46,10 +46,9 @@ The development of the publisher is a critical component in the implementation o
 
 The process begins with defining the necessary structs. Rust, known for its strong emphasis on safety and concurrency, offers a well-organized way to build and manage complex data structures. This allows for clear and readable code, where each step of the data flow is defined in a sequence that is easy to understand and maintain.
 
-The primary structs used in this project are designed to mirror the components of an Ethernet frame, as required by the IEC~61850-9-2 standard. These structs are nested to represent the hierarchy of the data, from the Ethernet frame down to the individual data points in the SV payload.
+The primary structs used in this project are designed to mirror the components of an Ethernet frame, as required by the IEC~61850-9-2 standard. These structs are nested to represent the hierarchy of the data, from the Ethernet frame down to the individual data points in the SV payload, below has all the nest structures  as shown in Listing~\ref{lst:EthernetFrameStructure}.
 
-
-\begin{lstlisting}[caption={Structs added}]
+\begin{lstlisting}[breaklines=true, caption={Nested Structure of Sample Value.}, label={lst:EthernetFrameStructure}]
 pub struct EthernetFrame
 {
 pub destination:    [u8; 6],
@@ -116,9 +115,9 @@ These structs allow for a comprehensive representation of the Ethernet frame and
 
 Once the data structures are in place, the next step is to implement the functions that will operate on these structs. Rust uses the 'impl' keyword to define methods for structs, allowing for the creation of constructors, data manipulation functions, and other essential operations.
 
-For example, the implementation of a constructor for the 'EthernetFrame' struct might look like this:
+For example, the implementation of a constructor for the 'EthernetFrame' struct might look like as shown in Listing~\ref{lst:EthernetFrameStructureFunction}.
 
-\begin{lstlisting}[caption={How to implement an impl for the struct}]
+\begin{lstlisting}[breaklines=true, caption={'Impl' of function in Rust Language.}, label={lst:EthernetFrameStructureFunction}]
 // Implementation of functions regarding EthernetFrame struct
 impl EthernetFrame {
 pub fn new(destination: [u8; 6], source: [u8; 6], tpid: u16, tci: u16, ethertype: u16, payload: SvPDU, fcs: [u8; 4]) -> Self {
@@ -140,9 +139,9 @@ This function allows for the creation of a new EthernetFrame instance, ensuring 
 
 A key functionality of the publisher is to simulate the sinusoidal signal of an electrical grid. This simulation is essential for generating realistic SV packets that can be used to test and validate the SV communication system.
 
-To achieve this, the current time is used as an input to calculate the voltage and current values, with predefined amplitudes representing the electrical parameters. This simulation is implemented in the following function:
+To achieve this, the current time is used as an input to calculate the voltage and current values, with predefined amplitudes representing the electrical parameters. This simulation is implemented as shown in Listing~\ref{lst:CalcFunctionADC}.
 
-\begin{lstlisting}[caption={How to calculate the value of the SV's}]
+\begin{lstlisting}[breaklines=true, caption={Simulated Values of current and voltage.}, label={lst:CalcFunctionADC}]
 pub fn cal_current_phase_b ()-> [i32;1]
 {
 let now = Local::now();
@@ -159,9 +158,9 @@ This function calculates the current value for phase B at a given moment, using 
 
 \subsection{Introducing Invalid Samples for Testing}
 
-To fully test the algorithm's ability to handle real-world scenarios, it was necessary to introduce invalid samples. This was accomplished by altering the quality of certain samples within the SV packets, making them invalid. The publisher was enhanced with a feature that allows these quality changes, enabling the testing of how well the algorithm can identify and respond to invalid data.
+To fully test the algorithm's ability to handle real-world scenarios, it was necessary to introduce invalid samples. This was accomplished by altering the quality of certain samples within the SV packets, making them invalid. The publisher was enhanced with a feature that allows these quality changes, enabling the testing of how well the algorithm can identify and respond to invalid data. These changes are showned in Listing~\ref{lst:InvalidSample}.
 
-\begin{lstlisting}[caption={How to calculate the value of the SV's}]
+\begin{lstlisting}[breaklines=true, caption={Invalid sample.}, label={lst:InvalidSample}]
 if increment > 50 \&\& increment < 100
 {
 // Implement Bad Quality to the samples
@@ -186,9 +185,9 @@ In this context, the subscriber was designed to handle incoming Sampled Values (
 
 \subsection{Structs Reused in the Subscriber}
 
-Given that the subscriber's primary role is to interpret the data sent by the publisher, the same set of structs, including 'EthernetFrame', 'SvPDU', 'SmvData', and 'LogicalNode', were reused. These structs allowed the subscriber to decode the incoming Ethernet frames and extract the necessary information from the SV packets.
+Given that the subscriber's primary role is to interpret the data sent by the publisher, the same set of structs, including 'EthernetFrame', 'SvPDU', 'SmvData', and 'LogicalNode', were reused. These structs allowed the subscriber to decode the incoming Ethernet frames and extract the necessary information from the SV packets as shown in Listing~\ref{lst:StructureReused}.
 
-\begin{lstlisting}[caption={EthernetFrame struct.}]
+\begin{lstlisting}[breaklines=true, caption={Reused Structures.}, label={lst:StructureReused}]
 	pub struct EthernetFrame {
 		pub destination: [u8; 6],
 		pub source: [u8; 6],

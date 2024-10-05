@@ -274,9 +274,9 @@ The state machine is implemented in Rust and operates using two mechanisms for s
 	\item Complete Cycle: In the 'Complete Cycle' state, all variables are reset to begin a new cycle of the algorithm. After resetting, the machine waits for a tick to return to the 'Get Sample' state.
 \end{itemize}
 
-This state machine ensures efficient processing and evaluation of sampled values from the Merging Units, adapting dynamically based on packet validity and system performance thresholds.
+This state machine ensures efficient processing and evaluation of sampled values from the Merging Units, adapting dynamically based on packet validity and system performance thresholds, here has the part of the variables and initialization of the variables as shown in Listing~\ref{lst:StateMachine}.
 
-\begin{lstlisting}[caption={State Machine struct.}]
+\begin{lstlisting}[breaklines=true, caption={State Machine.}, label={lst:StateMachine}]
 // Define the state machine
 struct FrameProcessor {
 	state: State,
