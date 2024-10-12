@@ -1,23 +1,33 @@
 #!/bin/bash
 
-# Function to handle Ctrl+C and kill child processes
+# Function to handle Ctrl+C and aggressively kill all related processes, including the script itself
 function cleanup {
-    echo "Ctrl+C detected. Stopping processes..."
-    # Kill child processes (binaries)
-    sudo pkill -TERM -P $$  # Send SIGTERM to child processes of the script's process
-    wait  # Wait for processes to terminate
+    echo "Ctrl+C detected. Stopping all processes..."
+
+    # First, try to kill MU1 and MU2 processes and their children using pkill by process name
+    sudo pkill -TERM -f './MU1 eth0'  # This will kill MU1 and its children
+    sudo pkill -TERM -f './MU2 eth0'  # This will kill MU2 and its children
+
+    # Wait a few seconds for processes to terminate gracefully
+    sleep 5
+
+    # Force kill any remaining processes if they didn't terminate
+    sudo pkill -KILL -f './MU1 eth0'
+    sudo pkill -KILL -f './MU2 eth0'
+
     echo "Processes stopped."
     exit 0
 }
 
-# Trap Ctrl+C and call cleanup function
+# Trap Ctrl+C (SIGINT) and call cleanup function
 trap cleanup SIGINT
 
-# Command to run MU1
-sudo RUST_LOG=info ./MU1 enp2s0 &
+# Start MU1 and MU2 as background processes
+sudo RUST_LOG=info ./MU1 eth0 &
+MU1_PID=$!  # Get the PID of MU1
 
-#Command to run MU2
-sudo RUST_LOG=info ./MU2 enp2s0 &
+sudo RUST_LOG=info ./MU2 eth0 &
+MU2_PID=$!  # Get the PID of MU2
 
-# Wait for all background processes to finish
-wait
+# Wait for both MU1 and MU2 to finish
+wait $MU1_PID $MU2_PID
